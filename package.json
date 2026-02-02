@@ -1,6 +1,6 @@
 {
   "name": "shunyalabs-widget-automation",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Playwright automation tests for Shunyalabs widgets",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:report": "playwright show-report",
+    "test:dashboard:publish": "npm test",
     "dashboard:generate": "node scripts/generate-dashboard.js",
     "pw:install": "playwright install"
   },

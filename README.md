@@ -61,12 +61,11 @@ Files of interest:
 - `docs/data/latest.json` (current run details)
 - `docs/exports/current-run.csv` (current run CSV)
 
-### Publish to GitHub Pages
+### Publish to GitHub Pages (GitHub Actions)
 
-1. Commit the `docs/` folder.
-2. In GitHub → Settings → Pages:
-   - Source: Deploy from a branch
-   - Branch: `saira-widgets` and folder `/docs`
+1. In GitHub → Settings → Pages:
+   - Source: **GitHub Actions**
+2. Push to `saira-widgets`. The workflow publishes the `docs/` dashboard automatically.
 3. Your dashboard will be available at:
 
 ```

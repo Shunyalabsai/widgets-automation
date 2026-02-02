@@ -6,170 +6,725 @@
     <title>Shunyalabs Widget Automation Dashboard</title>
     <style>
       :root {
-        --bg: #f8fafc;
-        --card: #ffffff;
-        --border: #e5e7eb;
-        --text: #0f172a;
-        --muted: #64748b;
-        --accent: #2563eb;
-        --pass-bg: #ecfdf3;
-        --pass-text: #166534;
-        --fail-bg: #feeceb;
-        --fail-text: #b42318;
-        --skip-bg: #f1f5f9;
-        --skip-text: #475569;
+        --bg: #0c0d14;
+        --panel: #141522;
+        --panel-soft: #1a1b2a;
+        --panel-border: #26283a;
+        --text: #f8fafc;
+        --muted: #9ca3af;
+        --accent: #8b5cf6;
+        --accent-soft: rgba(139, 92, 246, 0.2);
+        --pass: #22c55e;
+        --fail: #ef4444;
+        --warn: #f59e0b;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       }
-      body { font-family: Inter, system-ui, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
-      header { padding: 24px 32px; background: #0f172a; color: #fff; }
-      header h1 { margin: 0 0 6px; font-size: 24px; }
-      header p { margin: 0; color: #cbd5f5; font-size: 14px; }
-      main { padding: 24px 32px; }
-      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-      .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04); }
-      .card h2 { margin: 0 0 12px; font-size: 18px; }
-      .stat-label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
-      .stat-value { font-size: 20px; font-weight: 600; margin-top: 6px; }
-      .badge { padding: 2px 8px; border-radius: 999px; font-size: 12px; text-transform: capitalize; }
-      .passed { background: var(--pass-bg); color: var(--pass-text); }
-      .failed { background: var(--fail-bg); color: var(--fail-text); }
-      .skipped { background: var(--skip-bg); color: var(--skip-text); }
-      table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-      th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); font-size: 14px; }
-      th { color: var(--muted); font-weight: 600; }
-      .filters { margin-bottom: 12px; }
-      .filters button { margin-right: 8px; border: 1px solid var(--border); background: #fff; padding: 6px 12px; border-radius: 999px; cursor: pointer; font-size: 12px; }
-      .filters button:hover { border-color: var(--accent); color: var(--accent); }
-      .tests { margin-top: 24px; }
-      .test-card { margin-bottom: 12px; }
-      .attachments a { margin-right: 8px; font-size: 12px; color: var(--accent); text-decoration: none; }
-      .history { margin-top: 24px; }
-      .history li { margin-bottom: 8px; }
-      .muted { color: var(--muted); }
-      .small { font-size: 12px; }
-      details { margin-top: 8px; }
-      summary { cursor: pointer; color: var(--accent); font-size: 12px; }
-      pre { background: #0f172a; color: #e2e8f0; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12px; }
+
+      * { box-sizing: border-box; }
+      body { margin: 0; background: radial-gradient(circle at top, #1a1830 0%, #0c0d14 45%, #090a10 100%); color: var(--text); font-family: Inter, system-ui, Arial, sans-serif; }
+      a { color: inherit; text-decoration: none; }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 36px;
+        background: rgba(12, 13, 20, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--panel-border);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        color: #fff;
+        font-size: 16px;
+      }
+
+      .brand h1 { font-size: 18px; margin: 0; }
+      .brand p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+
+      .header-actions { display: flex; align-items: center; gap: 12px; }
+      .header-actions .timestamp { color: var(--muted); font-size: 12px; }
+
+      .btn {
+        border: 1px solid var(--panel-border);
+        background: var(--panel-soft);
+        color: var(--text);
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .btn:hover { border-color: var(--accent); }
+
+      .dropdown { position: relative; }
+      .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 42px;
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        border-radius: 10px;
+        padding: 8px;
+        width: 200px;
+        display: none;
+        z-index: 30;
+        box-shadow: var(--shadow);
+      }
+      .dropdown-menu button {
+        width: 100%;
+        text-align: left;
+        padding: 8px 10px;
+        background: transparent;
+        border: none;
+        color: var(--text);
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .dropdown-menu button:hover { background: var(--panel-soft); }
+
+      main { padding: 28px 36px 60px; }
+
+      .tabs {
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        border-radius: 14px;
+        padding: 6px;
+        display: inline-flex;
+        gap: 6px;
+      }
+      .tab {
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-size: 12px;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .tab.active {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+      }
+
+      .grid { display: grid; gap: 16px; }
+      .grid.stats { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 20px; }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .card h2 { margin: 0 0 12px; font-size: 15px; }
+      .stat-title { color: var(--muted); font-size: 12px; }
+      .stat-value { font-size: 28px; font-weight: 600; margin-top: 6px; }
+      .stat-value.pass { color: var(--pass); }
+      .stat-value.fail { color: var(--fail); }
+      .stat-value.warn { color: var(--warn); }
+
+      .chart-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+      .chart-card canvas { width: 100%; height: 240px; }
+
+      .module-list { margin-top: 12px; display: grid; gap: 12px; }
+      .module-card { border: 1px solid var(--panel-border); border-radius: 12px; padding: 12px; background: var(--panel-soft); }
+      .module-header { display: flex; justify-content: space-between; align-items: center; }
+      .module-header h3 { margin: 0; font-size: 14px; }
+      .module-stats { display: flex; gap: 8px; font-size: 11px; color: var(--muted); }
+      .module-badges { display: flex; gap: 6px; }
+      .pill { padding: 4px 8px; border-radius: 999px; font-size: 10px; background: rgba(255,255,255,0.06); }
+      .pill.pass { color: var(--pass); border: 1px solid rgba(34,197,94,0.4); }
+      .pill.fail { color: var(--fail); border: 1px solid rgba(239,68,68,0.4); }
+
+      .test-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+        font-size: 12px;
+      }
+      .test-item:last-child { border-bottom: none; }
+      .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+      .status-dot.pass { background: var(--pass); }
+      .status-dot.fail { background: var(--fail); }
+      .status-dot.skip { background: var(--warn); }
+
+      .section { margin-top: 22px; }
+      .section-title { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+
+      .run-group { margin-top: 16px; }
+      .run-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        border-radius: 14px;
+        margin-top: 8px;
+        cursor: pointer;
+      }
+      .run-card:hover { border-color: var(--accent); }
+      .run-meta { display: flex; gap: 12px; align-items: center; font-size: 12px; }
+      .run-stats { display: flex; gap: 12px; align-items: center; font-size: 12px; }
+      .badge { padding: 4px 10px; border-radius: 999px; font-size: 11px; }
+      .badge.pass { background: rgba(34,197,94,0.16); color: var(--pass); }
+      .badge.fail { background: rgba(239,68,68,0.16); color: var(--fail); }
+      .badge.rate { background: rgba(245,158,11,0.16); color: var(--warn); }
+
+      .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 12px; }
+      .calendar-cell {
+        min-height: 64px;
+        border-radius: 12px;
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        padding: 8px;
+        font-size: 11px;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .calendar-cell.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent-soft); }
+      .calendar-cell .day { color: var(--text); font-weight: 600; }
+      .calendar-cell .count { margin-top: 6px; font-size: 10px; color: var(--muted); }
+
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 40;
+      }
+      .modal {
+        width: min(860px, 92vw);
+        max-height: 90vh;
+        overflow: auto;
+        background: var(--panel);
+        border-radius: 18px;
+        padding: 20px;
+        border: 1px solid var(--panel-border);
+        box-shadow: var(--shadow);
+      }
+      .modal-header { display: flex; justify-content: space-between; align-items: center; }
+      .modal-header h3 { margin: 0; font-size: 16px; }
+      .modal-close { background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 16px; }
+
+      .modal-filters { display: flex; gap: 8px; margin: 16px 0; }
+      .modal-filters button { border: 1px solid var(--panel-border); background: var(--panel-soft); color: var(--text); padding: 6px 12px; border-radius: 999px; font-size: 12px; cursor: pointer; }
+      .modal-filters button.active { border-color: var(--accent); color: var(--accent); }
+
+      .modal-test { border: 1px solid var(--panel-border); border-radius: 12px; padding: 12px; margin-bottom: 10px; background: var(--panel-soft); }
+      .modal-test h4 { margin: 0 0 6px; font-size: 13px; }
+      .modal-test .meta { font-size: 11px; color: var(--muted); }
+      .modal-test details { margin-top: 8px; }
+      .modal-test pre { white-space: pre-wrap; }
+
+      .modal-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+      .modal-actions .btn { font-size: 12px; }
+
+      .hidden { display: none; }
+      .footer-note { text-align: center; color: var(--muted); font-size: 11px; margin-top: 24px; }
     </style>
   </head>
   <body>
     <header>
-      <h1>Automation Dashboard</h1>
-      <p>Shunyalabs widget automation reports</p>
+      <div class="brand">
+        <div class="logo">SL</div>
+        <div>
+          <h1>Shunya Labs</h1>
+          <p>Test Automation Dashboard</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="timestamp" id="lastRunLabel">Last Run: --</div>
+        <div class="dropdown">
+          <button class="btn" id="exportToggle">Export All ▼</button>
+          <div class="dropdown-menu" id="exportMenu">
+            <button data-export="all-summary">All runs summary (CSV)</button>
+            <button data-export="all-json">All runs full data (JSON)</button>
+            <button data-export="current-csv">Current run (CSV)</button>
+            <button data-export="current-json">Current run (JSON)</button>
+          </div>
+        </div>
+        <button class="btn" id="printBtn">Print</button>
+      </div>
     </header>
 
     <main>
-      <div class="grid" id="summaryCards"></div>
-
-      <div class="card">
-        <h2>Module breakdown</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Module</th>
-              <th>Total</th>
-              <th>Passed</th>
-              <th>Failed</th>
-              <th>Skipped</th>
-            </tr>
-          </thead>
-          <tbody id="moduleRows"></tbody>
-        </table>
+      <div class="tabs" id="tabs">
+        <div class="tab active" data-tab="current">Current Run</div>
+        <div class="tab" data-tab="history">Run History</div>
+        <div class="tab" data-tab="calendar">Calendar View</div>
       </div>
 
-      <div class="card tests">
-        <h2>Tests</h2>
-        <div class="filters">
-          <button data-filter="all">All</button>
-          <button data-filter="passed">Passed</button>
-          <button data-filter="failed">Failed</button>
-          <button data-filter="skipped">Skipped</button>
+      <section id="currentTab">
+        <div class="grid stats">
+          <div class="card">
+            <div class="stat-title">Total Tests</div>
+            <div class="stat-value" id="totalTests">0</div>
+          </div>
+          <div class="card">
+            <div class="stat-title">Passed</div>
+            <div class="stat-value pass" id="passedTests">0</div>
+          </div>
+          <div class="card">
+            <div class="stat-title">Failed</div>
+            <div class="stat-value fail" id="failedTests">0</div>
+          </div>
+          <div class="card">
+            <div class="stat-title">Pass Rate</div>
+            <div class="stat-value warn" id="passRate">0%</div>
+          </div>
         </div>
-        <div id="testsList"></div>
-      </div>
 
-      <div class="card history">
-        <h2>Run history</h2>
-        <ul id="historyList"></ul>
-        <div class="small muted">History retains the last 100 runs.</div>
-      </div>
+        <div class="grid chart-grid section">
+          <div class="card chart-card">
+            <h2>Current Run Status</h2>
+            <canvas id="statusChart"></canvas>
+          </div>
+          <div class="card chart-card">
+            <h2>Pass Rate Trend (Last 12 Runs)</h2>
+            <canvas id="trendChart"></canvas>
+          </div>
+        </div>
 
-      <div class="card">
-        <h2>Exports</h2>
-        <ul>
-          <li><a href="./exports/current-run.csv">Current run (CSV)</a></li>
-          <li><a href="./exports/all-runs-summary.csv">All runs summary (CSV)</a></li>
-          <li><a href="./history/runs.json">All runs full data (JSON)</a></li>
-          <li><a href="./data/latest.json">Current run (JSON)</a></li>
-        </ul>
-      </div>
+        <div class="section">
+          <div class="section-title">Test Results by Module</div>
+          <div class="module-list" id="moduleList"></div>
+        </div>
+      </section>
+
+      <section id="historyTab" class="hidden">
+        <div class="section">
+          <div class="section-title" id="historyTitle">All Test Runs (0 stored)</div>
+          <div id="historyGroups"></div>
+        </div>
+      </section>
+
+      <section id="calendarTab" class="hidden">
+        <div class="section">
+          <div class="section-title" id="calendarTitle">Calendar View</div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+          <div class="section-title" style="margin-top:18px;">Runs for selected day</div>
+          <div id="calendarRuns"></div>
+        </div>
+      </section>
+
+      <div class="footer-note" id="footerNote"></div>
     </main>
 
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modalTitle">Test Run</h3>
+          <button class="modal-close" id="modalClose">✕</button>
+        </div>
+        <div class="grid stats" style="margin-top: 12px;">
+          <div class="card">
+            <div class="stat-title">Total Tests</div>
+            <div class="stat-value" id="modalTotal">0</div>
+          </div>
+          <div class="card">
+            <div class="stat-title">Passed</div>
+            <div class="stat-value pass" id="modalPassed">0</div>
+          </div>
+          <div class="card">
+            <div class="stat-title">Failed</div>
+            <div class="stat-value fail" id="modalFailed">0</div>
+          </div>
+          <div class="card">
+            <div class="stat-title">Pass Rate</div>
+            <div class="stat-value warn" id="modalRate">0%</div>
+          </div>
+        </div>
+
+        <div class="modal-filters" id="modalFilters">
+          <button data-filter="all" class="active">All</button>
+          <button data-filter="passed">Passed</button>
+          <button data-filter="failed">Failed</button>
+        </div>
+
+        <div id="modalTests"></div>
+
+        <div class="modal-actions">
+          <div class="muted small" id="modalMeta"></div>
+          <div>
+            <button class="btn" id="exportRunBtn">Export This Run</button>
+            <button class="btn" id="printRunBtn">Print as Proof</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script>
-      const statusBadge = (status) => {
-        const cls = status === "passed" ? "passed" : status === "failed" ? "failed" : "skipped";
-        return '<span class="badge ' + cls + '">' + status + '</span>';
+      const statusChartEl = document.getElementById("statusChart");
+      const trendChartEl = document.getElementById("trendChart");
+      const modalOverlay = document.getElementById("modalOverlay");
+      const modalTests = document.getElementById("modalTests");
+      const modalFilters = document.getElementById("modalFilters");
+      const exportMenu = document.getElementById("exportMenu");
+      const exportToggle = document.getElementById("exportToggle");
+      const printBtn = document.getElementById("printBtn");
+      const footerNote = document.getElementById("footerNote");
+      let historyRuns = [];
+      let latestRun = null;
+      let statusChart = null;
+      let trendChart = null;
+      let selectedRun = null;
+
+      const formatRate = (summary) => {
+        if (!summary.total) return 0;
+        return Math.round((summary.passed / summary.total) * 100);
+      };
+
+      const downloadFile = (filename, content, type = "text/plain") => {
+        const blob = new Blob([content], { type });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        link.click();
+        URL.revokeObjectURL(url);
+      };
+
+      const csvEscape = (value) => {
+        const str = String(value ?? "");
+        if (str.includes(",") || str.includes('"') || str.includes("\\n")) {
+          return '"' + str.replace(/"/g, '""') + '"';
+        }
+        return str;
+      };
+
+      const makeRunCsv = (run) => {
+        const headers = ["id", "module", "status", "durationMs", "title", "file", "error"];
+        const rows = run.tests.map((test) => [
+          run.id,
+          test.moduleLabel,
+          test.status,
+          test.durationMs,
+          test.title,
+          test.file,
+          test.error || "",
+        ]);
+        return [headers.join(","), ...rows.map((row) => row.map(csvEscape).join(","))].join("\\n");
+      };
+
+      const setActiveTab = (tab) => {
+        document.querySelectorAll(".tab").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.tab === tab);
+        });
+        document.getElementById("currentTab").classList.toggle("hidden", tab !== "current");
+        document.getElementById("historyTab").classList.toggle("hidden", tab !== "history");
+        document.getElementById("calendarTab").classList.toggle("hidden", tab !== "calendar");
       };
 
       const renderSummary = (run) => {
         const summary = run.summary;
-        const cards = [
-          { label: "Total", value: summary.total },
-          { label: "Passed", value: summary.passed },
-          { label: "Failed", value: summary.failed },
-          { label: "Skipped", value: summary.skipped },
-          { label: "Duration (ms)", value: run.durationMs },
-        ];
-        document.getElementById("summaryCards").innerHTML = cards
-          .map((card) => '<div class="card"><div class="stat-label">' + card.label + '</div><div class="stat-value">' + card.value + '</div></div>')
-          .join("");
+        document.getElementById("totalTests").textContent = summary.total;
+        document.getElementById("passedTests").textContent = summary.passed;
+        document.getElementById("failedTests").textContent = summary.failed;
+        document.getElementById("passRate").textContent = (run.passRate ?? formatRate(summary)) + "%";
+        document.getElementById("lastRunLabel").textContent = "Last Run: " + (run.displayTimestamp || run.startedAt);
+        footerNote.textContent = "Generated by Shunya Labs Test Automation • " + (run.displayTimestamp || run.startedAt);
       };
 
-      const renderModules = (modules) => {
-        const rows = Object.entries(modules).map(([moduleName, stats]) => {
-          return '<tr><td>' + moduleName + '</td><td>' + stats.total + '</td><td>' + stats.passed + '</td><td>' + stats.failed + '</td><td>' + stats.skipped + '</td></tr>';
+      const renderCharts = (run, runs) => {
+        const summary = run.summary;
+        const passRateSeries = runs.slice(0, 12).reverse().map((item) => item.passRate ?? formatRate(item.summary));
+        const passRateLabels = runs.slice(0, 12).reverse().map((item) => item.displayTime || item.startedAt);
+
+        if (statusChart) statusChart.destroy();
+        statusChart = new Chart(statusChartEl, {
+          type: "doughnut",
+          data: {
+            labels: ["Passed", "Failed"],
+            datasets: [{
+              data: [summary.passed, summary.failed],
+              backgroundColor: ["#22c55e", "#ef4444"],
+              borderWidth: 0,
+            }],
+          },
+          options: {
+            plugins: { legend: { labels: { color: "#cbd5f5" } } },
+          },
         });
-        document.getElementById("moduleRows").innerHTML = rows.join("");
+
+        if (trendChart) trendChart.destroy();
+        trendChart = new Chart(trendChartEl, {
+          type: "line",
+          data: {
+            labels: passRateLabels,
+            datasets: [{
+              label: "Pass Rate",
+              data: passRateSeries,
+              borderColor: "#8b5cf6",
+              backgroundColor: "rgba(139, 92, 246, 0.2)",
+              tension: 0.35,
+              fill: true,
+            }],
+          },
+          options: {
+            scales: {
+              x: { ticks: { color: "#9ca3af" } },
+              y: { ticks: { color: "#9ca3af" }, max: 100, min: 0 },
+            },
+            plugins: { legend: { labels: { color: "#cbd5f5" } } },
+          },
+        });
       };
 
-      const renderTests = (tests, filter) => {
-        const filtered = filter === "all" ? tests : tests.filter((test) => test.status === filter);
-        const items = filtered.map((test) => {
-          const attachments = (test.attachments || []).map((attachment) => '<a href="./' + attachment.path + '">' + attachment.name + '</a>').join(" ");
-          return '<div class="card test-card"><div><strong>' + test.moduleLabel + '</strong> - ' + test.title + '</div>'
-            + '<div class="small muted">' + test.file + '</div>'
-            + '<div>Status: ' + statusBadge(test.status) + ' | ' + test.durationMs + ' ms</div>'
-            + (test.error ? '<details><summary>View error</summary><pre>' + test.error + '</pre></details>' : '')
-            + (attachments ? '<div class="attachments small">Artifacts: ' + attachments + '</div>' : '')
-            + '</div>';
+      const renderModules = (run) => {
+        const modules = {};
+        run.tests.forEach((test) => {
+          const key = test.moduleLabel || "Unknown";
+          if (!modules[key]) {
+            modules[key] = { total: 0, passed: 0, failed: 0, tests: [] };
+          }
+          modules[key].total += 1;
+          if (test.status === "passed") modules[key].passed += 1;
+          if (test.status === "failed") modules[key].failed += 1;
+          modules[key].tests.push(test);
         });
-        document.getElementById("testsList").innerHTML = items.join("");
+
+        const moduleList = document.getElementById("moduleList");
+        moduleList.innerHTML = Object.entries(modules).map(([name, stats]) => {
+          const testsHtml = stats.tests.slice(0, 8).map((test) => {
+            const dotClass = test.status === "passed" ? "pass" : test.status === "failed" ? "fail" : "skip";
+            return \`<div class="test-item"><div><span class="status-dot \${dotClass}"></span>\${test.title}</div><div>\${test.durationMs} ms</div></div>\`;
+          }).join("");
+
+          return \`
+            <div class="module-card">
+              <div class="module-header">
+                <h3>\${name}</h3>
+                <div class="module-badges">
+                  <span class="pill pass">\${stats.passed} Pass</span>
+                  <span class="pill fail">\${stats.failed} Fail</span>
+                </div>
+              </div>
+              <div class="module-stats">Total: \${stats.total}</div>
+              <div style="margin-top: 8px;">\${testsHtml}</div>
+            </div>
+          \`;
+        }).join("");
       };
 
       const renderHistory = (runs) => {
-        const items = runs.map((run) => {
-          const passRate = run.summary.total ? Math.round((run.summary.passed / run.summary.total) * 100) : 0;
-          return '<li><strong>' + run.startedAt + '</strong> - ' + run.summary.passed + '/' + run.summary.total + ' passed (' + passRate + '%)</li>';
+        const historyTitle = document.getElementById("historyTitle");
+        historyTitle.textContent = \`All Test Runs (\${runs.length} runs stored)\`;
+        const grouped = runs.reduce((acc, run) => {
+          const dateKey = run.displayDate || run.startedAt.split("T")[0];
+          if (!acc[dateKey]) acc[dateKey] = [];
+          acc[dateKey].push(run);
+          return acc;
+        }, {});
+
+        const historyGroups = document.getElementById("historyGroups");
+        historyGroups.innerHTML = Object.entries(grouped).map(([dateKey, dateRuns]) => {
+          const items = dateRuns.map((run) => {
+            return \`
+              <div class="run-card" data-run="\${run.id}">
+                <div class="run-meta">
+                  <span>\${run.displayTime || run.startedAt}</span>
+                  <span class="muted">\${run.id.slice(0, 8)}</span>
+                </div>
+                <div class="run-stats">
+                  <span class="badge pass">\${run.summary.passed} ✓</span>
+                  <span class="badge fail">\${run.summary.failed} ✕</span>
+                  <span class="badge rate">\${run.passRate ?? formatRate(run.summary)}%</span>
+                </div>
+              </div>
+            \`;
+          }).join("");
+
+          return \`
+            <div class="run-group">
+              <div class="section-title">\${dateKey}</div>
+              \${items}
+            </div>
+          \`;
+        }).join("");
+
+        document.querySelectorAll(".run-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            const run = runs.find((item) => item.id === card.dataset.run);
+            if (run) openRunModal(run);
+          });
         });
-        document.getElementById("historyList").innerHTML = items.join("");
       };
 
-      const attachFilters = (tests) => {
-        document.querySelectorAll(".filters button").forEach((btn) => {
-          btn.addEventListener("click", () => renderTests(tests, btn.dataset.filter));
+      const renderCalendar = (runs) => {
+        const calendarGrid = document.getElementById("calendarGrid");
+        const calendarRuns = document.getElementById("calendarRuns");
+        const currentDate = runs[0] ? new Date(runs[0].startedAt) : new Date();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        const firstDay = new Date(year, month, 1);
+        const startWeekday = firstDay.getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        const runByDay = runs.reduce((acc, run) => {
+          const dateKey = (run.displayDate || run.startedAt).split(",")[0];
+          if (!acc[dateKey]) acc[dateKey] = [];
+          acc[dateKey].push(run);
+          return acc;
+        }, {});
+
+        calendarGrid.innerHTML = "";
+        for (let i = 0; i < startWeekday; i += 1) {
+          calendarGrid.appendChild(document.createElement("div"));
+        }
+
+        const dayKeys = [];
+        for (let day = 1; day <= daysInMonth; day += 1) {
+          const cell = document.createElement("div");
+          cell.className = "calendar-cell";
+          const date = new Date(year, month, day);
+          const key = date.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+          dayKeys.push(key);
+          const runsForDay = runByDay[key] || [];
+          const avgRate = runsForDay.length
+            ? Math.round(runsForDay.reduce((sum, r) => sum + (r.passRate ?? formatRate(r.summary)), 0) / runsForDay.length)
+            : 0;
+          cell.innerHTML = \`
+            <div class="day">\${day}</div>
+            <div class="count">\${runsForDay.length ? runsForDay.length + " runs" : ""}</div>
+            <div class="count">\${runsForDay.length ? avgRate + "% pass" : ""}</div>
+          \`;
+          cell.addEventListener("click", () => {
+            document.querySelectorAll(".calendar-cell").forEach((item) => item.classList.remove("active"));
+            cell.classList.add("active");
+            calendarRuns.innerHTML = runsForDay.map((run) => \`
+              <div class="run-card" data-run="\${run.id}">
+                <div class="run-meta">
+                  <span>\${run.displayTime || run.startedAt}</span>
+                  <span class="muted">\${run.id.slice(0, 8)}</span>
+                </div>
+                <div class="run-stats">
+                  <span class="badge pass">\${run.summary.passed} ✓</span>
+                  <span class="badge fail">\${run.summary.failed} ✕</span>
+                  <span class="badge rate">\${run.passRate ?? formatRate(run.summary)}%</span>
+                </div>
+              </div>
+            \`).join("");
+            calendarRuns.querySelectorAll(".run-card").forEach((card) => {
+              card.addEventListener("click", () => {
+                const run = runs.find((item) => item.id === card.dataset.run);
+                if (run) openRunModal(run);
+              });
+            });
+          });
+          calendarGrid.appendChild(cell);
+        }
+      };
+
+      const openRunModal = (run) => {
+        selectedRun = run;
+        modalOverlay.style.display = "flex";
+        document.getElementById("modalTitle").textContent = "Test Run - " + (run.displayTimestamp || run.startedAt);
+        document.getElementById("modalTotal").textContent = run.summary.total;
+        document.getElementById("modalPassed").textContent = run.summary.passed;
+        document.getElementById("modalFailed").textContent = run.summary.failed;
+        document.getElementById("modalRate").textContent = (run.passRate ?? formatRate(run.summary)) + "%";
+        document.getElementById("modalMeta").textContent = "Run ID: " + run.id;
+        renderModalTests("all");
+      };
+
+      const renderModalTests = (filter) => {
+        if (!selectedRun) return;
+        const tests = selectedRun.tests.filter((test) => filter === "all" ? true : test.status === filter);
+        modalTests.innerHTML = tests.map((test) => {
+          const attachments = (test.attachments || []).map((attachment) => \`<a class="btn" href="./\${attachment.path}" target="_blank">\${attachment.name}</a>\`).join(" ");
+          return \`
+            <div class="modal-test">
+              <h4>\${test.title}</h4>
+              <div class="meta">\${test.moduleLabel} • \${test.status} • \${test.durationMs} ms</div>
+              \${test.error ? \`<details><summary>View more</summary><pre>\${test.error}</pre></details>\` : ""}
+              \${attachments ? \`<div style="margin-top: 8px;">\${attachments}</div>\` : ""}
+            </div>
+          \`;
+        }).join("");
+
+        modalFilters.querySelectorAll("button").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.filter === filter);
         });
       };
+
+      const setupModal = () => {
+        document.getElementById("modalClose").addEventListener("click", () => {
+          modalOverlay.style.display = "none";
+        });
+        modalFilters.querySelectorAll("button").forEach((btn) => {
+          btn.addEventListener("click", () => renderModalTests(btn.dataset.filter));
+        });
+        document.getElementById("exportRunBtn").addEventListener("click", () => {
+          if (!selectedRun) return;
+          downloadFile(\`run-\${selectedRun.id}.json\`, JSON.stringify(selectedRun, null, 2), "application/json");
+          downloadFile(\`run-\${selectedRun.id}.csv\`, makeRunCsv(selectedRun), "text/csv");
+        });
+        document.getElementById("printRunBtn").addEventListener("click", () => window.print());
+      };
+
+      exportToggle.addEventListener("click", () => {
+        exportMenu.style.display = exportMenu.style.display === "block" ? "none" : "block";
+      });
+      document.addEventListener("click", (event) => {
+        if (!exportMenu.contains(event.target) && event.target !== exportToggle) {
+          exportMenu.style.display = "none";
+        }
+      });
+      exportMenu.addEventListener("click", (event) => {
+        if (!event.target.dataset.export) return;
+        const target = event.target.dataset.export;
+        if (target === "all-summary") window.open("./exports/all-runs-summary.csv", "_blank");
+        if (target === "all-json") window.open("./history/runs.json", "_blank");
+        if (target === "current-csv") window.open("./exports/current-run.csv", "_blank");
+        if (target === "current-json") window.open("./data/latest.json", "_blank");
+      });
+      printBtn.addEventListener("click", () => window.print());
+
+      document.getElementById("tabs").addEventListener("click", (event) => {
+        const tab = event.target.dataset.tab;
+        if (!tab) return;
+        setActiveTab(tab);
+      });
+
+      setupModal();
 
       Promise.all([
         fetch("./data/latest.json").then((res) => res.json()),
         fetch("./history/runs.json").then((res) => res.json()),
       ]).then(([latest, history]) => {
+        latestRun = latest;
+        historyRuns = history.map((run) => ({
+          ...run,
+          passRate: run.passRate ?? formatRate(run.summary),
+          displayTimestamp: run.displayTimestamp || run.startedAt,
+          displayDate: run.displayDate || run.startedAt,
+          displayTime: run.displayTime || run.startedAt,
+        }));
         renderSummary(latest);
-        renderModules(latest.modules);
-        renderTests(latest.tests, "all");
-        attachFilters(latest.tests);
-        renderHistory(history);
+        renderCharts(latest, historyRuns);
+        renderModules(latest);
+        renderHistory(historyRuns);
+        renderCalendar(historyRuns);
       }).catch((error) => {
-        document.body.innerHTML = '<h1>Dashboard data missing</h1><p>' + error + '</p>';
+        document.body.innerHTML = "<h1>Dashboard data missing</h1><p>" + error + "</p>";
       });
     </script>
   </body>

@@ -15,6 +15,49 @@ function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
+function formatDateTime(iso) {
+  try {
+    const date = new Date(iso);
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      second: "2-digit",
+    }).format(date);
+  } catch {
+    return iso;
+  }
+}
+
+function formatDateOnly(iso) {
+  try {
+    const date = new Date(iso);
+    return new Intl.DateTimeFormat("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }).format(date);
+  } catch {
+    return iso;
+  }
+}
+
+function formatTimeOnly(iso) {
+  try {
+    const date = new Date(iso);
+    return new Intl.DateTimeFormat("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      second: "2-digit",
+    }).format(date);
+  } catch {
+    return iso;
+  }
+}
+
 function normalizePath(filePath) {
   return filePath ? filePath.split(path.sep).join("/") : "";
 }
@@ -91,6 +134,11 @@ function summarizeTests(tests) {
   }
 
   return summary;
+}
+
+function passRate(summary) {
+  if (!summary.total) return 0;
+  return Math.round((summary.passed / summary.total) * 100);
 }
 
 function summarizeByModule(tests) {
@@ -179,11 +227,17 @@ function buildRun() {
     };
   });
 
+  const summary = summarizeTests(enrichedTests);
+
   return {
     id: runId,
     startedAt,
     durationMs,
-    summary: summarizeTests(enrichedTests),
+    summary,
+    passRate: passRate(summary),
+    displayTimestamp: formatDateTime(startedAt),
+    displayDate: formatDateOnly(startedAt),
+    displayTime: formatTimeOnly(startedAt),
     modules: summarizeByModule(enrichedTests),
     tests: enrichedTests,
   };

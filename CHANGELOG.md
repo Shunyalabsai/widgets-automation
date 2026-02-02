@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.5] - 2026-02-02
+### UI change
+- Rebuilt dashboard UI with tabs, charts, and modal details.
+### Minor change
+- Added export actions and enhanced run metadata.
+
 ## [0.1.4] - 2026-02-02
 ### UI change
 - Improved dashboard UI layout and error details view.

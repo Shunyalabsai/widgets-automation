@@ -15,7 +15,7 @@ set -e
 node scripts/generate-dashboard.js
 node scripts/update-coverage-sheet.js || true
 
-if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+if [ -z "${CI:-}" ] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   git add docs
   if ! git diff --cached --quiet; then
     COMMIT_MSG="Update dashboard $(date -u +'%Y-%m-%d %H:%M UTC')"
