@@ -444,6 +444,7 @@
       };
 
       const renderCharts = (run, runs) => {
+        if (typeof Chart === "undefined") return;
         const summary = run.summary;
         const passRateSeries = runs.slice(0, 12).reverse().map((item) => item.passRate ?? formatRate(item.summary));
         const passRateLabels = runs.slice(0, 12).reverse().map((item) => item.displayTime || item.startedAt);
