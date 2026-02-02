@@ -1,5 +1,90 @@
 [
   {
+    "id": "05d90090-dff0-488c-bfe2-4ec966fb4006",
+    "startedAt": "2026-02-02T12:48:31.513Z",
+    "durationMs": 193148,
+    "summary": {
+      "total": 3,
+      "passed": 1,
+      "failed": 1,
+      "skipped": 0,
+      "timedOut": 1
+    },
+    "modules": {
+      "unknown": {
+        "total": 3,
+        "passed": 1,
+        "failed": 1,
+        "skipped": 0,
+        "timedOut": 1
+      }
+    },
+    "tests": [
+      {
+        "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
+        "status": "failed",
+        "durationMs": 95429,
+        "file": "stt/podcast.spec.js",
+        "attachments": [
+          {
+            "name": "screenshot",
+            "contentType": "image/png",
+            "path": "playwright-artifacts/05d90090-dff0-488c-bfe2-4ec966fb4006/screenshot-0.png"
+          },
+          {
+            "name": "video",
+            "contentType": "video/webm",
+            "path": "playwright-artifacts/05d90090-dff0-488c-bfe2-4ec966fb4006/video-1.webm"
+          },
+          {
+            "name": "error-context",
+            "contentType": "text/markdown",
+            "path": "playwright-artifacts/05d90090-dff0-488c-bfe2-4ec966fb4006/error-context-2.md"
+          }
+        ],
+        "error": "TimeoutError: locator.waitFor: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Speaker 1').first() to be visible\u001b[22m\n",
+        "module": "unknown",
+        "moduleLabel": "Unknown"
+      },
+      {
+        "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
+        "status": "timedOut",
+        "durationMs": 90232,
+        "file": "stt/prerecorded.spec.js",
+        "attachments": [
+          {
+            "name": "screenshot",
+            "contentType": "image/png",
+            "path": "playwright-artifacts/05d90090-dff0-488c-bfe2-4ec966fb4006/screenshot-0.png"
+          },
+          {
+            "name": "video",
+            "contentType": "video/webm",
+            "path": "playwright-artifacts/05d90090-dff0-488c-bfe2-4ec966fb4006/video-1.webm"
+          },
+          {
+            "name": "error-context",
+            "contentType": "text/markdown",
+            "path": "playwright-artifacts/05d90090-dff0-488c-bfe2-4ec966fb4006/error-context-2.md"
+          }
+        ],
+        "error": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+        "module": "unknown",
+        "moduleLabel": "Unknown"
+      },
+      {
+        "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
+        "status": "passed",
+        "durationMs": 7487,
+        "file": "stt/upload.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "unknown",
+        "moduleLabel": "Unknown"
+      }
+    ]
+  },
+  {
     "id": "3533b0bd-8d9f-4ddd-a1e9-a20ac9864d1c",
     "startedAt": "2026-02-02T12:45:16.419Z",
     "durationMs": 6,
