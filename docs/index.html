@@ -539,7 +539,7 @@
         historyGroups.innerHTML = Object.entries(grouped).map(([dateKey, dateRuns]) => {
           const items = dateRuns.map((run) => {
             return `
-              <div class="run-card" data-run="\${run.id}">
+              <div class="run-card" data-run="${run.id}">
                 <div class="run-meta">
                   <span>${run.displayTime || run.startedAt}</span>
                   <span class="muted">${run.id.slice(0, 8)}</span>
