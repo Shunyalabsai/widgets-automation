@@ -186,6 +186,8 @@
       .badge.rate { background: rgba(245,158,11,0.16); color: var(--warn); }
 
       .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 12px; }
+      .calendar-header { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+      .calendar-label { font-size: 14px; color: var(--text); min-width: 160px; }
       .calendar-cell {
         min-height: 64px;
         border-radius: 12px;
@@ -318,6 +320,11 @@
       <section id="calendarTab" class="hidden">
         <div class="section">
           <div class="section-title" id="calendarTitle">Calendar View</div>
+          <div class="calendar-header">
+            <button class="btn" id="prevMonth">Prev</button>
+            <div class="calendar-label" id="calendarLabel">Month</div>
+            <button class="btn" id="nextMonth">Next</button>
+          </div>
           <div class="calendar-grid" id="calendarGrid"></div>
           <div class="section-title" style="margin-top:18px;">Runs for selected day</div>
           <div id="calendarRuns"></div>
@@ -386,6 +393,7 @@
       let statusChart = null;
       let trendChart = null;
       let selectedRun = null;
+      let calendarMonthOffset = 0;
 
       const formatRate = (summary) => {
         if (!summary.total) return 0;
@@ -576,9 +584,10 @@
       const renderCalendar = (runs) => {
         const calendarGrid = document.getElementById("calendarGrid");
         const calendarRuns = document.getElementById("calendarRuns");
-        const currentDate = runs[0] ? new Date(runs[0].startedAt) : new Date();
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth();
+        const baseDate = runs[0] ? new Date(runs[0].startedAt) : new Date();
+        const viewDate = new Date(baseDate.getFullYear(), baseDate.getMonth() + calendarMonthOffset, 1);
+        const year = viewDate.getFullYear();
+        const month = viewDate.getMonth();
         const firstDay = new Date(year, month, 1);
         const startWeekday = firstDay.getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -589,6 +598,9 @@
           acc[dateKey].push(run);
           return acc;
         }, {});
+
+        const calendarLabel = document.getElementById("calendarLabel");
+        calendarLabel.textContent = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(viewDate);
 
         calendarGrid.innerHTML = "";
         for (let i = 0; i < startWeekday; i += 1) {
@@ -712,6 +724,16 @@
       });
 
       setupModal();
+
+      document.getElementById("prevMonth").addEventListener("click", () => {
+        calendarMonthOffset -= 1;
+        renderCalendar(historyRuns);
+      });
+
+      document.getElementById("nextMonth").addEventListener("click", () => {
+        calendarMonthOffset += 1;
+        renderCalendar(historyRuns);
+      });
 
       Promise.all([
         fetch("./data/latest.json").then((res) => res.json()),
