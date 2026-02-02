@@ -506,28 +506,28 @@
         moduleList.innerHTML = Object.entries(modules).map(([name, stats]) => {
           const testsHtml = stats.tests.slice(0, 8).map((test) => {
             const dotClass = test.status === "passed" ? "pass" : test.status === "failed" ? "fail" : "skip";
-            return \`<div class="test-item"><div><span class="status-dot \${dotClass}"></span>\${test.title}</div><div>\${test.durationMs} ms</div></div>\`;
+          return `<div class="test-item"><div><span class="status-dot ${dotClass}"></span>${test.title}</div><div>${test.durationMs} ms</div></div>`;
           }).join("");
 
-          return \`
+          return `
             <div class="module-card">
               <div class="module-header">
-                <h3>\${name}</h3>
+                <h3>${name}</h3>
                 <div class="module-badges">
-                  <span class="pill pass">\${stats.passed} Pass</span>
-                  <span class="pill fail">\${stats.failed} Fail</span>
+                  <span class="pill pass">${stats.passed} Pass</span>
+                  <span class="pill fail">${stats.failed} Fail</span>
                 </div>
               </div>
-              <div class="module-stats">Total: \${stats.total}</div>
-              <div style="margin-top: 8px;">\${testsHtml}</div>
+              <div class="module-stats">Total: ${stats.total}</div>
+              <div style="margin-top: 8px;">${testsHtml}</div>
             </div>
-          \`;
+          `;
         }).join("");
       };
 
       const renderHistory = (runs) => {
         const historyTitle = document.getElementById("historyTitle");
-        historyTitle.textContent = \`All Test Runs (\${runs.length} runs stored)\`;
+        historyTitle.textContent = `All Test Runs (${runs.length} runs stored)`;
         const grouped = runs.reduce((acc, run) => {
           const dateKey = run.displayDate || run.startedAt.split("T")[0];
           if (!acc[dateKey]) acc[dateKey] = [];
@@ -538,27 +538,27 @@
         const historyGroups = document.getElementById("historyGroups");
         historyGroups.innerHTML = Object.entries(grouped).map(([dateKey, dateRuns]) => {
           const items = dateRuns.map((run) => {
-            return \`
+            return `
               <div class="run-card" data-run="\${run.id}">
                 <div class="run-meta">
-                  <span>\${run.displayTime || run.startedAt}</span>
-                  <span class="muted">\${run.id.slice(0, 8)}</span>
+                  <span>${run.displayTime || run.startedAt}</span>
+                  <span class="muted">${run.id.slice(0, 8)}</span>
                 </div>
                 <div class="run-stats">
-                  <span class="badge pass">\${run.summary.passed} Pass</span>
-                  <span class="badge fail">\${run.summary.failed} Fail</span>
-                  <span class="badge rate">\${run.passRate ?? formatRate(run.summary)}%</span>
+                  <span class="badge pass">${run.summary.passed} Pass</span>
+                  <span class="badge fail">${run.summary.failed} Fail</span>
+                  <span class="badge rate">${run.passRate ?? formatRate(run.summary)}%</span>
                 </div>
               </div>
-            \`;
+            `;
           }).join("");
 
-          return \`
+          return `
             <div class="run-group">
-              <div class="section-title">\${dateKey}</div>
-              \${items}
+              <div class="section-title">${dateKey}</div>
+              ${items}
             </div>
-          \`;
+          `;
         }).join("");
 
         document.querySelectorAll(".run-card").forEach((card) => {
@@ -602,27 +602,27 @@
           const avgRate = runsForDay.length
             ? Math.round(runsForDay.reduce((sum, r) => sum + (r.passRate ?? formatRate(r.summary)), 0) / runsForDay.length)
             : 0;
-          cell.innerHTML = \`
-            <div class="day">\${day}</div>
-            <div class="count">\${runsForDay.length ? runsForDay.length + " runs" : ""}</div>
-            <div class="count">\${runsForDay.length ? avgRate + "% pass" : ""}</div>
-          \`;
+          cell.innerHTML = `
+            <div class="day">${day}</div>
+            <div class="count">${runsForDay.length ? runsForDay.length + " runs" : ""}</div>
+            <div class="count">${runsForDay.length ? avgRate + "% pass" : ""}</div>
+          `;
           cell.addEventListener("click", () => {
             document.querySelectorAll(".calendar-cell").forEach((item) => item.classList.remove("active"));
             cell.classList.add("active");
-            calendarRuns.innerHTML = runsForDay.map((run) => \`
-              <div class="run-card" data-run="\${run.id}">
+            calendarRuns.innerHTML = runsForDay.map((run) => `
+              <div class="run-card" data-run="${run.id}">
                 <div class="run-meta">
-                  <span>\${run.displayTime || run.startedAt}</span>
-                  <span class="muted">\${run.id.slice(0, 8)}</span>
+                  <span>${run.displayTime || run.startedAt}</span>
+                  <span class="muted">${run.id.slice(0, 8)}</span>
                 </div>
                 <div class="run-stats">
-                  <span class="badge pass">\${run.summary.passed} Pass</span>
-                  <span class="badge fail">\${run.summary.failed} Fail</span>
-                  <span class="badge rate">\${run.passRate ?? formatRate(run.summary)}%</span>
+                  <span class="badge pass">${run.summary.passed} Pass</span>
+                  <span class="badge fail">${run.summary.failed} Fail</span>
+                  <span class="badge rate">${run.passRate ?? formatRate(run.summary)}%</span>
                 </div>
               </div>
-            \`).join("");
+            `).join("");
             calendarRuns.querySelectorAll(".run-card").forEach((card) => {
               card.addEventListener("click", () => {
                 const run = runs.find((item) => item.id === card.dataset.run);
@@ -650,15 +650,15 @@
         if (!selectedRun) return;
         const tests = selectedRun.tests.filter((test) => filter === "all" ? true : test.status === filter);
         modalTests.innerHTML = tests.map((test) => {
-          const attachments = (test.attachments || []).map((attachment) => \`<a class="btn" href="./\${attachment.path}" target="_blank">\${attachment.name}</a>\`).join(" ");
-          return \`
+          const attachments = (test.attachments || []).map((attachment) => `<a class="btn" href="./${attachment.path}" target="_blank">${attachment.name}</a>`).join(" ");
+          return `
             <div class="modal-test">
-              <h4>\${test.title}</h4>
-              <div class="meta">\${test.moduleLabel} - \${test.status} - \${test.durationMs} ms</div>
-              \${test.error ? \`<details><summary>View more</summary><pre>\${test.error}</pre></details>\` : ""}
-              \${attachments ? \`<div style="margin-top: 8px;">\${attachments}</div>\` : ""}
+              <h4>${test.title}</h4>
+              <div class="meta">${test.moduleLabel} - ${test.status} - ${test.durationMs} ms</div>
+              ${test.error ? `<details><summary>View more</summary><pre>${test.error}</pre></details>` : ""}
+              ${attachments ? `<div style="margin-top: 8px;">${attachments}</div>` : ""}
             </div>
-          \`;
+          `;
         }).join("");
 
         modalFilters.querySelectorAll("button").forEach((btn) => {
@@ -675,8 +675,8 @@
         });
         document.getElementById("exportRunBtn").addEventListener("click", () => {
           if (!selectedRun) return;
-          downloadFile(\`run-\${selectedRun.id}.json\`, JSON.stringify(selectedRun, null, 2), "application/json");
-          downloadFile(\`run-\${selectedRun.id}.csv\`, makeRunCsv(selectedRun), "text/csv");
+          downloadFile(`run-${selectedRun.id}.json`, JSON.stringify(selectedRun, null, 2), "application/json");
+          downloadFile(`run-${selectedRun.id}.csv`, makeRunCsv(selectedRun), "text/csv");
         });
         document.getElementById("printRunBtn").addEventListener("click", () => window.print());
       };
