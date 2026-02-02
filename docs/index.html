@@ -564,6 +564,15 @@
         });
       };
 
+      const dateKeyFromIso = (iso) => {
+        const date = new Date(iso);
+        if (Number.isNaN(date.getTime())) return "invalid";
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return year + "-" + month + "-" + day;
+      };
+
       const renderCalendar = (runs) => {
         const calendarGrid = document.getElementById("calendarGrid");
         const calendarRuns = document.getElementById("calendarRuns");
@@ -575,7 +584,7 @@
         const daysInMonth = new Date(year, month + 1, 0).getDate();
 
         const runByDay = runs.reduce((acc, run) => {
-          const dateKey = (run.displayDate || run.startedAt).split(",")[0];
+          const dateKey = dateKeyFromIso(run.startedAt);
           if (!acc[dateKey]) acc[dateKey] = [];
           acc[dateKey].push(run);
           return acc;
@@ -586,13 +595,11 @@
           calendarGrid.appendChild(document.createElement("div"));
         }
 
-        const dayKeys = [];
         for (let day = 1; day <= daysInMonth; day += 1) {
           const cell = document.createElement("div");
           cell.className = "calendar-cell";
           const date = new Date(year, month, day);
-          const key = date.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
-          dayKeys.push(key);
+          const key = dateKeyFromIso(date.toISOString());
           const runsForDay = runByDay[key] || [];
           const avgRate = runsForDay.length
             ? Math.round(runsForDay.reduce((sum, r) => sum + (r.passRate ?? formatRate(r.summary)), 0) / runsForDay.length)
