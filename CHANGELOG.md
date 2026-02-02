@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.4] - 2026-02-02
+### UI change
+- Improved dashboard UI layout and error details view.
+### Minor change
+- Fixed module grouping for report entries.
+
+## [0.1.3] - 2026-02-02
+### Minor change
+- Moved GitHub Pages dashboard output to `/docs` for Pages compatibility.
+
 ## [0.1.2] - 2026-02-02
 ### Minor change
 - Added dashboard generation, run history, and export files for GitHub Pages.

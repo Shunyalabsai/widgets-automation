@@ -5,74 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Shunyalabs Widget Automation Dashboard</title>
     <style>
-      body { font-family: Inter, system-ui, Arial, sans-serif; margin: 24px; color: #111; }
-      h1 { margin-bottom: 8px; }
-      .meta { color: #666; font-size: 14px; margin-bottom: 24px; }
-      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-      .card { border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px 16px; }
-      .badge { padding: 2px 8px; border-radius: 999px; font-size: 12px; }
-      .passed { background: #e7f7ed; color: #1f7a3c; }
-      .failed { background: #feeceb; color: #b42318; }
-      .skipped { background: #f2f4f7; color: #667085; }
-      table { width: 100%; border-collapse: collapse; margin-top: 12px; }
-      th, td { text-align: left; padding: 8px; border-bottom: 1px solid #eee; font-size: 14px; }
-      .filters button { margin-right: 8px; }
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #0f172a;
+        --muted: #64748b;
+        --accent: #2563eb;
+        --pass-bg: #ecfdf3;
+        --pass-text: #166534;
+        --fail-bg: #feeceb;
+        --fail-text: #b42318;
+        --skip-bg: #f1f5f9;
+        --skip-text: #475569;
+      }
+      body { font-family: Inter, system-ui, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
+      header { padding: 24px 32px; background: #0f172a; color: #fff; }
+      header h1 { margin: 0 0 6px; font-size: 24px; }
+      header p { margin: 0; color: #cbd5f5; font-size: 14px; }
+      main { padding: 24px 32px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+      .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04); }
+      .card h2 { margin: 0 0 12px; font-size: 18px; }
+      .stat-label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+      .stat-value { font-size: 20px; font-weight: 600; margin-top: 6px; }
+      .badge { padding: 2px 8px; border-radius: 999px; font-size: 12px; text-transform: capitalize; }
+      .passed { background: var(--pass-bg); color: var(--pass-text); }
+      .failed { background: var(--fail-bg); color: var(--fail-text); }
+      .skipped { background: var(--skip-bg); color: var(--skip-text); }
+      table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+      th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); font-size: 14px; }
+      th { color: var(--muted); font-weight: 600; }
+      .filters { margin-bottom: 12px; }
+      .filters button { margin-right: 8px; border: 1px solid var(--border); background: #fff; padding: 6px 12px; border-radius: 999px; cursor: pointer; font-size: 12px; }
+      .filters button:hover { border-color: var(--accent); color: var(--accent); }
       .tests { margin-top: 24px; }
-      .attachments a { margin-right: 8px; }
+      .test-card { margin-bottom: 12px; }
+      .attachments a { margin-right: 8px; font-size: 12px; color: var(--accent); text-decoration: none; }
       .history { margin-top: 24px; }
       .history li { margin-bottom: 8px; }
-      .muted { color: #666; }
+      .muted { color: var(--muted); }
       .small { font-size: 12px; }
+      details { margin-top: 8px; }
+      summary { cursor: pointer; color: var(--accent); font-size: 12px; }
+      pre { background: #0f172a; color: #e2e8f0; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12px; }
     </style>
   </head>
   <body>
-    <h1>Automation Dashboard</h1>
-    <div class="meta">Shunyalabs widget automation reports</div>
+    <header>
+      <h1>Automation Dashboard</h1>
+      <p>Shunyalabs widget automation reports</p>
+    </header>
 
-    <div class="grid" id="summaryCards"></div>
+    <main>
+      <div class="grid" id="summaryCards"></div>
 
-    <div class="card">
-      <h2>Module breakdown</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Module</th>
-            <th>Total</th>
-            <th>Passed</th>
-            <th>Failed</th>
-            <th>Skipped</th>
-          </tr>
-        </thead>
-        <tbody id="moduleRows"></tbody>
-      </table>
-    </div>
-
-    <div class="card tests">
-      <h2>Tests</h2>
-      <div class="filters">
-        <button data-filter="all">All</button>
-        <button data-filter="passed">Passed</button>
-        <button data-filter="failed">Failed</button>
-        <button data-filter="skipped">Skipped</button>
+      <div class="card">
+        <h2>Module breakdown</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Module</th>
+              <th>Total</th>
+              <th>Passed</th>
+              <th>Failed</th>
+              <th>Skipped</th>
+            </tr>
+          </thead>
+          <tbody id="moduleRows"></tbody>
+        </table>
       </div>
-      <div id="testsList"></div>
-    </div>
 
-    <div class="card history">
-      <h2>Run history</h2>
-      <ul id="historyList"></ul>
-      <div class="small muted">History retains the last 100 runs.</div>
-    </div>
+      <div class="card tests">
+        <h2>Tests</h2>
+        <div class="filters">
+          <button data-filter="all">All</button>
+          <button data-filter="passed">Passed</button>
+          <button data-filter="failed">Failed</button>
+          <button data-filter="skipped">Skipped</button>
+        </div>
+        <div id="testsList"></div>
+      </div>
 
-    <div class="card">
-      <h2>Exports</h2>
-      <ul>
-        <li><a href="./exports/current-run.csv">Current run (CSV)</a></li>
-        <li><a href="./exports/all-runs-summary.csv">All runs summary (CSV)</a></li>
-        <li><a href="./history/runs.json">All runs full data (JSON)</a></li>
-        <li><a href="./data/latest.json">Current run (JSON)</a></li>
-      </ul>
-    </div>
+      <div class="card history">
+        <h2>Run history</h2>
+        <ul id="historyList"></ul>
+        <div class="small muted">History retains the last 100 runs.</div>
+      </div>
+
+      <div class="card">
+        <h2>Exports</h2>
+        <ul>
+          <li><a href="./exports/current-run.csv">Current run (CSV)</a></li>
+          <li><a href="./exports/all-runs-summary.csv">All runs summary (CSV)</a></li>
+          <li><a href="./history/runs.json">All runs full data (JSON)</a></li>
+          <li><a href="./data/latest.json">Current run (JSON)</a></li>
+        </ul>
+      </div>
+    </main>
 
     <script>
       const statusBadge = (status) => {
@@ -90,7 +120,7 @@
           { label: "Duration (ms)", value: run.durationMs },
         ];
         document.getElementById("summaryCards").innerHTML = cards
-          .map((card) => '<div class="card"><div class="muted small">' + card.label + '</div><div>' + card.value + '</div></div>')
+          .map((card) => '<div class="card"><div class="stat-label">' + card.label + '</div><div class="stat-value">' + card.value + '</div></div>')
           .join("");
       };
 
@@ -105,10 +135,10 @@
         const filtered = filter === "all" ? tests : tests.filter((test) => test.status === filter);
         const items = filtered.map((test) => {
           const attachments = (test.attachments || []).map((attachment) => '<a href="./' + attachment.path + '">' + attachment.name + '</a>').join(" ");
-          return '<div class="card"><div><strong>' + test.moduleLabel + '</strong> - ' + test.title + '</div>'
+          return '<div class="card test-card"><div><strong>' + test.moduleLabel + '</strong> - ' + test.title + '</div>'
             + '<div class="small muted">' + test.file + '</div>'
             + '<div>Status: ' + statusBadge(test.status) + ' | ' + test.durationMs + ' ms</div>'
-            + (test.error ? '<div class="small">Error: ' + test.error + '</div>' : '')
+            + (test.error ? '<details><summary>View error</summary><pre>' + test.error + '</pre></details>' : '')
             + (attachments ? '<div class="attachments small">Artifacts: ' + attachments + '</div>' : '')
             + '</div>';
         });

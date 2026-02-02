@@ -51,22 +51,22 @@ tests/data/stt/saira-mix.opus
 After each `npm test`, a static dashboard is generated in:
 
 ```
-dashboard/
+docs/
 ```
 
 Files of interest:
 
-- `dashboard/index.html` (main dashboard)
-- `dashboard/history/runs.json` (full run history, last 100)
-- `dashboard/data/latest.json` (current run details)
-- `dashboard/exports/current-run.csv` (current run CSV)
+- `docs/index.html` (main dashboard)
+- `docs/history/runs.json` (full run history, last 100)
+- `docs/data/latest.json` (current run details)
+- `docs/exports/current-run.csv` (current run CSV)
 
 ### Publish to GitHub Pages
 
-1. Commit the `dashboard/` folder.
+1. Commit the `docs/` folder.
 2. In GitHub → Settings → Pages:
    - Source: Deploy from a branch
-   - Branch: `main` (or `master`) and folder `/dashboard`
+   - Branch: `saira-widgets` and folder `/docs`
 3. Your dashboard will be available at:
 
 ```

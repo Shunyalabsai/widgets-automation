@@ -4,7 +4,7 @@ const crypto = require("crypto");
 
 const ROOT = path.resolve(__dirname, "..");
 const REPORT_JSON = path.join(ROOT, "reports", "playwright-report.json");
-const DASHBOARD_DIR = path.join(ROOT, "dashboard");
+const DASHBOARD_DIR = path.join(ROOT, "docs");
 const HISTORY_DIR = path.join(DASHBOARD_DIR, "history");
 const DATA_DIR = path.join(DASHBOARD_DIR, "data");
 const EXPORTS_DIR = path.join(DASHBOARD_DIR, "exports");
@@ -22,8 +22,10 @@ function normalizePath(filePath) {
 function moduleFromFile(filePath) {
   const normalized = normalizePath(filePath);
   const match = normalized.match(/\/tests\/([^/]+)\//);
-  if (!match) return "unknown";
-  return match[1];
+  if (match) return match[1];
+  const directMatch = normalized.match(/^([^/]+)\//);
+  if (directMatch) return directMatch[1];
+  return "unknown";
 }
 
 function moduleLabel(moduleName) {
