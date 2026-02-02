@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shunyalabs Widget Automation Dashboard</title>
+    <style>
+      body { font-family: Inter, system-ui, Arial, sans-serif; margin: 24px; color: #111; }
+      h1 { margin-bottom: 8px; }
+      .meta { color: #666; font-size: 14px; margin-bottom: 24px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+      .card { border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px 16px; }
+      .badge { padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+      .passed { background: #e7f7ed; color: #1f7a3c; }
+      .failed { background: #feeceb; color: #b42318; }
+      .skipped { background: #f2f4f7; color: #667085; }
+      table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+      th, td { text-align: left; padding: 8px; border-bottom: 1px solid #eee; font-size: 14px; }
+      .filters button { margin-right: 8px; }
+      .tests { margin-top: 24px; }
+      .attachments a { margin-right: 8px; }
+      .history { margin-top: 24px; }
+      .history li { margin-bottom: 8px; }
+      .muted { color: #666; }
+      .small { font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>Automation Dashboard</h1>
+    <div class="meta">Shunyalabs widget automation reports</div>
+
+    <div class="grid" id="summaryCards"></div>
+
+    <div class="card">
+      <h2>Module breakdown</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Total</th>
+            <th>Passed</th>
+            <th>Failed</th>
+            <th>Skipped</th>
+          </tr>
+        </thead>
+        <tbody id="moduleRows"></tbody>
+      </table>
+    </div>
+
+    <div class="card tests">
+      <h2>Tests</h2>
+      <div class="filters">
+        <button data-filter="all">All</button>
+        <button data-filter="passed">Passed</button>
+        <button data-filter="failed">Failed</button>
+        <button data-filter="skipped">Skipped</button>
+      </div>
+      <div id="testsList"></div>
+    </div>
+
+    <div class="card history">
+      <h2>Run history</h2>
+      <ul id="historyList"></ul>
+      <div class="small muted">History retains the last 100 runs.</div>
+    </div>
+
+    <div class="card">
+      <h2>Exports</h2>
+      <ul>
+        <li><a href="./exports/current-run.csv">Current run (CSV)</a></li>
+        <li><a href="./exports/all-runs-summary.csv">All runs summary (CSV)</a></li>
+        <li><a href="./history/runs.json">All runs full data (JSON)</a></li>
+        <li><a href="./data/latest.json">Current run (JSON)</a></li>
+      </ul>
+    </div>
+
+    <script>
+      const statusBadge = (status) => {
+        const cls = status === "passed" ? "passed" : status === "failed" ? "failed" : "skipped";
+        return '<span class="badge ' + cls + '">' + status + '</span>';
+      };
+
+      const renderSummary = (run) => {
+        const summary = run.summary;
+        const cards = [
+          { label: "Total", value: summary.total },
+          { label: "Passed", value: summary.passed },
+          { label: "Failed", value: summary.failed },
+          { label: "Skipped", value: summary.skipped },
+          { label: "Duration (ms)", value: run.durationMs },
+        ];
+        document.getElementById("summaryCards").innerHTML = cards
+          .map((card) => '<div class="card"><div class="muted small">' + card.label + '</div><div>' + card.value + '</div></div>')
+          .join("");
+      };
+
+      const renderModules = (modules) => {
+        const rows = Object.entries(modules).map(([moduleName, stats]) => {
+          return '<tr><td>' + moduleName + '</td><td>' + stats.total + '</td><td>' + stats.passed + '</td><td>' + stats.failed + '</td><td>' + stats.skipped + '</td></tr>';
+        });
+        document.getElementById("moduleRows").innerHTML = rows.join("");
+      };
+
+      const renderTests = (tests, filter) => {
+        const filtered = filter === "all" ? tests : tests.filter((test) => test.status === filter);
+        const items = filtered.map((test) => {
+          const attachments = (test.attachments || []).map((attachment) => '<a href="./' + attachment.path + '">' + attachment.name + '</a>').join(" ");
+          return '<div class="card"><div><strong>' + test.moduleLabel + '</strong> - ' + test.title + '</div>'
+            + '<div class="small muted">' + test.file + '</div>'
+            + '<div>Status: ' + statusBadge(test.status) + ' | ' + test.durationMs + ' ms</div>'
+            + (test.error ? '<div class="small">Error: ' + test.error + '</div>' : '')
+            + (attachments ? '<div class="attachments small">Artifacts: ' + attachments + '</div>' : '')
+            + '</div>';
+        });
+        document.getElementById("testsList").innerHTML = items.join("");
+      };
+
+      const renderHistory = (runs) => {
+        const items = runs.map((run) => {
+          const passRate = run.summary.total ? Math.round((run.summary.passed / run.summary.total) * 100) : 0;
+          return '<li><strong>' + run.startedAt + '</strong> - ' + run.summary.passed + '/' + run.summary.total + ' passed (' + passRate + '%)</li>';
+        });
+        document.getElementById("historyList").innerHTML = items.join("");
+      };
+
+      const attachFilters = (tests) => {
+        document.querySelectorAll(".filters button").forEach((btn) => {
+          btn.addEventListener("click", () => renderTests(tests, btn.dataset.filter));
+        });
+      };
+
+      Promise.all([
+        fetch("./data/latest.json").then((res) => res.json()),
+        fetch("./history/runs.json").then((res) => res.json()),
+      ]).then(([latest, history]) => {
+        renderSummary(latest);
+        renderModules(latest.modules);
+        renderTests(latest.tests, "all");
+        attachFilters(latest.tests);
+        renderHistory(history);
+      }).catch((error) => {
+        document.body.innerHTML = '<h1>Dashboard data missing</h1><p>' + error + '</p>';
+      });
+    </script>
+  </body>
+</html>
