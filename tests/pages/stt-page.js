@@ -29,7 +29,6 @@ class SttPage {
 
   async waitForTranscriptReady(timeoutMs = 90_000) {
     await this.transcriptRows.first().waitFor({ timeout: timeoutMs });
-    await this.speakerLabels.first().waitFor({ timeout: timeoutMs });
   }
 
   async waitForTranscriptLine({
@@ -52,9 +51,12 @@ class SttPage {
     await content.click();
   }
 
-  async clickSpeakerLabels() {
-    await this.page.getByText(/Speaker\s*1/i).click();
-    await this.page.getByText(/Speaker\s*2/i).click();
+  async clickSpeakerLabels(timeoutMs = 90_000) {
+    const speakerLabels = this.page.getByText(/Speaker\s*\d/i);
+    await speakerLabels.first().waitFor({ timeout: timeoutMs });
+    await speakerLabels.nth(1).waitFor({ timeout: timeoutMs });
+    await speakerLabels.first().click();
+    await speakerLabels.nth(1).click();
   }
 
   async clickFirstTranscriptRow() {
