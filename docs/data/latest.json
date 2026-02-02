@@ -1,83 +1,51 @@
 {
-  "id": "3a690615-8d2e-4e63-910e-31c15372da53",
-  "startedAt": "2026-02-02T12:58:31.478Z",
-  "durationMs": 192523,
+  "id": "240d0305-b8c3-48a1-b59e-ddd3761cbf44",
+  "startedAt": "2026-02-02T12:59:26.647Z",
+  "durationMs": 8,
   "summary": {
     "total": 3,
-    "passed": 1,
-    "failed": 1,
+    "passed": 0,
+    "failed": 3,
     "skipped": 0,
-    "timedOut": 1
+    "timedOut": 0
   },
   "modules": {
     "unknown": {
       "total": 3,
-      "passed": 1,
-      "failed": 1,
+      "passed": 0,
+      "failed": 3,
       "skipped": 0,
-      "timedOut": 1
+      "timedOut": 0
     }
   },
   "tests": [
     {
       "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
       "status": "failed",
-      "durationMs": 94488,
+      "durationMs": 5,
       "file": "stt/podcast.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/3a690615-8d2e-4e63-910e-31c15372da53/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/3a690615-8d2e-4e63-910e-31c15372da53/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/3a690615-8d2e-4e63-910e-31c15372da53/error-context-2.md"
-        }
-      ],
-      "error": "TimeoutError: locator.waitFor: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Speaker 1').first() to be visible\u001b[22m\n",
+      "attachments": [],
+      "error": "Error: browserType.launch: Executable doesn't exist at /var/folders/f1/r2qgmfsj1qsb8pv0727yldmm0000gn/T/cursor-sandbox-cache/712e21a0a55d450c4393ec043eee7984/playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
       "module": "unknown",
       "moduleLabel": "Unknown"
     },
     {
       "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
-      "status": "timedOut",
-      "durationMs": 90210,
+      "status": "failed",
+      "durationMs": 1,
       "file": "stt/prerecorded.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/3a690615-8d2e-4e63-910e-31c15372da53/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/3a690615-8d2e-4e63-910e-31c15372da53/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/3a690615-8d2e-4e63-910e-31c15372da53/error-context-2.md"
-        }
-      ],
-      "error": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+      "attachments": [],
+      "error": "Error: browserType.launch: Executable doesn't exist at /var/folders/f1/r2qgmfsj1qsb8pv0727yldmm0000gn/T/cursor-sandbox-cache/712e21a0a55d450c4393ec043eee7984/playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
       "module": "unknown",
       "moduleLabel": "Unknown"
     },
     {
       "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
-      "status": "passed",
-      "durationMs": 7825,
+      "status": "failed",
+      "durationMs": 2,
       "file": "stt/upload.spec.js",
       "attachments": [],
-      "error": "",
+      "error": "Error: browserType.launch: Executable doesn't exist at /var/folders/f1/r2qgmfsj1qsb8pv0727yldmm0000gn/T/cursor-sandbox-cache/712e21a0a55d450c4393ec043eee7984/playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
       "module": "unknown",
       "moduleLabel": "Unknown"
     }
