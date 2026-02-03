@@ -21,8 +21,6 @@ test.describe("STT module", () => {
 
     await sttPage.startSpeaking();
     await sttPage.tryWaitForRecordingState(10_000);
-    await sttPage.tryStopSpeaking();
-    await sttPage.waitForProcessingState(120_000);
 
     const audioPath = path.join(
       __dirname,
@@ -33,6 +31,7 @@ test.describe("STT module", () => {
     );
     await sttPage.uploadAudioFile(audioPath);
     await sttPage.waitForUploadProcessing(180_000);
+    await sttPage.waitForProcessingState(120_000);
 
     const expectedPath = path.join(
       __dirname,
