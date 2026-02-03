@@ -46,11 +46,12 @@ test.describe("STT module", () => {
     const durationSeconds = getAudioDurationSeconds(audioPath) ?? 45;
     await page.waitForTimeout(Math.ceil(durationSeconds * 1000) + 1500);
     await sttPage.stopSpeaking();
-    await sttPage.waitForProcessingState(120_000);
+    await sttPage.tryWaitForProcessingState(30_000);
 
     await sttPage.uploadAudioFile(audioPath);
     await sttPage.waitForUploadProcessing(180_000);
-    await sttPage.waitForProcessingState(120_000);
+    await sttPage.tryWaitForProcessingState(30_000);
+    await sttPage.waitForTranscriptReady(180_000);
 
     const expectedPath = path.join(
       __dirname,

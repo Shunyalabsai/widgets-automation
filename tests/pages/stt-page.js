@@ -122,6 +122,15 @@ class SttPage {
     });
   }
 
+  async tryWaitForProcessingState(timeoutMs = 30_000) {
+    try {
+      await this.waitForProcessingState(timeoutMs);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   async tryWaitForRecordingState(timeoutMs = 10_000) {
     try {
       await this.waitForRecordingState(timeoutMs);
