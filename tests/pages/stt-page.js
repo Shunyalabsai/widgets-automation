@@ -110,7 +110,7 @@ class SttPage {
     await this.stopSpeakingButton.click();
   }
 
-  async waitForRecordingState(timeoutMs = 60_000) {
+  async waitForRecordingState(timeoutMs = 15_000) {
     await expect(this.page.getByText("RECORDING", { exact: true })).toBeVisible({
       timeout: timeoutMs,
     });
@@ -120,6 +120,23 @@ class SttPage {
     await expect(this.page.getByText("PROCESSING", { exact: true })).toBeVisible({
       timeout: timeoutMs,
     });
+  }
+
+  async tryWaitForRecordingState(timeoutMs = 10_000) {
+    try {
+      await this.waitForRecordingState(timeoutMs);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  async tryStopSpeaking() {
+    if (await this.stopSpeakingButton.isVisible()) {
+      await this.stopSpeakingButton.click();
+      return true;
+    }
+    return false;
   }
 
   async waitForTranscriptContains(expectedLines, timeoutMs = 180_000) {

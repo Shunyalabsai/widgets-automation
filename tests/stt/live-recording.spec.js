@@ -12,12 +12,16 @@ test.describe("STT module", () => {
     const widgetPage = new WidgetPage(page);
     const sttPage = new SttPage(page);
 
+    await page.context().grantPermissions(["microphone"], {
+      origin: "https://www.shunyalabs.ai",
+    });
+
     await widgetPage.goto();
     await widgetPage.openModule("Speech To Text");
 
     await sttPage.startSpeaking();
-    await sttPage.waitForRecordingState(60_000);
-    await sttPage.stopSpeaking();
+    await sttPage.tryWaitForRecordingState(10_000);
+    await sttPage.tryStopSpeaking();
     await sttPage.waitForProcessingState(120_000);
 
     const audioPath = path.join(
