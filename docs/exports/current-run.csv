@@ -1,28 +1,7 @@
 id,module,status,durationMs,title,file,error
-240d0305-b8c3-48a1-b59e-ddd3761cbf44,Unknown,failed,5,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,"Error: browserType.launch: Executable doesn't exist at /var/folders/f1/r2qgmfsj1qsb8pv0727yldmm0000gn/T/cursor-sandbox-cache/712e21a0a55d450c4393ec043eee7984/playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell
-╔═════════════════════════════════════════════════════════════════════════╗
-║ Looks like Playwright Test or Playwright was just installed or updated. ║
-║ Please run the following command to download new browsers:              ║
-║                                                                         ║
-║     npx playwright install                                              ║
-║                                                                         ║
-║ <3 Playwright Team                                                      ║
-╚═════════════════════════════════════════════════════════════════════════╝"
-240d0305-b8c3-48a1-b59e-ddd3761cbf44,Unknown,failed,1,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,"Error: browserType.launch: Executable doesn't exist at /var/folders/f1/r2qgmfsj1qsb8pv0727yldmm0000gn/T/cursor-sandbox-cache/712e21a0a55d450c4393ec043eee7984/playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell
-╔═════════════════════════════════════════════════════════════════════════╗
-║ Looks like Playwright Test or Playwright was just installed or updated. ║
-║ Please run the following command to download new browsers:              ║
-║                                                                         ║
-║     npx playwright install                                              ║
-║                                                                         ║
-║ <3 Playwright Team                                                      ║
-╚═════════════════════════════════════════════════════════════════════════╝"
-240d0305-b8c3-48a1-b59e-ddd3761cbf44,Unknown,failed,2,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,"Error: browserType.launch: Executable doesn't exist at /var/folders/f1/r2qgmfsj1qsb8pv0727yldmm0000gn/T/cursor-sandbox-cache/712e21a0a55d450c4393ec043eee7984/playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell
-╔═════════════════════════════════════════════════════════════════════════╗
-║ Looks like Playwright Test or Playwright was just installed or updated. ║
-║ Please run the following command to download new browsers:              ║
-║                                                                         ║
-║     npx playwright install                                              ║
-║                                                                         ║
-║ <3 Playwright Team                                                      ║
-╚═════════════════════════════════════════════════════════════════════════╝"
+ce963214-0f28-4772-8467-7b9fdc64b1a6,STT,failed,94733,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,"TimeoutError: locator.waitFor: Timeout 90000ms exceeded.
+Call log:
+[2m  - waiting for getByText('Speaker 1').first() to be visible[22m
+"
+ce963214-0f28-4772-8467-7b9fdc64b1a6,STT,timedOut,90190,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,[31mTest timeout of 90000ms exceeded.[39m
+ce963214-0f28-4772-8467-7b9fdc64b1a6,STT,passed,6537,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,
