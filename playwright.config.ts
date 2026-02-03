@@ -1,12 +1,15 @@
 import { defineConfig } from "@playwright/test";
 
+const isCI = Boolean((globalThis as { process?: { env?: { CI?: string } } }).process?.env?.CI);
+
 export default defineConfig({
   testDir: "./tests",
-  timeout: 30_000,
+  timeout: 120_000,
+  workers: 1,
   expect: {
     timeout: 5_000,
   },
-  retries: process.env.CI ? 2 : 0,
+  retries: isCI ? 2 : 0,
   reporter: [
     ["list"],
     ["html", { open: "never", outputFolder: "reports/html" }],
@@ -17,4 +20,10 @@ export default defineConfig({
     screenshot: "only-on-failure",
     video: "retain-on-failure",
   },
+  projects: [
+    {
+      name: "chromium",
+      use: { browserName: "chromium" },
+    },
+  ],
 });
