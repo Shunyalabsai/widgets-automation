@@ -9,7 +9,7 @@ export default defineConfig({
   expect: {
     timeout: 5_000,
   },
-  retries: isCI ? 2 : 0,
+  retries: 1,
   reporter: [
     ["list"],
     ["html", { open: "never", outputFolder: "reports/html" }],
