@@ -167,6 +167,40 @@ class SttPage {
       { timeout: timeoutMs },
     );
   }
+
+  async waitForTranscriptSummary({
+    keyPhrases,
+    speakerCount,
+    timeoutMs = 180_000,
+  }) {
+    await this.page.waitForFunction(
+      (params) => {
+        const rows = Array.from(
+          document.querySelectorAll(".flex.items-center.space-x-2"),
+        );
+        const normalize = (value) =>
+          value
+            .toLowerCase()
+            .replace(/[^a-z0-9\s]/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+        const text = normalize(rows.map((row) => row.textContent || "").join(" "));
+        const speakers = new Set();
+        rows.forEach((row) => {
+          const match = (row.textContent || "").match(/Speaker\s*\d/gi);
+          if (match) match.forEach((item) => speakers.add(item.toLowerCase()));
+        });
+        const phrasesOk = params.keyPhrases.every((line) =>
+          text.includes(normalize(line)),
+        );
+        const speakersOk =
+          !params.speakerCount || speakers.size >= params.speakerCount;
+        return phrasesOk && speakersOk;
+      },
+      { keyPhrases, speakerCount },
+      { timeout: timeoutMs },
+    );
+  }
 }
 
 module.exports = { SttPage };

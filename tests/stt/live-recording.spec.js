@@ -61,7 +61,11 @@ test.describe("STT module", () => {
       "live-recording-expected.json",
     );
     const expected = JSON.parse(fs.readFileSync(expectedPath, "utf8"));
-    await sttPage.waitForTranscriptContains(expected.lines, 180_000);
+    await sttPage.waitForTranscriptSummary({
+      keyPhrases: expected.keyPhrases,
+      speakerCount: expected.speakerCount,
+      timeoutMs: 180_000,
+    });
 
     await sttPage.assertCopyAvailable();
     await sttPage.copyConversation();
