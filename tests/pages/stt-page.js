@@ -193,8 +193,9 @@ class SttPage {
         const phrasesOk = params.keyPhrases.every((line) =>
           text.includes(normalize(line)),
         );
-        const speakersOk =
-          !params.speakerCount || speakers.size >= params.speakerCount;
+        const speakersOk = params.speakerCount
+          ? speakers.size === params.speakerCount
+          : speakers.size > 0;
         return phrasesOk && speakersOk;
       },
       { keyPhrases, speakerCount },
