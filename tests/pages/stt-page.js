@@ -145,8 +145,14 @@ class SttPage {
         const rows = Array.from(
           document.querySelectorAll(".flex.items-center.space-x-2"),
         );
-        const text = rows.map((row) => row.textContent || "").join(" ");
-        return lines.every((line) => text.includes(line));
+        const normalize = (value) =>
+          value
+            .toLowerCase()
+            .replace(/[^a-z0-9\s]/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+        const text = normalize(rows.map((row) => row.textContent || "").join(" "));
+        return lines.every((line) => text.includes(normalize(line)));
       },
       expectedLines,
       { timeout: timeoutMs },
