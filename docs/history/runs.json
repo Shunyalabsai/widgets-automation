@@ -1,5 +1,94 @@
 [
   {
+    "id": "1ea24ef2-c044-41d7-90d5-8cd904587f4d",
+    "startedAt": "2026-02-03T09:12:01.479Z",
+    "durationMs": 191932,
+    "summary": {
+      "total": 3,
+      "passed": 1,
+      "failed": 2,
+      "skipped": 0,
+      "timedOut": 0
+    },
+    "passRate": 33,
+    "displayTimestamp": "Feb 3, 2026, 2:42:01 PM",
+    "displayDate": "Tuesday, February 3, 2026",
+    "displayTime": "2:42:01 PM",
+    "modules": {
+      "stt": {
+        "total": 3,
+        "passed": 1,
+        "failed": 2,
+        "skipped": 0,
+        "timedOut": 0
+      }
+    },
+    "tests": [
+      {
+        "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
+        "status": "failed",
+        "durationMs": 94057,
+        "file": "stt/podcast.spec.js",
+        "attachments": [
+          {
+            "name": "screenshot",
+            "contentType": "image/png",
+            "path": "playwright-artifacts/1ea24ef2-c044-41d7-90d5-8cd904587f4d/screenshot-0.png"
+          },
+          {
+            "name": "video",
+            "contentType": "video/webm",
+            "path": "playwright-artifacts/1ea24ef2-c044-41d7-90d5-8cd904587f4d/video-1.webm"
+          },
+          {
+            "name": "error-context",
+            "contentType": "text/markdown",
+            "path": "playwright-artifacts/1ea24ef2-c044-41d7-90d5-8cd904587f4d/error-context-2.md"
+          }
+        ],
+        "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Speaker 1').first()\nExpected: visible\nTimeout: 90000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 90000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Speaker 1').first()\u001b[22m\n",
+        "module": "stt",
+        "moduleLabel": "STT"
+      },
+      {
+        "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
+        "status": "failed",
+        "durationMs": 92468,
+        "file": "stt/prerecorded.spec.js",
+        "attachments": [
+          {
+            "name": "screenshot",
+            "contentType": "image/png",
+            "path": "playwright-artifacts/1ea24ef2-c044-41d7-90d5-8cd904587f4d/screenshot-0.png"
+          },
+          {
+            "name": "video",
+            "contentType": "video/webm",
+            "path": "playwright-artifacts/1ea24ef2-c044-41d7-90d5-8cd904587f4d/video-1.webm"
+          },
+          {
+            "name": "error-context",
+            "contentType": "text/markdown",
+            "path": "playwright-artifacts/1ea24ef2-c044-41d7-90d5-8cd904587f4d/error-context-2.md"
+          }
+        ],
+        "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByText(/Speaker\\s*\\d/i)\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  90000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 90000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Speaker\\s*\\d/i)\u001b[22m\n\u001b[2m    93 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+        "module": "stt",
+        "moduleLabel": "STT"
+      },
+      {
+        "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
+        "status": "passed",
+        "durationMs": 5407,
+        "file": "stt/upload.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "stt",
+        "moduleLabel": "STT"
+      }
+    ]
+  },
+  {
     "id": "ce963214-0f28-4772-8467-7b9fdc64b1a6",
     "startedAt": "2026-02-03T05:53:26.833Z",
     "durationMs": 191460,
