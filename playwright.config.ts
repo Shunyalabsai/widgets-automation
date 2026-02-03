@@ -16,7 +16,7 @@ export default defineConfig({
     ["json", { outputFile: "reports/playwright-report.json" }],
   ],
   use: {
-    trace: "on-first-retry",
+    trace: "off",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
   },
