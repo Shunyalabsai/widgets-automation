@@ -1,8 +1,22 @@
 const { test } = require("@playwright/test");
 const path = require("path");
 const fs = require("fs");
+const { execSync } = require("child_process");
 const { WidgetPage } = require("../pages/widget-page");
 const { SttPage } = require("../pages/stt-page");
+
+function getAudioDurationSeconds(filePath) {
+  try {
+    const output = execSync(
+      `ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "${filePath}"`,
+      { encoding: "utf8" },
+    ).trim();
+    const value = Number.parseFloat(output);
+    return Number.isFinite(value) ? value : null;
+  } catch {
+    return null;
+  }
+}
 
 test.describe("STT module", () => {
   test("simulated live recording uses file and verifies transcript", async ({
@@ -29,6 +43,11 @@ test.describe("STT module", () => {
       "stt",
       "live-recording.opus",
     );
+    const durationSeconds = getAudioDurationSeconds(audioPath) ?? 45;
+    await page.waitForTimeout(Math.ceil(durationSeconds * 1000) + 1500);
+    await sttPage.stopSpeaking();
+    await sttPage.waitForProcessingState(120_000);
+
     await sttPage.uploadAudioFile(audioPath);
     await sttPage.waitForUploadProcessing(180_000);
     await sttPage.waitForProcessingState(120_000);
