@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.7] - 2026-02-02
+### Minor change
+- Added simulated live-recording STT test with expected transcript fixture.
+
+## [0.1.6] - 2026-02-02
+### Fix
+- Reduced STT flakiness with longer timeouts and stronger transcript waits.
+
 ## [0.1.5] - 2026-02-02
 ### UI change
 - Rebuilt dashboard UI with tabs, charts, and modal details.

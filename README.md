@@ -39,6 +39,13 @@ Example file referenced by tests:
 tests/data/stt/saira-mix.opus
 ```
 
+Live-recording simulation uses:
+
+```
+tests/data/stt/live-recording.opus
+tests/data/stt/live-recording-expected.json
+```
+
 ## Run tests
 
 - `npm test` (runs tests + dashboard generation)

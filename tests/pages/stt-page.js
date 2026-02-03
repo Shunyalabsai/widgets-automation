@@ -6,6 +6,8 @@ class SttPage {
     this.playButton = page.getByRole("button", { name: /Play audio/i });
     this.pauseButton = page.getByRole("button", { name: /Pause audio/i });
     this.copyButton = page.getByRole("button", { name: /Copy Conversation/i });
+    this.startSpeakingButton = page.getByRole("button", { name: /Start Speaking/i });
+    this.stopSpeakingButton = page.getByRole("button", { name: /Stop/i });
     this.transcriptRows = page.locator(".flex.items-center.space-x-2");
     this.speakerLabels = page.getByText(/Speaker\s*\d/i);
     this.uploadButton = page.getByRole("button", { name: /Upload your file/i });
@@ -28,7 +30,13 @@ class SttPage {
   }
 
   async waitForTranscriptReady(timeoutMs = 90_000) {
-    await this.transcriptRows.first().waitFor({ timeout: timeoutMs });
+    await this.page.waitForFunction(
+      (minRows) =>
+        document.querySelectorAll(".flex.items-center.space-x-2").length >=
+        minRows,
+      1,
+      { timeout: timeoutMs },
+    );
   }
 
   async waitForTranscriptLine({
@@ -39,22 +47,21 @@ class SttPage {
     timeoutMs = 90_000,
   }) {
     const speaker = this.page.getByText(speakerText).nth(speakerIndex);
-    await speaker.waitFor({ timeout: timeoutMs });
+    await expect(speaker).toBeVisible({ timeout: timeoutMs });
     await speaker.click();
 
     const time = this.page.getByText(timeText);
-    await time.waitFor({ timeout: timeoutMs });
+    await expect(time).toBeVisible({ timeout: timeoutMs });
     await time.click();
 
     const content = this.page.getByText(contentText);
-    await content.waitFor({ timeout: timeoutMs });
+    await expect(content).toBeVisible({ timeout: timeoutMs });
     await content.click();
   }
 
   async clickSpeakerLabels(timeoutMs = 90_000) {
     const speakerLabels = this.page.getByText(/Speaker\s*\d/i);
-    await speakerLabels.first().waitFor({ timeout: timeoutMs });
-    await speakerLabels.nth(1).waitFor({ timeout: timeoutMs });
+    await expect(speakerLabels).toHaveCount(2, { timeout: timeoutMs });
     await speakerLabels.first().click();
     await speakerLabels.nth(1).click();
   }
@@ -93,6 +100,40 @@ class SttPage {
 
   async playUploadedAudio() {
     await this.asrPlayButton.click();
+  }
+
+  async startSpeaking() {
+    await this.startSpeakingButton.click();
+  }
+
+  async stopSpeaking() {
+    await this.stopSpeakingButton.click();
+  }
+
+  async waitForRecordingState(timeoutMs = 60_000) {
+    await expect(this.page.getByText("RECORDING", { exact: true })).toBeVisible({
+      timeout: timeoutMs,
+    });
+  }
+
+  async waitForProcessingState(timeoutMs = 120_000) {
+    await expect(this.page.getByText("PROCESSING", { exact: true })).toBeVisible({
+      timeout: timeoutMs,
+    });
+  }
+
+  async waitForTranscriptContains(expectedLines, timeoutMs = 180_000) {
+    await this.page.waitForFunction(
+      (lines) => {
+        const rows = Array.from(
+          document.querySelectorAll(".flex.items-center.space-x-2"),
+        );
+        const text = rows.map((row) => row.textContent || "").join(" ");
+        return lines.every((line) => text.includes(line));
+      },
+      expectedLines,
+      { timeout: timeoutMs },
+    );
   }
 }
 
