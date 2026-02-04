@@ -46,6 +46,12 @@ tests/data/stt/live-recording.opus
 tests/data/stt/live-recording-expected.json
 ```
 
+CodeSwitch upload uses:
+
+```
+tests/data/codeswitch/saira-hinglish-mix.opus
+```
+
 ## Run tests
 
 - `npm test` (runs tests + dashboard generation)

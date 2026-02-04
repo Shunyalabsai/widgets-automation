@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.8] - 2026-02-02
+### Minor change
+- Added CodeSwitch upload test with Hinglish audio fixture.
+
 ## [0.1.7] - 2026-02-02
 ### Minor change
 - Added simulated live-recording STT test with expected transcript fixture.
