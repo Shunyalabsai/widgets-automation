@@ -17,7 +17,7 @@ test.describe("CodeSwitch module", () => {
       "..",
       "data",
       "codeswitch",
-      "saira-hinglish-mix.opus",
+      "saira-hignlish.opus",
     );
     await codeswitchPage.uploadAudioFile(audioPath);
     await codeswitchPage.waitForProcessingState(120_000);
