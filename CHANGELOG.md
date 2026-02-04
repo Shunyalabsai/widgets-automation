@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.9] - 2026-02-02
+### Minor change
+- Added CodeSwitch sample-audio test for prerecorded flow.
+
 ## [0.1.8] - 2026-02-02
 ### Minor change
 - Added CodeSwitch upload test with Hinglish audio fixture.

@@ -3,8 +3,17 @@ const { expect } = require("@playwright/test");
 class CodeswitchPage {
   constructor(page) {
     this.page = page;
+    this.playButton = page.getByRole("button", { name: /Play audio/i });
     this.uploadButton = page.getByRole("button", { name: /Upload your file/i });
     this.copyButton = page.getByRole("button", { name: /Copy Conversation/i });
+  }
+
+  async selectSampleAudio() {
+    await this.page.getByRole("button", { name: /Sample Audio/i }).click();
+  }
+
+  async playSampleAudio() {
+    await this.playButton.click();
   }
 
   async uploadAudioFile(filePath) {
