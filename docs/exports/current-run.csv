@@ -1,30 +1,8 @@
 id,module,status,durationMs,title,file,error
-7a78e853-a188-4c83-99e2-ad90842aec17,Codeswitch,passed,155519,codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers,codeswitch/live-recording.spec.js,
-7a78e853-a188-4c83-99e2-ad90842aec17,Codeswitch,timedOut,316721,codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript,codeswitch/sample-audio.spec.js,[31mTest timeout of 180000ms exceeded.[39m
-7a78e853-a188-4c83-99e2-ad90842aec17,Codeswitch,passed,7515,codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript,codeswitch/upload.spec.js,
-7a78e853-a188-4c83-99e2-ad90842aec17,STT,timedOut,182774,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,[31mTest timeout of 180000ms exceeded.[39m
-7a78e853-a188-4c83-99e2-ad90842aec17,STT,failed,93564,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
-
-Locator: getByText('Speaker 1').first()
-Expected: visible
-Timeout: 90000ms
-Error: element(s) not found
-
-Call log:
-[2m  - Expect ""toBeVisible"" with timeout 90000ms[22m
-[2m  - waiting for getByText('Speaker 1').first()[22m
-"
-7a78e853-a188-4c83-99e2-ad90842aec17,STT,failed,93330,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
-
-Locator:  getByText(/Speaker\s*\d/i)
-Expected: [32m2[39m
-Received: [31m0[39m
-Timeout:  90000ms
-
-Call log:
-[2m  - Expect ""toHaveCount"" with timeout 90000ms[22m
-[2m  - waiting for getByText(/Speaker\s*\d/i)[22m
-[2m    93 × locator resolved to 0 elements[22m
-[2m       - unexpected value ""0""[22m
-"
-7a78e853-a188-4c83-99e2-ad90842aec17,STT,passed,6194,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,
+a1f2ad29-368a-4093-9635-f0be547c0f49,Codeswitch,timedOut,1062093,codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers,codeswitch/live-recording.spec.js,[31mTest timeout of 180000ms exceeded.[39m
+a1f2ad29-368a-4093-9635-f0be547c0f49,Codeswitch,timedOut,183473,codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript,codeswitch/sample-audio.spec.js,[31mTest timeout of 180000ms exceeded.[39m
+a1f2ad29-368a-4093-9635-f0be547c0f49,Codeswitch,passed,7372,codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript,codeswitch/upload.spec.js,
+a1f2ad29-368a-4093-9635-f0be547c0f49,STT,passed,122633,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
+a1f2ad29-368a-4093-9635-f0be547c0f49,STT,timedOut,151787,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,[31mTest timeout of 150000ms exceeded.[39m
+a1f2ad29-368a-4093-9635-f0be547c0f49,STT,timedOut,150353,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,[31mTest timeout of 150000ms exceeded.[39m
+a1f2ad29-368a-4093-9635-f0be547c0f49,STT,passed,5133,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,

@@ -1,65 +1,81 @@
 {
-  "id": "7a78e853-a188-4c83-99e2-ad90842aec17",
-  "startedAt": "2026-02-04T11:25:04.829Z",
-  "durationMs": 855617,
+  "id": "a1f2ad29-368a-4093-9635-f0be547c0f49",
+  "startedAt": "2026-02-04T12:39:06.772Z",
+  "durationMs": 1682844,
   "summary": {
     "total": 7,
     "passed": 3,
-    "failed": 2,
+    "failed": 0,
     "skipped": 0,
-    "timedOut": 2
+    "timedOut": 4
   },
   "passRate": 43,
-  "displayTimestamp": "Feb 4, 2026, 4:55:04 PM",
+  "displayTimestamp": "Feb 4, 2026, 6:09:06 PM",
   "displayDate": "Wednesday, February 4, 2026",
-  "displayTime": "4:55:04 PM",
+  "displayTime": "6:09:06 PM",
   "modules": {
     "codeswitch": {
       "total": 3,
-      "passed": 2,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "timedOut": 1
+      "timedOut": 2
     },
     "stt": {
       "total": 4,
-      "passed": 1,
-      "failed": 2,
+      "passed": 2,
+      "failed": 0,
       "skipped": 0,
-      "timedOut": 1
+      "timedOut": 2
     }
   },
   "tests": [
     {
       "title": "codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers",
-      "status": "passed",
-      "durationMs": 155519,
+      "status": "timedOut",
+      "durationMs": 1062093,
       "file": "codeswitch/live-recording.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
       "module": "codeswitch",
       "moduleLabel": "Codeswitch"
     },
     {
       "title": "codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript",
       "status": "timedOut",
-      "durationMs": 316721,
+      "durationMs": 183473,
       "file": "codeswitch/sample-audio.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/screenshot-0.png"
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/video-1.webm"
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/error-context-2.md"
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/error-context-2.md"
         }
       ],
       "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
@@ -69,7 +85,7 @@
     {
       "title": "codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript",
       "status": "passed",
-      "durationMs": 7515,
+      "durationMs": 7372,
       "file": "codeswitch/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -78,86 +94,70 @@
     },
     {
       "title": "stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript",
-      "status": "timedOut",
-      "durationMs": 182774,
+      "status": "passed",
+      "durationMs": 122633,
       "file": "stt/live-recording.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/error-context-2.md"
-        }
-      ],
-      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
+      "attachments": [],
+      "error": "",
       "module": "stt",
       "moduleLabel": "STT"
     },
     {
       "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
-      "status": "failed",
-      "durationMs": 93564,
+      "status": "timedOut",
+      "durationMs": 151787,
       "file": "stt/podcast.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/screenshot-0.png"
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/video-1.webm"
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/error-context-2.md"
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/error-context-2.md"
         }
       ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Speaker 1').first()\nExpected: visible\nTimeout: 90000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 90000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Speaker 1').first()\u001b[22m\n",
+      "error": "\u001b[31mTest timeout of 150000ms exceeded.\u001b[39m",
       "module": "stt",
       "moduleLabel": "STT"
     },
     {
       "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
-      "status": "failed",
-      "durationMs": 93330,
+      "status": "timedOut",
+      "durationMs": 150353,
       "file": "stt/prerecorded.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/screenshot-0.png"
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/video-1.webm"
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/7a78e853-a188-4c83-99e2-ad90842aec17/error-context-2.md"
+          "path": "playwright-artifacts/a1f2ad29-368a-4093-9635-f0be547c0f49/error-context-2.md"
         }
       ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByText(/Speaker\\s*\\d/i)\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  90000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 90000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Speaker\\s*\\d/i)\u001b[22m\n\u001b[2m    93 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+      "error": "\u001b[31mTest timeout of 150000ms exceeded.\u001b[39m",
       "module": "stt",
       "moduleLabel": "STT"
     },
     {
       "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
       "status": "passed",
-      "durationMs": 6194,
+      "durationMs": 5133,
       "file": "stt/upload.spec.js",
       "attachments": [],
       "error": "",
