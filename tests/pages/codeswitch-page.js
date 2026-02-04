@@ -51,6 +51,15 @@ class CodeswitchPage {
     );
   }
 
+  async waitForTranscriptRows(timeoutMs = 180_000) {
+    await this.page.waitForFunction(
+      () =>
+        document.querySelectorAll(".flex.items-center.space-x-2").length > 0,
+      null,
+      { timeout: timeoutMs },
+    );
+  }
+
   async waitForSpeakerLabel(label, timeoutMs = 120_000) {
     await expect(this.page.getByText(label)).toBeVisible({ timeout: timeoutMs });
   }
