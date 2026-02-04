@@ -31,6 +31,26 @@ class CodeswitchPage {
     await expect(this.page.getByText(snippet)).toBeVisible({ timeout: timeoutMs });
   }
 
+  async waitForTranscriptSnippetNormalized(snippet, timeoutMs = 180_000) {
+    await this.page.waitForFunction(
+      (expected) => {
+        const rows = Array.from(
+          document.querySelectorAll(".flex.items-center.space-x-2"),
+        );
+        const normalize = (value) =>
+          value
+            .toLowerCase()
+            .replace(/[^a-z0-9\s\u0900-\u097f]/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+        const text = normalize(rows.map((row) => row.textContent || "").join(" "));
+        return text.includes(normalize(expected));
+      },
+      snippet,
+      { timeout: timeoutMs },
+    );
+  }
+
   async waitForSpeakerLabel(label, timeoutMs = 120_000) {
     await expect(this.page.getByText(label)).toBeVisible({ timeout: timeoutMs });
   }
