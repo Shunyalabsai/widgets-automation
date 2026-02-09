@@ -1,8 +1,8 @@
 id,module,status,durationMs,title,file,error
-a1f2ad29-368a-4093-9635-f0be547c0f49,Codeswitch,timedOut,1062093,codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers,codeswitch/live-recording.spec.js,[31mTest timeout of 180000ms exceeded.[39m
-a1f2ad29-368a-4093-9635-f0be547c0f49,Codeswitch,timedOut,183473,codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript,codeswitch/sample-audio.spec.js,[31mTest timeout of 180000ms exceeded.[39m
-a1f2ad29-368a-4093-9635-f0be547c0f49,Codeswitch,passed,7372,codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript,codeswitch/upload.spec.js,
-a1f2ad29-368a-4093-9635-f0be547c0f49,STT,passed,122633,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
-a1f2ad29-368a-4093-9635-f0be547c0f49,STT,timedOut,151787,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,[31mTest timeout of 150000ms exceeded.[39m
-a1f2ad29-368a-4093-9635-f0be547c0f49,STT,timedOut,150353,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,[31mTest timeout of 150000ms exceeded.[39m
-a1f2ad29-368a-4093-9635-f0be547c0f49,STT,passed,5133,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,
+2c52d5f6-0c72-4c05-923a-9e11417ebaac,Codeswitch,passed,156775,codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers,codeswitch/live-recording.spec.js,
+2c52d5f6-0c72-4c05-923a-9e11417ebaac,Codeswitch,timedOut,183170,codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript,codeswitch/sample-audio.spec.js,[31mTest timeout of 180000ms exceeded.[39m
+2c52d5f6-0c72-4c05-923a-9e11417ebaac,Codeswitch,passed,7316,codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript,codeswitch/upload.spec.js,
+2c52d5f6-0c72-4c05-923a-9e11417ebaac,STT,passed,122661,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
+2c52d5f6-0c72-4c05-923a-9e11417ebaac,STT,timedOut,151828,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,[31mTest timeout of 150000ms exceeded.[39m
+2c52d5f6-0c72-4c05-923a-9e11417ebaac,STT,timedOut,150334,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,[31mTest timeout of 150000ms exceeded.[39m
+2c52d5f6-0c72-4c05-923a-9e11417ebaac,STT,passed,5873,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,
