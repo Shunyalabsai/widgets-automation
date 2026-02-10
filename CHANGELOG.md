@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.29] - 2026-02-02
+### UI change
+- Refined dashboard charts layout and added module pass-rate chart.
+
 ## [0.1.28] - 2026-02-02
 ### Minor change
 - Formatted sheet timestamps using the script timezone.
