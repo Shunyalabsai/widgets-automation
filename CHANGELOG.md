@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.30] - 2026-02-02
+### UI change
+- Fixed dashboard chart sizing to prevent excessive scrolling.
+
 ## [0.1.29] - 2026-02-02
 ### UI change
 - Refined dashboard charts layout and added module pass-rate chart.
