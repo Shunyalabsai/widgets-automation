@@ -2,7 +2,7 @@ const { test } = require("@playwright/test");
 const path = require("path");
 const { execSync } = require("child_process");
 const { WidgetPage } = require("../pages/widget-page");
-const { SttPage } = require("../pages/stt-page");
+const { CodeswitchPage } = require("../pages/codeswitch-page");
 
 function getAudioDurationSeconds(filePath) {
   try {
@@ -17,42 +17,42 @@ function getAudioDurationSeconds(filePath) {
   }
 }
 
-test.describe("STT module", () => {
-  test("simulated live recording uses file and verifies transcript", async ({
+test.describe("CodeSwitch module", () => {
+  test("simulated live recording validates transcript and speakers", async ({
     page,
   }) => {
     test.setTimeout(180_000);
     const widgetPage = new WidgetPage(page);
-    const sttPage = new SttPage(page);
+    const codeswitchPage = new CodeswitchPage(page);
 
     await page.context().grantPermissions(["microphone"], {
       origin: "https://www.shunyalabs.ai",
     });
 
     await widgetPage.goto();
-    await widgetPage.openModule("Speech To Text");
+    await widgetPage.openModule("Codeswitch");
 
-    await sttPage.startSpeaking();
-    await sttPage.tryWaitForRecordingState(10_000);
+    await codeswitchPage.startSpeaking();
+    await codeswitchPage.tryWaitForRecordingState(10_000);
 
     const audioPath = path.join(
       __dirname,
       "..",
       "data",
-      "stt",
+      "codeswitch",
       "live-recording.opus",
     );
-    const durationSeconds = getAudioDurationSeconds(audioPath) ?? 45;
+    const durationSeconds = getAudioDurationSeconds(audioPath) ?? 35;
     await page.waitForTimeout(Math.ceil(durationSeconds * 1000) + 1500);
-    await sttPage.stopSpeaking();
-    await sttPage.tryWaitForProcessingState(30_000);
+    await codeswitchPage.stopSpeaking();
+    await codeswitchPage.tryWaitForProcessingState(30_000);
 
-    await sttPage.uploadAudioFile(audioPath);
-    await sttPage.waitForUploadProcessing(180_000);
-    await sttPage.tryWaitForProcessingState(30_000);
-    await sttPage.waitForTranscriptReady(180_000);
+    await codeswitchPage.uploadAudioFile(audioPath);
+    await codeswitchPage.waitForUploadProcessing(180_000);
+    await codeswitchPage.tryWaitForProcessingState(30_000);
+    await codeswitchPage.waitForTranscriptRows(180_000);
+    await codeswitchPage.waitForAnySpeakerLabel(180_000);
 
-    await sttPage.assertCopyAvailable();
-    await sttPage.copyConversation();
+    await codeswitchPage.assertCopyAvailable();
   });
 });

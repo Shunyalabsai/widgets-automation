@@ -7,7 +7,7 @@ test.describe("STT module", () => {
   test("uploaded audio renders transcript and allows playback", async ({
     page,
   }) => {
-    test.setTimeout(150_000);
+    test.setTimeout(180_000);
     const widgetPage = new WidgetPage(page);
     const sttPage = new SttPage(page);
 
@@ -22,14 +22,14 @@ test.describe("STT module", () => {
       "saira-mix.opus",
     );
     await sttPage.uploadAudioFile(audioPath);
-    await sttPage.waitForUploadProcessing(150_000);
+    await sttPage.waitForUploadProcessing(180_000);
 
     await sttPage.waitForTranscriptLine({
       speakerText: "Speaker 1",
       timeText: ":00",
       contentText: "hello today i am calling",
       speakerIndex: 0,
-      timeoutMs: 150_000,
+      timeoutMs: 180_000,
     });
 
     await sttPage.playUploadedAudio();

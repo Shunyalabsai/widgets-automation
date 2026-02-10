@@ -66,6 +66,12 @@ class SttPage {
     await speakerLabels.nth(1).click();
   }
 
+  async waitForAnySpeakerLabel(timeoutMs = 90_000) {
+    await expect(this.page.getByText(/Speaker\s*\d/i).first()).toBeVisible({
+      timeout: timeoutMs,
+    });
+  }
+
   async clickFirstTranscriptRow() {
     await this.transcriptRows.first().click();
   }

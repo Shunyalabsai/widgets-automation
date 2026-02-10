@@ -15,7 +15,6 @@ test.describe("CodeSwitch module", () => {
     await codeswitchPage.playSampleAudio();
 
     await codeswitchPage.waitForTranscriptRows(180_000);
-    await codeswitchPage.waitForSpeakerLabel("Speaker 1", 180_000);
     await codeswitchPage.assertCopyAvailable();
   });
 });

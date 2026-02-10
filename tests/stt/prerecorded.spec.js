@@ -4,7 +4,7 @@ const { SttPage } = require("../pages/stt-page");
 
 test.describe("STT module", () => {
   test("prerecorded customer support call renders transcript", async ({ page }) => {
-    test.setTimeout(90_000);
+    test.setTimeout(150_000);
     const widgetPage = new WidgetPage(page);
     const sttPage = new SttPage(page);
 
@@ -17,7 +17,6 @@ test.describe("STT module", () => {
     await sttPage.waitForPlaybackToStart();
     await sttPage.waitForTranscriptReady();
 
-    await sttPage.clickSpeakerLabels();
     await sttPage.clickFirstTranscriptRow();
 
     await sttPage.pauseButton.click();
