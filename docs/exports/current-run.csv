@@ -1,8 +1,8 @@
 id,module,status,durationMs,title,file,error
-2c52d5f6-0c72-4c05-923a-9e11417ebaac,Codeswitch,passed,156775,codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers,codeswitch/live-recording.spec.js,
-2c52d5f6-0c72-4c05-923a-9e11417ebaac,Codeswitch,timedOut,183170,codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript,codeswitch/sample-audio.spec.js,[31mTest timeout of 180000ms exceeded.[39m
-2c52d5f6-0c72-4c05-923a-9e11417ebaac,Codeswitch,passed,7316,codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript,codeswitch/upload.spec.js,
-2c52d5f6-0c72-4c05-923a-9e11417ebaac,STT,passed,122661,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
-2c52d5f6-0c72-4c05-923a-9e11417ebaac,STT,timedOut,151828,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,[31mTest timeout of 150000ms exceeded.[39m
-2c52d5f6-0c72-4c05-923a-9e11417ebaac,STT,timedOut,150334,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,[31mTest timeout of 150000ms exceeded.[39m
-2c52d5f6-0c72-4c05-923a-9e11417ebaac,STT,passed,5873,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,
+5d2b80df-25e9-43dd-b17e-516a66a1340f,Codeswitch,passed,157461,codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers,codeswitch/live-recording.spec.js,
+5d2b80df-25e9-43dd-b17e-516a66a1340f,Codeswitch,passed,2759,codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript,codeswitch/sample-audio.spec.js,
+5d2b80df-25e9-43dd-b17e-516a66a1340f,Codeswitch,passed,5643,codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript,codeswitch/upload.spec.js,
+5d2b80df-25e9-43dd-b17e-516a66a1340f,STT,passed,122390,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
+5d2b80df-25e9-43dd-b17e-516a66a1340f,STT,passed,3650,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,
+5d2b80df-25e9-43dd-b17e-516a66a1340f,STT,passed,2925,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,
+5d2b80df-25e9-43dd-b17e-516a66a1340f,STT,passed,9540,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,
