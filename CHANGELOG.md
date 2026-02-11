@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.34] - 2026-02-02
+### Minor change
+- Deployed scheduled runs directly to GitHub Pages to refresh dashboard.
+
 ## [0.1.33] - 2026-02-02
 ### Minor change
 - Adjusted scheduled test run to 1:15 PM IST.

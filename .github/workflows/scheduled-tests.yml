@@ -14,6 +14,12 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "scheduled-pages"
+  cancel-in-progress: false
 
 jobs:
   run-tests:
@@ -55,7 +61,25 @@ jobs:
             git push
           fi
 
+      - name: Upload Pages artifact
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
       - name: Fail on test errors
         if: always()
         run: |
           exit "${{ steps.run_tests.outputs.exit_code }}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: run-tests
+    if: always()
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
