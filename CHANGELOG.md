@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.32] - 2026-02-02
+### Minor change
+- Added 1 PM IST scheduled test run.
+
+## [0.1.31] - 2026-02-02
+### Minor change
+- Added scheduled GitHub Actions workflow for daily IST runs.
+
 ## [0.1.30] - 2026-02-02
 ### UI change
 - Fixed dashboard chart sizing to prevent excessive scrolling.
