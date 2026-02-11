@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.36] - 2026-02-02
+### Minor change
+- Adjusted schedule to 2:20 PM IST.
+
 ## [0.1.35] - 2026-02-02
 ### Fix
 - Scheduled workflow now commits only docs/ and rebases before push.
