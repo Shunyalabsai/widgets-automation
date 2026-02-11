@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.38] - 2026-02-02
+### Minor change
+- Adjusted schedule to 4:40 PM IST for testing.
+
 ## [0.1.37] - 2026-02-02
 ### Minor change
 - Added repository dispatch trigger for Cronitor scheduling.

@@ -11,8 +11,8 @@ on:
     - cron: "30 21 * * *"
     # 05:00 IST = 23:30 UTC
     - cron: "30 23 * * *"
-    # 14:20 IST = 08:50 UTC
-    - cron: "50 8 * * *"
+    # 16:40 IST = 11:10 UTC
+    - cron: "10 11 * * *"
 
 permissions:
   contents: write
