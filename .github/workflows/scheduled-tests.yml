@@ -54,10 +54,11 @@ jobs:
       - name: Commit dashboard updates
         if: always()
         run: |
-          git add docs reports test-results || true
+          git add docs || true
           if ! git diff --cached --quiet; then
             git -c user.name="github-actions" -c user.email="github-actions@github.com" \
               commit -m "Update dashboard $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
 

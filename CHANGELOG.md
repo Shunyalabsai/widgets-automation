@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.35] - 2026-02-02
+### Fix
+- Scheduled workflow now commits only docs/ and rebases before push.
+
 ## [0.1.34] - 2026-02-02
 ### Minor change
 - Deployed scheduled runs directly to GitHub Pages to refresh dashboard.
