@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "/Users/user/Documents/Shunyalabs-widget-automation/playwright.config.ts",
-    "rootDir": "/Users/user/Documents/Shunyalabs-widget-automation/tests",
+    "configFile": "/home/runner/work/Shunyalabs_widget/Shunyalabs_widget/playwright.config.ts",
+    "rootDir": "/home/runner/work/Shunyalabs_widget/Shunyalabs_widget/tests",
     "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
@@ -11,20 +11,64 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/saira-uwc/Shunyalabs_widget/commit/d4ebcec4589024bf96ee69e343d663ecd5919f34",
+        "commitHash": "d4ebcec4589024bf96ee69e343d663ecd5919f34",
+        "buildHref": "https://github.com/saira-uwc/Shunyalabs_widget/actions/runs/21897279606"
+      },
+      "gitCommit": {
+        "shortHash": "d4ebcec",
+        "hash": "d4ebcec4589024bf96ee69e343d663ecd5919f34",
+        "subject": "Update Playwright report with adjusted durations and start times for test cases on 2026-02-11",
+        "body": "Update Playwright report with adjusted durations and start times for test cases on 2026-02-11\n",
+        "author": {
+          "name": "saira-uwc",
+          "email": "saira@unitedwecare.com",
+          "time": 1770796883000
+        },
+        "committer": {
+          "name": "saira-uwc",
+          "email": "saira@unitedwecare.com",
+          "time": 1770796883000
+        },
+        "branch": "saira-widgets"
+      },
       "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/Users/user/Documents/Shunyalabs-widget-automation/test-results",
+        "outputDir": "/home/runner/work/Shunyalabs_widget/Shunyalabs_widget/test-results",
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/saira-uwc/Shunyalabs_widget/commit/d4ebcec4589024bf96ee69e343d663ecd5919f34",
+            "commitHash": "d4ebcec4589024bf96ee69e343d663ecd5919f34",
+            "buildHref": "https://github.com/saira-uwc/Shunyalabs_widget/actions/runs/21897279606"
+          },
+          "gitCommit": {
+            "shortHash": "d4ebcec",
+            "hash": "d4ebcec4589024bf96ee69e343d663ecd5919f34",
+            "subject": "Update Playwright report with adjusted durations and start times for test cases on 2026-02-11",
+            "body": "Update Playwright report with adjusted durations and start times for test cases on 2026-02-11\n",
+            "author": {
+              "name": "saira-uwc",
+              "email": "saira@unitedwecare.com",
+              "time": 1770796883000
+            },
+            "committer": {
+              "name": "saira-uwc",
+              "email": "saira@unitedwecare.com",
+              "time": 1770796883000
+            },
+            "branch": "saira-widgets"
+          },
           "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/Users/user/Documents/Shunyalabs-widget-automation/tests",
+        "testDir": "/home/runner/work/Shunyalabs_widget/Shunyalabs_widget/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -95,12 +139,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 155821,
+                      "duration": 120585,
                       "errors": [],
                       "stdout": [],
-                      "stderr": [],
+                      "stderr": [
+                        {
+                          "text": "/bin/sh: 1: ffprobe: not found\n"
+                        }
+                      ],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:26:01.836Z",
+                      "startTime": "2026-02-11T08:07:27.840Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -146,12 +194,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2180,
+                      "duration": 4116,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:28:39.322Z",
+                      "startTime": "2026-02-11T08:09:28.637Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -197,12 +245,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7741,
+                      "duration": 8135,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:28:41.513Z",
+                      "startTime": "2026-02-11T08:09:32.768Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -248,12 +296,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2524,
+                      "duration": 6167,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:28:49.264Z",
+                      "startTime": "2026-02-11T08:09:40.918Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -299,12 +347,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2124,
+                      "duration": 1763,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:28:51.797Z",
+                      "startTime": "2026-02-11T08:09:47.099Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,12 +398,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2807,
+                      "duration": 2182,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:28:53.929Z",
+                      "startTime": "2026-02-11T08:09:48.876Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -401,12 +449,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2430,
+                      "duration": 1362,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:28:56.746Z",
+                      "startTime": "2026-02-11T08:09:51.071Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -452,12 +500,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 122523,
+                      "duration": 124403,
                       "errors": [],
                       "stdout": [],
-                      "stderr": [],
+                      "stderr": [
+                        {
+                          "text": "/bin/sh: 1: ffprobe: not found\n"
+                        }
+                      ],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:28:59.186Z",
+                      "startTime": "2026-02-11T08:09:52.446Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -503,12 +555,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2999,
+                      "duration": 3531,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:31:01.718Z",
+                      "startTime": "2026-02-11T08:11:56.862Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -554,12 +606,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2531,
+                      "duration": 3442,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:31:04.725Z",
+                      "startTime": "2026-02-11T08:12:00.408Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -605,12 +657,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5654,
+                      "duration": 5783,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-11T06:31:07.266Z",
+                      "startTime": "2026-02-11T08:12:03.880Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -630,8 +682,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-02-11T06:26:01.162Z",
-    "duration": 311792.378,
+    "startTime": "2026-02-11T08:07:26.712Z",
+    "duration": 283012.223,
     "expected": 11,
     "skipped": 0,
     "unexpected": 0,
