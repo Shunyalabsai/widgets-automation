@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.41] - 2026-02-02
+### Minor change
+- Adjusted schedule to 6:10 PM IST for testing.
+
+## [0.1.40] - 2026-02-02
+### Minor change
+- Adjusted schedule to 5:00 PM IST for testing.
+
 ## [0.1.39] - 2026-02-02
 ### Minor change
 - Adjusted schedule to 4:45 PM IST for testing.
