@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.33] - 2026-02-02
+### Minor change
+- Adjusted scheduled test run to 1:15 PM IST.
+
 ## [0.1.32] - 2026-02-02
 ### Minor change
 - Added 1 PM IST scheduled test run.
