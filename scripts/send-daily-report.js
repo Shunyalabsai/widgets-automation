@@ -72,35 +72,125 @@ function buildEmailBody({
   reportDate,
 }) {
   const passLines = Object.entries(summary.modules)
-    .map(([name, stats]) => `\t•\t${name} – ${stats.passed} Passed`)
-    .join("\n");
+    .map(([name, stats]) => `<li><strong>${name}</strong> – ${stats.passed} Passed</li>`)
+    .join("");
   const failLines = Object.entries(summary.modules)
-    .map(([name, stats]) => `\t•\t${name} – ${stats.failed} Failed`)
-    .join("\n");
+    .map(([name, stats]) => `<li><strong>${name}</strong> – ${stats.failed} Failed</li>`)
+    .join("");
 
-  return [
-    "Hi Team,",
-    "",
-    `Project: ${projectName}`,
-    "",
-    `Total Runs: ${summary.totalRuns}`,
-    `Total Passed: ${summary.totalPassed}`,
-    `Total Failed: ${summary.totalFailed}`,
-    "",
-    "Module-wise Summary:",
-    "",
-    "Pass:",
-    passLines || "\t•\tNone",
-    "",
-    "Fail:",
-    failLines || "\t•\tNone",
-    "",
-    "For more details, follow the link:",
-    dashboardUrl,
-    "",
-    "Thanks & Regards,",
-    "Saira Automation BOT",
-  ].join("\n");
+  return `
+    <html>
+      <head>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+          }
+          .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+          }
+          h2 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+          }
+          h3 {
+            color: #34495e;
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 8px;
+          }
+          .stats {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+          }
+          .stats p {
+            margin: 8px 0;
+            font-size: 15px;
+          }
+          .stats strong {
+            color: #2c3e50;
+            font-weight: 600;
+          }
+          ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 10px 0;
+          }
+          ul li {
+            padding: 5px 0 5px 20px;
+            position: relative;
+          }
+          ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+          }
+          .link {
+            margin: 20px 0;
+          }
+          .link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+          }
+          .link a:hover {
+            text-decoration: underline;
+          }
+          .footer {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+            color: #7f8c8d;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <p>Hi Team,</p>
+
+          <h2>Project: ${projectName}</h2>
+
+          <div class="stats">
+            <p><strong>Total Runs:</strong> ${summary.totalRuns}</p>
+            <p><strong>Total Passed:</strong> ${summary.totalPassed}</p>
+            <p><strong>Total Failed:</strong> ${summary.totalFailed}</p>
+          </div>
+
+          <h3>Module-wise Summary:</h3>
+
+          <p><strong>Pass:</strong></p>
+          <ul>
+            ${passLines || "<li>None</li>"}
+          </ul>
+
+          <p><strong>Fail:</strong></p>
+          <ul>
+            ${failLines || "<li>None</li>"}
+          </ul>
+
+          <div class="link">
+            <p><strong>For more details, follow the link:</strong></p>
+            <p><a href="${dashboardUrl}" target="_blank">${dashboardUrl}</a></p>
+          </div>
+
+          <div class="footer">
+            <p>Thanks & Regards,<br>
+            <strong>Saira Automation BOT</strong></p>
+          </div>
+        </div>
+      </body>
+    </html>
+  `;
 }
 
 async function sendEmail({ url, to, subject, body }) {
@@ -134,7 +224,7 @@ async function main() {
 
   const summary = summarizeRuns(todaysRuns);
   const reportDate = formatDate(new Date(), timeZone);
-  const subject = `QC Automation Report – ${reportDate}`;
+  const subject = `QC Shunya Labs Widget Automation Report – ${reportDate}`;
   const body = buildEmailBody({
     projectName,
     summary,

@@ -11,7 +11,11 @@ function doPost(e) {
       ).setMimeType(ContentService.MimeType.JSON);
     }
 
-    MailApp.sendEmail(to, subject, body);
+    MailApp.sendEmail({
+      to: to,
+      subject: subject,
+      htmlBody: body
+    });
     return ContentService.createTextOutput(
       JSON.stringify({ ok: true }),
     ).setMimeType(ContentService.MimeType.JSON);
