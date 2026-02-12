@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.45] - 2026-02-02
+### Minor change
+- Adjusted test schedule to 11:45/11:55 AM with 12 PM email for verification.
+
+## [0.1.44] - 2026-02-02
+### Fix
+- Scheduled workflow now rebases with autostash before committing docs.
+
+## [0.1.43] - 2026-02-02
+### Minor change
+- Scheduled 9 AM/12 PM/3 PM IST runs with a daily email summary at 6 PM.
+
+## [0.1.42] - 2026-02-02
+### Minor change
+- Scheduled three runs two hours apart (2 AM, 4 AM, 6 AM IST).
+
 ## [0.1.41] - 2026-02-02
 ### Minor change
 - Adjusted schedule to 6:10 PM IST for testing.

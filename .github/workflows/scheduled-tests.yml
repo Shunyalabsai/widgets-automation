@@ -5,14 +5,12 @@ on:
   repository_dispatch:
     types: [cronitor-trigger]
   schedule:
-    # 01:00 IST (UTC+5:30) = 19:30 UTC (previous day)
-    - cron: "30 19 * * *"
-    # 03:00 IST = 21:30 UTC
-    - cron: "30 21 * * *"
-    # 05:00 IST = 23:30 UTC
-    - cron: "30 23 * * *"
-    # 18:10 IST = 12:40 UTC
-    - cron: "40 12 * * *"
+    # 11:45 IST = 06:15 UTC
+    - cron: "15 6 * * *"
+    # 11:55 IST = 06:25 UTC
+    - cron: "25 6 * * *"
+    # 12:00 IST = 06:30 UTC (daily summary email)
+    - cron: "30 6 * * *"
 
 permissions:
   contents: write
@@ -26,6 +24,7 @@ concurrency:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    if: github.event_name != 'schedule' || github.event.schedule != '30 6 * * *'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -58,9 +57,10 @@ jobs:
         run: |
           git add docs || true
           if ! git diff --cached --quiet; then
+            git fetch origin "${GITHUB_REF_NAME}"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
             git -c user.name="github-actions" -c user.email="github-actions@github.com" \
               commit -m "Update dashboard $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
 
@@ -86,3 +86,24 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  send-daily-email:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' && github.event.schedule == '30 6 * * *'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Send daily email summary
+        env:
+          EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
+          REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
+          REPORT_PROJECT_NAME: Shunyalabs Widget Automation
+          REPORT_DASHBOARD_URL: https://saira-uwc.github.io/Shunyalabs_widget
+          REPORT_TIMEZONE: Asia/Kolkata
+        run: node scripts/send-daily-report.js
