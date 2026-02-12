@@ -5,10 +5,10 @@ on:
   repository_dispatch:
     types: [cronitor-trigger]
   schedule:
-    # 12:10 IST = 06:40 UTC
-    - cron: "40 6 * * *"
-    # 12:15 IST = 06:45 UTC (daily summary email)
-    - cron: "45 6 * * *"
+    # 13:30 IST = 08:00 UTC
+    - cron: "0 8 * * *"
+    # 13:40 IST = 08:10 UTC (daily summary email)
+    - cron: "10 8 * * *"
 
 permissions:
   contents: write
@@ -22,7 +22,7 @@ concurrency:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    if: github.event_name != 'schedule' || github.event.schedule != '45 6 * * *'
+    if: github.event_name != 'schedule' || github.event.schedule != '10 8 * * *'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -63,7 +63,7 @@ jobs:
           fi
 
       - name: Upload Pages artifact
-        if: always()
+        if: always() && (github.event_name != 'schedule' || github.event.schedule != '10 8 * * *')
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
@@ -76,7 +76,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: run-tests
-    if: always()
+    if: always() && (github.event_name != 'schedule' || github.event.schedule != '10 8 * * *')
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -87,7 +87,7 @@ jobs:
 
   send-daily-email:
     runs-on: ubuntu-latest
-    if: github.event_name == 'schedule' && github.event.schedule == '45 6 * * *'
+    if: github.event_name == 'schedule' && github.event.schedule == '10 8 * * *'
     steps:
       - name: Checkout
         uses: actions/checkout@v4

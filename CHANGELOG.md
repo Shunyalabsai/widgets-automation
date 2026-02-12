@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.48] - 2026-02-02
+### Minor change
+- Adjusted verification schedule to 1:30 PM run and 1:40 PM email.
+
+## [0.1.47] - 2026-02-02
+### Fix
+- Skipped Pages deploy during email-only scheduled runs.
+
 ## [0.1.46] - 2026-02-02
 ### Minor change
 - Adjusted test schedule to 12:10 PM with 12:15 PM email for verification.
