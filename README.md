@@ -84,3 +84,9 @@ Files of interest:
 ```
 https://<your-github-username>.github.io/Shunyalabs_widget/
 ```
+
+### Google Apps Script Scheduler (exact timing)
+
+For exact-time runs without GitHub schedule drift, use Apps Script triggers:
+
+- `docs/gas-scheduler-setup.md`

@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.50] - 2026-02-02
+### Minor change
+- Added Google Apps Script scheduler for exact-time runs and email.
+### Fix
+- Restored repository dispatch workflow for external scheduling.
+
+## [0.1.49] - 2026-02-02
+### Minor change
+- Added Oracle cron setup docs and cron runner script.
+### Fix
+- Removed GitHub scheduled workflow in favor of server cron.
+
 ## [0.1.48] - 2026-02-02
 ### Minor change
 - Adjusted verification schedule to 1:30 PM run and 1:40 PM email.
