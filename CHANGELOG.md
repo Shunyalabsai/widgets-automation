@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.46] - 2026-02-02
+### Minor change
+- Adjusted test schedule to 12:10 PM with 12:15 PM email for verification.
+
 ## [0.1.45] - 2026-02-02
 ### Minor change
 - Adjusted test schedule to 11:45/11:55 AM with 12 PM email for verification.

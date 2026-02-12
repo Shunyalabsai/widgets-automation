@@ -5,12 +5,10 @@ on:
   repository_dispatch:
     types: [cronitor-trigger]
   schedule:
-    # 11:45 IST = 06:15 UTC
-    - cron: "15 6 * * *"
-    # 11:55 IST = 06:25 UTC
-    - cron: "25 6 * * *"
-    # 12:00 IST = 06:30 UTC (daily summary email)
-    - cron: "30 6 * * *"
+    # 12:10 IST = 06:40 UTC
+    - cron: "40 6 * * *"
+    # 12:15 IST = 06:45 UTC (daily summary email)
+    - cron: "45 6 * * *"
 
 permissions:
   contents: write
@@ -24,7 +22,7 @@ concurrency:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    if: github.event_name != 'schedule' || github.event.schedule != '30 6 * * *'
+    if: github.event_name != 'schedule' || github.event.schedule != '45 6 * * *'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -89,7 +87,7 @@ jobs:
 
   send-daily-email:
     runs-on: ubuntu-latest
-    if: github.event_name == 'schedule' && github.event.schedule == '30 6 * * *'
+    if: github.event_name == 'schedule' && github.event.schedule == '45 6 * * *'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
