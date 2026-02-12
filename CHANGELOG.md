@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.51] - 2026-02-02
+### Fix
+- Skipped Pages deploy on email-only dispatch runs.
+
 ## [0.1.50] - 2026-02-02
 ### Minor change
 - Added Google Apps Script scheduler for exact-time runs and email.
