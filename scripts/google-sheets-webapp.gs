@@ -25,8 +25,7 @@ function resetSheet(sheet, headers) {
 function formatTimestamp(value) {
   try {
     const date = value ? new Date(value) : new Date();
-    const tz = Session.getScriptTimeZone() || "UTC";
-    return Utilities.formatDate(date, tz, "yyyy-MM-dd HH:mm:ss z");
+    return Utilities.formatDate(date, "Asia/Kolkata", "dd-MM-yyyy hh:mm:ss a");
   } catch (error) {
     return value || "";
   }
