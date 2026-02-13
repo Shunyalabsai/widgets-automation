@@ -65,129 +65,153 @@ function summarizeRuns(runs) {
   return summary;
 }
 
+function formatTime(date, timeZone) {
+  try {
+    return new Intl.DateTimeFormat("en-IN", {
+      timeZone,
+      weekday: "short",
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    }).format(date);
+  } catch {
+    return date.toISOString();
+  }
+}
+
 function buildEmailBody({
   projectName,
   summary,
   dashboardUrl,
   reportDate,
+  timeZone,
 }) {
-  const passLines = Object.entries(summary.modules)
-    .map(([name, stats]) => `<li><strong>${name}</strong> – ${stats.passed} Passed</li>`)
-    .join("");
-  const failLines = Object.entries(summary.modules)
-    .map(([name, stats]) => `<li><strong>${name}</strong> – ${stats.failed} Failed</li>`)
+  const totalTests = summary.totalPassed + summary.totalFailed;
+  const passRate = totalTests > 0 ? Math.round((summary.totalPassed / totalTests) * 100) : 0;
+  const passRateColor = passRate >= 90 ? "#27ae60" : passRate >= 70 ? "#e67e22" : "#e74c3c";
+  const passRateIcon = passRate >= 90 ? "&#9989;" : "&#9888;&#65039;";
+  const latestRun = formatTime(new Date(), timeZone);
+
+  const moduleRows = Object.entries(summary.modules)
+    .map(([name, stats]) => {
+      const total = stats.passed + stats.failed;
+      const rate = total > 0 ? Math.round((stats.passed / total) * 100) : 0;
+      const icon = stats.failed > 0 ? "&#10060;" : "&#9989;";
+      return `
+        <tr>
+          <td style="padding:10px 15px;border-bottom:1px solid #f0f0f0;font-size:14px;">${icon} ${name}</td>
+          <td style="padding:10px 15px;border-bottom:1px solid #f0f0f0;text-align:center;color:#27ae60;font-weight:600;">${stats.passed}</td>
+          <td style="padding:10px 15px;border-bottom:1px solid #f0f0f0;text-align:center;color:#e74c3c;font-weight:600;">${stats.failed}</td>
+          <td style="padding:10px 15px;border-bottom:1px solid #f0f0f0;text-align:center;font-weight:600;">${rate}%</td>
+        </tr>`;
+    })
     .join("");
 
   return `
     <html>
       <head>
-        <style>
-          body {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            color: #333;
-            line-height: 1.6;
-          }
-          .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-          }
-          h2 {
-            color: #2c3e50;
-            font-size: 18px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-          }
-          h3 {
-            color: #34495e;
-            font-size: 16px;
-            margin-top: 15px;
-            margin-bottom: 8px;
-          }
-          .stats {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-          }
-          .stats p {
-            margin: 8px 0;
-            font-size: 15px;
-          }
-          .stats strong {
-            color: #2c3e50;
-            font-weight: 600;
-          }
-          ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin: 10px 0;
-          }
-          ul li {
-            padding: 5px 0 5px 20px;
-            position: relative;
-          }
-          ul li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-            font-weight: bold;
-          }
-          .link {
-            margin: 20px 0;
-          }
-          .link a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-          }
-          .link a:hover {
-            text-decoration: underline;
-          }
-          .footer {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
-            color: #7f8c8d;
-          }
-        </style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
       </head>
-      <body>
-        <div class="container">
-          <p>Hi Team,</p>
+      <body style="margin:0;padding:0;background-color:#f4f4f7;font-family:Arial,Helvetica,sans-serif;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f7;padding:20px 0;">
+          <tr>
+            <td align="center">
+              <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
 
-          <h2>Project: ${projectName}</h2>
+                <!-- Header -->
+                <tr>
+                  <td style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#a855f7);padding:30px 35px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td>
+                          <p style="margin:0 0 2px;font-size:12px;color:rgba(255,255,255,0.8);">&#127919;</p>
+                          <h1 style="margin:0 0 6px;font-size:22px;font-weight:700;color:#ffffff;">QC Automation Report</h1>
+                          <p style="margin:0 0 12px;font-size:14px;color:rgba(255,255,255,0.85);">${projectName}</p>
+                          <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.7);">Latest Run: ${latestRun}</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
 
-          <div class="stats">
-            <p><strong>Total Runs:</strong> ${summary.totalRuns}</p>
-            <p><strong>Total Passed:</strong> ${summary.totalPassed}</p>
-            <p><strong>Total Failed:</strong> ${summary.totalFailed}</p>
-          </div>
+                <!-- Summary Cards -->
+                <tr>
+                  <td style="padding:25px 20px 10px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td width="25%" align="center" style="padding:0 5px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f8f9fa;border-radius:10px;border:1px solid #e9ecef;">
+                            <tr><td style="padding:18px 10px 4px;text-align:center;font-size:10px;font-weight:700;color:#6b7280;letter-spacing:0.5px;">TOTAL TESTS</td></tr>
+                            <tr><td style="padding:2px 10px 18px;text-align:center;font-size:28px;font-weight:800;color:#1f2937;">${totalTests}</td></tr>
+                          </table>
+                        </td>
+                        <td width="25%" align="center" style="padding:0 5px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0fdf4;border-radius:10px;border:1px solid #bbf7d0;">
+                            <tr><td style="padding:18px 10px 4px;text-align:center;font-size:10px;font-weight:700;color:#16a34a;letter-spacing:0.5px;">PASSED</td></tr>
+                            <tr><td style="padding:2px 10px 18px;text-align:center;font-size:28px;font-weight:800;color:#16a34a;">${summary.totalPassed}</td></tr>
+                          </table>
+                        </td>
+                        <td width="25%" align="center" style="padding:0 5px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#fef2f2;border-radius:10px;border:1px solid #fecaca;">
+                            <tr><td style="padding:18px 10px 4px;text-align:center;font-size:10px;font-weight:700;color:#dc2626;letter-spacing:0.5px;">FAILED</td></tr>
+                            <tr><td style="padding:2px 10px 18px;text-align:center;font-size:28px;font-weight:800;color:#dc2626;">${summary.totalFailed}</td></tr>
+                          </table>
+                        </td>
+                        <td width="25%" align="center" style="padding:0 5px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#fffbeb;border-radius:10px;border:1px solid #fde68a;">
+                            <tr><td style="padding:18px 10px 4px;text-align:center;font-size:10px;font-weight:700;color:${passRateColor};letter-spacing:0.5px;">PASS RATE</td></tr>
+                            <tr><td style="padding:2px 10px 18px;text-align:center;font-size:28px;font-weight:800;color:${passRateColor};">${passRateIcon} ${passRate}%</td></tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
 
-          <h3>Module-wise Summary:</h3>
+                <!-- Module Table -->
+                <tr>
+                  <td style="padding:20px 25px 5px;">
+                    <p style="margin:0 0 12px;font-size:15px;font-weight:600;color:#374151;">&#128203; Results by Module</p>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
+                      <tr style="background-color:#f9fafb;">
+                        <th style="padding:10px 15px;text-align:left;font-size:12px;font-weight:600;color:#6b7280;border-bottom:2px solid #e5e7eb;">Module</th>
+                        <th style="padding:10px 15px;text-align:center;font-size:12px;font-weight:600;color:#16a34a;border-bottom:2px solid #e5e7eb;">Pass</th>
+                        <th style="padding:10px 15px;text-align:center;font-size:12px;font-weight:600;color:#dc2626;border-bottom:2px solid #e5e7eb;">Fail</th>
+                        <th style="padding:10px 15px;text-align:center;font-size:12px;font-weight:600;color:#6b7280;border-bottom:2px solid #e5e7eb;">Rate</th>
+                      </tr>
+                      ${moduleRows}
+                    </table>
+                  </td>
+                </tr>
 
-          <p><strong>Pass:</strong></p>
-          <ul>
-            ${passLines || "<li>None</li>"}
-          </ul>
+                <!-- Dashboard Button -->
+                <tr>
+                  <td align="center" style="padding:25px 25px 10px;">
+                    <a href="${dashboardUrl}" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:14px;font-weight:600;">&#128202; View Full Dashboard</a>
+                  </td>
+                </tr>
 
-          <p><strong>Fail:</strong></p>
-          <ul>
-            ${failLines || "<li>None</li>"}
-          </ul>
+                <!-- Footer -->
+                <tr>
+                  <td style="padding:20px 25px 25px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr><td style="border-top:1px solid #e5e7eb;padding-top:20px;text-align:center;">
+                        <p style="margin:0 0 4px;font-size:13px;color:#6b7280;">Thanks & Regards,</p>
+                        <p style="margin:0 0 15px;font-size:14px;font-weight:600;color:#374151;">Saira Automation BOT &#129302;</p>
+                        <p style="margin:0;font-size:11px;color:#9ca3af;">This is an automated report generated from the latest test run.</p>
+                      </td></tr>
+                    </table>
+                  </td>
+                </tr>
 
-          <div class="link">
-            <p><strong>For more details, follow the link:</strong></p>
-            <p><a href="${dashboardUrl}" target="_blank">${dashboardUrl}</a></p>
-          </div>
-
-          <div class="footer">
-            <p>Thanks & Regards,<br>
-            <strong>Saira Automation BOT</strong></p>
-          </div>
-        </div>
+              </table>
+            </td>
+          </tr>
+        </table>
       </body>
     </html>
   `;
@@ -224,12 +248,14 @@ async function main() {
 
   const summary = summarizeRuns(todaysRuns);
   const reportDate = formatDate(new Date(), timeZone);
-  const subject = `QC Shunya Labs Widget Automation Report – ${reportDate}`;
+  const totalTests = summary.totalPassed + summary.totalFailed;
+  const passRate = totalTests > 0 ? Math.round((summary.totalPassed / totalTests) * 100) : 0;
+  const subject = `QC ${projectName} Report – ${reportDate} – ${passRate}% Pass Rate`;
   const body = buildEmailBody({
     projectName,
     summary,
     dashboardUrl,
-    reportDate,
+    timeZone,
   });
 
   await sendEmail({
