@@ -81,14 +81,27 @@ async function main() {
       attachmentBuckets: flattenAttachments(attachments),
     };
   });
+  const formatIST = (isoString) => {
+    const date = isoString ? new Date(isoString) : new Date();
+    return date.toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    });
+  };
   const payload = {
-    timestamp: new Date().toISOString(),
+    timestamp: formatIST(),
     sheetName,
     spreadsheetId,
     clearSheet,
     run: {
       id: run.id,
-      startedAt: run.startedAt,
+      startedAt: formatIST(run.startedAt),
       durationMs: run.durationMs,
       summary: run.summary,
       tests,
