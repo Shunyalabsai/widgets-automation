@@ -60,12 +60,14 @@ jobs:
       - name: Commit dashboard updates
         if: always()
         run: |
-          git add docs || true
+          git -c user.name="github-actions" -c user.email="github-actions@github.com" \
+            add docs || true
           if ! git diff --cached --quiet; then
-            git fetch origin "${GITHUB_REF_NAME}"
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
             git -c user.name="github-actions" -c user.email="github-actions@github.com" \
               commit -m "Update dashboard $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git fetch origin "${GITHUB_REF_NAME}"
+            git -c user.name="github-actions" -c user.email="github-actions@github.com" \
+              rebase -X theirs origin/"${GITHUB_REF_NAME}"
             git push
           fi
 
