@@ -67,7 +67,7 @@ jobs:
               commit -m "Update dashboard $(date -u +'%Y-%m-%d %H:%M UTC')"
             git fetch origin "${GITHUB_REF_NAME}"
             git -c user.name="github-actions" -c user.email="github-actions@github.com" \
-              rebase -X theirs origin/"${GITHUB_REF_NAME}"
+              rebase --autostash -X theirs origin/"${GITHUB_REF_NAME}"
             git push
           fi
 
