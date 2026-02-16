@@ -86,7 +86,7 @@ function buildEmailBody({
   projectName,
   summary,
   dashboardUrl,
-  reportDate,
+  sheetUrl,
   timeZone,
 }) {
   const totalTests = summary.totalPassed + summary.totalFailed;
@@ -188,10 +188,17 @@ function buildEmailBody({
                   </td>
                 </tr>
 
-                <!-- Dashboard Button -->
+                <!-- Action Buttons -->
                 <tr>
                   <td align="center" style="padding:25px 25px 10px;">
-                    <a href="${dashboardUrl}" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:14px;font-weight:600;">&#128202; View Full Dashboard</a>
+                    <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+                      <td style="padding:0 6px;">
+                        <a href="${dashboardUrl}" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:600;">&#128202; View Full Dashboard</a>
+                      </td>
+                      <td style="padding:0 6px;">
+                        <a href="${sheetUrl}" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#16a34a,#22c55e);color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:600;">&#128203; View Test Cases</a>
+                      </td>
+                    </tr></table>
                   </td>
                 </tr>
 
@@ -237,6 +244,7 @@ async function main() {
   const timeZone = process.env.REPORT_TIMEZONE || "Asia/Kolkata";
   const projectName = process.env.REPORT_PROJECT_NAME || "Shunyalabs Widget Automation";
   const dashboardUrl = process.env.REPORT_DASHBOARD_URL || "";
+  const sheetUrl = process.env.REPORT_SHEET_URL || "";
   const recipients = process.env.REPORT_RECIPIENTS || "";
   const emailUrl = process.env.EMAIL_WEB_APP_URL || "";
 
@@ -255,6 +263,7 @@ async function main() {
     projectName,
     summary,
     dashboardUrl,
+    sheetUrl,
     timeZone,
   });
 
