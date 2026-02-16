@@ -112,6 +112,6 @@ jobs:
           REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
           REPORT_PROJECT_NAME: Shunyalabs Widget Automation
           REPORT_DASHBOARD_URL: https://saira-uwc.github.io/Shunyalabs_widget
-          REPORT_SHEET_URL: https://docs.google.com/spreadsheets/d/116LBahLc5-CD9D4wk0aYxowRVrLm6lRkoJrWfL8Y0Y/edit#gid=608720411
+          REPORT_SHEET_URL: https://docs.google.com/spreadsheets/d/${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
           REPORT_TIMEZONE: Asia/Kolkata
         run: node scripts/send-daily-report.js
