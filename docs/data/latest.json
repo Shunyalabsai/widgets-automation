@@ -1,7 +1,7 @@
 {
-  "id": "70db0dae-c2cc-47be-aaa9-faa44d0bb43b",
-  "startedAt": "2026-02-21T07:16:12.193Z",
-  "durationMs": 465123,
+  "id": "64a30e0a-74d5-432c-9008-d29ed6098e0c",
+  "startedAt": "2026-02-21T10:34:53.913Z",
+  "durationMs": 463631,
   "summary": {
     "total": 11,
     "passed": 10,
@@ -10,9 +10,9 @@
     "timedOut": 1
   },
   "passRate": 91,
-  "displayTimestamp": "Feb 21, 2026, 7:16:12 AM",
+  "displayTimestamp": "Feb 21, 2026, 10:34:53 AM",
   "displayDate": "Saturday, February 21, 2026",
-  "displayTime": "7:16:12 AM",
+  "displayTime": "10:34:53 AM",
   "modules": {
     "codeswitch": {
       "total": 3,
@@ -40,7 +40,7 @@
     {
       "title": "codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers",
       "status": "passed",
-      "durationMs": 121020,
+      "durationMs": 119860,
       "file": "codeswitch/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -50,7 +50,7 @@
     {
       "title": "codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript",
       "status": "passed",
-      "durationMs": 4781,
+      "durationMs": 4689,
       "file": "codeswitch/sample-audio.spec.js",
       "attachments": [],
       "error": "",
@@ -60,7 +60,7 @@
     {
       "title": "codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript",
       "status": "passed",
-      "durationMs": 8940,
+      "durationMs": 7962,
       "file": "codeswitch/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -70,7 +70,7 @@
     {
       "title": "medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 2649,
+      "durationMs": 2763,
       "file": "medical-transcription/doctor-appointment.spec.js",
       "attachments": [],
       "error": "",
@@ -80,7 +80,7 @@
     {
       "title": "medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop",
       "status": "passed",
-      "durationMs": 3098,
+      "durationMs": 3619,
       "file": "medical-transcription/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -90,7 +90,7 @@
     {
       "title": "medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 2913,
+      "durationMs": 3306,
       "file": "medical-transcription/patient-notes.spec.js",
       "attachments": [],
       "error": "",
@@ -100,7 +100,7 @@
     {
       "title": "medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript",
       "status": "passed",
-      "durationMs": 2861,
+      "durationMs": 3512,
       "file": "medical-transcription/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -110,7 +110,7 @@
     {
       "title": "stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript",
       "status": "passed",
-      "durationMs": 123098,
+      "durationMs": 123577,
       "file": "stt/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -120,7 +120,7 @@
     {
       "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
       "status": "passed",
-      "durationMs": 3160,
+      "durationMs": 2370,
       "file": "stt/podcast.spec.js",
       "attachments": [],
       "error": "",
@@ -130,7 +130,7 @@
     {
       "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 3497,
+      "durationMs": 2714,
       "file": "stt/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -140,23 +140,23 @@
     {
       "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
       "status": "timedOut",
-      "durationMs": 189106,
+      "durationMs": 189259,
       "file": "stt/upload.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/70db0dae-c2cc-47be-aaa9-faa44d0bb43b/screenshot-0.png"
+          "path": "playwright-artifacts/64a30e0a-74d5-432c-9008-d29ed6098e0c/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/70db0dae-c2cc-47be-aaa9-faa44d0bb43b/video-1.webm"
+          "path": "playwright-artifacts/64a30e0a-74d5-432c-9008-d29ed6098e0c/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/70db0dae-c2cc-47be-aaa9-faa44d0bb43b/error-context-2.md"
+          "path": "playwright-artifacts/64a30e0a-74d5-432c-9008-d29ed6098e0c/error-context-2.md"
         }
       ],
       "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
