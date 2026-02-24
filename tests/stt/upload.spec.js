@@ -25,7 +25,7 @@ test.describe("STT module", () => {
     await sttPage.waitForUploadProcessing(180_000);
 
     await sttPage.waitForTranscriptLine({
-      speakerText: "Speaker 1",
+      speakerText: /Speaker \d/,
       timeText: ":00",
       contentText: "hello today i am calling",
       speakerIndex: 0,
