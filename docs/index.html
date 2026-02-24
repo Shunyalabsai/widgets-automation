@@ -188,8 +188,8 @@
       .badge.rate { background: rgba(245,158,11,0.16); color: var(--warn); }
 
       .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 12px; }
-      .calendar-header { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
-      .calendar-label { font-size: 14px; color: var(--text); min-width: 160px; }
+      .calendar-header { display: flex; align-items: center; gap: 16px; margin-top: 16px; margin-bottom: 8px; }
+      .calendar-label { font-size: 18px; font-weight: 600; color: var(--text); min-width: 180px; }
       .calendar-day-header {
         text-align: center;
         font-size: 12px;
@@ -213,6 +213,7 @@
       .calendar-cell.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
       .calendar-cell .day { color: var(--text); font-weight: 600; font-size: 14px; }
       .calendar-cell .count { margin-top: 6px; font-size: 11px; color: var(--muted); line-height: 1.5; }
+      .calendar-cell .count.pass-rate { color: var(--pass); font-weight: 600; }
 
       .modal-overlay {
         position: fixed;
@@ -341,9 +342,9 @@
         <div class="section">
           <div class="section-title" id="calendarTitle">Calendar View</div>
           <div class="calendar-header">
-            <button class="btn" id="prevMonth">Prev</button>
+            <button class="btn" id="prevMonth">&laquo; Prev</button>
             <div class="calendar-label" id="calendarLabel">Month</div>
-            <button class="btn" id="nextMonth">Next</button>
+            <button class="btn" id="nextMonth">Next &raquo;</button>
           </div>
           <div class="calendar-grid" id="calendarGrid"></div>
           <div class="section-title" style="margin-top:18px;">Runs for selected day</div>
@@ -706,7 +707,7 @@
           if (runsForDay.length) cell.classList.add("has-runs");
           cell.innerHTML = '<div class="day">' + day + '</div>' +
             (runsForDay.length ? '<div class="count">' + runsForDay.length + " runs" + '</div>' +
-            '<div class="count">' + avgRate + "% pass" + '</div>' : '');
+            '<div class="count pass-rate">' + avgRate + "% pass" + '</div>' : '');
           cell.addEventListener("click", () => {
             document.querySelectorAll(".calendar-cell").forEach((item) => item.classList.remove("active"));
             cell.classList.add("active");
