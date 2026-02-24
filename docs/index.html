@@ -190,19 +190,29 @@
       .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 12px; }
       .calendar-header { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
       .calendar-label { font-size: 14px; color: var(--text); min-width: 160px; }
+      .calendar-day-header {
+        text-align: center;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--muted);
+        padding: 8px 0;
+      }
       .calendar-cell {
-        min-height: 64px;
+        min-height: 90px;
         border-radius: 12px;
         background: var(--panel);
         border: 1px solid var(--panel-border);
-        padding: 8px;
+        padding: 10px;
         font-size: 11px;
         color: var(--muted);
         cursor: pointer;
+        transition: border-color 0.2s;
       }
-      .calendar-cell.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent-soft); }
-      .calendar-cell .day { color: var(--text); font-weight: 600; }
-      .calendar-cell .count { margin-top: 6px; font-size: 10px; color: var(--muted); }
+      .calendar-cell:hover { border-color: var(--accent); }
+      .calendar-cell.has-runs { border-color: #f59e0b; box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2); }
+      .calendar-cell.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+      .calendar-cell .day { color: var(--text); font-weight: 600; font-size: 14px; }
+      .calendar-cell .count { margin-top: 6px; font-size: 11px; color: var(--muted); line-height: 1.5; }
 
       .modal-overlay {
         position: fixed;
@@ -673,6 +683,13 @@
         calendarLabel.textContent = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(viewDate);
 
         calendarGrid.innerHTML = "";
+        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        dayNames.forEach((name) => {
+          const headerCell = document.createElement("div");
+          headerCell.className = "calendar-day-header";
+          headerCell.textContent = name;
+          calendarGrid.appendChild(headerCell);
+        });
         for (let i = 0; i < startWeekday; i += 1) {
           calendarGrid.appendChild(document.createElement("div"));
         }
@@ -686,9 +703,10 @@
           const avgRate = runsForDay.length
             ? Math.round(runsForDay.reduce((sum, r) => sum + (r.passRate ?? formatRate(r.summary)), 0) / runsForDay.length)
             : 0;
+          if (runsForDay.length) cell.classList.add("has-runs");
           cell.innerHTML = '<div class="day">' + day + '</div>' +
-            '<div class="count">' + (runsForDay.length ? runsForDay.length + " runs" : "") + '</div>' +
-            '<div class="count">' + (runsForDay.length ? avgRate + "% pass" : "") + '</div>';
+            (runsForDay.length ? '<div class="count">' + runsForDay.length + " runs" + '</div>' +
+            '<div class="count">' + avgRate + "% pass" + '</div>' : '');
           cell.addEventListener("click", () => {
             document.querySelectorAll(".calendar-cell").forEach((item) => item.classList.remove("active"));
             cell.classList.add("active");
