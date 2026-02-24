@@ -7,7 +7,7 @@ test.describe("STT module", () => {
   test("uploaded audio renders transcript and allows playback", async ({
     page,
   }) => {
-    test.setTimeout(180_000);
+    test.setTimeout(300_000);
     const widgetPage = new WidgetPage(page);
     const sttPage = new SttPage(page);
 

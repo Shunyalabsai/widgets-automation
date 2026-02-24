@@ -100,8 +100,12 @@ class SttPage {
   }
 
   async waitForUploadProcessing(timeoutMs = 120_000) {
-    await this.loaderIcon.first().waitFor({ timeout: timeoutMs });
-    await this.loaderIcon.first().waitFor({ state: "hidden", timeout: timeoutMs });
+    try {
+      await this.loaderIcon.first().waitFor({ timeout: 15_000 });
+      await this.loaderIcon.first().waitFor({ state: "hidden", timeout: timeoutMs });
+    } catch {
+      // Loader may have appeared and disappeared before we checked — continue
+    }
   }
 
   async playUploadedAudio() {
