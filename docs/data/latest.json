@@ -1,18 +1,18 @@
 {
-  "id": "5da21f60-fd56-4f5c-ba3c-a75de07221f8",
-  "startedAt": "2026-02-25T03:39:21.513Z",
-  "durationMs": 472365,
+  "id": "519ffb17-1771-4568-af42-43dccbfb2d67",
+  "startedAt": "2026-02-25T07:11:52.585Z",
+  "durationMs": 282387,
   "summary": {
     "total": 11,
-    "passed": 10,
-    "failed": 1,
+    "passed": 11,
+    "failed": 0,
     "skipped": 0,
     "timedOut": 0
   },
-  "passRate": 91,
-  "displayTimestamp": "Feb 25, 2026, 3:39:21 AM",
+  "passRate": 100,
+  "displayTimestamp": "Feb 25, 2026, 7:11:52 AM",
   "displayDate": "Wednesday, February 25, 2026",
-  "displayTime": "3:39:21 AM",
+  "displayTime": "7:11:52 AM",
   "modules": {
     "codeswitch": {
       "total": 3,
@@ -30,8 +30,8 @@
     },
     "stt": {
       "total": 4,
-      "passed": 3,
-      "failed": 1,
+      "passed": 4,
+      "failed": 0,
       "skipped": 0,
       "timedOut": 0
     }
@@ -40,7 +40,7 @@
     {
       "title": "codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers",
       "status": "passed",
-      "durationMs": 122002,
+      "durationMs": 121568,
       "file": "codeswitch/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -50,7 +50,7 @@
     {
       "title": "codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript",
       "status": "passed",
-      "durationMs": 5456,
+      "durationMs": 5586,
       "file": "codeswitch/sample-audio.spec.js",
       "attachments": [],
       "error": "",
@@ -60,7 +60,7 @@
     {
       "title": "codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript",
       "status": "passed",
-      "durationMs": 8466,
+      "durationMs": 7356,
       "file": "codeswitch/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -70,7 +70,7 @@
     {
       "title": "medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 2232,
+      "durationMs": 3532,
       "file": "medical-transcription/doctor-appointment.spec.js",
       "attachments": [],
       "error": "",
@@ -80,7 +80,7 @@
     {
       "title": "medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop",
       "status": "passed",
-      "durationMs": 3088,
+      "durationMs": 3092,
       "file": "medical-transcription/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -90,7 +90,7 @@
     {
       "title": "medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 3528,
+      "durationMs": 2182,
       "file": "medical-transcription/patient-notes.spec.js",
       "attachments": [],
       "error": "",
@@ -100,7 +100,7 @@
     {
       "title": "medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript",
       "status": "passed",
-      "durationMs": 2805,
+      "durationMs": 3142,
       "file": "medical-transcription/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -110,7 +110,7 @@
     {
       "title": "stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript",
       "status": "passed",
-      "durationMs": 124943,
+      "durationMs": 125813,
       "file": "stt/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -120,7 +120,7 @@
     {
       "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
       "status": "passed",
-      "durationMs": 2715,
+      "durationMs": 2457,
       "file": "stt/podcast.spec.js",
       "attachments": [],
       "error": "",
@@ -130,7 +130,7 @@
     {
       "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 2622,
+      "durationMs": 2434,
       "file": "stt/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -139,27 +139,11 @@
     },
     {
       "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
-      "status": "failed",
-      "durationMs": 194508,
+      "status": "passed",
+      "durationMs": 5225,
       "file": "stt/upload.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/5da21f60-fd56-4f5c-ba3c-a75de07221f8/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/5da21f60-fd56-4f5c-ba3c-a75de07221f8/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/5da21f60-fd56-4f5c-ba3c-a75de07221f8/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(':00')\nExpected: visible\nTimeout: 180000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 180000ms\u001b[22m\n\u001b[2m  - waiting for getByText(':00')\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "stt",
       "moduleLabel": "STT"
     }

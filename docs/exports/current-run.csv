@@ -1,22 +1,12 @@
 id,module,status,durationMs,title,file,error
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,Codeswitch,passed,122002,codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers,codeswitch/live-recording.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,Codeswitch,passed,5456,codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript,codeswitch/sample-audio.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,Codeswitch,passed,8466,codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript,codeswitch/upload.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,Medical Transcription,passed,2232,medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript,medical-transcription/doctor-appointment.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,Medical Transcription,passed,3088,medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop,medical-transcription/live-recording.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,Medical Transcription,passed,3528,medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript,medical-transcription/patient-notes.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,Medical Transcription,passed,2805,medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript,medical-transcription/upload.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,STT,passed,124943,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,STT,passed,2715,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,STT,passed,2622,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,
-5da21f60-fd56-4f5c-ba3c-a75de07221f8,STT,failed,194508,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
-
-Locator: getByText(':00')
-Expected: visible
-Timeout: 180000ms
-Error: element(s) not found
-
-Call log:
-[2m  - Expect ""toBeVisible"" with timeout 180000ms[22m
-[2m  - waiting for getByText(':00')[22m
-"
+519ffb17-1771-4568-af42-43dccbfb2d67,Codeswitch,passed,121568,codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers,codeswitch/live-recording.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,Codeswitch,passed,5586,codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript,codeswitch/sample-audio.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,Codeswitch,passed,7356,codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript,codeswitch/upload.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,Medical Transcription,passed,3532,medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript,medical-transcription/doctor-appointment.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,Medical Transcription,passed,3092,medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop,medical-transcription/live-recording.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,Medical Transcription,passed,2182,medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript,medical-transcription/patient-notes.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,Medical Transcription,passed,3142,medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript,medical-transcription/upload.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,STT,passed,125813,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,STT,passed,2457,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,STT,passed,2434,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,
+519ffb17-1771-4568-af42-43dccbfb2d67,STT,passed,5225,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,
