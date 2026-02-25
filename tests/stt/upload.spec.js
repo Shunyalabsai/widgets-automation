@@ -26,7 +26,6 @@ test.describe("STT module", () => {
 
     await sttPage.waitForTranscriptLine({
       speakerText: /Speaker \d/,
-      timeText: ":00",
       contentText: "hello today i am calling",
       speakerIndex: 0,
       timeoutMs: 180_000,

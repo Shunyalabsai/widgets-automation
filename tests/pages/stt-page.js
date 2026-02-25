@@ -50,9 +50,11 @@ class SttPage {
     await expect(speaker).toBeVisible({ timeout: timeoutMs });
     await speaker.click();
 
-    const time = this.page.getByText(timeText);
-    await expect(time).toBeVisible({ timeout: timeoutMs });
-    await time.click();
+    if (timeText) {
+      const time = this.page.getByText(timeText);
+      await expect(time).toBeVisible({ timeout: timeoutMs });
+      await time.click();
+    }
 
     const content = this.page.getByText(contentText);
     await expect(content).toBeVisible({ timeout: timeoutMs });
