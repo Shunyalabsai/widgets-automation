@@ -1,7 +1,7 @@
 {
-  "id": "ea3d29b3-f94a-43db-9e43-a83f2ad39d17",
-  "startedAt": "2026-03-09T07:11:56.101Z",
-  "durationMs": 282047,
+  "id": "c9a7a2c3-7b2b-43c0-8b63-aefa36127185",
+  "startedAt": "2026-03-09T10:30:34.895Z",
+  "durationMs": 280431,
   "summary": {
     "total": 11,
     "passed": 11,
@@ -10,9 +10,9 @@
     "timedOut": 0
   },
   "passRate": 100,
-  "displayTimestamp": "Mar 9, 2026, 7:11:56 AM",
+  "displayTimestamp": "Mar 9, 2026, 10:30:34 AM",
   "displayDate": "Monday, March 9, 2026",
-  "displayTime": "7:11:56 AM",
+  "displayTime": "10:30:34 AM",
   "modules": {
     "codeswitch": {
       "total": 3,
@@ -40,7 +40,7 @@
     {
       "title": "codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers",
       "status": "passed",
-      "durationMs": 119498,
+      "durationMs": 119366,
       "file": "codeswitch/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -50,7 +50,7 @@
     {
       "title": "codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript",
       "status": "passed",
-      "durationMs": 4404,
+      "durationMs": 4911,
       "file": "codeswitch/sample-audio.spec.js",
       "attachments": [],
       "error": "",
@@ -60,7 +60,7 @@
     {
       "title": "codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript",
       "status": "passed",
-      "durationMs": 7518,
+      "durationMs": 7816,
       "file": "codeswitch/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -70,7 +70,7 @@
     {
       "title": "medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 2847,
+      "durationMs": 2728,
       "file": "medical-transcription/doctor-appointment.spec.js",
       "attachments": [],
       "error": "",
@@ -80,7 +80,7 @@
     {
       "title": "medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop",
       "status": "passed",
-      "durationMs": 3624,
+      "durationMs": 3569,
       "file": "medical-transcription/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -90,7 +90,7 @@
     {
       "title": "medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 3916,
+      "durationMs": 3632,
       "file": "medical-transcription/patient-notes.spec.js",
       "attachments": [],
       "error": "",
@@ -100,7 +100,7 @@
     {
       "title": "medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript",
       "status": "passed",
-      "durationMs": 3617,
+      "durationMs": 3230,
       "file": "medical-transcription/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -110,7 +110,7 @@
     {
       "title": "stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript",
       "status": "passed",
-      "durationMs": 125134,
+      "durationMs": 123384,
       "file": "stt/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -120,7 +120,7 @@
     {
       "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
       "status": "passed",
-      "durationMs": 2974,
+      "durationMs": 2625,
       "file": "stt/podcast.spec.js",
       "attachments": [],
       "error": "",
@@ -130,7 +130,7 @@
     {
       "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 2653,
+      "durationMs": 3376,
       "file": "stt/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -140,7 +140,7 @@
     {
       "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
       "status": "passed",
-      "durationMs": 5862,
+      "durationMs": 5794,
       "file": "stt/upload.spec.js",
       "attachments": [],
       "error": "",
