@@ -1,5 +1,156 @@
 [
   {
+    "id": "6c6c0bf1-46f2-4f72-afd1-44dcb42777b1",
+    "startedAt": "2026-03-10T10:30:26.785Z",
+    "durationMs": 276070,
+    "summary": {
+      "total": 11,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "timedOut": 0
+    },
+    "passRate": 100,
+    "displayTimestamp": "Mar 10, 2026, 10:30:26 AM",
+    "displayDate": "Tuesday, March 10, 2026",
+    "displayTime": "10:30:26 AM",
+    "modules": {
+      "codeswitch": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "timedOut": 0
+      },
+      "medical-transcription": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "timedOut": 0
+      },
+      "stt": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "timedOut": 0
+      }
+    },
+    "tests": [
+      {
+        "title": "codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers",
+        "status": "passed",
+        "durationMs": 119315,
+        "file": "codeswitch/live-recording.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "codeswitch",
+        "moduleLabel": "Codeswitch"
+      },
+      {
+        "title": "codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript",
+        "status": "passed",
+        "durationMs": 3883,
+        "file": "codeswitch/sample-audio.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "codeswitch",
+        "moduleLabel": "Codeswitch"
+      },
+      {
+        "title": "codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript",
+        "status": "passed",
+        "durationMs": 7601,
+        "file": "codeswitch/upload.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "codeswitch",
+        "moduleLabel": "Codeswitch"
+      },
+      {
+        "title": "medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript",
+        "status": "passed",
+        "durationMs": 2313,
+        "file": "medical-transcription/doctor-appointment.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "medical-transcription",
+        "moduleLabel": "Medical Transcription"
+      },
+      {
+        "title": "medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop",
+        "status": "passed",
+        "durationMs": 2787,
+        "file": "medical-transcription/live-recording.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "medical-transcription",
+        "moduleLabel": "Medical Transcription"
+      },
+      {
+        "title": "medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript",
+        "status": "passed",
+        "durationMs": 3564,
+        "file": "medical-transcription/patient-notes.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "medical-transcription",
+        "moduleLabel": "Medical Transcription"
+      },
+      {
+        "title": "medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript",
+        "status": "passed",
+        "durationMs": 2921,
+        "file": "medical-transcription/upload.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "medical-transcription",
+        "moduleLabel": "Medical Transcription"
+      },
+      {
+        "title": "stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript",
+        "status": "passed",
+        "durationMs": 122876,
+        "file": "stt/live-recording.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "stt",
+        "moduleLabel": "STT"
+      },
+      {
+        "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
+        "status": "passed",
+        "durationMs": 3096,
+        "file": "stt/podcast.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "stt",
+        "moduleLabel": "STT"
+      },
+      {
+        "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
+        "status": "passed",
+        "durationMs": 2761,
+        "file": "stt/prerecorded.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "stt",
+        "moduleLabel": "STT"
+      },
+      {
+        "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
+        "status": "passed",
+        "durationMs": 4953,
+        "file": "stt/upload.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "stt",
+        "moduleLabel": "STT"
+      }
+    ]
+  },
+  {
     "id": "48a554c5-b691-496e-9118-3d88c6a64d23",
     "startedAt": "2026-03-10T07:11:50.785Z",
     "durationMs": 280579,
@@ -15243,59 +15394,6 @@
         "error": "",
         "module": "stt",
         "moduleLabel": "STT"
-      }
-    ]
-  },
-  {
-    "id": "240d0305-b8c3-48a1-b59e-ddd3761cbf44",
-    "startedAt": "2026-02-02T12:59:26.647Z",
-    "durationMs": 8,
-    "summary": {
-      "total": 3,
-      "passed": 0,
-      "failed": 3,
-      "skipped": 0,
-      "timedOut": 0
-    },
-    "modules": {
-      "unknown": {
-        "total": 3,
-        "passed": 0,
-        "failed": 3,
-        "skipped": 0,
-        "timedOut": 0
-      }
-    },
-    "tests": [
-      {
-        "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
-        "status": "failed",
-        "durationMs": 5,
-        "file": "stt/podcast.spec.js",
-        "attachments": [],
-        "error": "Error: browserType.launch: Executable doesn't exist at /var/folders/f1/r2qgmfsj1qsb8pv0727yldmm0000gn/T/cursor-sandbox-cache/712e21a0a55d450c4393ec043eee7984/playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
-        "module": "unknown",
-        "moduleLabel": "Unknown"
-      },
-      {
-        "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
-        "status": "failed",
-        "durationMs": 1,
-        "file": "stt/prerecorded.spec.js",
-        "attachments": [],
-        "error": "Error: browserType.launch: Executable doesn't exist at /var/folders/f1/r2qgmfsj1qsb8pv0727yldmm0000gn/T/cursor-sandbox-cache/712e21a0a55d450c4393ec043eee7984/playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
-        "module": "unknown",
-        "moduleLabel": "Unknown"
-      },
-      {
-        "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
-        "status": "failed",
-        "durationMs": 2,
-        "file": "stt/upload.spec.js",
-        "attachments": [],
-        "error": "Error: browserType.launch: Executable doesn't exist at /var/folders/f1/r2qgmfsj1qsb8pv0727yldmm0000gn/T/cursor-sandbox-cache/712e21a0a55d450c4393ec043eee7984/playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
-        "module": "unknown",
-        "moduleLabel": "Unknown"
       }
     ]
   }
