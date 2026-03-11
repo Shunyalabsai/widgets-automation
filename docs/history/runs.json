@@ -1,5 +1,156 @@
 [
   {
+    "id": "630c41e1-5f39-481b-957e-4711010d6ff0",
+    "startedAt": "2026-03-11T03:34:40.033Z",
+    "durationMs": 276898,
+    "summary": {
+      "total": 11,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "timedOut": 0
+    },
+    "passRate": 100,
+    "displayTimestamp": "Mar 11, 2026, 3:34:40 AM",
+    "displayDate": "Wednesday, March 11, 2026",
+    "displayTime": "3:34:40 AM",
+    "modules": {
+      "codeswitch": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "timedOut": 0
+      },
+      "medical-transcription": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "timedOut": 0
+      },
+      "stt": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "timedOut": 0
+      }
+    },
+    "tests": [
+      {
+        "title": "codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers",
+        "status": "passed",
+        "durationMs": 119618,
+        "file": "codeswitch/live-recording.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "codeswitch",
+        "moduleLabel": "Codeswitch"
+      },
+      {
+        "title": "codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript",
+        "status": "passed",
+        "durationMs": 4385,
+        "file": "codeswitch/sample-audio.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "codeswitch",
+        "moduleLabel": "Codeswitch"
+      },
+      {
+        "title": "codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript",
+        "status": "passed",
+        "durationMs": 8226,
+        "file": "codeswitch/upload.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "codeswitch",
+        "moduleLabel": "Codeswitch"
+      },
+      {
+        "title": "medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript",
+        "status": "passed",
+        "durationMs": 2072,
+        "file": "medical-transcription/doctor-appointment.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "medical-transcription",
+        "moduleLabel": "Medical Transcription"
+      },
+      {
+        "title": "medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop",
+        "status": "passed",
+        "durationMs": 2316,
+        "file": "medical-transcription/live-recording.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "medical-transcription",
+        "moduleLabel": "Medical Transcription"
+      },
+      {
+        "title": "medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript",
+        "status": "passed",
+        "durationMs": 3232,
+        "file": "medical-transcription/patient-notes.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "medical-transcription",
+        "moduleLabel": "Medical Transcription"
+      },
+      {
+        "title": "medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript",
+        "status": "passed",
+        "durationMs": 3105,
+        "file": "medical-transcription/upload.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "medical-transcription",
+        "moduleLabel": "Medical Transcription"
+      },
+      {
+        "title": "stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript",
+        "status": "passed",
+        "durationMs": 122924,
+        "file": "stt/live-recording.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "stt",
+        "moduleLabel": "STT"
+      },
+      {
+        "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
+        "status": "passed",
+        "durationMs": 2884,
+        "file": "stt/podcast.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "stt",
+        "moduleLabel": "STT"
+      },
+      {
+        "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
+        "status": "passed",
+        "durationMs": 3069,
+        "file": "stt/prerecorded.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "stt",
+        "moduleLabel": "STT"
+      },
+      {
+        "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
+        "status": "passed",
+        "durationMs": 5067,
+        "file": "stt/upload.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "stt",
+        "moduleLabel": "STT"
+      }
+    ]
+  },
+  {
     "id": "6c6c0bf1-46f2-4f72-afd1-44dcb42777b1",
     "startedAt": "2026-03-10T10:30:26.785Z",
     "durationMs": 276070,
@@ -15300,95 +15451,6 @@
         "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
         "status": "passed",
         "durationMs": 5407,
-        "file": "stt/upload.spec.js",
-        "attachments": [],
-        "error": "",
-        "module": "stt",
-        "moduleLabel": "STT"
-      }
-    ]
-  },
-  {
-    "id": "ce963214-0f28-4772-8467-7b9fdc64b1a6",
-    "startedAt": "2026-02-03T05:53:26.833Z",
-    "durationMs": 191460,
-    "summary": {
-      "total": 3,
-      "passed": 1,
-      "failed": 1,
-      "skipped": 0,
-      "timedOut": 1
-    },
-    "passRate": 33,
-    "displayTimestamp": "Feb 3, 2026, 11:23:26 AM",
-    "displayDate": "Tuesday, February 3, 2026",
-    "displayTime": "11:23:26 AM",
-    "modules": {
-      "stt": {
-        "total": 3,
-        "passed": 1,
-        "failed": 1,
-        "skipped": 0,
-        "timedOut": 1
-      }
-    },
-    "tests": [
-      {
-        "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
-        "status": "failed",
-        "durationMs": 94733,
-        "file": "stt/podcast.spec.js",
-        "attachments": [
-          {
-            "name": "screenshot",
-            "contentType": "image/png",
-            "path": "playwright-artifacts/ce963214-0f28-4772-8467-7b9fdc64b1a6/screenshot-0.png"
-          },
-          {
-            "name": "video",
-            "contentType": "video/webm",
-            "path": "playwright-artifacts/ce963214-0f28-4772-8467-7b9fdc64b1a6/video-1.webm"
-          },
-          {
-            "name": "error-context",
-            "contentType": "text/markdown",
-            "path": "playwright-artifacts/ce963214-0f28-4772-8467-7b9fdc64b1a6/error-context-2.md"
-          }
-        ],
-        "error": "TimeoutError: locator.waitFor: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Speaker 1').first() to be visible\u001b[22m\n",
-        "module": "stt",
-        "moduleLabel": "STT"
-      },
-      {
-        "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
-        "status": "timedOut",
-        "durationMs": 90190,
-        "file": "stt/prerecorded.spec.js",
-        "attachments": [
-          {
-            "name": "screenshot",
-            "contentType": "image/png",
-            "path": "playwright-artifacts/ce963214-0f28-4772-8467-7b9fdc64b1a6/screenshot-0.png"
-          },
-          {
-            "name": "video",
-            "contentType": "video/webm",
-            "path": "playwright-artifacts/ce963214-0f28-4772-8467-7b9fdc64b1a6/video-1.webm"
-          },
-          {
-            "name": "error-context",
-            "contentType": "text/markdown",
-            "path": "playwright-artifacts/ce963214-0f28-4772-8467-7b9fdc64b1a6/error-context-2.md"
-          }
-        ],
-        "error": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
-        "module": "stt",
-        "moduleLabel": "STT"
-      },
-      {
-        "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
-        "status": "passed",
-        "durationMs": 6537,
         "file": "stt/upload.spec.js",
         "attachments": [],
         "error": "",
