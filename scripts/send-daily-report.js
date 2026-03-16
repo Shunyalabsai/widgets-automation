@@ -4,6 +4,18 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const HISTORY_PATH = path.join(ROOT, "docs", "history", "runs.json");
 
+function getDateKey(date, timeZone) {
+  try {
+    return new Intl.DateTimeFormat("en-CA", {
+      timeZone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(date);
+  } catch {
+    return date.toISOString().slice(0, 10);
+  }
+}
 
 function formatDate(date, timeZone) {
   try {
@@ -239,7 +251,13 @@ async function main() {
   const history = loadHistory();
   if (history.length === 0) throw new Error("No runs found in history.");
 
-  const latestRun = history[history.length - 1];
+  const todayKey = getDateKey(new Date(), timeZone);
+  const todaysRuns = history.filter(
+    (run) => getDateKey(new Date(run.startedAt), timeZone) === todayKey,
+  );
+  const latestRun = todaysRuns.length > 0
+    ? todaysRuns[todaysRuns.length - 1]
+    : history[history.length - 1];
   const summary = summarizeRuns([latestRun]);
   const reportDate = formatDate(new Date(latestRun.startedAt), timeZone);
   const totalTests = summary.totalPassed + summary.totalFailed;
