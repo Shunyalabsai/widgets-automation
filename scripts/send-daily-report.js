@@ -4,19 +4,6 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const HISTORY_PATH = path.join(ROOT, "docs", "history", "runs.json");
 
-function getDateKey(date, timeZone) {
-  try {
-    const formatter = new Intl.DateTimeFormat("en-CA", {
-      timeZone,
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    });
-    return formatter.format(date);
-  } catch {
-    return date.toISOString().slice(0, 10);
-  }
-}
 
 function formatDate(date, timeZone) {
   try {
@@ -88,12 +75,13 @@ function buildEmailBody({
   dashboardUrl,
   sheetUrl,
   timeZone,
+  runStartedAt,
 }) {
   const totalTests = summary.totalPassed + summary.totalFailed;
   const passRate = totalTests > 0 ? Math.round((summary.totalPassed / totalTests) * 100) : 0;
   const passRateColor = passRate >= 90 ? "#27ae60" : passRate >= 70 ? "#e67e22" : "#e74c3c";
   const passRateIcon = passRate >= 90 ? "&#9989;" : "&#9888;&#65039;";
-  const latestRun = formatTime(new Date(), timeZone);
+  const latestRun = formatTime(new Date(runStartedAt), timeZone);
 
   const moduleRows = Object.entries(summary.modules)
     .map(([name, stats]) => {
@@ -249,13 +237,11 @@ async function main() {
   const emailUrl = process.env.EMAIL_WEB_APP_URL || "";
 
   const history = loadHistory();
-  const todayKey = getDateKey(new Date(), timeZone);
-  const todaysRuns = history.filter((run) =>
-    getDateKey(new Date(run.startedAt), timeZone) === todayKey,
-  );
+  if (history.length === 0) throw new Error("No runs found in history.");
 
-  const summary = summarizeRuns(todaysRuns);
-  const reportDate = formatDate(new Date(), timeZone);
+  const latestRun = history[history.length - 1];
+  const summary = summarizeRuns([latestRun]);
+  const reportDate = formatDate(new Date(latestRun.startedAt), timeZone);
   const totalTests = summary.totalPassed + summary.totalFailed;
   const passRate = totalTests > 0 ? Math.round((summary.totalPassed / totalTests) * 100) : 0;
   const subject = `QC ${projectName} Report – ${reportDate} – ${passRate}% Pass Rate`;
@@ -265,6 +251,7 @@ async function main() {
     dashboardUrl,
     sheetUrl,
     timeZone,
+    runStartedAt: latestRun.startedAt,
   });
 
   await sendEmail({
