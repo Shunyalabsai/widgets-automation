@@ -1,18 +1,18 @@
 {
-  "id": "815c32d4-08a2-40fb-9158-9ab648f18109",
-  "startedAt": "2026-03-16T09:11:56.151Z",
-  "durationMs": 933177,
+  "id": "137184dc-f966-4d96-b972-b8cf6a1ba589",
+  "startedAt": "2026-03-16T11:00:06.032Z",
+  "durationMs": 754263,
   "summary": {
     "total": 11,
-    "passed": 7,
-    "failed": 1,
+    "passed": 8,
+    "failed": 0,
     "skipped": 0,
     "timedOut": 3
   },
-  "passRate": 64,
-  "displayTimestamp": "Mar 16, 2026, 9:11:56 AM",
+  "passRate": 73,
+  "displayTimestamp": "Mar 16, 2026, 11:00:06 AM",
   "displayDate": "Monday, March 16, 2026",
-  "displayTime": "9:11:56 AM",
+  "displayTime": "11:00:06 AM",
   "modules": {
     "codeswitch": {
       "total": 3,
@@ -30,8 +30,8 @@
     },
     "stt": {
       "total": 4,
-      "passed": 3,
-      "failed": 1,
+      "passed": 4,
+      "failed": 0,
       "skipped": 0,
       "timedOut": 0
     }
@@ -40,23 +40,23 @@
     {
       "title": "codeswitch/live-recording.spec.js > CodeSwitch module > simulated live recording validates transcript and speakers",
       "status": "timedOut",
-      "durationMs": 197480,
+      "durationMs": 200178,
       "file": "codeswitch/live-recording.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/screenshot-0.png"
+          "path": "playwright-artifacts/137184dc-f966-4d96-b972-b8cf6a1ba589/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/video-1.webm"
+          "path": "playwright-artifacts/137184dc-f966-4d96-b972-b8cf6a1ba589/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/error-context-2.md"
+          "path": "playwright-artifacts/137184dc-f966-4d96-b972-b8cf6a1ba589/error-context-2.md"
         }
       ],
       "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
@@ -66,23 +66,23 @@
     {
       "title": "codeswitch/sample-audio.spec.js > CodeSwitch module > sample audio renders transcript",
       "status": "timedOut",
-      "durationMs": 197365,
+      "durationMs": 200248,
       "file": "codeswitch/sample-audio.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/screenshot-0.png"
+          "path": "playwright-artifacts/137184dc-f966-4d96-b972-b8cf6a1ba589/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/video-1.webm"
+          "path": "playwright-artifacts/137184dc-f966-4d96-b972-b8cf6a1ba589/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/error-context-2.md"
+          "path": "playwright-artifacts/137184dc-f966-4d96-b972-b8cf6a1ba589/error-context-2.md"
         }
       ],
       "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
@@ -92,23 +92,23 @@
     {
       "title": "codeswitch/upload.spec.js > CodeSwitch module > upload file renders codeswitched transcript",
       "status": "timedOut",
-      "durationMs": 197353,
+      "durationMs": 200067,
       "file": "codeswitch/upload.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/screenshot-0.png"
+          "path": "playwright-artifacts/137184dc-f966-4d96-b972-b8cf6a1ba589/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/video-1.webm"
+          "path": "playwright-artifacts/137184dc-f966-4d96-b972-b8cf6a1ba589/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/error-context-2.md"
+          "path": "playwright-artifacts/137184dc-f966-4d96-b972-b8cf6a1ba589/error-context-2.md"
         }
       ],
       "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
@@ -118,7 +118,7 @@
     {
       "title": "medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 4574,
+      "durationMs": 4647,
       "file": "medical-transcription/doctor-appointment.spec.js",
       "attachments": [],
       "error": "",
@@ -128,7 +128,7 @@
     {
       "title": "medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop",
       "status": "passed",
-      "durationMs": 4359,
+      "durationMs": 4120,
       "file": "medical-transcription/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -138,7 +138,7 @@
     {
       "title": "medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 4761,
+      "durationMs": 4319,
       "file": "medical-transcription/patient-notes.spec.js",
       "attachments": [],
       "error": "",
@@ -148,7 +148,7 @@
     {
       "title": "medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript",
       "status": "passed",
-      "durationMs": 3076,
+      "durationMs": 3721,
       "file": "medical-transcription/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -158,7 +158,7 @@
     {
       "title": "stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript",
       "status": "passed",
-      "durationMs": 123665,
+      "durationMs": 123274,
       "file": "stt/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -168,7 +168,7 @@
     {
       "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
       "status": "passed",
-      "durationMs": 3692,
+      "durationMs": 4381,
       "file": "stt/podcast.spec.js",
       "attachments": [],
       "error": "",
@@ -178,7 +178,7 @@
     {
       "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 3656,
+      "durationMs": 4127,
       "file": "stt/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -187,27 +187,11 @@
     },
     {
       "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
-      "status": "failed",
-      "durationMs": 193196,
+      "status": "passed",
+      "durationMs": 5181,
       "file": "stt/upload.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/815c32d4-08a2-40fb-9158-9ab648f18109/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('hello today i am calling')\nExpected: visible\nTimeout: 180000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 180000ms\u001b[22m\n\u001b[2m  - waiting for getByText('hello today i am calling')\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "stt",
       "moduleLabel": "STT"
     }
