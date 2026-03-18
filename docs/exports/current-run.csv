@@ -1,19 +1,9 @@
 id,module,status,durationMs,title,file,error
-eb447075-e06f-4f37-852c-93773b35d32b,Medical Transcription,passed,5007,medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript,medical-transcription/doctor-appointment.spec.js,
-eb447075-e06f-4f37-852c-93773b35d32b,Medical Transcription,passed,4483,medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop,medical-transcription/live-recording.spec.js,
-eb447075-e06f-4f37-852c-93773b35d32b,Medical Transcription,passed,4922,medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript,medical-transcription/patient-notes.spec.js,
-eb447075-e06f-4f37-852c-93773b35d32b,Medical Transcription,passed,4362,medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript,medical-transcription/upload.spec.js,
-eb447075-e06f-4f37-852c-93773b35d32b,STT,timedOut,184593,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,[31mTest timeout of 180000ms exceeded.[39m
-eb447075-e06f-4f37-852c-93773b35d32b,STT,passed,4649,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,
-eb447075-e06f-4f37-852c-93773b35d32b,STT,passed,4425,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,
-eb447075-e06f-4f37-852c-93773b35d32b,STT,failed,190844,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
-
-Locator: getByText(/Speaker\s*\d/i).first()
-Expected: visible
-Timeout: 180000ms
-Error: element(s) not found
-
-Call log:
-[2m  - Expect ""toBeVisible"" with timeout 180000ms[22m
-[2m  - waiting for getByText(/Speaker\s*\d/i).first()[22m
-"
+25b2460b-47f9-4168-9bdb-116d11bfd61a,Medical Transcription,passed,5414,medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript,medical-transcription/doctor-appointment.spec.js,
+25b2460b-47f9-4168-9bdb-116d11bfd61a,Medical Transcription,passed,5544,medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop,medical-transcription/live-recording.spec.js,
+25b2460b-47f9-4168-9bdb-116d11bfd61a,Medical Transcription,passed,5254,medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript,medical-transcription/patient-notes.spec.js,
+25b2460b-47f9-4168-9bdb-116d11bfd61a,Medical Transcription,passed,4755,medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript,medical-transcription/upload.spec.js,
+25b2460b-47f9-4168-9bdb-116d11bfd61a,STT,passed,124497,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
+25b2460b-47f9-4168-9bdb-116d11bfd61a,STT,passed,4723,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,
+25b2460b-47f9-4168-9bdb-116d11bfd61a,STT,passed,4327,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,
+25b2460b-47f9-4168-9bdb-116d11bfd61a,STT,passed,5816,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,
