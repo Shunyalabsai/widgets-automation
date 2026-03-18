@@ -1,7 +1,7 @@
 {
-  "id": "b4a6f86b-96c2-4f7f-847a-e1e5017b483d",
-  "startedAt": "2026-03-17T10:34:53.854Z",
-  "durationMs": 344282,
+  "id": "f3214bae-b602-40b2-9b1d-4cf56467b311",
+  "startedAt": "2026-03-18T03:39:03.863Z",
+  "durationMs": 340421,
   "summary": {
     "total": 8,
     "passed": 7,
@@ -10,9 +10,9 @@
     "timedOut": 0
   },
   "passRate": 88,
-  "displayTimestamp": "Mar 17, 2026, 10:34:53 AM",
-  "displayDate": "Tuesday, March 17, 2026",
-  "displayTime": "10:34:53 AM",
+  "displayTimestamp": "Mar 18, 2026, 3:39:03 AM",
+  "displayDate": "Wednesday, March 18, 2026",
+  "displayTime": "3:39:03 AM",
   "modules": {
     "medical-transcription": {
       "total": 4,
@@ -33,7 +33,7 @@
     {
       "title": "medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 5111,
+      "durationMs": 5176,
       "file": "medical-transcription/doctor-appointment.spec.js",
       "attachments": [],
       "error": "",
@@ -43,7 +43,7 @@
     {
       "title": "medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop",
       "status": "passed",
-      "durationMs": 5322,
+      "durationMs": 5062,
       "file": "medical-transcription/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -53,7 +53,7 @@
     {
       "title": "medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 5431,
+      "durationMs": 4709,
       "file": "medical-transcription/patient-notes.spec.js",
       "attachments": [],
       "error": "",
@@ -63,7 +63,7 @@
     {
       "title": "medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript",
       "status": "passed",
-      "durationMs": 4212,
+      "durationMs": 3502,
       "file": "medical-transcription/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -73,7 +73,7 @@
     {
       "title": "stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript",
       "status": "passed",
-      "durationMs": 122676,
+      "durationMs": 122511,
       "file": "stt/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -83,7 +83,7 @@
     {
       "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
       "status": "passed",
-      "durationMs": 4448,
+      "durationMs": 4271,
       "file": "stt/podcast.spec.js",
       "attachments": [],
       "error": "",
@@ -93,7 +93,7 @@
     {
       "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 3629,
+      "durationMs": 3381,
       "file": "stt/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -103,26 +103,26 @@
     {
       "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
       "status": "failed",
-      "durationMs": 193453,
+      "durationMs": 191809,
       "file": "stt/upload.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/b4a6f86b-96c2-4f7f-847a-e1e5017b483d/screenshot-0.png"
+          "path": "playwright-artifacts/f3214bae-b602-40b2-9b1d-4cf56467b311/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/b4a6f86b-96c2-4f7f-847a-e1e5017b483d/video-1.webm"
+          "path": "playwright-artifacts/f3214bae-b602-40b2-9b1d-4cf56467b311/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/b4a6f86b-96c2-4f7f-847a-e1e5017b483d/error-context-2.md"
+          "path": "playwright-artifacts/f3214bae-b602-40b2-9b1d-4cf56467b311/error-context-2.md"
         }
       ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/hello today i.{0,3} calling/i)\nExpected: visible\nTimeout: 180000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 180000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/hello today i.{0,3} calling/i)\u001b[22m\n",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Speaker \\d/).first()\nExpected: visible\nTimeout: 180000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 180000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Speaker \\d/).first()\u001b[22m\n",
       "module": "stt",
       "moduleLabel": "STT"
     }

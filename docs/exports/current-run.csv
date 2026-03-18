@@ -1,19 +1,19 @@
 id,module,status,durationMs,title,file,error
-b4a6f86b-96c2-4f7f-847a-e1e5017b483d,Medical Transcription,passed,5111,medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript,medical-transcription/doctor-appointment.spec.js,
-b4a6f86b-96c2-4f7f-847a-e1e5017b483d,Medical Transcription,passed,5322,medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop,medical-transcription/live-recording.spec.js,
-b4a6f86b-96c2-4f7f-847a-e1e5017b483d,Medical Transcription,passed,5431,medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript,medical-transcription/patient-notes.spec.js,
-b4a6f86b-96c2-4f7f-847a-e1e5017b483d,Medical Transcription,passed,4212,medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript,medical-transcription/upload.spec.js,
-b4a6f86b-96c2-4f7f-847a-e1e5017b483d,STT,passed,122676,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
-b4a6f86b-96c2-4f7f-847a-e1e5017b483d,STT,passed,4448,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,
-b4a6f86b-96c2-4f7f-847a-e1e5017b483d,STT,passed,3629,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,
-b4a6f86b-96c2-4f7f-847a-e1e5017b483d,STT,failed,193453,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+f3214bae-b602-40b2-9b1d-4cf56467b311,Medical Transcription,passed,5176,medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript,medical-transcription/doctor-appointment.spec.js,
+f3214bae-b602-40b2-9b1d-4cf56467b311,Medical Transcription,passed,5062,medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop,medical-transcription/live-recording.spec.js,
+f3214bae-b602-40b2-9b1d-4cf56467b311,Medical Transcription,passed,4709,medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript,medical-transcription/patient-notes.spec.js,
+f3214bae-b602-40b2-9b1d-4cf56467b311,Medical Transcription,passed,3502,medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript,medical-transcription/upload.spec.js,
+f3214bae-b602-40b2-9b1d-4cf56467b311,STT,passed,122511,stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript,stt/live-recording.spec.js,
+f3214bae-b602-40b2-9b1d-4cf56467b311,STT,passed,4271,stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order,stt/podcast.spec.js,
+f3214bae-b602-40b2-9b1d-4cf56467b311,STT,passed,3381,stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript,stt/prerecorded.spec.js,
+f3214bae-b602-40b2-9b1d-4cf56467b311,STT,failed,191809,stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback,stt/upload.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
 
-Locator: getByText(/hello today i.{0,3} calling/i)
+Locator: getByText(/Speaker \d/).first()
 Expected: visible
 Timeout: 180000ms
 Error: element(s) not found
 
 Call log:
 [2m  - Expect ""toBeVisible"" with timeout 180000ms[22m
-[2m  - waiting for getByText(/hello today i.{0,3} calling/i)[22m
+[2m  - waiting for getByText(/Speaker \d/).first()[22m
 "
