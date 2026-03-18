@@ -39,12 +39,6 @@ class MedicalTranscriptionPage {
   }
 
   async uploadAudioFile(filePath) {
-    const fileInput = this.page.locator("input[type='file']");
-    if (await fileInput.count()) {
-      await fileInput.first().setInputFiles(filePath);
-      return;
-    }
-
     const [fileChooser] = await Promise.all([
       this.page.waitForEvent("filechooser"),
       this.uploadButton.click(),

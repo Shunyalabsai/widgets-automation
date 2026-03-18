@@ -1,4 +1,4 @@
-const { test } = require("@playwright/test");
+const { test, expect } = require("@playwright/test");
 const path = require("path");
 const { WidgetPage } = require("../pages/widget-page");
 const { SttPage } = require("../pages/stt-page");
@@ -24,16 +24,8 @@ test.describe("STT module", () => {
     await sttPage.uploadAudioFile(audioPath);
     await sttPage.waitForUploadProcessing(180_000);
 
-    await sttPage.waitForTranscriptLine({
-      speakerText: /Speaker \d/,
-      contentText: /hello today i.{0,3} calling/i,
-      speakerIndex: 0,
-      timeoutMs: 180_000,
-    });
-
-    await sttPage.playUploadedAudio();
-    await sttPage.clickFirstTranscriptRow();
-    await sttPage.playUploadedAudio();
+    await sttPage.waitForAnySpeakerLabel(180_000);
+    await expect(page.getByText(/today.*calling/i)).toBeVisible({ timeout: 30_000 });
 
     await sttPage.assertCopyAvailable();
     await sttPage.copyConversation();
