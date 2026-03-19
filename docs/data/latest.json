@@ -1,7 +1,7 @@
 {
-  "id": "25b2460b-47f9-4168-9bdb-116d11bfd61a",
-  "startedAt": "2026-03-18T11:03:43.684Z",
-  "durationMs": 160330,
+  "id": "05627f87-e6d4-4a91-aaf0-29a6ff3b2ad4",
+  "startedAt": "2026-03-19T03:34:51.103Z",
+  "durationMs": 157600,
   "summary": {
     "total": 8,
     "passed": 8,
@@ -10,9 +10,9 @@
     "timedOut": 0
   },
   "passRate": 100,
-  "displayTimestamp": "Mar 18, 2026, 11:03:43 AM",
-  "displayDate": "Wednesday, March 18, 2026",
-  "displayTime": "11:03:43 AM",
+  "displayTimestamp": "Mar 19, 2026, 3:34:51 AM",
+  "displayDate": "Thursday, March 19, 2026",
+  "displayTime": "3:34:51 AM",
   "modules": {
     "medical-transcription": {
       "total": 4,
@@ -33,7 +33,7 @@
     {
       "title": "medical-transcription/doctor-appointment.spec.js > Medical Transcription module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 5414,
+      "durationMs": 5673,
       "file": "medical-transcription/doctor-appointment.spec.js",
       "attachments": [],
       "error": "",
@@ -43,7 +43,7 @@
     {
       "title": "medical-transcription/live-recording.spec.js > Medical Transcription module > live recording start/stop",
       "status": "passed",
-      "durationMs": 5544,
+      "durationMs": 5068,
       "file": "medical-transcription/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -53,7 +53,7 @@
     {
       "title": "medical-transcription/patient-notes.spec.js > Medical Transcription module > precorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 5254,
+      "durationMs": 5404,
       "file": "medical-transcription/patient-notes.spec.js",
       "attachments": [],
       "error": "",
@@ -63,7 +63,7 @@
     {
       "title": "medical-transcription/upload.spec.js > Medical Transcription module > upload file renders transcript",
       "status": "passed",
-      "durationMs": 4755,
+      "durationMs": 4643,
       "file": "medical-transcription/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -73,7 +73,7 @@
     {
       "title": "stt/live-recording.spec.js > STT module > simulated live recording uses file and verifies transcript",
       "status": "passed",
-      "durationMs": 124497,
+      "durationMs": 123163,
       "file": "stt/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -83,7 +83,7 @@
     {
       "title": "stt/podcast.spec.js > STT module > prerecorded podcast renders transcript lines in order",
       "status": "passed",
-      "durationMs": 4723,
+      "durationMs": 4358,
       "file": "stt/podcast.spec.js",
       "attachments": [],
       "error": "",
@@ -93,7 +93,7 @@
     {
       "title": "stt/prerecorded.spec.js > STT module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 4327,
+      "durationMs": 3760,
       "file": "stt/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -103,7 +103,7 @@
     {
       "title": "stt/upload.spec.js > STT module > uploaded audio renders transcript and allows playback",
       "status": "passed",
-      "durationMs": 5816,
+      "durationMs": 5531,
       "file": "stt/upload.spec.js",
       "attachments": [],
       "error": "",
