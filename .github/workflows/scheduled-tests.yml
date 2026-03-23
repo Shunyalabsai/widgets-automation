@@ -100,6 +100,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: saira-widgets
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -107,7 +110,7 @@ jobs:
           node-version: 20
 
       - name: Pull latest dashboard data
-        run: git pull origin "${GITHUB_REF_NAME}" --rebase || true
+        run: git pull origin saira-widgets --rebase
 
       - name: Send daily email summary
         env:
