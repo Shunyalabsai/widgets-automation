@@ -77,6 +77,17 @@ jobs:
         with:
           path: docs
 
+      - name: Send email report
+        if: always()
+        env:
+          EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
+          REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
+          REPORT_PROJECT_NAME: Shunyalabs Widget Automation
+          REPORT_DASHBOARD_URL: https://saira-uwc.github.io/Shunyalabs_widget
+          REPORT_SHEET_URL: https://docs.google.com/spreadsheets/d/${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
+          REPORT_TIMEZONE: Asia/Kolkata
+        run: node scripts/send-daily-report.js || true
+
       - name: Fail on test errors
         if: always()
         run: |
