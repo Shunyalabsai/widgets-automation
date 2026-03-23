@@ -2,7 +2,7 @@ const { test } = require("@playwright/test");
 const path = require("path");
 const { execSync } = require("child_process");
 const { WidgetPage } = require("../pages/widget-page");
-const { SttPage } = require("../pages/stt-page");
+const { MedicalTranscriptionPage } = require("../pages/medical-transcription-page");
 
 function getAudioDurationSeconds(filePath) {
   try {
@@ -17,42 +17,28 @@ function getAudioDurationSeconds(filePath) {
   }
 }
 
-test.describe("STT module", () => {
-  test("simulated live recording uses file and verifies transcript", async ({
-    page,
-  }) => {
+test.describe("Zero STT Med module", () => {
+  test("live recording start/stop", async ({ page }) => {
     test.setTimeout(180_000);
     const widgetPage = new WidgetPage(page);
-    const sttPage = new SttPage(page);
+    const medPage = new MedicalTranscriptionPage(page);
 
     await page.context().grantPermissions(["microphone"], {
       origin: "https://www.shunyalabs.ai",
     });
 
     await widgetPage.goto();
-    await widgetPage.openModule("Speech To Text");
+    await widgetPage.openModule("Zero STT Med");
 
-    await sttPage.startSpeaking();
-    await sttPage.tryWaitForRecordingState(10_000);
+    await medPage.startSpeaking();
 
-    const audioPath = path.join(
-      __dirname,
-      "..",
-      "data",
-      "stt",
-      "live-recording.opus",
-    );
+    const audioPath = path.join(__dirname, "..", "data", "stt", "live-recording.opus");
     const durationSeconds = getAudioDurationSeconds(audioPath) ?? 45;
     await page.waitForTimeout(Math.ceil(durationSeconds * 1000) + 1500);
-    await sttPage.stopSpeaking();
-    await sttPage.tryWaitForProcessingState(30_000);
+    await medPage.stopSpeaking();
 
-    await sttPage.uploadAudioFile(audioPath);
-    await sttPage.waitForUploadProcessing(180_000);
-    await sttPage.tryWaitForProcessingState(30_000);
-    await sttPage.waitForTranscriptReady(180_000);
-
-    await sttPage.assertCopyAvailable();
-    await sttPage.copyConversation();
+    await medPage.uploadAudioFile(audioPath);
+    await medPage.waitForProcessingState(120_000);
+    await medPage.waitForTranscriptRows(180_000);
   });
 });

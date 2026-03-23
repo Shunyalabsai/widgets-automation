@@ -1,0 +1,31 @@
+const { test } = require("@playwright/test");
+const { WidgetPage } = require("../pages/widget-page");
+const { MedicalTranscriptionPage } = require("../pages/medical-transcription-page");
+
+test.describe("Zero STT Med module", () => {
+  test("prerecorded patient notes renders transcript", async ({ page }) => {
+    test.setTimeout(180_000);
+    const widgetPage = new WidgetPage(page);
+    const medPage = new MedicalTranscriptionPage(page);
+
+    await widgetPage.goto();
+    await widgetPage.openModule("Zero STT Med");
+
+    await medPage.selectPatientNotes();
+    await medPage.playAudio();
+    await medPage.waitForTranscriptRows(180_000);
+  });
+
+  test("prerecorded doctor appointment renders transcript", async ({ page }) => {
+    test.setTimeout(180_000);
+    const widgetPage = new WidgetPage(page);
+    const medPage = new MedicalTranscriptionPage(page);
+
+    await widgetPage.goto();
+    await widgetPage.openModule("Zero STT Med");
+
+    await medPage.selectDoctorAppointment();
+    await medPage.playAudio();
+    await medPage.waitForTranscriptRows(180_000);
+  });
+});
