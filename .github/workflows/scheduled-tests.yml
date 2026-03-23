@@ -106,6 +106,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Pull latest dashboard data
+        run: git pull origin "${GITHUB_REF_NAME}" --rebase || true
+
       - name: Send daily email summary
         env:
           EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
