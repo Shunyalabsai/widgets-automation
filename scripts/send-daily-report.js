@@ -252,12 +252,12 @@ async function main() {
   if (history.length === 0) throw new Error("No runs found in history.");
 
   const todayKey = getDateKey(new Date(), timeZone);
-  const todaysRuns = history.filter(
-    (run) => getDateKey(new Date(run.startedAt), timeZone) === todayKey,
-  );
+  const todaysRuns = history
+    .filter((run) => getDateKey(new Date(run.startedAt), timeZone) === todayKey)
+    .sort((a, b) => new Date(b.startedAt) - new Date(a.startedAt));
   const latestRun = todaysRuns.length > 0
-    ? todaysRuns[todaysRuns.length - 1]
-    : history[history.length - 1];
+    ? todaysRuns[0]
+    : history.sort((a, b) => new Date(b.startedAt) - new Date(a.startedAt))[0];
   const summary = summarizeRuns([latestRun]);
   const reportDate = formatDate(new Date(latestRun.startedAt), timeZone);
   const totalTests = summary.totalPassed + summary.totalFailed;
