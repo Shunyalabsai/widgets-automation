@@ -258,6 +258,15 @@ async function main() {
   const latestRun = todaysRuns.length > 0
     ? todaysRuns[0]
     : history.sort((a, b) => new Date(b.startedAt) - new Date(a.startedAt))[0];
+
+  const hasFailures = (latestRun.summary?.failed ?? 0) > 0
+    || (latestRun.summary?.timedOut ?? 0) > 0;
+
+  if (!hasFailures) {
+    console.log("Latest run has no failures or timeouts — skipping email.");
+    return;
+  }
+
   const summary = summarizeRuns([latestRun]);
   const reportDate = formatDate(new Date(latestRun.startedAt), timeZone);
   const totalTests = summary.totalPassed + summary.totalFailed;
