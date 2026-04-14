@@ -1,0 +1,971 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - navigation [ref=e4]:
+        - generic [ref=e5]:
+          - link "Shunya Labs Logo" [ref=e6] [cursor=pointer]:
+            - /url: /
+            - img "Shunya Labs Logo" [ref=e7]
+          - generic [ref=e8]:
+            - button "Product" [ref=e10] [cursor=pointer]:
+              - text: Product
+              - img [ref=e11]
+            - button "Models" [ref=e14] [cursor=pointer]:
+              - text: Models
+              - img [ref=e15]
+            - button "Solutions" [ref=e18] [cursor=pointer]:
+              - text: Solutions
+              - img [ref=e19]
+            - button "Resources" [ref=e22] [cursor=pointer]:
+              - text: Resources
+              - img [ref=e23]
+            - link "Documentation" [ref=e25] [cursor=pointer]:
+              - /url: https://docs.shunyalabs.ai/overview
+            - link "About Us" [ref=e26] [cursor=pointer]:
+              - /url: /about
+            - link "Pricing" [ref=e27] [cursor=pointer]:
+              - /url: /pricing
+          - link "Playground" [ref=e28] [cursor=pointer]:
+            - /url: https://playground.shunyalabs.ai/
+            - img [ref=e29]
+            - text: Playground
+          - generic [ref=e31]:
+            - button "Sign In" [ref=e32] [cursor=pointer]
+            - link "Contact Sales" [ref=e33] [cursor=pointer]:
+              - /url: /contact
+      - generic [ref=e35]:
+        - heading "Voice AI on your terms" [level=1] [ref=e36]
+        - heading "Foundation models to voice agents, complete voice AI stack." [level=2] [ref=e37]
+        - text: Built for developers. Ready for enterprises.
+      - main [ref=e40]:
+        - generic [ref=e44]:
+          - generic [ref=e48]:
+            - button "Zero STT Indic" [ref=e49] [cursor=pointer]
+            - button "Zero STT Codeswitch" [ref=e50] [cursor=pointer]
+            - button "Zero STT Med" [ref=e51] [cursor=pointer]
+            - button "Zero TTS Indic" [ref=e52] [cursor=pointer]
+          - generic [ref=e53]:
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - generic [ref=e58]: Text Input
+                - generic [ref=e59]:
+                  - textbox "Ready to hear it in action? Type or paste any text here to try it out.." [ref=e60]: Hey, how are you doing? Let's catch up sometime soon.
+                  - generic [ref=e61]: 53 / 1000
+              - generic [ref=e62]:
+                - generic [ref=e63]:
+                  - generic [ref=e64]: Language
+                  - button "🇺🇸English" [ref=e67] [cursor=pointer]:
+                    - generic [ref=e68]: 🇺🇸English
+                    - generic:
+                      - img
+                - generic [ref=e69]:
+                  - generic [ref=e70]: "Speed: 1x"
+                  - slider [ref=e71] [cursor=pointer]: "1"
+                  - generic [ref=e72]:
+                    - generic [ref=e73]: 0.25x
+                    - generic [ref=e74]: 4.0x
+                - generic [ref=e75]:
+                  - generic [ref=e76]: Format
+                  - combobox [ref=e77] [cursor=pointer]:
+                    - option "MP3" [selected]
+                    - option "PCM"
+                    - option "WAV"
+                    - option "OGG Opus"
+                    - option "FLAC"
+                    - option "mu-law"
+                    - option "A-law"
+                - generic [ref=e78]:
+                  - generic [ref=e79]: Expression Style
+                  - combobox [ref=e80] [cursor=pointer]:
+                    - option "Neutral"
+                    - option "Happy"
+                    - option "Sad"
+                    - option "Angry"
+                    - option "Fearful"
+                    - option "Surprised"
+                    - option "Disgust"
+                    - option "News"
+                    - option "Conversational" [selected]
+                    - option "Narrative"
+                    - option "Enthusiastic"
+                - generic [ref=e81]:
+                  - generic [ref=e82]: Trim Silence
+                  - button [ref=e83] [cursor=pointer]
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - generic [ref=e88]:
+                  - generic [ref=e89]: Select Voice
+                  - generic [ref=e90]: 46 Speakers
+                - generic [ref=e91]:
+                  - 'button "Bimal Native: Assamese Speaks all languages · Assamese accent" [ref=e92] [cursor=pointer]':
+                    - generic [ref=e93]:
+                      - img [ref=e95]
+                      - generic [ref=e98]: Bimal
+                    - generic [ref=e99]:
+                      - generic [ref=e100]: "Native: Assamese"
+                      - generic [ref=e101]: Speaks all languages · Assamese accent
+                  - 'button "Anjana Native: Assamese Speaks all languages · Assamese accent" [ref=e102] [cursor=pointer]':
+                    - generic [ref=e103]:
+                      - img [ref=e105]
+                      - generic [ref=e108]: Anjana
+                    - generic [ref=e109]:
+                      - generic [ref=e110]: "Native: Assamese"
+                      - generic [ref=e111]: Speaks all languages · Assamese accent
+                  - 'button "Arjun Native: Bengali Speaks all languages · Bengali accent" [ref=e112] [cursor=pointer]':
+                    - generic [ref=e113]:
+                      - img [ref=e115]
+                      - generic [ref=e118]: Arjun
+                    - generic [ref=e119]:
+                      - generic [ref=e120]: "Native: Bengali"
+                      - generic [ref=e121]: Speaks all languages · Bengali accent
+                  - 'button "Priyanka Native: Bengali Speaks all languages · Bengali accent" [ref=e122] [cursor=pointer]':
+                    - generic [ref=e123]:
+                      - img [ref=e125]
+                      - generic [ref=e128]: Priyanka
+                    - generic [ref=e129]:
+                      - generic [ref=e130]: "Native: Bengali"
+                      - generic [ref=e131]: Speaks all languages · Bengali accent
+                  - 'button "Daimalu Native: Bodo Speaks all languages · Bodo accent" [ref=e132] [cursor=pointer]':
+                    - generic [ref=e133]:
+                      - img [ref=e135]
+                      - generic [ref=e138]: Daimalu
+                    - generic [ref=e139]:
+                      - generic [ref=e140]: "Native: Bodo"
+                      - generic [ref=e141]: Speaks all languages · Bodo accent
+                  - 'button "Hasina Native: Bodo Speaks all languages · Bodo accent" [ref=e142] [cursor=pointer]':
+                    - generic [ref=e143]:
+                      - img [ref=e145]
+                      - generic [ref=e148]: Hasina
+                    - generic [ref=e149]:
+                      - generic [ref=e150]: "Native: Bodo"
+                      - generic [ref=e151]: Speaks all languages · Bodo accent
+                  - 'button "Vishal Native: Dogri Speaks all languages · Dogri accent" [ref=e152] [cursor=pointer]':
+                    - generic [ref=e153]:
+                      - img [ref=e155]
+                      - generic [ref=e158]: Vishal
+                    - generic [ref=e159]:
+                      - generic [ref=e160]: "Native: Dogri"
+                      - generic [ref=e161]: Speaks all languages · Dogri accent
+                  - 'button "Neelam Native: Dogri Speaks all languages · Dogri accent" [ref=e162] [cursor=pointer]':
+                    - generic [ref=e163]:
+                      - img [ref=e165]
+                      - generic [ref=e168]: Neelam
+                    - generic [ref=e169]:
+                      - generic [ref=e170]: "Native: Dogri"
+                      - generic [ref=e171]: Speaks all languages · Dogri accent
+                  - 'button "Varun Native: English Speaks all languages · English accent" [ref=e172] [cursor=pointer]':
+                    - generic [ref=e173]:
+                      - img [ref=e175]
+                      - generic [ref=e178]: Varun
+                    - generic [ref=e179]:
+                      - generic [ref=e180]: "Native: English"
+                      - generic [ref=e181]: Speaks all languages · English accent
+                  - 'button "Nisha Native: English Speaks all languages · English accent" [ref=e182] [cursor=pointer]':
+                    - generic [ref=e183]:
+                      - img [ref=e185]
+                      - generic [ref=e188]: Nisha
+                    - generic [ref=e189]:
+                      - generic [ref=e190]: "Native: English"
+                      - generic [ref=e191]: Speaks all languages · English accent
+                  - 'button "Rakesh Native: Gujarati Speaks all languages · Gujarati accent" [ref=e192] [cursor=pointer]':
+                    - generic [ref=e193]:
+                      - img [ref=e195]
+                      - generic [ref=e198]: Rakesh
+                    - generic [ref=e199]:
+                      - generic [ref=e200]: "Native: Gujarati"
+                      - generic [ref=e201]: Speaks all languages · Gujarati accent
+                  - 'button "Pooja Native: Gujarati Speaks all languages · Gujarati accent" [ref=e202] [cursor=pointer]':
+                    - generic [ref=e203]:
+                      - img [ref=e205]
+                      - generic [ref=e208]: Pooja
+                    - generic [ref=e209]:
+                      - generic [ref=e210]: "Native: Gujarati"
+                      - generic [ref=e211]: Speaks all languages · Gujarati accent
+                  - 'button "Rajesh Native: Hindi Speaks all languages · Hindi accent" [ref=e212] [cursor=pointer]':
+                    - generic [ref=e213]:
+                      - img [ref=e215]
+                      - generic [ref=e218]: Rajesh
+                    - generic [ref=e219]:
+                      - generic [ref=e220]: "Native: Hindi"
+                      - generic [ref=e221]: Speaks all languages · Hindi accent
+                  - 'button "Sunita Native: Hindi Speaks all languages · Hindi accent" [ref=e222] [cursor=pointer]':
+                    - generic [ref=e223]:
+                      - img [ref=e225]
+                      - generic [ref=e228]: Sunita
+                    - generic [ref=e229]:
+                      - generic [ref=e230]: "Native: Hindi"
+                      - generic [ref=e231]: Speaks all languages · Hindi accent
+                  - 'button "Kiran Native: Kannada Speaks all languages · Kannada accent" [ref=e232] [cursor=pointer]':
+                    - generic [ref=e233]:
+                      - img [ref=e235]
+                      - generic [ref=e238]: Kiran
+                    - generic [ref=e239]:
+                      - generic [ref=e240]: "Native: Kannada"
+                      - generic [ref=e241]: Speaks all languages · Kannada accent
+                  - 'button "Shreya Native: Kannada Speaks all languages · Kannada accent" [ref=e242] [cursor=pointer]':
+                    - generic [ref=e243]:
+                      - img [ref=e245]
+                      - generic [ref=e248]: Shreya
+                    - generic [ref=e249]:
+                      - generic [ref=e250]: "Native: Kannada"
+                      - generic [ref=e251]: Speaks all languages · Kannada accent
+                  - 'button "Farooq Native: Kashmiri Speaks all languages · Kashmiri accent" [ref=e252] [cursor=pointer]':
+                    - generic [ref=e253]:
+                      - img [ref=e255]
+                      - generic [ref=e258]: Farooq
+                    - generic [ref=e259]:
+                      - generic [ref=e260]: "Native: Kashmiri"
+                      - generic [ref=e261]: Speaks all languages · Kashmiri accent
+                  - 'button "Habba Native: Kashmiri Speaks all languages · Kashmiri accent" [ref=e262] [cursor=pointer]':
+                    - generic [ref=e263]:
+                      - img [ref=e265]
+                      - generic [ref=e268]: Habba
+                    - generic [ref=e269]:
+                      - generic [ref=e270]: "Native: Kashmiri"
+                      - generic [ref=e271]: Speaks all languages · Kashmiri accent
+                  - 'button "Mohan Native: Konkani Speaks all languages · Konkani accent" [ref=e272] [cursor=pointer]':
+                    - generic [ref=e273]:
+                      - img [ref=e275]
+                      - generic [ref=e278]: Mohan
+                    - generic [ref=e279]:
+                      - generic [ref=e280]: "Native: Konkani"
+                      - generic [ref=e281]: Speaks all languages · Konkani accent
+                  - 'button "Sarita Native: Konkani Speaks all languages · Konkani accent" [ref=e282] [cursor=pointer]':
+                    - generic [ref=e283]:
+                      - img [ref=e285]
+                      - generic [ref=e288]: Sarita
+                    - generic [ref=e289]:
+                      - generic [ref=e290]: "Native: Konkani"
+                      - generic [ref=e291]: Speaks all languages · Konkani accent
+                  - 'button "Suresh Native: Maithili Speaks all languages · Maithili accent" [ref=e292] [cursor=pointer]':
+                    - generic [ref=e293]:
+                      - img [ref=e295]
+                      - generic [ref=e298]: Suresh
+                    - generic [ref=e299]:
+                      - generic [ref=e300]: "Native: Maithili"
+                      - generic [ref=e301]: Speaks all languages · Maithili accent
+                  - 'button "Meera Native: Maithili Speaks all languages · Maithili accent" [ref=e302] [cursor=pointer]':
+                    - generic [ref=e303]:
+                      - img [ref=e305]
+                      - generic [ref=e308]: Meera
+                    - generic [ref=e309]:
+                      - generic [ref=e310]: "Native: Maithili"
+                      - generic [ref=e311]: Speaks all languages · Maithili accent
+                  - 'button "Krishnan Native: Malayalam Speaks all languages · Malayalam accent" [ref=e312] [cursor=pointer]':
+                    - generic [ref=e313]:
+                      - img [ref=e315]
+                      - generic [ref=e318]: Krishnan
+                    - generic [ref=e319]:
+                      - generic [ref=e320]: "Native: Malayalam"
+                      - generic [ref=e321]: Speaks all languages · Malayalam accent
+                  - 'button "Deepa Native: Malayalam Speaks all languages · Malayalam accent" [ref=e322] [cursor=pointer]':
+                    - generic [ref=e323]:
+                      - img [ref=e325]
+                      - generic [ref=e328]: Deepa
+                    - generic [ref=e329]:
+                      - generic [ref=e330]: "Native: Malayalam"
+                      - generic [ref=e331]: Speaks all languages · Malayalam accent
+                  - 'button "Tomba Native: Manipuri Speaks all languages · Manipuri accent" [ref=e332] [cursor=pointer]':
+                    - generic [ref=e333]:
+                      - img [ref=e335]
+                      - generic [ref=e338]: Tomba
+                    - generic [ref=e339]:
+                      - generic [ref=e340]: "Native: Manipuri"
+                      - generic [ref=e341]: Speaks all languages · Manipuri accent
+                  - 'button "Ibemhal Native: Manipuri Speaks all languages · Manipuri accent" [ref=e342] [cursor=pointer]':
+                    - generic [ref=e343]:
+                      - img [ref=e345]
+                      - generic [ref=e348]: Ibemhal
+                    - generic [ref=e349]:
+                      - generic [ref=e350]: "Native: Manipuri"
+                      - generic [ref=e351]: Speaks all languages · Manipuri accent
+                  - 'button "Siddharth Native: Marathi Speaks all languages · Marathi accent" [ref=e352] [cursor=pointer]':
+                    - generic [ref=e353]:
+                      - img [ref=e355]
+                      - generic [ref=e358]: Siddharth
+                    - generic [ref=e359]:
+                      - generic [ref=e360]: "Native: Marathi"
+                      - generic [ref=e361]: Speaks all languages · Marathi accent
+                  - 'button "Ananya Native: Marathi Speaks all languages · Marathi accent" [ref=e362] [cursor=pointer]':
+                    - generic [ref=e363]:
+                      - img [ref=e365]
+                      - generic [ref=e368]: Ananya
+                    - generic [ref=e369]:
+                      - generic [ref=e370]: "Native: Marathi"
+                      - generic [ref=e371]: Speaks all languages · Marathi accent
+                  - 'button "Bikash Native: Nepali Speaks all languages · Nepali accent" [ref=e372] [cursor=pointer]':
+                    - generic [ref=e373]:
+                      - img [ref=e375]
+                      - generic [ref=e378]: Bikash
+                    - generic [ref=e379]:
+                      - generic [ref=e380]: "Native: Nepali"
+                      - generic [ref=e381]: Speaks all languages · Nepali accent
+                  - 'button "Sapana Native: Nepali Speaks all languages · Nepali accent" [ref=e382] [cursor=pointer]':
+                    - generic [ref=e383]:
+                      - img [ref=e385]
+                      - generic [ref=e388]: Sapana
+                    - generic [ref=e389]:
+                      - generic [ref=e390]: "Native: Nepali"
+                      - generic [ref=e391]: Speaks all languages · Nepali accent
+                  - 'button "Bijay Native: Odia Speaks all languages · Odia accent" [ref=e392] [cursor=pointer]':
+                    - generic [ref=e393]:
+                      - img [ref=e395]
+                      - generic [ref=e398]: Bijay
+                    - generic [ref=e399]:
+                      - generic [ref=e400]: "Native: Odia"
+                      - generic [ref=e401]: Speaks all languages · Odia accent
+                  - 'button "Sujata Native: Odia Speaks all languages · Odia accent" [ref=e402] [cursor=pointer]':
+                    - generic [ref=e403]:
+                      - img [ref=e405]
+                      - generic [ref=e408]: Sujata
+                    - generic [ref=e409]:
+                      - generic [ref=e410]: "Native: Odia"
+                      - generic [ref=e411]: Speaks all languages · Odia accent
+                  - 'button "Gurpreet Native: Punjabi Speaks all languages · Punjabi accent" [ref=e412] [cursor=pointer]':
+                    - generic [ref=e413]:
+                      - img [ref=e415]
+                      - generic [ref=e418]: Gurpreet
+                    - generic [ref=e419]:
+                      - generic [ref=e420]: "Native: Punjabi"
+                      - generic [ref=e421]: Speaks all languages · Punjabi accent
+                  - 'button "Simran Native: Punjabi Speaks all languages · Punjabi accent" [ref=e422] [cursor=pointer]':
+                    - generic [ref=e423]:
+                      - img [ref=e425]
+                      - generic [ref=e428]: Simran
+                    - generic [ref=e429]:
+                      - generic [ref=e430]: "Native: Punjabi"
+                      - generic [ref=e431]: Speaks all languages · Punjabi accent
+                  - 'button "Vedant Native: Sanskrit Speaks all languages · Sanskrit accent" [ref=e432] [cursor=pointer]':
+                    - generic [ref=e433]:
+                      - img [ref=e435]
+                      - generic [ref=e438]: Vedant
+                    - generic [ref=e439]:
+                      - generic [ref=e440]: "Native: Sanskrit"
+                      - generic [ref=e441]: Speaks all languages · Sanskrit accent
+                  - 'button "Gayatri Native: Sanskrit Speaks all languages · Sanskrit accent" [ref=e442] [cursor=pointer]':
+                    - generic [ref=e443]:
+                      - img [ref=e445]
+                      - generic [ref=e448]: Gayatri
+                    - generic [ref=e449]:
+                      - generic [ref=e450]: "Native: Sanskrit"
+                      - generic [ref=e451]: Speaks all languages · Sanskrit accent
+                  - 'button "Chandu Native: Santali Speaks all languages · Santali accent" [ref=e452] [cursor=pointer]':
+                    - generic [ref=e453]:
+                      - img [ref=e455]
+                      - generic [ref=e458]: Chandu
+                    - generic [ref=e459]:
+                      - generic [ref=e460]: "Native: Santali"
+                      - generic [ref=e461]: Speaks all languages · Santali accent
+                  - 'button "Roshni Native: Santali Speaks all languages · Santali accent" [ref=e462] [cursor=pointer]':
+                    - generic [ref=e463]:
+                      - img [ref=e465]
+                      - generic [ref=e468]: Roshni
+                    - generic [ref=e469]:
+                      - generic [ref=e470]: "Native: Santali"
+                      - generic [ref=e471]: Speaks all languages · Santali accent
+                  - 'button "Amjad Native: Sindhi Speaks all languages · Sindhi accent" [ref=e472] [cursor=pointer]':
+                    - generic [ref=e473]:
+                      - img [ref=e475]
+                      - generic [ref=e478]: Amjad
+                    - generic [ref=e479]:
+                      - generic [ref=e480]: "Native: Sindhi"
+                      - generic [ref=e481]: Speaks all languages · Sindhi accent
+                  - 'button "Kavita Native: Sindhi Speaks all languages · Sindhi accent" [ref=e482] [cursor=pointer]':
+                    - generic [ref=e483]:
+                      - img [ref=e485]
+                      - generic [ref=e488]: Kavita
+                    - generic [ref=e489]:
+                      - generic [ref=e490]: "Native: Sindhi"
+                      - generic [ref=e491]: Speaks all languages · Sindhi accent
+                  - 'button "Murugan Native: Tamil Speaks all languages · Tamil accent" [ref=e492] [cursor=pointer]':
+                    - generic [ref=e493]:
+                      - img [ref=e495]
+                      - generic [ref=e498]: Murugan
+                    - generic [ref=e499]:
+                      - generic [ref=e500]: "Native: Tamil"
+                      - generic [ref=e501]: Speaks all languages · Tamil accent
+                  - 'button "Thangam Native: Tamil Speaks all languages · Tamil accent" [ref=e502] [cursor=pointer]':
+                    - generic [ref=e503]:
+                      - img [ref=e505]
+                      - generic [ref=e508]: Thangam
+                    - generic [ref=e509]:
+                      - generic [ref=e510]: "Native: Tamil"
+                      - generic [ref=e511]: Speaks all languages · Tamil accent
+                  - 'button "Vishnu Native: Telugu Speaks all languages · Telugu accent" [ref=e512] [cursor=pointer]':
+                    - generic [ref=e513]:
+                      - img [ref=e515]
+                      - generic [ref=e518]: Vishnu
+                    - generic [ref=e519]:
+                      - generic [ref=e520]: "Native: Telugu"
+                      - generic [ref=e521]: Speaks all languages · Telugu accent
+                  - 'button "Lakshmi Native: Telugu Speaks all languages · Telugu accent" [ref=e522] [cursor=pointer]':
+                    - generic [ref=e523]:
+                      - img [ref=e525]
+                      - generic [ref=e528]: Lakshmi
+                    - generic [ref=e529]:
+                      - generic [ref=e530]: "Native: Telugu"
+                      - generic [ref=e531]: Speaks all languages · Telugu accent
+                  - 'button "Salman Native: Urdu Speaks all languages · Urdu accent" [ref=e532] [cursor=pointer]':
+                    - generic [ref=e533]:
+                      - img [ref=e535]
+                      - generic [ref=e538]: Salman
+                    - generic [ref=e539]:
+                      - generic [ref=e540]: "Native: Urdu"
+                      - generic [ref=e541]: Speaks all languages · Urdu accent
+                  - 'button "Fatima Native: Urdu Speaks all languages · Urdu accent" [ref=e542] [cursor=pointer]':
+                    - generic [ref=e543]:
+                      - img [ref=e545]
+                      - generic [ref=e548]: Fatima
+                    - generic [ref=e549]:
+                      - generic [ref=e550]: "Native: Urdu"
+                      - generic [ref=e551]: Speaks all languages · Urdu accent
+              - button "Generating..." [disabled] [ref=e552]:
+                - generic [ref=e553]:
+                  - img [ref=e554]
+                  - text: Generating...
+              - generic [ref=e557]:
+                - img [ref=e558]
+                - generic [ref=e561]: Generating audio...
+      - generic [ref=e563]:
+        - link "Cloud API Production Ready →" [ref=e564] [cursor=pointer]:
+          - /url: /pricing
+          - generic [ref=e565]:
+            - generic [ref=e566]: Cloud API
+            - generic [ref=e567]: Production Ready
+          - generic [ref=e568]: →
+        - link "Developer Documentation Local Deployment →" [ref=e569] [cursor=pointer]:
+          - /url: https://docs.shunyalabs.ai/overview
+          - generic [ref=e570]:
+            - generic [ref=e571]: Developer Documentation
+            - generic [ref=e572]: Local Deployment
+          - generic [ref=e573]: →
+        - link "Hugging Face Open Models →" [ref=e574] [cursor=pointer]:
+          - /url: https://huggingface.co/shunyalabs
+          - generic [ref=e575]:
+            - generic [ref=e576]: Hugging Face
+            - generic [ref=e577]: Open Models
+          - generic [ref=e578]: →
+      - generic [ref=e580]:
+        - heading "Custom Models for Modular Voice Agents" [level=2] [ref=e581]
+        - generic [ref=e582]:
+          - generic [ref=e583]:
+            - generic [ref=e585] [cursor=pointer]:
+              - heading "Custom Models" [level=3] [ref=e587]
+              - paragraph [ref=e588]: STT, TTS, and SLMs built for specific use cases.
+            - generic [ref=e589] [cursor=pointer]:
+              - heading "Intelligence Layer" [level=3] [ref=e591]
+              - paragraph [ref=e592]: SLMs for intent recognition, entity extraction, and sentiment analysis.
+            - generic [ref=e593] [cursor=pointer]:
+              - heading "Orchestration Framework" [level=3] [ref=e595]
+              - paragraph [ref=e596]: Easy to configure business rules, prompts, and conversation flows.
+            - generic [ref=e597] [cursor=pointer]:
+              - heading "Channel Integrations" [level=3] [ref=e599]
+              - paragraph [ref=e600]: Telephony, web, mobile, and messaging connections.
+            - generic [ref=e601] [cursor=pointer]:
+              - heading "Analytics and Observability" [level=3] [ref=e603]
+              - paragraph [ref=e604]: Performance tracking, debugging, and optimization.
+          - img "Default Architecture" [ref=e607]
+      - generic [ref=e609]:
+        - generic [ref=e610]:
+          - heading "Vāķ" [level=2] [ref=e611]
+          - paragraph [ref=e612]: Real-Time Speech-to-Speech Translation · 55 Languages · 2,970 Pairs
+        - generic [ref=e613]:
+          - generic [ref=e615]:
+            - generic [ref=e616]: SOURCE
+            - generic [ref=e617]: Hindi
+            - generic [ref=e618]: →
+            - generic [ref=e619]: DESTINATION
+            - generic [ref=e620]: Indian English
+          - generic [ref=e621]:
+            - generic [ref=e623]:
+              - generic [ref=e624]:
+                - generic [ref=e626]: Hindi
+                - paragraph [ref=e628]: Tap mic to speak, or type and press Enter to translate
+              - generic [ref=e631]:
+                - generic [ref=e633]: Indian English
+                - paragraph [ref=e635]: Translation will appear here
+            - generic [ref=e636]:
+              - generic [ref=e637]:
+                - generic [ref=e638]:
+                  - generic [ref=e639]: Source
+                  - button "हिन्दी (Hindi)" [ref=e640] [cursor=pointer]:
+                    - generic [ref=e641]: हिन्दी (Hindi)
+                    - img [ref=e642]
+                - button "Swap languages" [ref=e644] [cursor=pointer]:
+                  - img [ref=e645]
+                - generic [ref=e648]:
+                  - generic [ref=e649]: Destination
+                  - button "Indian English" [ref=e650] [cursor=pointer]:
+                    - generic [ref=e651]: Indian English
+                    - img [ref=e652]
+                - generic [ref=e654]:
+                  - generic [ref=e655]: Speaker
+                  - button "English ⬤ Nisha ♀" [ref=e656] [cursor=pointer]:
+                    - generic [ref=e657]:
+                      - generic [ref=e658]: English
+                      - generic [ref=e659]: ⬤
+                      - generic [ref=e660]: Nisha
+                      - generic [ref=e661]: ♀
+                    - img [ref=e662]
+                - generic [ref=e664]:
+                  - generic [ref=e665]: Emotions
+                  - button "😐 Neutral" [ref=e666] [cursor=pointer]:
+                    - generic [ref=e667]: 😐 Neutral
+                    - img [ref=e668]
+              - generic [ref=e671]:
+                - textbox "Type text in source language to translate..." [ref=e673]
+                - button "Press to speak" [ref=e674] [cursor=pointer]:
+                  - img [ref=e675]
+            - generic [ref=e678]:
+              - generic [ref=e679]: 55 Languages
+              - generic [ref=e681]: 46 Speakers
+              - generic [ref=e683]: 11 Emotions
+    - generic [ref=e686]:
+      - heading "Understand Everyone. Speak to Anyone" [level=2] [ref=e687]
+      - paragraph [ref=e688]: We solve the fundamental problems that make voice AI expensive, slow, and insecure.
+      - generic [ref=e689]:
+        - generic [ref=e690]:
+          - paragraph [ref=e691]: "0"
+          - paragraph [ref=e692]: Language Supported
+        - generic [ref=e693]:
+          - paragraph [ref=e694]: 0.0%
+          - paragraph [ref=e695]: Global Population Coverage
+        - generic [ref=e696]:
+          - paragraph [ref=e697]: 0K
+          - paragraph [ref=e698]: Minimum Native Speakers
+    - generic [ref=e699]:
+      - img [ref=e701]
+      - generic [ref=e705]:
+        - heading "Industry-leading standards for enterprise security" [level=2] [ref=e706]
+        - generic [ref=e707]:
+          - generic [ref=e708]:
+            - img "SOC 2 Type II" [ref=e710]
+            - heading "SOC 2 Type II" [level=3] [ref=e711]
+            - paragraph [ref=e712]: Trusted where privacy matters most — SOC 2 Type II certified.
+          - generic [ref=e713]:
+            - img "ISO 27001" [ref=e715]
+            - heading "ISO 27001" [level=3] [ref=e716]
+            - paragraph [ref=e717]: Privacy and compliance built in with our ISO/IEC 27001:2022 accreditation.
+          - generic [ref=e718]:
+            - img "HIPAA" [ref=e720]
+            - heading "HIPAA" [level=3] [ref=e721]
+            - paragraph [ref=e722]: Fully compliant with the health insurance portability and accountability act.
+          - generic [ref=e723]:
+            - img "Two-Sided Encryption" [ref=e725]
+            - heading "Two-Sided Encryption" [level=3] [ref=e726]
+            - paragraph [ref=e727]: Data is encrypted in transit and at rest—TLS for every connection, AES-256 for storage, with keys managed in your cloud.
+    - generic [ref=e728]:
+      - generic [ref=e730]:
+        - paragraph [ref=e731]: Language Regions
+        - paragraph [ref=e732]: Explore our comprehensive language coverage across the globe
+      - generic [ref=e733]:
+        - generic [ref=e734]:
+          - button "Assamese Assamese" [ref=e735] [cursor=pointer]:
+            - generic [ref=e736]:
+              - generic [ref=e737]:
+                - img "Assamese"
+              - generic [ref=e738]: Assamese
+            - img [ref=e739]
+          - button "Awadhi Awadhi" [ref=e741] [cursor=pointer]:
+            - generic [ref=e742]:
+              - generic [ref=e743]:
+                - img "Awadhi"
+              - generic [ref=e744]: Awadhi
+            - img [ref=e745]
+          - button "Bagri Bagri" [ref=e747] [cursor=pointer]:
+            - generic [ref=e748]:
+              - generic [ref=e749]:
+                - img "Bagri"
+              - generic [ref=e750]: Bagri
+            - img [ref=e751]
+          - button "Bengali Bengali" [ref=e753] [cursor=pointer]:
+            - generic [ref=e754]:
+              - generic [ref=e755]:
+                - img "Bengali"
+              - generic [ref=e756]: Bengali
+            - img [ref=e757]
+          - button "Bhili Bhili" [ref=e759] [cursor=pointer]:
+            - generic [ref=e760]:
+              - generic [ref=e761]:
+                - img "Bhili"
+              - generic [ref=e762]: Bhili
+            - img [ref=e763]
+          - button "Bhojpuri Bhojpuri" [ref=e765] [cursor=pointer]:
+            - generic [ref=e766]:
+              - generic [ref=e767]:
+                - img "Bhojpuri"
+              - generic [ref=e768]: Bhojpuri
+            - img [ref=e769]
+          - button "Bodo Bodo" [ref=e771] [cursor=pointer]:
+            - generic [ref=e772]:
+              - generic [ref=e773]:
+                - img "Bodo"
+              - generic [ref=e774]: Bodo
+            - img [ref=e775]
+          - button "Braj Braj" [ref=e777] [cursor=pointer]:
+            - generic [ref=e778]:
+              - generic [ref=e779]:
+                - img "Braj"
+              - generic [ref=e780]: Braj
+            - img [ref=e781]
+          - button "Bundeli Bundeli" [ref=e783] [cursor=pointer]:
+            - generic [ref=e784]:
+              - generic [ref=e785]:
+                - img "Bundeli"
+              - generic [ref=e786]: Bundeli
+            - img [ref=e787]
+          - button "Chhattisgarhi Chhattisgarhi" [ref=e789] [cursor=pointer]:
+            - generic [ref=e790]:
+              - generic [ref=e791]:
+                - img "Chhattisgarhi"
+              - generic [ref=e792]: Chhattisgarhi
+            - img [ref=e793]
+          - button "Dogri Dogri" [ref=e795] [cursor=pointer]:
+            - generic [ref=e796]:
+              - generic [ref=e797]:
+                - img "Dogri"
+              - generic [ref=e798]: Dogri
+            - img [ref=e799]
+          - button "English English" [ref=e801] [cursor=pointer]:
+            - generic [ref=e802]:
+              - generic [ref=e803]:
+                - img "English"
+              - generic [ref=e804]: English
+            - img [ref=e805]
+          - button "Garhwali Garhwali" [ref=e807] [cursor=pointer]:
+            - generic [ref=e808]:
+              - generic [ref=e809]:
+                - img "Garhwali"
+              - generic [ref=e810]: Garhwali
+            - img [ref=e811]
+          - button "Garo Garo" [ref=e813] [cursor=pointer]:
+            - generic [ref=e814]:
+              - generic [ref=e815]:
+                - img "Garo"
+              - generic [ref=e816]: Garo
+            - img [ref=e817]
+          - button "Gujarati Gujarati" [ref=e819] [cursor=pointer]:
+            - generic [ref=e820]:
+              - generic [ref=e821]:
+                - img "Gujarati"
+              - generic [ref=e822]: Gujarati
+            - img [ref=e823]
+          - button "Harouti Harouti" [ref=e825] [cursor=pointer]:
+            - generic [ref=e826]:
+              - generic [ref=e827]:
+                - img "Harouti"
+              - generic [ref=e828]: Harouti
+            - img [ref=e829]
+          - button "Haryanvi Haryanvi" [ref=e831] [cursor=pointer]:
+            - generic [ref=e832]:
+              - generic [ref=e833]:
+                - img "Haryanvi"
+              - generic [ref=e834]: Haryanvi
+            - img [ref=e835]
+          - button "Hindi Hindi" [ref=e837] [cursor=pointer]:
+            - generic [ref=e838]:
+              - generic [ref=e839]:
+                - img "Hindi"
+              - generic [ref=e840]: Hindi
+            - img [ref=e841]
+          - button "Kangri Kangri" [ref=e843] [cursor=pointer]:
+            - generic [ref=e844]:
+              - generic [ref=e845]:
+                - img "Kangri"
+              - generic [ref=e846]: Kangri
+            - img [ref=e847]
+          - button "Kannada Kannada" [ref=e849] [cursor=pointer]:
+            - generic [ref=e850]:
+              - generic [ref=e851]:
+                - img "Kannada"
+              - generic [ref=e852]: Kannada
+            - img [ref=e853]
+          - button "Kashmiri Kashmiri" [ref=e855] [cursor=pointer]:
+            - generic [ref=e856]:
+              - generic [ref=e857]:
+                - img "Kashmiri"
+              - generic [ref=e858]: Kashmiri
+            - img [ref=e859]
+          - button "Konkani Konkani" [ref=e861] [cursor=pointer]:
+            - generic [ref=e862]:
+              - generic [ref=e863]:
+                - img "Konkani"
+              - generic [ref=e864]: Konkani
+            - img [ref=e865]
+          - button "Kumaoni Kumaoni" [ref=e867] [cursor=pointer]:
+            - generic [ref=e868]:
+              - generic [ref=e869]:
+                - img "Kumaoni"
+              - generic [ref=e870]: Kumaoni
+            - img [ref=e871]
+          - button "Kurukh Kurukh" [ref=e873] [cursor=pointer]:
+            - generic [ref=e874]:
+              - generic [ref=e875]:
+                - img "Kurukh"
+              - generic [ref=e876]: Kurukh
+            - img [ref=e877]
+          - button "Magahi Magahi" [ref=e879] [cursor=pointer]:
+            - generic [ref=e880]:
+              - generic [ref=e881]:
+                - img "Magahi"
+              - generic [ref=e882]: Magahi
+            - img [ref=e883]
+          - button "Maithili Maithili" [ref=e885] [cursor=pointer]:
+            - generic [ref=e886]:
+              - generic [ref=e887]:
+                - img "Maithili"
+              - generic [ref=e888]: Maithili
+            - img [ref=e889]
+          - button "Malayalam Malayalam" [ref=e891] [cursor=pointer]:
+            - generic [ref=e892]:
+              - generic [ref=e893]:
+                - img "Malayalam"
+              - generic [ref=e894]: Malayalam
+            - img [ref=e895]
+          - button "Manipuri Manipuri" [ref=e897] [cursor=pointer]:
+            - generic [ref=e898]:
+              - generic [ref=e899]:
+                - img "Manipuri"
+              - generic [ref=e900]: Manipuri
+            - img [ref=e901]
+          - button "Marathi Marathi" [ref=e903] [cursor=pointer]:
+            - generic [ref=e904]:
+              - generic [ref=e905]:
+                - img "Marathi"
+              - generic [ref=e906]: Marathi
+            - img [ref=e907]
+          - button "Marwadi Marwadi" [ref=e909] [cursor=pointer]:
+            - generic [ref=e910]:
+              - generic [ref=e911]:
+                - img "Marwadi"
+              - generic [ref=e912]: Marwadi
+            - img [ref=e913]
+          - button "Nepali Nepali" [ref=e915] [cursor=pointer]:
+            - generic [ref=e916]:
+              - generic [ref=e917]:
+                - img "Nepali"
+              - generic [ref=e918]: Nepali
+            - img [ref=e919]
+          - button "Nimadi Nimadi" [ref=e921] [cursor=pointer]:
+            - generic [ref=e922]:
+              - generic [ref=e923]:
+                - img "Nimadi"
+              - generic [ref=e924]: Nimadi
+            - img [ref=e925]
+          - button "Odia Odia" [ref=e927] [cursor=pointer]:
+            - generic [ref=e928]:
+              - generic [ref=e929]:
+                - img "Odia"
+              - generic [ref=e930]: Odia
+            - img [ref=e931]
+          - button "Pahari Mahasui Pahari Mahasui" [ref=e933] [cursor=pointer]:
+            - generic [ref=e934]:
+              - generic [ref=e935]:
+                - img "Pahari Mahasui"
+              - generic [ref=e936]: Pahari Mahasui
+            - img [ref=e937]
+          - button "Punjabi Punjabi" [ref=e939] [cursor=pointer]:
+            - generic [ref=e940]:
+              - generic [ref=e941]:
+                - img "Punjabi"
+              - generic [ref=e942]: Punjabi
+            - img [ref=e943]
+          - button "Rajasthani Rajasthani" [ref=e945] [cursor=pointer]:
+            - generic [ref=e946]:
+              - generic [ref=e947]:
+                - img "Rajasthani"
+              - generic [ref=e948]: Rajasthani
+            - img [ref=e949]
+          - button "Sanskrit Sanskrit" [ref=e951] [cursor=pointer]:
+            - generic [ref=e952]:
+              - generic [ref=e953]:
+                - img "Sanskrit"
+              - generic [ref=e954]: Sanskrit
+            - img [ref=e955]
+          - button "Santali Santali" [ref=e957] [cursor=pointer]:
+            - generic [ref=e958]:
+              - generic [ref=e959]:
+                - img "Santali"
+              - generic [ref=e960]: Santali
+            - img [ref=e961]
+          - button "Sindhi Sindhi" [ref=e963] [cursor=pointer]:
+            - generic [ref=e964]:
+              - generic [ref=e965]:
+                - img "Sindhi"
+              - generic [ref=e966]: Sindhi
+            - img [ref=e967]
+          - button "Surgujia Surgujia" [ref=e969] [cursor=pointer]:
+            - generic [ref=e970]:
+              - generic [ref=e971]:
+                - img "Surgujia"
+              - generic [ref=e972]: Surgujia
+            - img [ref=e973]
+          - button "Tamil Tamil" [ref=e975] [cursor=pointer]:
+            - generic [ref=e976]:
+              - generic [ref=e977]:
+                - img "Tamil"
+              - generic [ref=e978]: Tamil
+            - img [ref=e979]
+          - button "Telugu Telugu" [ref=e981] [cursor=pointer]:
+            - generic [ref=e982]:
+              - generic [ref=e983]:
+                - img "Telugu"
+              - generic [ref=e984]: Telugu
+            - img [ref=e985]
+          - button "Tulu Tulu" [ref=e987] [cursor=pointer]:
+            - generic [ref=e988]:
+              - generic [ref=e989]:
+                - img "Tulu"
+              - generic [ref=e990]: Tulu
+            - img [ref=e991]
+          - button "Urdu Urdu" [ref=e993] [cursor=pointer]:
+            - generic [ref=e994]:
+              - generic [ref=e995]:
+                - img "Urdu"
+              - generic [ref=e996]: Urdu
+            - img [ref=e997]
+          - button "Wagdi Wagdi" [ref=e999] [cursor=pointer]:
+            - generic [ref=e1000]:
+              - generic [ref=e1001]:
+                - img "Wagdi"
+              - generic [ref=e1002]: Wagdi
+            - img [ref=e1003]
+        - link "See the full list of languages supported by Shunya Labs" [ref=e1006] [cursor=pointer]:
+          - /url: documentation/languages
+          - text: See the full list of languages supported by Shunya Labs
+          - img [ref=e1007]
+    - contentinfo [ref=e1009]:
+      - generic [ref=e1013]:
+        - paragraph [ref=e1014]: The fastest way to add voice AI to your products
+        - paragraph [ref=e1015]: One platform for speech in and speech out—secure by design, built to scale.
+        - generic [ref=e1016]:
+          - link "Go to Pricing page" [ref=e1017] [cursor=pointer]:
+            - /url: /pricing
+            - text: Get Started
+          - link "Contact Sales" [ref=e1018] [cursor=pointer]:
+            - /url: /contact
+    - contentinfo [ref=e1019]:
+      - generic [ref=e1020]:
+        - generic [ref=e1021]:
+          - img "Shunya Labs" [ref=e1022]
+          - paragraph [ref=e1023]: Shunya Labs, Inc.
+        - generic [ref=e1024]:
+          - paragraph [ref=e1025]: Product
+          - list [ref=e1026]:
+            - listitem [ref=e1027]:
+              - link "Overview" [ref=e1028] [cursor=pointer]:
+                - /url: /overview
+            - listitem [ref=e1029]:
+              - link "Models" [ref=e1030] [cursor=pointer]:
+                - /url: /models-page
+            - listitem [ref=e1031]:
+              - link "Voice Agents" [ref=e1032] [cursor=pointer]:
+                - /url: /voice-agent
+            - listitem [ref=e1033]:
+              - link "Speech Intelligence" [ref=e1034] [cursor=pointer]:
+                - /url: /speech-intelligence-page
+            - listitem [ref=e1035]:
+              - link "Audio Processing" [ref=e1036] [cursor=pointer]:
+                - /url: /audio-processing
+            - listitem [ref=e1037]:
+              - link "Deployment" [ref=e1038] [cursor=pointer]:
+                - /url: /deployment
+        - generic [ref=e1039]:
+          - paragraph [ref=e1040]: Models
+          - list [ref=e1041]:
+            - listitem [ref=e1042]:
+              - link "Language Models" [ref=e1043] [cursor=pointer]:
+                - /url: /language-models
+            - listitem [ref=e1044]:
+              - link "Zero STT Indic" [ref=e1045] [cursor=pointer]:
+                - /url: /zero-indic
+            - listitem [ref=e1046]:
+              - link "Zero STT Codeswitch" [ref=e1047] [cursor=pointer]:
+                - /url: /zero-code-switch
+            - listitem [ref=e1048]:
+              - link "Specialised Models" [ref=e1049] [cursor=pointer]:
+                - /url: /domain-specialisation
+            - listitem [ref=e1050]:
+              - link "Zero STT Med" [ref=e1051] [cursor=pointer]:
+                - /url: /zero-med
+            - listitem [ref=e1052]:
+              - link "On Device Models" [ref=e1053] [cursor=pointer]:
+                - /url: /on-device-models
+        - generic [ref=e1054]:
+          - paragraph [ref=e1055]: Solutions
+          - list [ref=e1056]:
+            - listitem [ref=e1057]:
+              - link "Contact Centers" [ref=e1058] [cursor=pointer]:
+                - /url: /contact-centers
+            - listitem [ref=e1059]:
+              - link "Media & Entertainment" [ref=e1060] [cursor=pointer]:
+                - /url: /media-entertainment
+            - listitem [ref=e1061]:
+              - link "Healthcare" [ref=e1062] [cursor=pointer]:
+                - /url: /healthcare
+        - generic [ref=e1063]:
+          - paragraph [ref=e1064]: Resources
+          - list [ref=e1065]:
+            - listitem [ref=e1066]:
+              - link "Blogs" [ref=e1067] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e1068]:
+              - link "Benchmarks" [ref=e1069] [cursor=pointer]:
+                - /url: /benchmarks
+            - listitem [ref=e1070]:
+              - link "News & Media" [ref=e1071] [cursor=pointer]:
+                - /url: /media
+            - listitem [ref=e1072]:
+              - link "Patents" [ref=e1073] [cursor=pointer]:
+                - /url: /patents
+            - listitem [ref=e1074]:
+              - link "Research" [ref=e1075] [cursor=pointer]:
+                - /url: /research
+        - paragraph [ref=e1077]:
+          - link "Documentation" [ref=e1078] [cursor=pointer]:
+            - /url: https://docs.shunyalabs.ai/overview
+        - list [ref=e1080]:
+          - listitem [ref=e1081]:
+            - link "About us" [ref=e1082] [cursor=pointer]:
+              - /url: /about
+        - list [ref=e1084]:
+          - listitem [ref=e1085]:
+            - link "Pricing" [ref=e1086] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e1087]:
+        - paragraph [ref=e1088]: Follow us on
+        - generic [ref=e1089]:
+          - link [ref=e1090] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/shunya-labs-ai/
+            - img [ref=e1091]
+          - link [ref=e1093] [cursor=pointer]:
+            - /url: https://www.facebook.com/people/ShunyaLabsAI/61577801851308/
+            - img [ref=e1094]
+          - link [ref=e1096] [cursor=pointer]:
+            - /url: https://www.instagram.com/shunyalabsai/
+            - img [ref=e1097]
+          - link [ref=e1099] [cursor=pointer]:
+            - /url: https://x.com/ShunyaLabsAI
+            - img [ref=e1100]
+      - generic [ref=e1102]:
+        - paragraph [ref=e1103]: © 2026 Shunya Labs Inc. All rights reserved.
+        - generic [ref=e1104]:
+          - link "Privacy" [ref=e1105] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms" [ref=e1106] [cursor=pointer]:
+            - /url: /terms-conditions
+          - link "Security" [ref=e1107] [cursor=pointer]:
+            - /url: /security-policy
+          - link "General License" [ref=e1108] [cursor=pointer]:
+            - /url: /general-rail-m-license
+          - link "Custom License" [ref=e1109] [cursor=pointer]:
+            - /url: /shunya-labs-custom-model-rail-m-license
+  - alert [ref=e1110]
+  - iframe [ref=e1113]:
+    - generic [ref=f1e6]:
+      - text: protected by
+      - strong [ref=f1e7]: reCAPTCHA
+```
