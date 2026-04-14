@@ -1,18 +1,18 @@
 {
-  "id": "a89e6357-2043-4f60-83fb-0b4759609e9b",
-  "startedAt": "2026-04-14T03:43:18.105Z",
-  "durationMs": 1063944,
+  "id": "79f29713-861a-4dd6-a503-54bb97f83328",
+  "startedAt": "2026-04-14T07:12:06.257Z",
+  "durationMs": 443344,
   "summary": {
     "total": 23,
-    "passed": 13,
-    "failed": 10,
+    "passed": 23,
+    "failed": 0,
     "skipped": 0,
     "timedOut": 0
   },
-  "passRate": 57,
-  "displayTimestamp": "Apr 14, 2026, 3:43:18 AM",
+  "passRate": 100,
+  "displayTimestamp": "Apr 14, 2026, 7:12:06 AM",
   "displayDate": "Tuesday, April 14, 2026",
-  "displayTime": "3:43:18 AM",
+  "displayTime": "7:12:06 AM",
   "modules": {
     "zero-stt-codeswitch": {
       "total": 3,
@@ -37,8 +37,8 @@
     },
     "zero-tts-indic": {
       "total": 12,
-      "passed": 2,
-      "failed": 10,
+      "passed": 12,
+      "failed": 0,
       "skipped": 0,
       "timedOut": 0
     }
@@ -47,7 +47,7 @@
     {
       "title": "zero-stt-codeswitch/live-recording.spec.js > Zero STT Codeswitch module > simulated live recording validates transcript and speakers",
       "status": "passed",
-      "durationMs": 165581,
+      "durationMs": 133390,
       "file": "zero-stt-codeswitch/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -57,7 +57,7 @@
     {
       "title": "zero-stt-codeswitch/sample-audio.spec.js > Zero STT Codeswitch module > sample audio renders transcript",
       "status": "passed",
-      "durationMs": 4440,
+      "durationMs": 4106,
       "file": "zero-stt-codeswitch/sample-audio.spec.js",
       "attachments": [],
       "error": "",
@@ -67,7 +67,7 @@
     {
       "title": "zero-stt-codeswitch/upload.spec.js > Zero STT Codeswitch module > uploaded audio renders codeswitched transcript",
       "status": "passed",
-      "durationMs": 16448,
+      "durationMs": 21227,
       "file": "zero-stt-codeswitch/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -77,7 +77,7 @@
     {
       "title": "zero-stt-indic/live-recording.spec.js > Zero STT Indic module > simulated live recording uses file and verifies transcript",
       "status": "passed",
-      "durationMs": 126161,
+      "durationMs": 126184,
       "file": "zero-stt-indic/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -87,7 +87,7 @@
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 2552,
+      "durationMs": 2012,
       "file": "zero-stt-indic/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -97,7 +97,7 @@
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded podcast renders transcript",
       "status": "passed",
-      "durationMs": 2687,
+      "durationMs": 1932,
       "file": "zero-stt-indic/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -107,7 +107,7 @@
     {
       "title": "zero-stt-indic/upload.spec.js > Zero STT Indic module > uploaded audio renders transcript and allows playback",
       "status": "passed",
-      "durationMs": 6720,
+      "durationMs": 6958,
       "file": "zero-stt-indic/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -117,7 +117,7 @@
     {
       "title": "zero-stt-med/live-recording.spec.js > Zero STT Med module > live recording start/stop",
       "status": "passed",
-      "durationMs": 49913,
+      "durationMs": 49999,
       "file": "zero-stt-med/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -127,7 +127,7 @@
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 1580,
+      "durationMs": 1475,
       "file": "zero-stt-med/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -137,7 +137,7 @@
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 1717,
+      "durationMs": 1542,
       "file": "zero-stt-med/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -147,7 +147,7 @@
     {
       "title": "zero-stt-med/upload.spec.js > Zero STT Med module > upload file renders transcript",
       "status": "passed",
-      "durationMs": 1507,
+      "durationMs": 1517,
       "file": "zero-stt-med/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -156,34 +156,18 @@
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > default voice generates speech from text input",
-      "status": "failed",
-      "durationMs": 67287,
+      "status": "passed",
+      "durationMs": 22654,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > text input shows character count up to 1000",
       "status": "passed",
-      "durationMs": 1853,
+      "durationMs": 1254,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -192,112 +176,48 @@
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > selecting different voices works",
-      "status": "failed",
-      "durationMs": 68346,
+      "status": "passed",
+      "durationMs": 7187,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > changing speed setting works",
-      "status": "failed",
-      "durationMs": 68424,
+      "status": "passed",
+      "durationMs": 6636,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > expression styles are selectable",
-      "status": "failed",
-      "durationMs": 68124,
+      "status": "passed",
+      "durationMs": 7396,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > different audio formats are selectable",
-      "status": "failed",
-      "durationMs": 68058,
+      "status": "passed",
+      "durationMs": 7619,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > generate button is disabled with empty text",
       "status": "passed",
-      "durationMs": 2056,
+      "durationMs": 2609,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -306,131 +226,51 @@
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > English voice with slow speed generates speech",
-      "status": "failed",
-      "durationMs": 68593,
+      "status": "passed",
+      "durationMs": 7922,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Tamil voice generates speech",
-      "status": "failed",
-      "durationMs": 68575,
+      "status": "passed",
+      "durationMs": 8032,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Bengali voice with Sad expression generates speech",
-      "status": "failed",
-      "durationMs": 68440,
+      "status": "passed",
+      "durationMs": 7560,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > OGG Opus format with fast speed generates speech",
-      "status": "failed",
-      "durationMs": 67944,
+      "status": "passed",
+      "durationMs": 6989,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Conversational expression style generates speech",
-      "status": "failed",
-      "durationMs": 66938,
+      "status": "passed",
+      "durationMs": 7144,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/a89e6357-2043-4f60-83fb-0b4759609e9b/error-context-2.md"
-        }
-      ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /Generate Speech/i })\nExpected: enabled\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /Generate Speech/i })\u001b[22m\n",
+      "attachments": [],
+      "error": "",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     }
