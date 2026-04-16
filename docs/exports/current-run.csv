@@ -1,7 +1,7 @@
 id,module,status,durationMs,title,file,error
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Codeswitch,timedOut,183551,zero-stt-codeswitch/live-recording.spec.js > Zero STT Codeswitch module > simulated live recording validates transcript and speakers,zero-stt-codeswitch/live-recording.spec.js,[31mTest timeout of 180000ms exceeded.[39m
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Codeswitch,passed,3156,zero-stt-codeswitch/sample-audio.spec.js > Zero STT Codeswitch module > sample audio renders transcript,zero-stt-codeswitch/sample-audio.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Codeswitch,failed,214029,zero-stt-codeswitch/upload.spec.js > Zero STT Codeswitch module > uploaded audio renders codeswitched transcript,zero-stt-codeswitch/upload.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Codeswitch,timedOut,184410,zero-stt-codeswitch/live-recording.spec.js > Zero STT Codeswitch module > simulated live recording validates transcript and speakers,zero-stt-codeswitch/live-recording.spec.js,[31mTest timeout of 180000ms exceeded.[39m
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Codeswitch,passed,3884,zero-stt-codeswitch/sample-audio.spec.js > Zero STT Codeswitch module > sample audio renders transcript,zero-stt-codeswitch/sample-audio.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Codeswitch,failed,214542,zero-stt-codeswitch/upload.spec.js > Zero STT Codeswitch module > uploaded audio renders codeswitched transcript,zero-stt-codeswitch/upload.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
 
 Locator: getByText(/Speaker\s*\d/i).first()
 Expected: visible
@@ -12,10 +12,10 @@ Call log:
 [2m  - Expect ""toBeVisible"" with timeout 60000ms[22m
 [2m  - waiting for getByText(/Speaker\s*\d/i).first()[22m
 "
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Indic,timedOut,185937,zero-stt-indic/live-recording.spec.js > Zero STT Indic module > simulated live recording uses file and verifies transcript,zero-stt-indic/live-recording.spec.js,[31mTest timeout of 180000ms exceeded.[39m
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Indic,passed,2979,zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded customer support call renders transcript,zero-stt-indic/prerecorded.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Indic,passed,2471,zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded podcast renders transcript,zero-stt-indic/prerecorded.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Indic,failed,212132,zero-stt-indic/upload.spec.js > Zero STT Indic module > uploaded audio renders transcript and allows playback,zero-stt-indic/upload.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Indic,timedOut,186934,zero-stt-indic/live-recording.spec.js > Zero STT Indic module > simulated live recording uses file and verifies transcript,zero-stt-indic/live-recording.spec.js,[31mTest timeout of 180000ms exceeded.[39m
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Indic,passed,3144,zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded customer support call renders transcript,zero-stt-indic/prerecorded.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Indic,passed,3069,zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded podcast renders transcript,zero-stt-indic/prerecorded.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Indic,failed,212064,zero-stt-indic/upload.spec.js > Zero STT Indic module > uploaded audio renders transcript and allows playback,zero-stt-indic/upload.spec.js,"Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
 
 Locator: getByText(/Speaker\s*\d/i).first()
 Expected: visible
@@ -26,19 +26,19 @@ Call log:
 [2m  - Expect ""toBeVisible"" with timeout 60000ms[22m
 [2m  - waiting for getByText(/Speaker\s*\d/i).first()[22m
 "
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Med,passed,49513,zero-stt-med/live-recording.spec.js > Zero STT Med module > live recording start/stop,zero-stt-med/live-recording.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Med,passed,1262,zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded patient notes renders transcript,zero-stt-med/prerecorded.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Med,passed,1278,zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded doctor appointment renders transcript,zero-stt-med/prerecorded.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Stt Med,passed,1615,zero-stt-med/upload.spec.js > Zero STT Med module > upload file renders transcript,zero-stt-med/upload.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,6141,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > default voice generates speech from text input,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,1069,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > text input shows character count up to 1000,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,6876,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > selecting different voices works,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,7080,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > changing speed setting works,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,6226,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > expression styles are selectable,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,6333,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > different audio formats are selectable,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,883,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > generate button is disabled with empty text,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,6524,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > English voice with slow speed generates speech,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,6506,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Tamil voice generates speech,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,6478,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Bengali voice with Sad expression generates speech,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,6207,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > OGG Opus format with fast speed generates speech,zero-tts-indic/generate-speech.spec.js,
-ff716198-f17e-4c6c-a071-7b7cb9ca1e9d,Zero Tts Indic,passed,6145,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Conversational expression style generates speech,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Med,passed,50216,zero-stt-med/live-recording.spec.js > Zero STT Med module > live recording start/stop,zero-stt-med/live-recording.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Med,passed,1657,zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded patient notes renders transcript,zero-stt-med/prerecorded.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Med,passed,1642,zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded doctor appointment renders transcript,zero-stt-med/prerecorded.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Stt Med,passed,1471,zero-stt-med/upload.spec.js > Zero STT Med module > upload file renders transcript,zero-stt-med/upload.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,6210,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > default voice generates speech from text input,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,1183,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > text input shows character count up to 1000,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,7039,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > selecting different voices works,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,7088,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > changing speed setting works,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,6490,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > expression styles are selectable,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,6361,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > different audio formats are selectable,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,1030,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > generate button is disabled with empty text,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,7248,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > English voice with slow speed generates speech,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,6828,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Tamil voice generates speech,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,6836,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Bengali voice with Sad expression generates speech,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,6552,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > OGG Opus format with fast speed generates speech,zero-tts-indic/generate-speech.spec.js,
+70ac92af-b9cb-4290-b561-407438787da6,Zero Tts Indic,passed,6334,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Conversational expression style generates speech,zero-tts-indic/generate-speech.spec.js,
