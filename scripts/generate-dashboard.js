@@ -473,7 +473,11 @@ function main() {
   const run = buildRun();
   const history = loadHistory();
   history.unshift(run);
-  const trimmedHistory = history.slice(0, 100);
+  const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
+  const trimmedHistory = history.filter((r) => {
+    const t = new Date(r.startedAt).getTime();
+    return Number.isFinite(t) && t >= cutoff;
+  });
 
   saveHistory(trimmedHistory);
   writeDashboardFiles(run, trimmedHistory);
