@@ -1,17 +1,42 @@
 const { expect } = require("@playwright/test");
 
 class MedicalTranscriptionPage {
-  constructor(page) {
-    this.page = page;
-    this.patientNotesButton = page.getByRole("button", { name: /Patient Notes/i });
-    this.doctorAppointmentButton = page.getByRole("button", {
+  constructor(widgetPage) {
+    this.widgetPage = widgetPage;
+  }
+
+  get root() {
+    return this.widgetPage.getWidgetRoot();
+  }
+
+  get patientNotesButton() {
+    return this.root.getByRole("button", { name: /Patient Notes/i });
+  }
+
+  get doctorAppointmentButton() {
+    return this.root.getByRole("button", {
       name: /Doctor's Appointment/i,
     });
-    this.uploadButton = page.getByRole("button", { name: /Upload your file/i });
-    this.playButton = page.getByRole("button", { name: /Play audio/i });
-    this.copyButton = page.getByRole("button", { name: /Copy Conversation/i });
-    this.startSpeakingButton = page.getByRole("button", { name: /Start Speaking/i });
-    this.stopSpeakingButton = page.getByRole("button", { name: /Stop/i });
+  }
+
+  get uploadButton() {
+    return this.root.getByRole("button", { name: /Upload your file/i });
+  }
+
+  get playButton() {
+    return this.root.getByRole("button", { name: /Play audio/i });
+  }
+
+  get copyButton() {
+    return this.root.getByRole("button", { name: /Copy Conversation/i });
+  }
+
+  get startSpeakingButton() {
+    return this.root.getByRole("button", { name: /Start Speaking/i });
+  }
+
+  get stopSpeakingButton() {
+    return this.root.getByRole("button", { name: /Stop/i });
   }
 
   async selectPatientNotes() {
@@ -39,21 +64,64 @@ class MedicalTranscriptionPage {
   }
 
   async uploadAudioFile(filePath) {
+    const fileInput = this.root.locator('input[type="file"]');
+    if (await fileInput.count()) {
+      await fileInput.setInputFiles(filePath);
+      return;
+    }
+
     const [fileChooser] = await Promise.all([
-      this.page.waitForEvent("filechooser"),
+      this.widgetPage.page.waitForEvent("filechooser"),
       this.uploadButton.click(),
     ]);
     await fileChooser.setFiles(filePath);
   }
 
+  async waitForUploadResult(timeoutMs = 180_000) {
+    const failed = this.root.getByText("Upload failed");
+    const speaker = this.root.getByText(/Speaker\s*\d/i).first();
+
+    await Promise.race([
+      speaker.waitFor({ state: "visible", timeout: timeoutMs }),
+      failed.waitFor({ state: "visible", timeout: timeoutMs }).then(async () => {
+        const message = await this.root
+          .getByText(/Something went wrong|Please try again/i)
+          .first()
+          .textContent()
+          .catch(() => "");
+        throw new Error(
+          `Upload failed in widget${message ? `: ${message.trim()}` : ""}`,
+        );
+      }),
+    ]);
+  }
+
+  async waitForUploadProcessing(timeoutMs = 120_000) {
+    const loaderIcon = this.root.locator(".lucide.lucide-loader-circle");
+    try {
+      await loaderIcon.first().waitFor({ timeout: 15_000 });
+      await loaderIcon.first().waitFor({ state: "hidden", timeout: timeoutMs });
+    } catch {
+      // Loader may have appeared and disappeared before we checked — continue
+    }
+  }
+
   async waitForProcessingState(timeoutMs = 120_000) {
-    await expect(this.page.getByText("PROCESSING", { exact: true })).toBeVisible({
+    await expect(this.root.getByText("PROCESSING", { exact: true })).toBeVisible({
       timeout: timeoutMs,
     });
   }
 
+  get pauseButton() {
+    return this.root.getByRole("button", { name: /Pause audio/i });
+  }
+
+  async waitForPlaybackToStart() {
+    await this.pauseButton.waitFor();
+  }
+
   async waitForTranscriptRows(timeoutMs = 180_000) {
-    await this.page.waitForFunction(
+    await this.root.waitForFunction(
       () =>
         document.querySelectorAll(".flex.items-center.space-x-2").length > 0,
       null,
@@ -62,11 +130,11 @@ class MedicalTranscriptionPage {
   }
 
   async waitForSpeakerLabel(label, timeoutMs = 180_000) {
-    await expect(this.page.getByText(label)).toBeVisible({ timeout: timeoutMs });
+    await expect(this.root.getByText(label)).toBeVisible({ timeout: timeoutMs });
   }
 
   async waitForTranscriptSnippet(snippet, timeoutMs = 180_000) {
-    await expect(this.page.getByText(snippet)).toBeVisible({ timeout: timeoutMs });
+    await expect(this.root.getByText(snippet)).toBeVisible({ timeout: timeoutMs });
   }
 }
 

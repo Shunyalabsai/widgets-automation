@@ -1,22 +1,56 @@
 const { expect } = require("@playwright/test");
 
 class SttPage {
-  constructor(page) {
-    this.page = page;
-    this.playButton = page.getByRole("button", { name: /Play audio/i });
-    this.pauseButton = page.getByRole("button", { name: /Pause audio/i });
-    this.copyButton = page.getByRole("button", { name: /Copy Conversation/i });
-    this.startSpeakingButton = page.getByRole("button", { name: /Start Speaking/i });
-    this.stopSpeakingButton = page.getByRole("button", { name: /Stop/i });
-    this.transcriptRows = page.locator(".flex.items-center.space-x-2");
-    this.speakerLabels = page.getByText(/Speaker\s*\d/i);
-    this.uploadButton = page.getByRole("button", { name: /Upload your file/i });
-    this.asrPlayButton = page.locator("#ASR_Play_Btn");
-    this.loaderIcon = page.locator(".lucide.lucide-loader-circle");
+  constructor(widgetPage) {
+    this.widgetPage = widgetPage;
+  }
+
+  get root() {
+    return this.widgetPage.getWidgetRoot();
+  }
+
+  get playButton() {
+    return this.root.getByRole("button", { name: /Play audio/i });
+  }
+
+  get pauseButton() {
+    return this.root.getByRole("button", { name: /Pause audio/i });
+  }
+
+  get copyButton() {
+    return this.root.getByRole("button", { name: /Copy Conversation/i });
+  }
+
+  get startSpeakingButton() {
+    return this.root.getByRole("button", { name: /Start Speaking/i });
+  }
+
+  get stopSpeakingButton() {
+    return this.root.getByRole("button", { name: /Stop/i });
+  }
+
+  get transcriptRows() {
+    return this.root.locator(".flex.items-center.space-x-2");
+  }
+
+  get speakerLabels() {
+    return this.root.getByText(/Speaker\s*\d/i);
+  }
+
+  get uploadButton() {
+    return this.root.getByRole("button", { name: /Upload your file/i });
+  }
+
+  get asrPlayButton() {
+    return this.root.locator("#ASR_Play_Btn");
+  }
+
+  get loaderIcon() {
+    return this.root.locator(".lucide.lucide-loader-circle");
   }
 
   async selectPrerecordedOption(optionName) {
-    await this.page
+    await this.root
       .getByRole("button", { name: new RegExp(optionName, "i") })
       .click();
   }
@@ -30,7 +64,7 @@ class SttPage {
   }
 
   async waitForTranscriptReady(timeoutMs = 90_000) {
-    await this.page.waitForFunction(
+    await this.root.waitForFunction(
       (minRows) =>
         document.querySelectorAll(".flex.items-center.space-x-2").length >=
         minRows,
@@ -46,30 +80,30 @@ class SttPage {
     speakerIndex = 0,
     timeoutMs = 90_000,
   }) {
-    const speaker = this.page.getByText(speakerText).nth(speakerIndex);
+    const speaker = this.root.getByText(speakerText).nth(speakerIndex);
     await expect(speaker).toBeVisible({ timeout: timeoutMs });
     await speaker.click();
 
     if (timeText) {
-      const time = this.page.getByText(timeText);
+      const time = this.root.getByText(timeText);
       await expect(time).toBeVisible({ timeout: timeoutMs });
       await time.click();
     }
 
-    const content = this.page.getByText(contentText);
+    const content = this.root.getByText(contentText);
     await expect(content).toBeVisible({ timeout: timeoutMs });
     await content.click();
   }
 
   async clickSpeakerLabels(timeoutMs = 90_000) {
-    const speakerLabels = this.page.getByText(/Speaker\s*\d/i);
+    const speakerLabels = this.root.getByText(/Speaker\s*\d/i);
     await expect(speakerLabels).toHaveCount(2, { timeout: timeoutMs });
     await speakerLabels.first().click();
     await speakerLabels.nth(1).click();
   }
 
   async waitForAnySpeakerLabel(timeoutMs = 90_000) {
-    await expect(this.page.getByText(/Speaker\s*\d/i).first()).toBeVisible({
+    await expect(this.root.getByText(/Speaker\s*\d/i).first()).toBeVisible({
       timeout: timeoutMs,
     });
   }
@@ -83,16 +117,50 @@ class SttPage {
   }
 
   async copyConversation() {
-    await this.copyButton.waitFor();
-    await this.copyButton.click();
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const button = this.copyButton;
+      await button.waitFor({ state: "visible", timeout: 30_000 });
+      try {
+        await button.click({ timeout: 10_000 });
+        return;
+      } catch (error) {
+        if (attempt === 2) throw error;
+        await this.widgetPage.page.waitForTimeout(1000);
+      }
+    }
   }
 
   async uploadAudioFile(filePath) {
+    const fileInput = this.root.locator('input[type="file"]');
+    if (await fileInput.count()) {
+      await fileInput.setInputFiles(filePath);
+      return;
+    }
+
     const [fileChooser] = await Promise.all([
-      this.page.waitForEvent("filechooser"),
+      this.widgetPage.page.waitForEvent("filechooser"),
       this.uploadButton.click(),
     ]);
     await fileChooser.setFiles(filePath);
+  }
+
+  async waitForUploadResult(timeoutMs = 180_000) {
+    const failed = this.root.getByText("Upload failed");
+    const speaker = this.root.getByText(/Speaker\s*\d/i).first();
+
+    await Promise.race([
+      speaker.waitFor({ state: "visible", timeout: timeoutMs }),
+      failed.waitFor({ state: "visible", timeout: timeoutMs }).then(async () => {
+        const message = await this.root
+          .getByText(/Something went wrong|Please try again/i)
+          .first()
+          .textContent()
+          .catch(() => "");
+        throw new Error(
+          `Upload failed in widget${message ? `: ${message.trim()}` : ""}`,
+        );
+      }),
+    ]);
   }
 
   async waitForUploadProcessing(timeoutMs = 120_000) {
@@ -117,13 +185,13 @@ class SttPage {
   }
 
   async waitForRecordingState(timeoutMs = 15_000) {
-    await expect(this.page.getByText("RECORDING", { exact: true })).toBeVisible({
+    await expect(this.root.getByText("RECORDING", { exact: true })).toBeVisible({
       timeout: timeoutMs,
     });
   }
 
   async waitForProcessingState(timeoutMs = 120_000) {
-    await expect(this.page.getByText("PROCESSING", { exact: true })).toBeVisible({
+    await expect(this.root.getByText("PROCESSING", { exact: true })).toBeVisible({
       timeout: timeoutMs,
     });
   }
@@ -155,7 +223,7 @@ class SttPage {
   }
 
   async waitForTranscriptContains(expectedLines, timeoutMs = 180_000) {
-    await this.page.waitForFunction(
+    await this.root.waitForFunction(
       (lines) => {
         const rows = Array.from(
           document.querySelectorAll(".flex.items-center.space-x-2"),
@@ -179,7 +247,7 @@ class SttPage {
     speakerCount,
     timeoutMs = 180_000,
   }) {
-    await this.page.waitForFunction(
+    await this.root.waitForFunction(
       (params) => {
         const rows = Array.from(
           document.querySelectorAll(".flex.items-center.space-x-2"),

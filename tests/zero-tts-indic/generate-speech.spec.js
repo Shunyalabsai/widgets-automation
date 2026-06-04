@@ -8,7 +8,7 @@ test.describe("Zero TTS Indic module", () => {
 
   test.beforeEach(async ({ page }) => {
     widgetPage = new WidgetPage(page);
-    ttsPage = new TtsPage(page);
+    ttsPage = new TtsPage(widgetPage);
     await widgetPage.goto();
     await widgetPage.openModule("Zero TTS Indic");
   });
@@ -29,7 +29,7 @@ test.describe("Zero TTS Indic module", () => {
     expect(count).toBeGreaterThan(0);
 
     // Verify max 1000 chars limit indication is visible
-    await expect(page.getByText(/\/\s*1000/)).toBeVisible();
+    await expect(ttsPage.root.getByText(/\/\s*1000/)).toBeVisible();
   });
 
   test("selecting different voices works", async ({ page }) => {

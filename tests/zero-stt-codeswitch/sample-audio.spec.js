@@ -6,7 +6,7 @@ test.describe("Zero STT Codeswitch module", () => {
   test("sample audio renders transcript", async ({ page }) => {
     test.setTimeout(180_000);
     const widgetPage = new WidgetPage(page);
-    const sttPage = new SttPage(page);
+    const sttPage = new SttPage(widgetPage);
 
     await widgetPage.goto();
     await widgetPage.openModule("Zero STT Codeswitch");

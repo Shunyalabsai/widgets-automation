@@ -6,7 +6,7 @@ test.describe("Zero STT Indic module", () => {
   test("prerecorded customer support call renders transcript", async ({ page }) => {
     test.setTimeout(150_000);
     const widgetPage = new WidgetPage(page);
-    const sttPage = new SttPage(page);
+    const sttPage = new SttPage(widgetPage);
 
     await widgetPage.goto();
     await widgetPage.openModule("Zero STT Indic");
@@ -25,7 +25,7 @@ test.describe("Zero STT Indic module", () => {
   test("prerecorded podcast renders transcript", async ({ page }) => {
     test.setTimeout(150_000);
     const widgetPage = new WidgetPage(page);
-    const sttPage = new SttPage(page);
+    const sttPage = new SttPage(widgetPage);
 
     await widgetPage.goto();
     await widgetPage.openModule("Zero STT Indic");

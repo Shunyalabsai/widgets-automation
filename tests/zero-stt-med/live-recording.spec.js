@@ -1,7 +1,7 @@
 const { test } = require("@playwright/test");
 const path = require("path");
 const { execSync } = require("child_process");
-const { WidgetPage } = require("../pages/widget-page");
+const { WidgetPage, WIDGET_HOST } = require("../pages/widget-page");
 const { MedicalTranscriptionPage } = require("../pages/medical-transcription-page");
 
 function getAudioDurationSeconds(filePath) {
@@ -21,10 +21,13 @@ test.describe("Zero STT Med module", () => {
   test("live recording start/stop", async ({ page }) => {
     test.setTimeout(180_000);
     const widgetPage = new WidgetPage(page);
-    const medPage = new MedicalTranscriptionPage(page);
+    const medPage = new MedicalTranscriptionPage(widgetPage);
 
     await page.context().grantPermissions(["microphone"], {
       origin: "https://www.shunyalabs.ai",
+    });
+    await page.context().grantPermissions(["microphone"], {
+      origin: `https://${WIDGET_HOST}`,
     });
 
     await widgetPage.goto();
