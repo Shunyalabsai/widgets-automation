@@ -1,276 +1,644 @@
 {
-  "id": "001fc712-0c70-42e4-8385-cc8237f7870b",
-  "startedAt": "2026-06-03T13:59:43.388Z",
-  "durationMs": 450916,
+  "id": "2b9b3351-4b0c-46c0-a0d8-80a7e7481607",
+  "startedAt": "2026-06-04T15:59:16.552Z",
+  "durationMs": 3042991,
   "summary": {
     "total": 23,
-    "passed": 23,
-    "failed": 0,
+    "passed": 0,
+    "failed": 2,
     "skipped": 0,
-    "timedOut": 0
+    "timedOut": 21
   },
-  "passRate": 100,
-  "displayTimestamp": "Jun 3, 2026, 1:59:43 PM",
-  "displayDate": "Wednesday, June 3, 2026",
-  "displayTime": "1:59:43 PM",
+  "passRate": 0,
+  "displayTimestamp": "Jun 4, 2026, 3:59:16 PM",
+  "displayDate": "Thursday, June 4, 2026",
+  "displayTime": "3:59:16 PM",
   "modules": {
     "zero-stt-codeswitch": {
       "total": 3,
-      "passed": 3,
-      "failed": 0,
+      "passed": 0,
+      "failed": 1,
       "skipped": 0,
-      "timedOut": 0
+      "timedOut": 2
     },
     "zero-stt-indic": {
       "total": 4,
-      "passed": 4,
-      "failed": 0,
+      "passed": 0,
+      "failed": 1,
       "skipped": 0,
-      "timedOut": 0
+      "timedOut": 3
     },
     "zero-stt-med": {
       "total": 4,
-      "passed": 4,
+      "passed": 0,
       "failed": 0,
       "skipped": 0,
-      "timedOut": 0
+      "timedOut": 4
     },
     "zero-tts-indic": {
       "total": 12,
-      "passed": 12,
+      "passed": 0,
       "failed": 0,
       "skipped": 0,
-      "timedOut": 0
+      "timedOut": 12
     }
   },
   "tests": [
     {
       "title": "zero-stt-codeswitch/live-recording.spec.js > Zero STT Codeswitch module > simulated live recording validates transcript and speakers",
-      "status": "passed",
-      "durationMs": 163794,
+      "status": "timedOut",
+      "durationMs": 192410,
       "file": "zero-stt-codeswitch/live-recording.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
       "module": "zero-stt-codeswitch",
       "moduleLabel": "Zero Stt Codeswitch"
     },
     {
       "title": "zero-stt-codeswitch/sample-audio.spec.js > Zero STT Codeswitch module > sample audio renders transcript",
-      "status": "passed",
-      "durationMs": 3548,
+      "status": "timedOut",
+      "durationMs": 192377,
       "file": "zero-stt-codeswitch/sample-audio.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
       "module": "zero-stt-codeswitch",
       "moduleLabel": "Zero Stt Codeswitch"
     },
     {
       "title": "zero-stt-codeswitch/upload.spec.js > Zero STT Codeswitch module > uploaded audio renders codeswitched transcript",
-      "status": "passed",
-      "durationMs": 21449,
+      "status": "failed",
+      "durationMs": 11987,
       "file": "zero-stt-codeswitch/upload.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "TimeoutError: locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Upload your file/i }) to be visible\u001b[22m\n",
       "module": "zero-stt-codeswitch",
       "moduleLabel": "Zero Stt Codeswitch"
     },
     {
       "title": "zero-stt-indic/live-recording.spec.js > Zero STT Indic module > simulated live recording uses file and verifies transcript",
-      "status": "passed",
-      "durationMs": 128061,
+      "status": "timedOut",
+      "durationMs": 188943,
       "file": "zero-stt-indic/live-recording.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
       "module": "zero-stt-indic",
       "moduleLabel": "Zero Stt Indic"
     },
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded customer support call renders transcript",
-      "status": "passed",
-      "durationMs": 1747,
+      "status": "timedOut",
+      "durationMs": 160655,
       "file": "zero-stt-indic/prerecorded.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 150000ms exceeded.\u001b[39m",
       "module": "zero-stt-indic",
       "moduleLabel": "Zero Stt Indic"
     },
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded podcast renders transcript",
-      "status": "passed",
-      "durationMs": 1714,
+      "status": "timedOut",
+      "durationMs": 160614,
       "file": "zero-stt-indic/prerecorded.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 150000ms exceeded.\u001b[39m",
       "module": "zero-stt-indic",
       "moduleLabel": "Zero Stt Indic"
     },
     {
       "title": "zero-stt-indic/upload.spec.js > Zero STT Indic module > uploaded audio renders transcript and allows playback",
-      "status": "passed",
-      "durationMs": 8600,
+      "status": "failed",
+      "durationMs": 11981,
       "file": "zero-stt-indic/upload.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "TimeoutError: locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Upload your file/i }) to be visible\u001b[22m\n",
       "module": "zero-stt-indic",
       "moduleLabel": "Zero Stt Indic"
     },
     {
       "title": "zero-stt-med/live-recording.spec.js > Zero STT Med module > live recording start/stop",
-      "status": "passed",
-      "durationMs": 49898,
+      "status": "timedOut",
+      "durationMs": 188971,
       "file": "zero-stt-med/live-recording.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
       "module": "zero-stt-med",
       "moduleLabel": "Zero Stt Med"
     },
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded patient notes renders transcript",
-      "status": "passed",
-      "durationMs": 1249,
+      "status": "timedOut",
+      "durationMs": 192503,
       "file": "zero-stt-med/prerecorded.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
       "module": "zero-stt-med",
       "moduleLabel": "Zero Stt Med"
     },
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded doctor appointment renders transcript",
-      "status": "passed",
-      "durationMs": 1233,
+      "status": "timedOut",
+      "durationMs": 192546,
       "file": "zero-stt-med/prerecorded.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
       "module": "zero-stt-med",
       "moduleLabel": "Zero Stt Med"
     },
     {
       "title": "zero-stt-med/upload.spec.js > Zero STT Med module > upload file renders transcript",
-      "status": "passed",
-      "durationMs": 1183,
+      "status": "timedOut",
+      "durationMs": 188850,
       "file": "zero-stt-med/upload.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
       "module": "zero-stt-med",
       "moduleLabel": "Zero Stt Med"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > default voice generates speech from text input",
-      "status": "passed",
-      "durationMs": 6061,
+      "status": "timedOut",
+      "durationMs": 127981,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > text input shows character count up to 1000",
-      "status": "passed",
-      "durationMs": 1090,
+      "status": "timedOut",
+      "durationMs": 64242,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > selecting different voices works",
-      "status": "passed",
-      "durationMs": 7188,
+      "status": "timedOut",
+      "durationMs": 126203,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > changing speed setting works",
-      "status": "passed",
-      "durationMs": 6227,
+      "status": "timedOut",
+      "durationMs": 128465,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > expression styles are selectable",
-      "status": "passed",
-      "durationMs": 6188,
+      "status": "timedOut",
+      "durationMs": 126059,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > different audio formats are selectable",
-      "status": "passed",
-      "durationMs": 6156,
+      "status": "timedOut",
+      "durationMs": 126149,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > generate button is disabled with empty text",
-      "status": "passed",
-      "durationMs": 987,
+      "status": "timedOut",
+      "durationMs": 31844,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > English voice with slow speed generates speech",
-      "status": "passed",
-      "durationMs": 7172,
+      "status": "timedOut",
+      "durationMs": 126160,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Tamil voice generates speech",
-      "status": "passed",
-      "durationMs": 7349,
+      "status": "timedOut",
+      "durationMs": 126280,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Bengali voice with Sad expression generates speech",
-      "status": "passed",
-      "durationMs": 7392,
+      "status": "timedOut",
+      "durationMs": 126162,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > OGG Opus format with fast speed generates speech",
-      "status": "passed",
-      "durationMs": 6506,
+      "status": "timedOut",
+      "durationMs": 125968,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Conversational expression style generates speech",
-      "status": "passed",
-      "durationMs": 6124,
+      "status": "timedOut",
+      "durationMs": 125641,
       "file": "zero-tts-indic/generate-speech.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/2b9b3351-4b0c-46c0-a0d8-80a7e7481607/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
       "module": "zero-tts-indic",
       "moduleLabel": "Zero Tts Indic"
     }
