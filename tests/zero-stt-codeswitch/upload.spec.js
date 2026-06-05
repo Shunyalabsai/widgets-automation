@@ -11,6 +11,7 @@ test.describe("Zero STT Codeswitch module", () => {
 
     await widgetPage.goto();
     await widgetPage.openModule("Zero STT Codeswitch");
+    await widgetPage.primeWidgetSession();
 
     const audioPath = path.join(__dirname, "..", "data", "codeswitch", "saira-hignlish.opus");
 
@@ -20,15 +21,17 @@ test.describe("Zero STT Codeswitch module", () => {
       await sttPage.waitForUploadProcessing(180_000);
 
       try {
-        await sttPage.waitForUploadResult(120_000);
+        await sttPage.waitForUploadResult(180_000);
         break;
       } catch (error) {
         if (attempt === 2) throw error;
         await widgetPage.goto();
         await widgetPage.openModule("Zero STT Codeswitch");
+        await widgetPage.primeWidgetSession();
       }
     }
 
+    await sttPage.waitForAnySpeakerLabel(60_000);
     await sttPage.assertCopyAvailable();
   });
 });

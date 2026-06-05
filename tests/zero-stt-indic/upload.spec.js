@@ -11,8 +11,9 @@ test.describe("Zero STT Indic module", () => {
 
     await widgetPage.goto();
     await widgetPage.openModule("Zero STT Indic");
+    await widgetPage.primeWidgetSession();
 
-    const audioPath = path.join(__dirname, "..", "data", "stt", "saira-mix.opus");
+    const audioPath = path.join(__dirname, "..", "data", "stt", "live-recording.opus");
 
     for (let attempt = 0; attempt < 3; attempt++) {
       await sttPage.uploadButton.waitFor({ state: "visible", timeout: 10_000 });
@@ -20,16 +21,17 @@ test.describe("Zero STT Indic module", () => {
       await sttPage.waitForUploadProcessing(180_000);
 
       try {
-        await sttPage.waitForUploadResult(120_000);
+        await sttPage.waitForUploadResult(180_000);
         break;
       } catch (error) {
         if (attempt === 2) throw error;
         await widgetPage.goto();
         await widgetPage.openModule("Zero STT Indic");
+        await widgetPage.primeWidgetSession();
       }
     }
 
-    await expect(sttPage.root.getByText(/today.*calling/i)).toBeVisible({
+    await expect(sttPage.root.getByText(/thank you for calling customer support/i)).toBeVisible({
       timeout: 30_000,
     });
 

@@ -73,6 +73,26 @@ class WidgetPage {
   getWidgetRoot() {
     return this.widgetFrame || this.page;
   }
+
+  async primeWidgetSession() {
+    await this.page.context().grantPermissions(["microphone"], {
+      origin: "https://www.shunyalabs.ai",
+    });
+    await this.page.context().grantPermissions(["microphone"], {
+      origin: `https://${WIDGET_HOST}`,
+    });
+
+    const root = this.getWidgetRoot();
+    await root.getByRole("button", { name: /Start Speaking/i }).click();
+    await this.page.waitForTimeout(1500);
+
+    const stopButton = root.getByRole("button", { name: /Stop/i });
+    if (await stopButton.isVisible()) {
+      await stopButton.click();
+    }
+
+    await this.page.waitForTimeout(2000);
+  }
 }
 
 module.exports = { WidgetPage, WIDGET_HOST, moduleSlug };
