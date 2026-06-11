@@ -45,23 +45,42 @@ function summarizeRuns(runs) {
     totalRuns: runs.length,
     totalPassed: 0,
     totalFailed: 0,
+    totalTimedOut: 0,
+    totalTests: 0,
     modules: {},
   };
 
   runs.forEach((run) => {
-    summary.totalPassed += run.summary?.passed ?? 0;
-    summary.totalFailed += run.summary?.failed ?? 0;
+    const passed = run.summary?.passed ?? 0;
+    const failed = run.summary?.failed ?? 0;
+    const timedOut = run.summary?.timedOut ?? 0;
+    summary.totalPassed += passed;
+    summary.totalFailed += failed;
+    summary.totalTimedOut += timedOut;
+    summary.totalTests += run.summary?.total ?? passed + failed + timedOut + (run.summary?.skipped ?? 0);
+
     const modules = run.modules || {};
     Object.entries(modules).forEach(([name, stats]) => {
       if (!summary.modules[name]) {
-        summary.modules[name] = { passed: 0, failed: 0 };
+        summary.modules[name] = { passed: 0, failed: 0, timedOut: 0 };
       }
       summary.modules[name].passed += stats.passed ?? 0;
       summary.modules[name].failed += stats.failed ?? 0;
+      summary.modules[name].timedOut += stats.timedOut ?? 0;
     });
   });
 
   return summary;
+}
+
+function getFailureCount(summary) {
+  return (summary?.failed ?? 0) + (summary?.timedOut ?? 0);
+}
+
+function getPassRate(summary) {
+  const total = summary?.total ?? 0;
+  const passed = summary?.passed ?? 0;
+  return total > 0 ? Math.round((passed / total) * 100) : 0;
 }
 
 function formatTime(date, timeZone) {
@@ -89,22 +108,24 @@ function buildEmailBody({
   timeZone,
   runStartedAt,
 }) {
-  const totalTests = summary.totalPassed + summary.totalFailed;
+  const totalTests = summary.totalTests;
+  const totalIssues = summary.totalFailed + summary.totalTimedOut;
   const passRate = totalTests > 0 ? Math.round((summary.totalPassed / totalTests) * 100) : 0;
-  const passRateColor = passRate >= 90 ? "#27ae60" : passRate >= 70 ? "#e67e22" : "#e74c3c";
-  const passRateIcon = passRate >= 90 ? "&#9989;" : "&#9888;&#65039;";
+  const passRateColor = totalIssues === 0 ? "#27ae60" : passRate >= 70 ? "#e67e22" : "#e74c3c";
+  const passRateIcon = totalIssues === 0 ? "&#9989;" : "&#9888;&#65039;";
   const latestRun = formatTime(new Date(runStartedAt), timeZone);
 
   const moduleRows = Object.entries(summary.modules)
     .map(([name, stats]) => {
-      const total = stats.passed + stats.failed;
+      const moduleFailed = stats.failed + stats.timedOut;
+      const total = stats.passed + moduleFailed;
       const rate = total > 0 ? Math.round((stats.passed / total) * 100) : 0;
-      const icon = stats.failed > 0 ? "&#10060;" : "&#9989;";
+      const icon = moduleFailed > 0 ? "&#10060;" : "&#9989;";
       return `
         <tr>
           <td style="padding:10px 15px;border-bottom:1px solid #f0f0f0;font-size:14px;">${icon} ${name}</td>
           <td style="padding:10px 15px;border-bottom:1px solid #f0f0f0;text-align:center;color:#27ae60;font-weight:600;">${stats.passed}</td>
-          <td style="padding:10px 15px;border-bottom:1px solid #f0f0f0;text-align:center;color:#e74c3c;font-weight:600;">${stats.failed}</td>
+          <td style="padding:10px 15px;border-bottom:1px solid #f0f0f0;text-align:center;color:#e74c3c;font-weight:600;">${moduleFailed}</td>
           <td style="padding:10px 15px;border-bottom:1px solid #f0f0f0;text-align:center;font-weight:600;">${rate}%</td>
         </tr>`;
     })
@@ -158,7 +179,7 @@ function buildEmailBody({
                         <td width="25%" align="center" style="padding:0 5px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#fef2f2;border-radius:10px;border:1px solid #fecaca;">
                             <tr><td style="padding:18px 10px 4px;text-align:center;font-size:10px;font-weight:700;color:#dc2626;letter-spacing:0.5px;">FAILED</td></tr>
-                            <tr><td style="padding:2px 10px 18px;text-align:center;font-size:28px;font-weight:800;color:#dc2626;">${summary.totalFailed}</td></tr>
+                            <tr><td style="padding:2px 10px 18px;text-align:center;font-size:28px;font-weight:800;color:#dc2626;">${totalIssues}</td></tr>
                           </table>
                         </td>
                         <td width="25%" align="center" style="padding:0 5px;">
@@ -259,19 +280,18 @@ async function main() {
     ? todaysRuns[0]
     : history.sort((a, b) => new Date(b.startedAt) - new Date(a.startedAt))[0];
 
-  const hasFailures = (latestRun.summary?.failed ?? 0) > 0
-    || (latestRun.summary?.timedOut ?? 0) > 0;
-
-  if (!hasFailures) {
+  if (getFailureCount(latestRun.summary) === 0) {
     console.log("Latest run has no failures or timeouts — skipping email.");
     return;
   }
 
   const summary = summarizeRuns([latestRun]);
   const reportDate = formatDate(new Date(latestRun.startedAt), timeZone);
-  const totalTests = summary.totalPassed + summary.totalFailed;
-  const passRate = totalTests > 0 ? Math.round((summary.totalPassed / totalTests) * 100) : 0;
-  const subject = `QC ${projectName} Report – ${reportDate} – ${passRate}% Pass Rate`;
+  const passRate = getPassRate(latestRun.summary);
+  const issueCount = getFailureCount(latestRun.summary);
+  const subject = issueCount > 0
+    ? `QC ${projectName} Report – ${reportDate} – ${issueCount} Failed/Timeout`
+    : `QC ${projectName} Report – ${reportDate} – ${passRate}% Pass Rate`;
   const body = buildEmailBody({
     projectName,
     summary,

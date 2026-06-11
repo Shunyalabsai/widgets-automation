@@ -31,7 +31,3 @@ function postDispatch(eventType) {
 function triggerRunTests() {
   postDispatch("run-tests");
 }
-
-function triggerSendEmail() {
-  postDispatch("send-email");
-}

@@ -26,7 +26,8 @@ In Apps Script → Project Settings → Script properties:
 Apps Script → Triggers → Add:
 
 - `triggerRunTests` at **09:00**, **12:00**, **15:00** (IST)
-- `triggerSendEmail` at **18:00** (IST)
+
+Failure reports are sent automatically by GitHub Actions when a test run fails or times out. Do **not** add a separate email trigger.
 
 ### 5) Test
 

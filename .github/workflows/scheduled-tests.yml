@@ -3,7 +3,7 @@ name: Scheduled Widget Tests (GAS)
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [run-tests, send-email]
+    types: [run-tests]
 
 permissions:
   contents: write
@@ -17,7 +17,6 @@ concurrency:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    if: github.event_name != 'repository_dispatch' || github.event.action != 'send-email'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -72,7 +71,7 @@ jobs:
           fi
 
       - name: Upload Pages artifact
-        if: always() && (github.event_name != 'repository_dispatch' || github.event.action != 'send-email')
+        if: always()
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
@@ -96,7 +95,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: run-tests
-    if: always() && (github.event_name != 'repository_dispatch' || github.event.action != 'send-email')
+    if: always()
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -104,31 +103,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  send-daily-email:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'repository_dispatch' && github.event.action == 'send-email'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: saira-widgets
-          fetch-depth: 0
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Pull latest dashboard data
-        run: git pull origin saira-widgets --rebase
-
-      - name: Send daily email summary
-        env:
-          EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
-          REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
-          REPORT_PROJECT_NAME: Shunyalabs Widget Automation
-          REPORT_DASHBOARD_URL: https://saira-uwc.github.io/Shunyalabs_widget
-          REPORT_SHEET_URL: https://docs.google.com/spreadsheets/d/${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
-          REPORT_TIMEZONE: Asia/Kolkata
-        run: node scripts/send-daily-report.js
