@@ -2,10 +2,11 @@ const { test, expect } = require("@playwright/test");
 const path = require("path");
 const { WidgetPage } = require("../pages/widget-page");
 const { SttPage } = require("../pages/stt-page");
+const { TIMEOUTS } = require("../utils/timeouts");
 
 test.describe("Zero STT Indic module", () => {
   test("uploaded audio renders transcript and allows playback", async ({ page }) => {
-    test.setTimeout(300_000);
+    test.setTimeout(TIMEOUTS.TEST_SLOW);
     const widgetPage = new WidgetPage(page);
     const sttPage = new SttPage(widgetPage);
 
@@ -18,10 +19,10 @@ test.describe("Zero STT Indic module", () => {
     for (let attempt = 0; attempt < 3; attempt++) {
       await sttPage.uploadButton.waitFor({ state: "visible", timeout: 10_000 });
       await sttPage.uploadAudioFile(audioPath);
-      await sttPage.waitForUploadProcessing(180_000);
+      await sttPage.waitForUploadProcessing();
 
       try {
-        await sttPage.waitForUploadResult(180_000);
+        await sttPage.waitForUploadResult();
         break;
       } catch (error) {
         if (attempt === 2) throw error;

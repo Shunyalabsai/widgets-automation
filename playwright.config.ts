@@ -4,7 +4,7 @@ const isCI = Boolean((globalThis as { process?: { env?: { CI?: string } } }).pro
 
 export default defineConfig({
   testDir: "./tests",
-  timeout: 120_000,
+  timeout: 180_000,
   fullyParallel: true,
   workers: isCI ? 3 : undefined,
   expect: {

@@ -1,4 +1,5 @@
 const { expect } = require("@playwright/test");
+const { TIMEOUTS } = require("../utils/timeouts");
 
 class MedicalTranscriptionPage {
   constructor(widgetPage) {
@@ -77,7 +78,7 @@ class MedicalTranscriptionPage {
     await fileChooser.setFiles(filePath);
   }
 
-  async waitForUploadResult(timeoutMs = 180_000) {
+  async waitForUploadResult(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     const failed = this.root.getByText("Upload failed");
     const speaker = this.root.getByText(/Speaker\s*\d/i).first();
 
@@ -96,7 +97,7 @@ class MedicalTranscriptionPage {
     ]);
   }
 
-  async waitForUploadProcessing(timeoutMs = 120_000) {
+  async waitForUploadProcessing(timeoutMs = TIMEOUTS.UPLOAD_PROCESSING) {
     const loaderIcon = this.root.locator(".lucide.lucide-loader-circle");
     try {
       await loaderIcon.first().waitFor({ timeout: 15_000 });
@@ -120,7 +121,7 @@ class MedicalTranscriptionPage {
     await this.pauseButton.waitFor();
   }
 
-  async waitForTranscriptRows(timeoutMs = 180_000) {
+  async waitForTranscriptRows(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     await this.root.waitForFunction(
       () =>
         document.querySelectorAll(".flex.items-center.space-x-2").length > 0,
@@ -129,11 +130,11 @@ class MedicalTranscriptionPage {
     );
   }
 
-  async waitForSpeakerLabel(label, timeoutMs = 180_000) {
+  async waitForSpeakerLabel(label, timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     await expect(this.root.getByText(label)).toBeVisible({ timeout: timeoutMs });
   }
 
-  async waitForTranscriptSnippet(snippet, timeoutMs = 180_000) {
+  async waitForTranscriptSnippet(snippet, timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     await expect(this.root.getByText(snippet)).toBeVisible({ timeout: timeoutMs });
   }
 }

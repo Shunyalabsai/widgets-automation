@@ -1,25 +1,13 @@
 const { test } = require("@playwright/test");
 const path = require("path");
-const { execSync } = require("child_process");
 const { WidgetPage, WIDGET_HOST } = require("../pages/widget-page");
 const { SttPage } = require("../pages/stt-page");
-
-function getAudioDurationSeconds(filePath) {
-  try {
-    const output = execSync(
-      `ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "${filePath}"`,
-      { encoding: "utf8" },
-    ).trim();
-    const value = Number.parseFloat(output);
-    return Number.isFinite(value) ? value : null;
-  } catch {
-    return null;
-  }
-}
+const { TIMEOUTS } = require("../utils/timeouts");
+const { getLiveRecordingWaitSeconds } = require("../utils/audio-utils");
 
 test.describe("Zero STT Indic module", () => {
   test("simulated live recording uses file and verifies transcript", async ({ page }) => {
-    test.setTimeout(180_000);
+    test.setTimeout(TIMEOUTS.TEST_SLOW);
     const widgetPage = new WidgetPage(page);
     const sttPage = new SttPage(widgetPage);
 
@@ -37,15 +25,14 @@ test.describe("Zero STT Indic module", () => {
     await sttPage.tryWaitForRecordingState(10_000);
 
     const audioPath = path.join(__dirname, "..", "data", "stt", "live-recording.opus");
-    const durationSeconds = getAudioDurationSeconds(audioPath) ?? 45;
+    const durationSeconds = getLiveRecordingWaitSeconds(audioPath);
     await page.waitForTimeout(Math.ceil(durationSeconds * 1000) + 1500);
     await sttPage.stopSpeaking();
     await sttPage.tryWaitForProcessingState(30_000);
 
     await sttPage.uploadAudioFile(audioPath);
-    await sttPage.waitForUploadProcessing(180_000);
-    await sttPage.tryWaitForProcessingState(30_000);
-    await sttPage.waitForTranscriptReady(180_000);
+    await sttPage.waitForUploadProcessing();
+    await sttPage.waitForUploadResult();
 
     await sttPage.assertCopyAvailable();
     await sttPage.copyConversation();

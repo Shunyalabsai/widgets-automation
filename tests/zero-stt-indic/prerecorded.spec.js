@@ -1,10 +1,11 @@
 const { test } = require("@playwright/test");
 const { WidgetPage } = require("../pages/widget-page");
 const { SttPage } = require("../pages/stt-page");
+const { TIMEOUTS } = require("../utils/timeouts");
 
 test.describe("Zero STT Indic module", () => {
   test("prerecorded customer support call renders transcript", async ({ page }) => {
-    test.setTimeout(150_000);
+    test.setTimeout(TIMEOUTS.TEST_MEDIUM);
     const widgetPage = new WidgetPage(page);
     const sttPage = new SttPage(widgetPage);
 
@@ -23,7 +24,7 @@ test.describe("Zero STT Indic module", () => {
   });
 
   test("prerecorded podcast renders transcript", async ({ page }) => {
-    test.setTimeout(150_000);
+    test.setTimeout(TIMEOUTS.TEST_MEDIUM);
     const widgetPage = new WidgetPage(page);
     const sttPage = new SttPage(widgetPage);
 

@@ -1,4 +1,5 @@
 const { expect } = require("@playwright/test");
+const { TIMEOUTS } = require("../utils/timeouts");
 
 class TtsPage {
   constructor(widgetPage) {
@@ -81,7 +82,7 @@ class TtsPage {
     await expect(this.generateButton).toBeEnabled({ timeout: timeoutMs });
   }
 
-  async waitForProcessing(timeoutMs = 60_000) {
+  async waitForProcessing(timeoutMs = TIMEOUTS.TTS_PROCESSING) {
     try {
       await expect(this.generateButton).toBeDisabled({ timeout: 5_000 });
     } catch {

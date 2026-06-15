@@ -1,4 +1,5 @@
 const { expect } = require("@playwright/test");
+const { TIMEOUTS } = require("../utils/timeouts");
 
 class SttPage {
   constructor(widgetPage) {
@@ -63,7 +64,7 @@ class SttPage {
     await this.pauseButton.waitFor();
   }
 
-  async waitForTranscriptReady(timeoutMs = 90_000) {
+  async waitForTranscriptReady(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     await this.root.waitForFunction(
       (minRows) =>
         document.querySelectorAll(".flex.items-center.space-x-2").length >=
@@ -144,7 +145,7 @@ class SttPage {
     await fileChooser.setFiles(filePath);
   }
 
-  async waitForUploadResult(timeoutMs = 180_000) {
+  async waitForUploadResult(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     const failed = this.root.getByText("Upload failed");
     const speaker = this.root.getByText(/Speaker\s*\d/i).first();
 
@@ -163,7 +164,7 @@ class SttPage {
     ]);
   }
 
-  async waitForUploadProcessing(timeoutMs = 120_000) {
+  async waitForUploadProcessing(timeoutMs = TIMEOUTS.UPLOAD_PROCESSING) {
     try {
       await this.loaderIcon.first().waitFor({ timeout: 15_000 });
       await this.loaderIcon.first().waitFor({ state: "hidden", timeout: timeoutMs });
@@ -222,7 +223,7 @@ class SttPage {
     return false;
   }
 
-  async waitForTranscriptContains(expectedLines, timeoutMs = 180_000) {
+  async waitForTranscriptContains(expectedLines, timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     await this.root.waitForFunction(
       (lines) => {
         const rows = Array.from(
@@ -245,7 +246,7 @@ class SttPage {
   async waitForTranscriptSummary({
     keyPhrases,
     speakerCount,
-    timeoutMs = 180_000,
+    timeoutMs = TIMEOUTS.BACKEND_RESULT,
   }) {
     await this.root.waitForFunction(
       (params) => {
