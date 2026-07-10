@@ -1,37 +1,37 @@
 {
-  "id": "4a5a4011-a7ad-400d-8b0a-60218321013e",
-  "startedAt": "2026-07-10T01:03:03.429Z",
-  "durationMs": 389372,
+  "id": "6d7c313e-f39c-4afb-bce7-b0fb9439d3fd",
+  "startedAt": "2026-07-10T03:03:03.923Z",
+  "durationMs": 429799,
   "summary": {
     "total": 23,
-    "passed": 17,
-    "failed": 6,
+    "passed": 21,
+    "failed": 2,
     "skipped": 0,
     "timedOut": 0
   },
-  "passRate": 74,
-  "displayTimestamp": "Jul 10, 2026, 1:03:03 AM",
+  "passRate": 91,
+  "displayTimestamp": "Jul 10, 2026, 3:03:03 AM",
   "displayDate": "Friday, July 10, 2026",
-  "displayTime": "1:03:03 AM",
+  "displayTime": "3:03:03 AM",
   "modules": {
     "zero-stt-codeswitch": {
       "total": 3,
-      "passed": 1,
-      "failed": 2,
+      "passed": 2,
+      "failed": 1,
       "skipped": 0,
       "timedOut": 0
     },
     "zero-stt-indic": {
       "total": 4,
-      "passed": 2,
-      "failed": 2,
+      "passed": 3,
+      "failed": 1,
       "skipped": 0,
       "timedOut": 0
     },
     "zero-stt-med": {
       "total": 4,
-      "passed": 2,
-      "failed": 2,
+      "passed": 4,
+      "failed": 0,
       "skipped": 0,
       "timedOut": 0
     },
@@ -46,34 +46,18 @@
   "tests": [
     {
       "title": "zero-stt-codeswitch/live-recording.spec.js > Zero STT Codeswitch module > simulated live recording validates transcript and speakers",
-      "status": "failed",
-      "durationMs": 91833,
+      "status": "passed",
+      "durationMs": 129729,
       "file": "zero-stt-codeswitch/live-recording.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/error-context-2.md"
-        }
-      ],
-      "error": "Error: Upload failed in widget: Something went wrong. Please try again, or contact support if it persists.",
+      "attachments": [],
+      "error": "",
       "module": "zero-stt-codeswitch",
       "moduleLabel": "Zero Stt Codeswitch"
     },
     {
       "title": "zero-stt-codeswitch/sample-audio.spec.js > Zero STT Codeswitch module > sample audio renders transcript",
       "status": "passed",
-      "durationMs": 4630,
+      "durationMs": 4642,
       "file": "zero-stt-codeswitch/sample-audio.spec.js",
       "attachments": [],
       "error": "",
@@ -83,23 +67,23 @@
     {
       "title": "zero-stt-codeswitch/upload.spec.js > Zero STT Codeswitch module > uploaded audio renders codeswitched transcript",
       "status": "failed",
-      "durationMs": 19966,
+      "durationMs": 19893,
       "file": "zero-stt-codeswitch/upload.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/screenshot-0.png"
+          "path": "playwright-artifacts/6d7c313e-f39c-4afb-bce7-b0fb9439d3fd/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/video-1.webm"
+          "path": "playwright-artifacts/6d7c313e-f39c-4afb-bce7-b0fb9439d3fd/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/error-context-2.md"
+          "path": "playwright-artifacts/6d7c313e-f39c-4afb-bce7-b0fb9439d3fd/error-context-2.md"
         }
       ],
       "error": "Error: Upload failed in widget: Something went wrong. Please try again, or contact support if it persists.",
@@ -108,34 +92,18 @@
     },
     {
       "title": "zero-stt-indic/live-recording.spec.js > Zero STT Indic module > simulated live recording uses file and verifies transcript",
-      "status": "failed",
-      "durationMs": 91335,
+      "status": "passed",
+      "durationMs": 94222,
       "file": "zero-stt-indic/live-recording.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/error-context-2.md"
-        }
-      ],
-      "error": "Error: Upload failed in widget: Something went wrong. Please try again, or contact support if it persists.",
+      "attachments": [],
+      "error": "",
       "module": "zero-stt-indic",
       "moduleLabel": "Zero Stt Indic"
     },
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 2525,
+      "durationMs": 2529,
       "file": "zero-stt-indic/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -145,7 +113,7 @@
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded podcast renders transcript",
       "status": "passed",
-      "durationMs": 2483,
+      "durationMs": 2153,
       "file": "zero-stt-indic/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -155,23 +123,23 @@
     {
       "title": "zero-stt-indic/upload.spec.js > Zero STT Indic module > uploaded audio renders transcript and allows playback",
       "status": "failed",
-      "durationMs": 20181,
+      "durationMs": 17798,
       "file": "zero-stt-indic/upload.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/screenshot-0.png"
+          "path": "playwright-artifacts/6d7c313e-f39c-4afb-bce7-b0fb9439d3fd/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/video-1.webm"
+          "path": "playwright-artifacts/6d7c313e-f39c-4afb-bce7-b0fb9439d3fd/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/error-context-2.md"
+          "path": "playwright-artifacts/6d7c313e-f39c-4afb-bce7-b0fb9439d3fd/error-context-2.md"
         }
       ],
       "error": "Error: Upload failed in widget: Something went wrong. Please try again, or contact support if it persists.",
@@ -180,34 +148,18 @@
     },
     {
       "title": "zero-stt-med/live-recording.spec.js > Zero STT Med module > live recording start/stop",
-      "status": "failed",
-      "durationMs": 53257,
+      "status": "passed",
+      "durationMs": 54094,
       "file": "zero-stt-med/live-recording.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/error-context-2.md"
-        }
-      ],
-      "error": "Error: Upload failed in widget: Something went wrong. Please try again, or contact support if it persists.",
+      "attachments": [],
+      "error": "",
       "module": "zero-stt-med",
       "moduleLabel": "Zero Stt Med"
     },
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 2687,
+      "durationMs": 3286,
       "file": "zero-stt-med/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -217,7 +169,7 @@
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 3855,
+      "durationMs": 3304,
       "file": "zero-stt-med/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -226,34 +178,18 @@
     },
     {
       "title": "zero-stt-med/upload.spec.js > Zero STT Med module > upload file renders transcript",
-      "status": "failed",
-      "durationMs": 12261,
+      "status": "passed",
+      "durationMs": 19364,
       "file": "zero-stt-med/upload.spec.js",
-      "attachments": [
-        {
-          "name": "screenshot",
-          "contentType": "image/png",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/screenshot-0.png"
-        },
-        {
-          "name": "video",
-          "contentType": "video/webm",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/video-1.webm"
-        },
-        {
-          "name": "error-context",
-          "contentType": "text/markdown",
-          "path": "playwright-artifacts/4a5a4011-a7ad-400d-8b0a-60218321013e/error-context-2.md"
-        }
-      ],
-      "error": "Error: Upload failed in widget: Something went wrong. Please try again, or contact support if it persists.",
+      "attachments": [],
+      "error": "",
       "module": "zero-stt-med",
       "moduleLabel": "Zero Stt Med"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > default voice generates speech from text input",
       "status": "passed",
-      "durationMs": 7664,
+      "durationMs": 6959,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -263,7 +199,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > text input shows character count up to 1000",
       "status": "passed",
-      "durationMs": 2074,
+      "durationMs": 1860,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -273,7 +209,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > selecting different voices works",
       "status": "passed",
-      "durationMs": 7891,
+      "durationMs": 7543,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -283,7 +219,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > changing speed setting works",
       "status": "passed",
-      "durationMs": 7969,
+      "durationMs": 7566,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -293,7 +229,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > expression styles are selectable",
       "status": "passed",
-      "durationMs": 7387,
+      "durationMs": 7222,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -303,7 +239,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > different audio formats are selectable",
       "status": "passed",
-      "durationMs": 7682,
+      "durationMs": 7331,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -313,7 +249,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > generate button is disabled with empty text",
       "status": "passed",
-      "durationMs": 2249,
+      "durationMs": 1930,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -323,7 +259,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > English voice with slow speed generates speech",
       "status": "passed",
-      "durationMs": 8979,
+      "durationMs": 7690,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -333,7 +269,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Tamil voice generates speech",
       "status": "passed",
-      "durationMs": 8220,
+      "durationMs": 7731,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -343,7 +279,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Bengali voice with Sad expression generates speech",
       "status": "passed",
-      "durationMs": 8777,
+      "durationMs": 7824,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -353,7 +289,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > OGG Opus format with fast speed generates speech",
       "status": "passed",
-      "durationMs": 7722,
+      "durationMs": 8006,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -363,7 +299,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Conversational expression style generates speech",
       "status": "passed",
-      "durationMs": 7745,
+      "durationMs": 7123,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
