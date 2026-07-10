@@ -80,10 +80,10 @@ class MedicalTranscriptionPage {
 
   async waitForUploadResult(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     const failed = this.root.getByText("Upload failed");
-    const speaker = this.root.getByText(/Speaker\s*\d/i).first();
+    const transcriptRow = this.root.locator(".flex.items-center.space-x-2").first();
 
     await Promise.race([
-      speaker.waitFor({ state: "visible", timeout: timeoutMs }),
+      transcriptRow.waitFor({ state: "visible", timeout: timeoutMs }),
       failed.waitFor({ state: "visible", timeout: timeoutMs }).then(async () => {
         const message = await this.root
           .getByText(/Something went wrong|Please try again/i)
@@ -128,6 +128,15 @@ class MedicalTranscriptionPage {
       null,
       { timeout: timeoutMs },
     );
+  }
+
+  async tryWaitForTranscriptRows(timeoutMs = 30_000) {
+    try {
+      await this.waitForTranscriptRows(timeoutMs);
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   async waitForSpeakerLabel(label, timeoutMs = TIMEOUTS.BACKEND_RESULT) {

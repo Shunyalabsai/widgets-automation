@@ -215,6 +215,15 @@ class SttPage {
     }
   }
 
+  async tryWaitForTranscriptReady(timeoutMs = 30_000) {
+    try {
+      await this.waitForTranscriptReady(timeoutMs);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   async tryStopSpeaking() {
     if (await this.stopSpeakingButton.isVisible()) {
       await this.stopSpeakingButton.click();
