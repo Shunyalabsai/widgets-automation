@@ -1,24 +1,93 @@
 id,module,status,durationMs,title,file,error
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Codeswitch,passed,197349,zero-stt-codeswitch/live-recording.spec.js > Zero STT Codeswitch module > simulated live recording validates transcript and speakers,zero-stt-codeswitch/live-recording.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Codeswitch,passed,5245,zero-stt-codeswitch/sample-audio.spec.js > Zero STT Codeswitch module > sample audio renders transcript,zero-stt-codeswitch/sample-audio.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Codeswitch,passed,29718,zero-stt-codeswitch/upload.spec.js > Zero STT Codeswitch module > uploaded audio renders codeswitched transcript,zero-stt-codeswitch/upload.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Indic,passed,182920,zero-stt-indic/live-recording.spec.js > Zero STT Indic module > simulated live recording uses file and verifies transcript,zero-stt-indic/live-recording.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Indic,passed,2256,zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded customer support call renders transcript,zero-stt-indic/prerecorded.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Indic,passed,2474,zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded podcast renders transcript,zero-stt-indic/prerecorded.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Indic,passed,9858,zero-stt-indic/upload.spec.js > Zero STT Indic module > uploaded audio renders transcript and allows playback,zero-stt-indic/upload.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Med,passed,144612,zero-stt-med/live-recording.spec.js > Zero STT Med module > live recording start/stop,zero-stt-med/live-recording.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Med,passed,3034,zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded patient notes renders transcript,zero-stt-med/prerecorded.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Med,passed,3702,zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded doctor appointment renders transcript,zero-stt-med/prerecorded.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Stt Med,passed,51816,zero-stt-med/upload.spec.js > Zero STT Med module > upload file renders transcript,zero-stt-med/upload.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,8188,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > default voice generates speech from text input,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,2156,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > text input shows character count up to 1000,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,7335,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > selecting different voices works,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,7474,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > changing speed setting works,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,7275,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > expression styles are selectable,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,7225,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > different audio formats are selectable,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,1800,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > generate button is disabled with empty text,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,7438,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > English voice with slow speed generates speech,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,7905,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Tamil voice generates speech,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,7562,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Bengali voice with Sad expression generates speech,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,7516,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > OGG Opus format with fast speed generates speech,zero-tts-indic/generate-speech.spec.js,
-ee033434-e676-4196-9914-33261d0e5df7,Zero Tts Indic,passed,7016,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Conversational expression style generates speech,zero-tts-indic/generate-speech.spec.js,
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Codeswitch,failed,32451,zero-stt-codeswitch/live-recording.spec.js > Zero STT Codeswitch module > simulated live recording validates transcript and speakers,zero-stt-codeswitch/live-recording.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Codeswitch,failed,32311,zero-stt-codeswitch/sample-audio.spec.js > Zero STT Codeswitch module > sample audio renders transcript,zero-stt-codeswitch/sample-audio.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Codeswitch,failed,32335,zero-stt-codeswitch/upload.spec.js > Zero STT Codeswitch module > uploaded audio renders codeswitched transcript,zero-stt-codeswitch/upload.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Indic,failed,32363,zero-stt-indic/live-recording.spec.js > Zero STT Indic module > simulated live recording uses file and verifies transcript,zero-stt-indic/live-recording.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Indic,failed,31963,zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded customer support call renders transcript,zero-stt-indic/prerecorded.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Indic,failed,32091,zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded podcast renders transcript,zero-stt-indic/prerecorded.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Indic,failed,32052,zero-stt-indic/upload.spec.js > Zero STT Indic module > uploaded audio renders transcript and allows playback,zero-stt-indic/upload.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Med,failed,32023,zero-stt-med/live-recording.spec.js > Zero STT Med module > live recording start/stop,zero-stt-med/live-recording.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Med,failed,32972,zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded patient notes renders transcript,zero-stt-med/prerecorded.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Med,failed,31593,zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded doctor appointment renders transcript,zero-stt-med/prerecorded.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Stt Med,failed,31567,zero-stt-med/upload.spec.js > Zero STT Med module > upload file renders transcript,zero-stt-med/upload.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,32196,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > default voice generates speech from text input,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,31762,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > text input shows character count up to 1000,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,32029,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > selecting different voices works,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,32495,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > changing speed setting works,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,31926,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > expression styles are selectable,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,31440,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > different audio formats are selectable,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,32138,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > generate button is disabled with empty text,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,31679,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > English voice with slow speed generates speech,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,32019,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Tamil voice generates speech,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,32165,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Bengali voice with Sad expression generates speech,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,31152,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > OGG Opus format with fast speed generates speech,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
+51ca2379-61d2-4f62-a9a3-bb68777012df,Zero Tts Indic,failed,30986,zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Conversational expression style generates speech,zero-tts-indic/generate-speech.spec.js,"TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Zero TTS Indic|Zero STT Indic/i }).first() to be visible[22m
+"
