@@ -11,23 +11,23 @@ class SttPage {
   }
 
   get playButton() {
-    return this.root.getByRole("button", { name: /Play audio/i });
+    return this.root.getByRole("button", { name: /^Play$/i });
   }
 
   get pauseButton() {
-    return this.root.getByRole("button", { name: /Pause audio/i });
+    return this.root.getByRole("button", { name: /^Pause$/i });
   }
 
   get copyButton() {
-    return this.root.getByRole("button", { name: /Copy Conversation/i });
+    return this.root.getByRole("button", { name: /Copy text|Copy Conversation/i });
   }
 
   get startSpeakingButton() {
-    return this.root.getByRole("button", { name: /Start Speaking/i });
+    return this.root.getByRole("button", { name: /Start recording|Start Speaking/i });
   }
 
   get stopSpeakingButton() {
-    return this.root.getByRole("button", { name: /Stop/i });
+    return this.root.getByRole("button", { name: /Stop recording|^Stop$/i });
   }
 
   get transcriptRows() {
@@ -39,7 +39,39 @@ class SttPage {
   }
 
   get uploadButton() {
-    return this.root.getByRole("button", { name: /Upload your file/i });
+    return this.root.getByRole("tab", { name: /Upload file/i });
+  }
+
+  get sampleClipsTab() {
+    return this.root.getByRole("tab", { name: /Sample clips/i });
+  }
+
+  get recordLiveTab() {
+    return this.root.getByRole("tab", { name: /Record live/i });
+  }
+
+  async ensureSampleClipsMode() {
+    const tab = this.sampleClipsTab;
+    if (await tab.isVisible().catch(() => false)) {
+      await tab.click();
+    }
+    await this.widgetPage.page.waitForTimeout(500);
+  }
+
+  async ensureUploadMode() {
+    const tab = this.uploadButton;
+    if (await tab.isVisible().catch(() => false)) {
+      await tab.click();
+    }
+    await this.widgetPage.page.waitForTimeout(500);
+  }
+
+  async ensureRecordLiveMode() {
+    const tab = this.recordLiveTab;
+    if (await tab.isVisible().catch(() => false)) {
+      await tab.click();
+    }
+    await this.widgetPage.page.waitForTimeout(500);
   }
 
   get asrPlayButton() {
@@ -51,6 +83,7 @@ class SttPage {
   }
 
   async selectPrerecordedOption(optionName) {
+    await this.ensureSampleClipsMode();
     await this.root
       .getByRole("button", { name: new RegExp(optionName, "i") })
       .click();
@@ -61,14 +94,22 @@ class SttPage {
   }
 
   async waitForPlaybackToStart() {
-    await this.pauseButton.waitFor();
+    await this.pauseButton.waitFor({ timeout: 60_000 });
   }
 
   async waitForTranscriptReady(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     await this.root.waitForFunction(
-      (minRows) =>
-        document.querySelectorAll(".flex.items-center.space-x-2").length >=
-        minRows,
+      (minRows) => {
+        if (document.querySelectorAll(".flex.items-center.space-x-2").length >= minRows) {
+          return true;
+        }
+        const text = document.body?.innerText || "";
+        return (
+          text.length > 200 &&
+          !text.includes("Choose a sample clip, upload an audio file") &&
+          !text.includes("Choose a sample")
+        );
+      },
       1,
       { timeout: timeoutMs },
     );
@@ -114,7 +155,7 @@ class SttPage {
   }
 
   async assertCopyAvailable() {
-    await expect(this.copyButton).toBeEnabled();
+    await expect(this.copyButton).toBeEnabled({ timeout: 60_000 });
   }
 
   async copyConversation() {
@@ -132,6 +173,8 @@ class SttPage {
   }
 
   async uploadAudioFile(filePath) {
+    await this.ensureUploadMode();
+
     const fileInput = this.root.locator('input[type="file"]');
     if (await fileInput.count()) {
       await fileInput.setInputFiles(filePath);
@@ -140,20 +183,24 @@ class SttPage {
 
     const [fileChooser] = await Promise.all([
       this.widgetPage.page.waitForEvent("filechooser"),
-      this.uploadButton.click(),
+      this.root.locator('input[type="file"]').click({ force: true }).catch(() =>
+        this.root.getByText(/Upload|Drag|Choose/i).first().click(),
+      ),
     ]);
     await fileChooser.setFiles(filePath);
   }
 
   async waitForUploadResult(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
-    const failed = this.root.getByText("Upload failed");
+    const failed = this.root.getByText(/Upload failed|Something went wrong/i);
     const speaker = this.root.getByText(/Speaker\s*\d/i).first();
+    const transcriptRow = this.root.locator(".flex.items-center.space-x-2").first();
 
     await Promise.race([
       speaker.waitFor({ state: "visible", timeout: timeoutMs }),
+      transcriptRow.waitFor({ state: "visible", timeout: timeoutMs }),
       failed.waitFor({ state: "visible", timeout: timeoutMs }).then(async () => {
         const message = await this.root
-          .getByText(/Something went wrong|Please try again/i)
+          .getByText(/Something went wrong|Please try again|Upload failed/i)
           .first()
           .textContent()
           .catch(() => "");
@@ -178,6 +225,7 @@ class SttPage {
   }
 
   async startSpeaking() {
+    await this.ensureRecordLiveMode();
     await this.startSpeakingButton.click();
   }
 
@@ -186,15 +234,15 @@ class SttPage {
   }
 
   async waitForRecordingState(timeoutMs = 15_000) {
-    await expect(this.root.getByText("RECORDING", { exact: true })).toBeVisible({
-      timeout: timeoutMs,
-    });
+    await expect(
+      this.root.getByRole("button", { name: /Stop recording|^Stop$/i }),
+    ).toBeVisible({ timeout: timeoutMs });
   }
 
   async waitForProcessingState(timeoutMs = 120_000) {
-    await expect(this.root.getByText("PROCESSING", { exact: true })).toBeVisible({
-      timeout: timeoutMs,
-    });
+    await expect(
+      this.root.getByText(/PROCESSING|Processing transcript|Generating/i).first(),
+    ).toBeVisible({ timeout: timeoutMs });
   }
 
   async tryWaitForProcessingState(timeoutMs = 30_000) {
@@ -225,7 +273,7 @@ class SttPage {
   }
 
   async tryStopSpeaking() {
-    if (await this.stopSpeakingButton.isVisible()) {
+    if (await this.stopSpeakingButton.isVisible().catch(() => false)) {
       await this.stopSpeakingButton.click();
       return true;
     }

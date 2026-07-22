@@ -23,7 +23,7 @@ test.describe("Zero STT Indic module", () => {
     await sttPage.copyConversation();
   });
 
-  test("prerecorded podcast renders transcript", async ({ page }) => {
+  test("prerecorded podcast interview renders transcript", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_MEDIUM);
     const widgetPage = new WidgetPage(page);
     const sttPage = new SttPage(widgetPage);
@@ -31,7 +31,7 @@ test.describe("Zero STT Indic module", () => {
     await widgetPage.goto();
     await widgetPage.openModule("Zero STT Indic");
 
-    await sttPage.selectPrerecordedOption("Podcast");
+    await sttPage.selectPrerecordedOption("Podcast Interview");
     await sttPage.play();
     await sttPage.waitForPlaybackToStart();
     await sttPage.waitForTranscriptReady();

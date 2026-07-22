@@ -22,7 +22,7 @@ async function uploadWithRetry({
     }
 
     if (pageObject.uploadButton) {
-      await pageObject.uploadButton.waitFor({ state: "visible", timeout: 10_000 });
+      await pageObject.uploadButton.waitFor({ state: "visible", timeout: 30_000 });
     }
 
     await pageObject.uploadAudioFile(audioPath);

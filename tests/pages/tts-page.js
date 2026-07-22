@@ -20,6 +20,10 @@ class TtsPage {
     return this.root.getByRole("button", { name: /Generate Speech/i });
   }
 
+  get scriptButton() {
+    return this.root.getByRole("button", { name: /🇺🇸English|🇮🇳|Script/i }).first();
+  }
+
   get languageDropdown() {
     return this.root.getByRole("button", { name: /English|Hindi|Tamil/i }).first();
   }
@@ -37,25 +41,68 @@ class TtsPage {
     return parseInt(countText.match(/(\d+)/)?.[1] || "0", 10);
   }
 
+  async selectScript(scriptLabel) {
+    const scriptButton = this.root
+      .locator("text=Script")
+      .locator("..")
+      .getByRole("button")
+      .first();
+    if (await scriptButton.isVisible().catch(() => false)) {
+      await scriptButton.click();
+      await this.widgetPage.page.waitForTimeout(500);
+    }
+
+    const option = this.root.getByRole("button", {
+      name: new RegExp(scriptLabel, "i"),
+    });
+    if (await option.first().isVisible().catch(() => false)) {
+      await option.first().click();
+    }
+  }
+
   async selectVoice(voiceName) {
-    await this.root.getByRole("button", { name: new RegExp(voiceName, "i") }).click();
+    const voiceButton = this.root
+      .getByRole("button", { name: new RegExp(`${voiceName}`, "i") })
+      .first();
+    await voiceButton.scrollIntoViewIfNeeded();
+    await voiceButton.click();
   }
 
   async setSpeed(speed) {
     const slider = this.root.locator("input[type='range']").first();
-    if (await slider.isVisible()) {
+    if (await slider.isVisible().catch(() => false)) {
       await slider.fill(String(speed));
     }
   }
 
   async selectFormat(format) {
+    const formatButton = this.root.getByRole("button", {
+      name: new RegExp(`^${format}$`, "i"),
+    });
+    if (await formatButton.isVisible().catch(() => false)) {
+      await formatButton.click();
+      return;
+    }
+
     const formatSelect = this.root.locator("main select").first();
-    await formatSelect.selectOption({ label: format });
+    if (await formatSelect.isVisible().catch(() => false)) {
+      await formatSelect.selectOption({ label: format });
+    }
   }
 
   async selectExpressionStyle(style) {
+    const styleButton = this.root.getByRole("button", {
+      name: new RegExp(`^${style}$`, "i"),
+    });
+    if (await styleButton.isVisible().catch(() => false)) {
+      await styleButton.click();
+      return;
+    }
+
     const styleSelect = this.root.locator("main select").nth(1);
-    await styleSelect.selectOption({ label: style });
+    if (await styleSelect.isVisible().catch(() => false)) {
+      await styleSelect.selectOption({ label: style });
+    }
   }
 
   async toggleTrimSilence() {

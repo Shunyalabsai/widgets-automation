@@ -1,19 +1,59 @@
 const DEFAULT_WIDGET_URL = "https://www.shunyalabs.ai/";
-const WIDGET_HOST = "stage-widget.shunyalabs.ai";
+const WIDGET_HOST = "widget.shunyalabs.ai";
 
-const MODULE_WIDGET_SLUGS = {
-  "zero tts indic": "zero-tts-indic",
-  "zero stt codeswitch": "zero-stt-codeswitch",
-  "zero stt indic": "zero-stt-indic",
-  "zero stt med": "zero-stt-med",
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+const MODULES = {
+  "zero tts indic": {
+    label: "Zero TTS Indic",
+    slug: "zero-tts-indic",
+    pageUrl: DEFAULT_WIDGET_URL,
+    navigation: "tab",
+  },
+  "zero stt indic": {
+    label: "Zero STT Indic",
+    slug: "zero-stt-indic",
+    pageUrl: DEFAULT_WIDGET_URL,
+    navigation: "tab",
+  },
+  "zero stt codeswitch": {
+    label: "Zero STT Codeswitch",
+    slug: "zero-stt-codeswitch",
+    pageUrl: DEFAULT_WIDGET_URL,
+    navigation: "tab",
+  },
+  "zero stt med": {
+    label: "Zero STT Med",
+    slug: "zero-stt-med",
+    pageUrl: DEFAULT_WIDGET_URL,
+    navigation: "tab",
+  },
+  "zero stt jp/kr": {
+    label: "Zero STT JP/KR",
+    slug: "zero-stt-jpkr",
+    pageUrl: DEFAULT_WIDGET_URL,
+    navigation: "tab",
+  },
+  vak: {
+    label: "VAK",
+    slug: "vak",
+    pageUrl: DEFAULT_WIDGET_URL,
+    navigation: "tab",
+  },
 };
 
-function moduleSlug(moduleName) {
-  const slug = MODULE_WIDGET_SLUGS[moduleName.trim().toLowerCase()];
-  if (!slug) {
+function moduleConfig(moduleName) {
+  const config = MODULES[moduleName.trim().toLowerCase()];
+  if (!config) {
     throw new Error(`Unknown widget module: ${moduleName}`);
   }
-  return slug;
+  return config;
+}
+
+function moduleSlug(moduleName) {
+  return moduleConfig(moduleName).slug;
 }
 
 class WidgetPage {
@@ -27,32 +67,50 @@ class WidgetPage {
     const widgetUrl = process.env.WIDGET_URL || DEFAULT_WIDGET_URL;
     await this.page.goto(widgetUrl, { waitUntil: "domcontentloaded" });
     await this.page
-      .getByRole("button", { name: /Zero TTS Indic|Zero STT Indic/i })
+      .getByRole("tab", { name: /Zero TTS Indic|Zero STT Indic/i })
       .first()
-      .waitFor({ timeout: 30_000 });
+      .waitFor({ timeout: 60_000 });
   }
 
   async openModule(moduleName) {
-    const slug = moduleSlug(moduleName);
+    const config = moduleConfig(moduleName);
 
-    await this.page
-      .getByRole("button", { name: new RegExp(moduleName, "i") })
-      .click();
+    if (config.navigation === "product") {
+      await this.page.goto(config.pageUrl, { waitUntil: "domcontentloaded" });
+    } else {
+      const currentUrl = this.page.url();
+      if (!currentUrl.includes("shunyalabs.ai") || config.navigation === "tab") {
+        const baseUrl = process.env.WIDGET_URL || DEFAULT_WIDGET_URL;
+        if (!currentUrl.startsWith(baseUrl.replace(/\/$/, ""))) {
+          await this.page.goto(baseUrl, { waitUntil: "domcontentloaded" });
+        }
+        await this.page
+          .getByRole("tab", {
+            name: new RegExp(`^${escapeRegExp(config.label)}$`, "i"),
+          })
+          .click();
+      }
+    }
 
     await this.page.waitForFunction(
-      (expectedSlug) =>
-        Array.from(document.querySelectorAll("iframe")).some((iframe) =>
-          iframe.src.includes(`widget=${expectedSlug}`),
+      (slug) =>
+        Array.from(document.querySelectorAll("iframe")).some(
+          (iframe) =>
+            iframe.src.includes("widget.shunyalabs.ai") && iframe.src.includes(slug),
         ),
-      slug,
-      { timeout: 30_000 },
+      config.slug,
+      { timeout: 60_000 },
     );
 
     let frame = null;
-    for (let attempt = 0; attempt < 60; attempt++) {
+    for (let attempt = 0; attempt < 80; attempt++) {
       frame = this.page
         .frames()
-        .find((candidate) => candidate.url().includes(`widget=${slug}`));
+        .find(
+          (candidate) =>
+            candidate.url().includes(WIDGET_HOST) &&
+            candidate.url().includes(config.slug),
+        );
       if (frame) break;
       await this.page.waitForTimeout(500);
     }
@@ -62,10 +120,10 @@ class WidgetPage {
     }
 
     this.widgetFrame = frame;
-
     await this.widgetFrame.waitForLoadState("domcontentloaded", {
-      timeout: 30_000,
+      timeout: 60_000,
     });
+    await this.page.waitForTimeout(1500);
     this.activeModule = moduleName;
     return this.widgetFrame;
   }
@@ -83,16 +141,26 @@ class WidgetPage {
     });
 
     const root = this.getWidgetRoot();
-    await root.getByRole("button", { name: /Start Speaking/i }).click();
-    await this.page.waitForTimeout(1500);
+    await root.getByRole("tab", { name: /Record live/i }).click();
+    await this.page.waitForTimeout(500);
 
-    const stopButton = root.getByRole("button", { name: /Stop/i });
-    if (await stopButton.isVisible()) {
+    const startButton = root.getByRole("button", { name: /Start recording|Start Speaking/i });
+    if (await startButton.isVisible().catch(() => false)) {
+      await startButton.click();
+      await this.page.waitForTimeout(1500);
+    }
+
+    const stopButton = root.getByRole("button", {
+      name: /Stop recording|^Stop$/i,
+    });
+    if (await stopButton.isVisible().catch(() => false)) {
       await stopButton.click();
     }
+
+    await root.getByRole("tab", { name: /Upload file/i }).click().catch(() => {});
 
     await this.page.waitForTimeout(2000);
   }
 }
 
-module.exports = { WidgetPage, WIDGET_HOST, moduleSlug };
+module.exports = { WidgetPage, WIDGET_HOST, moduleSlug, MODULES };

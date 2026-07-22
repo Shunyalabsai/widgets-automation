@@ -32,6 +32,16 @@ test.describe("Zero TTS Indic module", () => {
     await expect(ttsPage.root.getByText(/\/\s*1000/)).toBeVisible();
   });
 
+  test("script selector is visible and voice generation works", async () => {
+    test.setTimeout(TIMEOUTS.TEST_MEDIUM);
+
+    await expect(ttsPage.root.getByText(/^Script$/i)).toBeVisible();
+    await ttsPage.selectVoice("Rajesh");
+    await ttsPage.enterText("Yeh script aur voice test hai.");
+    await ttsPage.generate();
+    await ttsPage.waitForProcessing();
+  });
+
   test("selecting different voices works", async () => {
     test.setTimeout(TIMEOUTS.TEST_MEDIUM);
 
@@ -105,11 +115,11 @@ test.describe("Zero TTS Indic module", () => {
     await ttsPage.waitForProcessing();
   });
 
-  test("OGG Opus format with fast speed generates speech", async () => {
+  test("OGG format with fast speed generates speech", async () => {
     test.setTimeout(TIMEOUTS.TEST_MEDIUM);
 
     await ttsPage.enterText("Testing OGG format at fast speed.");
-    await ttsPage.selectFormat("OGG Opus");
+    await ttsPage.selectFormat("OGG");
     await ttsPage.setSpeed(2.0);
     await ttsPage.generate();
     await ttsPage.waitForProcessing();

@@ -1,11 +1,13 @@
 const DEFAULT_WIDGET_URL = "https://www.shunyalabs.ai/";
-const WIDGET_HOST = "stage-widget.shunyalabs.ai";
+const WIDGET_HOST = "widget.shunyalabs.ai";
 
 const MODULE_WIDGET_SLUGS = {
   "zero tts indic": "zero-tts-indic",
   "zero stt codeswitch": "zero-stt-codeswitch",
   "zero stt indic": "zero-stt-indic",
   "zero stt med": "zero-stt-med",
+  "zero stt jp/kr": "zero-stt-jpkr",
+  vak: "vak",
 };
 
 async function gotoWidget(page) {

@@ -1,16 +1,16 @@
 const { test, expect } = require("@playwright/test");
 const path = require("path");
 const { WidgetPage } = require("../pages/widget-page");
-const { SttPage } = require("../pages/stt-page");
+const { JpKrSttPage } = require("../pages/jpkr-stt-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 const { uploadWithRetry } = require("../utils/upload-helpers");
 
-test.describe("Zero STT Indic module", () => {
-  test("uploaded audio renders transcript and allows playback", async ({ page }) => {
+test.describe("Zero STT JP/KR module", () => {
+  test("uploaded audio renders transcript and allows copy", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_SLOW);
     const widgetPage = new WidgetPage(page);
-    const sttPage = new SttPage(widgetPage);
-    const moduleName = "Zero STT Indic";
+    const sttPage = new JpKrSttPage(widgetPage);
+    const moduleName = "Zero STT JP/KR";
 
     await widgetPage.goto();
     await widgetPage.openModule(moduleName);
@@ -25,9 +25,7 @@ test.describe("Zero STT Indic module", () => {
 
     await expect(
       sttPage.root.getByText(/thank you for calling customer support/i).first(),
-    ).toBeVisible({
-      timeout: 30_000,
-    });
+    ).toBeVisible({ timeout: 30_000 });
 
     await sttPage.assertCopyAvailable();
     await sttPage.copyConversation();
