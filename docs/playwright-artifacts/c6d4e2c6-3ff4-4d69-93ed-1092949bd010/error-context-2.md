@@ -1,0 +1,1303 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - heading [level=2] [ref=e5]: Voice AI demos
+        - paragraph [ref=e6]: Interactive demos for Zero TTS Indic text-to-speech, Zero STT Indic speech-to-text, Zero STT Codeswitch multilingual transcription, and Zero STT Med medical speech-to-text.
+      - generic [ref=e7]:
+        - heading [level=2] [ref=e8]: Trusted by industry leaders
+        - paragraph [ref=e9]: Trusted by Nasscom, OTTO, Panasonic, OMG Pharma, ZET, BOXX Insurance, and Jio GENNEXT.
+      - generic [ref=e10]:
+        - heading [level=2] [ref=e11]: Custom built for your enterprise
+        - paragraph [ref=e12]: "Custom small language models trained on your data: audio corpus intake, custom training on the Zero base, evaluation against your ground truth, and full model ownership with on-prem deployment."
+      - generic [ref=e13]:
+        - heading [level=2] [ref=e14]: Vāk real-time translation
+        - paragraph [ref=e15]: Real-time translation in 55 Indic languages.
+      - generic [ref=e16]:
+        - heading [level=2] [ref=e17]: What sets us apart
+        - paragraph [ref=e18]: First-principles research, CPU-first architecture, full stack orchestration, foundation models for voice, privacy-first solutioning, and open-source models on Hugging Face.
+      - generic [ref=e19]:
+        - heading [level=2] [ref=e20]: Language regions
+        - paragraph [ref=e21]: Explore comprehensive language coverage across the globe with 216+ languages supported.
+    - banner:
+      - generic [ref=e22]:
+        - link "Shunya Labs Logo" [ref=e23] [cursor=pointer]:
+          - /url: /
+          - img "Shunya Labs Logo" [ref=e24]
+        - list [ref=e25]:
+          - listitem [ref=e26]:
+            - button "Platform" [ref=e27] [cursor=pointer]:
+              - text: Platform
+              - img [ref=e28]
+          - listitem [ref=e30]:
+            - button "Solutions" [ref=e31] [cursor=pointer]:
+              - text: Solutions
+              - img [ref=e32]
+          - listitem [ref=e34]:
+            - button "Resources" [ref=e35] [cursor=pointer]:
+              - text: Resources
+              - img [ref=e36]
+          - listitem [ref=e38]:
+            - link "Documentation" [ref=e39] [cursor=pointer]:
+              - /url: https://docs.shunyalabs.ai/
+          - listitem [ref=e40]:
+            - link "About Us" [ref=e41] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e42]:
+            - link "Pricing" [ref=e43] [cursor=pointer]:
+              - /url: /pricing
+        - generic [ref=e44]:
+          - link "Playground" [ref=e45] [cursor=pointer]:
+            - /url: https://playground.shunyalabs.ai/
+            - img [ref=e46]
+            - text: Playground
+          - link "Sign In" [ref=e48] [cursor=pointer]:
+            - /url: https://console.shunyalabs.ai/dashboard
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - heading "Voice AI Fails At Scale. Our Doesn't Hallucinate" [level=1] [ref=e52]:
+          - generic [ref=e53]:
+            - text: Voice AI Fails At Scale. Our
+            - text: Doesn't Hallucinate
+        - heading "Build multilingual Voice AI, AI Voice Agents, Speech-to-Text, Text-to-Speech, Speech Translation, and Conversational AI that understands your business, not just your prompts." [level=2] [ref=e54]:
+          - generic [ref=e55]:
+            - text: Build multilingual Voice AI, AI Voice Agents, Speech-to-Text, Text-to-Speech, Speech Translation, and
+            - text: Conversational AI that understands your business, not just your prompts.
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - button "E-commerce" [ref=e59] [cursor=pointer]
+              - button "BFSI" [ref=e60] [cursor=pointer]
+              - button "Logistics" [ref=e61] [cursor=pointer]
+            - button "🇮🇳 Hindi ▾" [ref=e63] [cursor=pointer]:
+              - generic [ref=e64]: 🇮🇳
+              - generic [ref=e65]: Hindi
+              - generic [ref=e66]: ▾
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - button [ref=e72] [cursor=pointer]:
+                - img [ref=e73]
+              - generic [ref=e75]: PLAY DEMO
+            - generic:
+              - generic:
+                - generic:
+                  - generic: SHOPPING ASSISTANT · VOICE AGENT
+                - generic:
+                  - generic: Customer
+                - generic:
+                  - generic: Agent
+            - generic:
+              - generic:
+                - generic: Use Case
+                - generic: E-commerce
+              - generic:
+                - generic: Behavior
+                - generic:
+                  - text: Fast
+                  - generic: 240ms
+                - generic: On-device processing
+              - generic:
+                - generic: Language
+                - generic: Hindi · English
+                - generic: Code-switching enabled
+              - generic:
+                - generic: Compliance
+                - generic: Zero-data egress
+                - generic: Edge-deployed · Private
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - img "Nasscom" [ref=e81]
+          - img "OTTO" [ref=e83]
+          - img "Panasonic" [ref=e85]
+          - img "OMG Pharma" [ref=e87]
+          - img "ZET" [ref=e89]
+          - img "BOXX Insurance" [ref=e91]
+          - img "Jio GENNEXT" [ref=e93]
+          - img "Safe Health" [ref=e95]
+        - generic [ref=e96]:
+          - img [ref=e98]
+          - img [ref=e100]
+          - img [ref=e102]
+          - img [ref=e104]
+          - img [ref=e106]
+          - img [ref=e108]
+          - img [ref=e110]
+          - img [ref=e112]
+        - generic [ref=e113]:
+          - img [ref=e115]
+          - img [ref=e117]
+          - img [ref=e119]
+          - img [ref=e121]
+          - img [ref=e123]
+          - img [ref=e125]
+          - img [ref=e127]
+          - img [ref=e129]
+        - generic [ref=e130]:
+          - img [ref=e132]
+          - img [ref=e134]
+          - img [ref=e136]
+          - img [ref=e138]
+          - img [ref=e140]
+          - img [ref=e142]
+          - img [ref=e144]
+          - img [ref=e146]
+      - region "Why Enterprises Choose Shunya" [ref=e147]:
+        - generic [ref=e148]:
+          - generic [ref=e150]: Enterprise Trust
+          - generic [ref=e151]:
+            - heading "Why Enterprises Choose Shunya" [level=2] [ref=e152]
+            - paragraph [ref=e153]: Enterprise AI isn't judged by demos. It's judged in production.
+          - generic [ref=e154]:
+            - generic [ref=e155]:
+              - img [ref=e158]
+              - generic [ref=e162]:
+                - generic [ref=e163]: 216+ Languages
+                - paragraph [ref=e164]: Built for multilingual conversations, code-switching and global deployments.
+            - generic [ref=e165]:
+              - generic [ref=e166]:
+                - generic [ref=e167]:
+                  - img [ref=e170]
+                  - generic [ref=e174]:
+                    - heading "7 Benchmark Records" [level=3] [ref=e175]
+                    - paragraph [ref=e176]: Industry-leading performance across speech recognition, multilingual AI and reasoning.
+                - generic [ref=e177]:
+                  - img [ref=e180]
+                  - generic [ref=e186]:
+                    - heading "Purpose-Trained Intelligence" [level=3] [ref=e187]
+                    - paragraph [ref=e188]: Custom Small Language Models and Knowledge Graphs built around your business.
+              - generic [ref=e189]:
+                - generic [ref=e190]:
+                  - img [ref=e193]
+                  - generic [ref=e195]:
+                    - heading "Millions of Conversations" [level=3] [ref=e196]
+                    - paragraph [ref=e197]: Powering enterprise Voice AI across telecom, healthcare, BFSI and retail.
+                - generic [ref=e198]:
+                  - img [ref=e201]
+                  - generic [ref=e204]:
+                    - heading "Production Deployments" [level=3] [ref=e205]
+                    - paragraph [ref=e206]: Trusted in regulated industries where privacy, compliance and reliability are essential.
+                - generic [ref=e207]:
+                  - img [ref=e210]
+                  - generic [ref=e213]:
+                    - heading "Deploy Anywhere" [level=3] [ref=e214]
+                    - paragraph [ref=e215]: Cloud, VPC, on-premises or edge - with complete ownership of your models and data.
+      - region "Talk to Meera" [ref=e216]:
+        - generic [ref=e219]:
+          - generic [ref=e220]:
+            - generic [ref=e221]: Voice Agent
+            - generic [ref=e222]:
+              - heading "Meet Meera" [level=2] [ref=e223]:
+                - generic [ref=e224]: Meet Meera
+              - paragraph [ref=e225]: Talk to the Intelligence Layer.
+          - generic [ref=e226]:
+            - paragraph [ref=e227]:
+              - text: Most AI demos are videos.
+              - strong [ref=e228]: Ours calls you back.
+            - paragraph [ref=e229]:
+              - generic [ref=e230]: Ask Meera about Voice AI, AI Voice Agents, Speech Recognition, Speech-to-Text,
+              - generic [ref=e231]: Text-to-Speech, multilingual AI, enterprise deployments or Shunya itself.
+              - generic [ref=e232]: What you experience is exactly what you deploy.
+        - generic [ref=e234]:
+          - generic [ref=e235]: LIVE NOW · 50,000+ CALLS HANDLED
+          - generic [ref=e302]:
+            - generic [ref=e303]:
+              - generic [ref=e304]: CUSTOMER · ENGLISH
+              - generic [ref=e305]: "\"How many languages does Shunya support?\""
+            - generic [ref=e306]:
+              - generic [ref=e307]: CUSTOMER · JAPANESE
+              - generic [ref=e308]: "\"Shunyaは多言語の会話をどのように処理しますか？\""
+            - generic [ref=e309]:
+              - generic [ref=e310]: CUSTOMER · KOREAN
+              - generic [ref=e311]: "\"우리 회사를 위한 맞춤형 모델을 만들 수 있나요?\""
+            - generic [ref=e312]:
+              - generic [ref=e313]: CUSTOMER · HINDI
+              - generic [ref=e314]: "\"क्या स्वास्थ्य सेवा और बीमा क्षेत्र के लिए विशेष मॉडल उपलब्ध हैं?\""
+            - generic [ref=e315]:
+              - generic [ref=e316]: CUSTOMER · HINGLISH
+              - generic [ref=e317]: "\"Mujhe speech to text model ke baare mein batao.\""
+          - generic [ref=e318]:
+            - generic [ref=e319]:
+              - generic "Country code India +91" [ref=e320]:
+                - generic [ref=e321]: 🇮🇳
+                - generic [ref=e322]: "+91"
+              - textbox "Enter your number" [ref=e323]
+            - generic "Security verification" [ref=e324]
+            - button "Talk to Meera" [ref=e327] [cursor=pointer]:
+              - generic [ref=e328]: Talk to Meera
+            - status [ref=e329]: She'll call you in under 30 seconds for 2 minutes · available 24/7
+            - paragraph [ref=e330]: Your information is only used to initiate the demo call.
+      - generic [ref=e332]:
+        - generic [ref=e333]:
+          - generic [ref=e334]:
+            - generic [ref=e337]: Reach
+            - heading "Understand Everyone. Speak to Anyone." [level=2] [ref=e338]:
+              - text: Understand Everyone.
+              - text: Speak to Anyone.
+          - paragraph [ref=e340]: We solve the fundamental problems that make voice AI expensive, slow, and insecure.
+        - generic [ref=e341]:
+          - generic [ref=e342]:
+            - generic [ref=e343]: 0+
+            - generic [ref=e344]: Languages supported
+          - generic [ref=e345]:
+            - generic [ref=e346]: 0M+
+            - generic [ref=e347]: Minimum native speakers
+          - generic [ref=e348]:
+            - generic [ref=e349]: 0%
+            - generic [ref=e350]: Global population coverage
+      - generic [ref=e351]:
+        - generic [ref=e353]:
+          - generic [ref=e354]: Custom Models
+          - generic [ref=e355]:
+            - generic [ref=e356]:
+              - heading "Tell us your domain. We'll build the model." [level=2] [ref=e357]:
+                - generic [ref=e358]: Tell us your domain.
+                - generic [ref=e359]: We'll build the model.
+              - generic [ref=e360]: Voice AI That Understands Your Business
+            - generic [ref=e361]:
+              - paragraph [ref=e362]: We train custom voice and language models on your data, workflows, and terminology for higher accuracy and better customer experiences.
+              - link "Contact Us" [ref=e364] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e368]:
+          - generic [ref=e369]:
+            - generic [ref=e371]:
+              - heading "Built on your real enterprise data" [level=3] [ref=e374]
+              - generic [ref=e375]:
+                - paragraph [ref=e376]: "We train on structured and unstructured datasets:"
+                - list [ref=e377]:
+                  - listitem [ref=e378]: Call transcripts (ASR outputs + annotations)
+                  - listitem [ref=e379]: CRM logs and support tickets
+                  - listitem [ref=e380]: SOPs, FAQs, and internal knowledge bases
+                - paragraph [ref=e381]: Models are aligned to domain-specific intents, entities, and conversation flows rather than generic internet text.
+            - generic [ref=e383]:
+              - heading "Domain-adapted small language models" [level=3] [ref=e386]
+              - generic [ref=e387]:
+                - paragraph [ref=e388]: "We fine-tune compact transformer-based models optimized for enterprise use:"
+                - list [ref=e389]:
+                  - listitem [ref=e390]: Parameter-efficient fine-tuning (LoRA / QLoRA style adaptations)
+                  - listitem [ref=e391]: Structured output training (JSON / function calling formats)
+                  - listitem [ref=e392]: Domain intent classification + slot extraction
+                - paragraph [ref=e393]: Lower latency inference and higher response determinism compared to general-purpose LLMs.
+            - generic [ref=e395]:
+              - heading "Secure deployment, full ownership" [level=3] [ref=e398]
+              - generic [ref=e399]:
+                - paragraph [ref=e400]: "Enterprise-grade deployment flexibility:"
+                - list [ref=e401]:
+                  - listitem [ref=e402]: On-prem / cloud / edge deployment options
+                  - listitem [ref=e403]: No external data leakage during inference
+                  - listitem [ref=e404]: Model versioning + rollback support
+                  - listitem [ref=e405]: No vendor lock-in
+                - paragraph [ref=e406]: You control data, weights, and runtime environment.
+            - generic [ref=e408]:
+              - heading "Your data stays yours" [level=3] [ref=e411]
+              - generic [ref=e412]:
+                - paragraph [ref=e413]: Your data is used to build your model, not ours.
+                - list [ref=e414]:
+                  - listitem [ref=e415]: Training data is isolated for every customer
+                  - listitem [ref=e416]: No cross-customer learning or model sharing
+                  - listitem [ref=e417]: Customer data is never used to train public models
+                  - listitem [ref=e418]: Training data deletion after delivery
+                - paragraph [ref=e419]: Enterprise-grade privacy with full ownership of the resulting model.
+          - generic [ref=e421]:
+            - generic [ref=e422]: 01 / 04
+            - generic [ref=e424]:
+              - generic [ref=e425]:
+                - generic [ref=e426]:
+                  - img [ref=e428]
+                  - generic [ref=e430]: Call Transcripts
+                  - generic [ref=e431]: ASR · Annotated
+                - generic [ref=e432]:
+                  - img [ref=e434]
+                  - generic [ref=e438]: CRM & Tickets
+                  - generic [ref=e439]: Logs · Support
+                - generic [ref=e440]:
+                  - img [ref=e442]
+                  - generic [ref=e445]: SOPs & FAQs
+                  - generic [ref=e446]: Knowledge Base
+              - generic [ref=e452]:
+                - generic [ref=e453]: Your Custom Model
+                - generic [ref=e454]: Intents · Entities · Flows · Terminology
+              - generic [ref=e455]:
+                - generic [ref=e456]: Domain Intents
+                - generic [ref=e457]: Entity Extraction
+                - generic [ref=e458]: Conversation Flows
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Generic AI
+                    - generic:
+                      - text: Trained on everything
+                      - text: Knows nothing well
+                  - generic:
+                    - generic: Your data
+                    - generic: ▾
+                  - generic:
+                    - generic: Your SLM
+                    - generic:
+                      - generic:
+                        - generic: EMI intent
+                        - generic: 96%
+                      - generic:
+                        - generic: Returns
+                        - generic: 94%
+                      - generic:
+                        - generic: Balance
+                        - generic: 98%
+                      - generic:
+                        - generic: Delivery
+                        - generic: 91%
+                    - generic:
+                      - text: Trained on your data
+                      - text: Knows your domain
+                - generic: Your intents. Your terminology. Your accuracy.
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - text: Your data
+                      - text: isolated
+      - region "Enterprise Scale. Production Proven." [ref=e459]:
+        - generic [ref=e461]:
+          - generic [ref=e462]: Trusted At Scale
+          - generic [ref=e463]:
+            - heading "Enterprise Scale. Production Proven." [level=2] [ref=e464]
+            - paragraph [ref=e465]:
+              - generic [ref=e466]: Built for organizations where Voice AI isn't a demo - it's mission critical.
+        - generic [ref=e469] [cursor=pointer]:
+          - generic [ref=e470]:
+            - img [ref=e472]
+            - generic [ref=e474]:
+              - strong [ref=e475]: 5M+
+              - text: Enterprise Conversations
+            - generic [ref=e477]: Powering real customer interactions across industries.
+            - generic [ref=e478]: Scale
+          - generic [ref=e479]:
+            - img [ref=e481]
+            - generic [ref=e486]:
+              - strong [ref=e487]: 50M+
+              - text: Voice AI API Requests
+            - generic [ref=e489]: Serving enterprise AI workloads globally.
+            - generic [ref=e490]: Infrastructure
+          - generic [ref=e491]:
+            - img [ref=e493]
+            - generic [ref=e498]:
+              - strong [ref=e499]: 100,000+
+              - text: Hours of Speech Processed
+            - generic [ref=e501]: Across languages, accents and noisy environments.
+            - generic [ref=e502]: Intelligence
+          - generic [ref=e503]:
+            - img [ref=e505]
+            - generic [ref=e509]:
+              - strong [ref=e510]: <2%
+              - text: Call Drop-off
+            - generic [ref=e512]: Reliable enterprise Voice AI at production scale.
+            - generic [ref=e513]: Reliability
+          - generic [ref=e514]:
+            - img [ref=e516]
+            - generic [ref=e519]:
+              - strong [ref=e520]: Industry-Leading
+              - text: Speech & Voice Benchmarks
+            - generic [ref=e522]: Recognized for multilingual speech intelligence.
+            - generic [ref=e523]: Benchmark
+          - generic [ref=e524]:
+            - img [ref=e526]
+            - generic [ref=e530]:
+              - strong [ref=e531]: World-Class
+              - text: Speech Recognition Accuracy
+            - generic [ref=e533]: Built for real-world enterprise conversations.
+            - generic [ref=e534]: Performance
+      - region "The Voice AI Stack" [ref=e535]:
+        - generic [ref=e536]:
+          - generic [ref=e537]:
+            - generic [ref=e538]: MODELS
+            - heading "The Voice AI Stack" [level=2] [ref=e539]
+            - paragraph [ref=e540]: Everything You Need To Build Voice Experiences
+          - tablist "Voice AI models" [ref=e542]:
+            - tab "Zero TTS Indic" [ref=e543] [cursor=pointer]: Zero TTS Indic
+            - tab "Zero STT Codeswitch" [ref=e545] [cursor=pointer]: Zero STT Codeswitch
+            - tab "Zero STT Indic" [ref=e547] [cursor=pointer]: Zero STT Indic
+            - tab "Zero STT JP/KR" [selected] [ref=e549] [cursor=pointer]: Zero STT JP/KR
+            - tab "Zero STT Med" [ref=e551] [cursor=pointer]: Zero STT Med
+            - tab "VAK" [ref=e553] [cursor=pointer]: VAK
+          - iframe [active] [ref=e559]:
+            - generic [ref=f5e1]:
+              - main [ref=f5e5]:
+                - generic [ref=f5e8]:
+                  - generic [ref=f5e9]:
+                    - generic [ref=f5e10]:
+                      - generic [ref=f5e11]: "01"
+                      - generic [ref=f5e12]: Choose your audio
+                    - generic [ref=f5e13]:
+                      - tablist [ref=f5e14]:
+                        - tab "Upload file" [active] [ref=f5e15] [cursor=pointer]:
+                          - img [ref=f5e17]
+                          - generic [ref=f5e19]: Upload file
+                        - tab "Record live" [ref=f5e20] [cursor=pointer]:
+                          - img [ref=f5e22]
+                          - generic [ref=f5e25]: Record live
+                      - generic [ref=f5e26]:
+                        - button "Upload your file here" [ref=f5e28] [cursor=pointer]:
+                          - img [ref=f5e29]
+                          - paragraph [ref=f5e30]: Upload your file here
+                        - button "🇯🇵 Japanese" [ref=f5e38] [cursor=pointer]:
+                          - generic [ref=f5e39]:
+                            - generic [ref=f5e40]: 🇯🇵
+                            - text: Japanese
+                          - generic:
+                            - img
+                  - generic [ref=f5e41]:
+                    - generic [ref=f5e42]:
+                      - generic [ref=f5e43]: "02"
+                      - generic [ref=f5e44]: Live transcript
+                    - generic [ref=f5e46]:
+                      - generic [ref=f5e47]:
+                        - button "Play" [ref=f5e48] [cursor=pointer]:
+                          - img [ref=f5e49]
+                        - generic [ref=f5e131]: 00:00 / 00:00
+                      - generic [ref=f5e137]:
+                        - generic [ref=f5e138]:
+                          - generic [ref=f5e140]: "1"
+                          - generic [ref=f5e141]: Speaker 1
+                          - generic [ref=f5e142]: 00:00
+                        - paragraph [ref=f5e143]: हेलो थैंक यू फर कॉलिंग कस्टमर सपोर्ट मई नइम इज़ एलेक्स एंड आई विल बी असस्टिंग यू टुडे प्लीज टेल मी वट इ शो यूर फेइसिंग हाई एलेक्स थैंक्स फ़ॉर हेलपिंग मी आई एमस्टिंग द लइव स्पीच ट ट फीचर ऑन योर वेबसइट द रिकॉर्डिंग वर्क्स बट समटाम्स द ट्रांसक्रिप्शन फेल्स ल लेट मी एट दट ट्रांसक्रिप्शन ड लइन बैक्रउटवर्क स्पीडटइब इंटरनेट कनेक्शन इट सीम्स टेबो आई जस्ट हेस्ट इट अगेन एंड नाउ द ट्रांसक्रिप्शन लुक्स एक्यूरेट एवरी थिंग अ पेज ट दट इ ग्राइट थैंक यू फॉर टेस्टिंग द लाइव रिकॉर्डिंग फीच विदास अ
+                      - button "Copy text" [ref=f5e147] [cursor=pointer]:
+                        - img [ref=f5e148]
+                        - text: Copy text
+              - alert [ref=f5e151]
+      - region "Build Once. Deploy Anywhere" [ref=e560]:
+        - generic [ref=e561]:
+          - generic [ref=e562]:
+            - generic [ref=e563]: Platform
+            - heading "Build Once. Deploy Anywhere" [level=2] [ref=e564]
+            - paragraph [ref=e565]: Deploy one intelligence layer across every customer touchpoint - from the phone in your hand to the cloud powering your enterprise.
+          - generic [ref=e567]:
+            - img [ref=e570]
+            - generic [ref=e578]:
+              - generic [ref=e579]: SHUNYA
+              - generic [ref=e580]: Intelligence
+              - generic [ref=e581]: One AI Layer
+            - generic [ref=e582]:
+              - img [ref=e584]
+              - generic [ref=e586]:
+                - generic [ref=e587]: DEPLOY
+                - generic [ref=e588]: On-Premise
+            - generic [ref=e589]:
+              - img [ref=e591]
+              - generic [ref=e596]:
+                - generic [ref=e597]: DEPLOY
+                - generic [ref=e598]: Edge Infrastructure
+            - generic [ref=e599]:
+              - img [ref=e601]
+              - generic [ref=e603]:
+                - generic [ref=e604]: DEPLOY
+                - generic [ref=e605]: Private VPC
+            - generic [ref=e606]:
+              - img [ref=e608]
+              - generic [ref=e610]:
+                - generic [ref=e611]: DEPLOY
+                - generic [ref=e612]: Cloud
+            - generic [ref=e613]:
+              - img [ref=e615]
+              - generic [ref=e617]:
+                - generic [ref=e618]: CHANNEL
+                - generic [ref=e619]: Phone
+            - generic [ref=e620]:
+              - img [ref=e622]
+              - generic [ref=e628]:
+                - generic [ref=e629]: CHANNEL
+                - generic [ref=e630]: Connected Devices
+            - generic [ref=e631]:
+              - img [ref=e633]
+              - generic [ref=e637]:
+                - generic [ref=e638]: CHANNEL
+                - generic [ref=e639]: Web
+            - generic [ref=e640]:
+              - img [ref=e642]
+              - generic [ref=e646]:
+                - generic [ref=e647]: CHANNEL
+                - generic [ref=e648]: Contact Centers
+            - generic [ref=e649]:
+              - img [ref=e651]
+              - generic [ref=e653]:
+                - generic [ref=e654]: CHANNEL
+                - generic [ref=e655]: WhatsApp
+            - generic [ref=e656]:
+              - img [ref=e658]
+              - generic [ref=e660]:
+                - generic [ref=e661]: CHANNEL
+                - generic [ref=e662]: Kiosks
+            - generic [ref=e663]:
+              - img [ref=e665]
+              - generic [ref=e667]:
+                - generic [ref=e668]: CHANNEL
+                - generic [ref=e669]: Mobile Apps
+      - generic [ref=e670]:
+        - generic [ref=e671]:
+          - generic [ref=e672]: Post-Call Analysis
+          - heading "Every Call Matters Most Never gets Reviewed" [level=2] [ref=e673]:
+            - text: Every Call Matters
+            - text: Most Never gets Reviewed
+          - heading "QA teams review only 1-3% of customer interactions. The rest remain invisible. Support teams handle thousands of conversations every day, but reviewing every call is impossible. Important customer issues, churn signals, and sales opportunities often go unnoticed. Shunya analyzes every conversation and surfaces the insights that matter." [level=3] [ref=e674]:
+            - generic [ref=e675]: QA teams review only 1-3% of customer interactions. The rest remain invisible.
+            - generic [ref=e676]:
+              - generic [ref=e677]: Support teams handle thousands of conversations every day, but reviewing every call is impossible.
+              - generic [ref=e678]: Important customer issues, churn signals, and sales opportunities often go unnoticed.
+              - generic [ref=e679]: Shunya analyzes every conversation and surfaces the insights that matter.
+        - generic [ref=e680]:
+          - generic [ref=e681]:
+            - generic [ref=e683]:
+              - heading "Most contact centers review only 1–3% of interactions." [level=3] [ref=e684]:
+                - generic [ref=e685]: Most contact centers review only 1–3% of
+                - generic [ref=e686]: interactions.
+              - paragraph [ref=e821]: A tiny sample trying to represent an entire operation
+              - paragraph [ref=e822]:
+                - generic [ref=e823]: Every unseen conversation could contain a customer complaint,
+                - generic [ref=e824]: compliance issue, missed sale, or churn signal.
+            - generic [ref=e826]:
+              - heading "What If Every Call Was Reviewed?" [level=3] [ref=e827]
+              - paragraph [ref=e828]: "Shunya automatically analyzes 100% of conversations and extracts:"
+              - generic [ref=e829]:
+                - generic [ref=e830]:
+                  - generic [ref=e831]:
+                    - img [ref=e833]
+                    - text: Customer Intent
+                  - generic [ref=e836]:
+                    - img [ref=e838]
+                    - text: Emotion Detection
+                  - generic [ref=e841]:
+                    - img [ref=e843]
+                    - text: Resolution Status
+                  - generic [ref=e846]:
+                    - img [ref=e848]
+                    - text: Follow-Up Actions
+                  - generic [ref=e851]:
+                    - img [ref=e853]
+                    - text: Coaching Opportunities
+                - generic [ref=e856]:
+                  - generic [ref=e857]:
+                    - img [ref=e859]
+                    - text: Sentiment Analysis
+                  - generic [ref=e862]:
+                    - img [ref=e864]
+                    - text: Compliance Monitoring
+                  - generic [ref=e867]:
+                    - img [ref=e869]
+                    - text: Recurring Issues
+                  - generic [ref=e872]:
+                    - img [ref=e874]
+                    - text: Agent Performance
+                  - generic [ref=e877]:
+                    - img [ref=e879]
+                    - text: Call Summaries
+              - generic [ref=e884]: No manual sampling, no blind spots.
+          - generic [ref=e885]:
+            - article [ref=e886]:
+              - generic [ref=e887]:
+                - img [ref=e889]
+                - heading "Understand Your Customers" [level=3] [ref=e894]:
+                  - generic [ref=e895]: Understand Your Customers
+                - paragraph [ref=e896]:
+                  - generic [ref=e897]: Discover why customers are calling, what issues
+                  - generic [ref=e898]: appear most often and which trends are
+                  - generic [ref=e899]: emerging across thousands of conversations.
+                - generic [ref=e900]: CUSTOMER INSIGHTS
+            - article [ref=e901]:
+              - generic [ref=e902]:
+                - img [ref=e904]
+                - heading "Agent Performance" [level=3] [ref=e909]:
+                  - generic [ref=e910]: Agent Performance
+                - paragraph [ref=e911]:
+                  - generic [ref=e912]: Review conversations for SOP adherence,
+                  - generic [ref=e913]: compliance, objection handling and missed
+                  - generic [ref=e914]: opportunities. Help supervisors identify coaching
+                  - generic [ref=e915]: moments without listening to hundreds of calls.
+                - generic [ref=e916]: COACHING
+            - article [ref=e917]:
+              - generic [ref=e918]:
+                - img [ref=e920]
+                - heading "Automate What Happens Next" [level=3] [ref=e924]:
+                  - generic [ref=e925]: Automate What Happens Next
+                - paragraph [ref=e926]:
+                  - generic [ref=e927]: Generate call summaries, follow-up actions,
+                  - generic [ref=e928]: recommendations, and operational insights
+                  - generic [ref=e929]: automatically.
+                - generic [ref=e930]: FOLLOW-UP-ACTIONS
+          - link "Contact us to know more" [ref=e932] [cursor=pointer]:
+            - /url: /contact
+      - generic [ref=e933]:
+        - generic [ref=e934]:
+          - generic [ref=e937]: Built for every language your customers speak.
+          - heading "From English to Japanese" [level=2] [ref=e938]
+          - paragraph [ref=e939]: One intelligence layer that understands how your customers actually speak - across languages, dialects, and code-switches.
+        - generic [ref=e941]:
+          - generic:
+            - generic: Hindi to Hinglish.
+            - generic: Global languages to low-resource dialects.
+            - generic: One intelligence layer.
+          - generic [ref=e942]:
+            - generic: Loading world map…
+          - generic:
+            - generic: Thousands of enterprise conversations.
+            - generic: Zero language barriers.
+            - generic: Interactive language visualization.
+        - generic [ref=e945]:
+          - generic [ref=e947] [cursor=pointer]: Afar
+          - generic [ref=e949] [cursor=pointer]: Abkhaz
+          - generic [ref=e951] [cursor=pointer]: Avestan
+          - generic [ref=e953] [cursor=pointer]: Afrikaans
+          - generic [ref=e955] [cursor=pointer]: Akan
+          - generic [ref=e957] [cursor=pointer]: Amharic
+          - generic [ref=e959] [cursor=pointer]: Aragonese
+          - generic [ref=e961] [cursor=pointer]: Arabic
+          - generic [ref=e963] [cursor=pointer]: Assamese
+          - generic [ref=e965] [cursor=pointer]: Avaric
+          - generic [ref=e967] [cursor=pointer]: Aymara
+          - generic [ref=e969] [cursor=pointer]: Azerbaijani
+          - generic [ref=e971] [cursor=pointer]: Bashkir
+          - generic [ref=e973] [cursor=pointer]: Belarusian
+          - generic [ref=e975] [cursor=pointer]: Bulgarian
+          - generic [ref=e977] [cursor=pointer]: Bihari
+          - generic [ref=e979] [cursor=pointer]: Bislama
+          - generic [ref=e981] [cursor=pointer]: Bambara
+          - generic [ref=e983] [cursor=pointer]: Bengali
+          - generic [ref=e985] [cursor=pointer]: Tibetan
+          - generic [ref=e987] [cursor=pointer]: Breton
+          - generic [ref=e989] [cursor=pointer]: Bosnian
+          - generic [ref=e991] [cursor=pointer]: Catalan
+          - generic [ref=e993] [cursor=pointer]: Chechen
+          - generic [ref=e995] [cursor=pointer]: Chamorro
+          - generic [ref=e997] [cursor=pointer]: Corsican
+          - generic [ref=e999] [cursor=pointer]: Cree
+          - generic [ref=e1001] [cursor=pointer]: Czech
+          - generic [ref=e1003] [cursor=pointer]: Old Church Slavonic
+          - generic [ref=e1005] [cursor=pointer]: Chuvash
+          - generic [ref=e1007] [cursor=pointer]: Welsh
+          - generic [ref=e1009] [cursor=pointer]: Danish
+          - generic [ref=e1011] [cursor=pointer]: German
+          - generic [ref=e1013] [cursor=pointer]: Divehi
+          - generic [ref=e1015] [cursor=pointer]: Dzongkha
+          - generic [ref=e1017] [cursor=pointer]: Ewe
+          - generic [ref=e1019] [cursor=pointer]: Greek
+          - generic [ref=e1021] [cursor=pointer]: English
+          - generic [ref=e1023] [cursor=pointer]: Esperanto
+          - generic [ref=e1025] [cursor=pointer]: Spanish
+          - generic [ref=e1027] [cursor=pointer]: Estonian
+          - generic [ref=e1029] [cursor=pointer]: Basque
+          - generic [ref=e1031] [cursor=pointer]: Persian
+          - generic [ref=e1033] [cursor=pointer]: Fula
+          - generic [ref=e1035] [cursor=pointer]: Finnish
+          - generic [ref=e1037] [cursor=pointer]: Fijian
+          - generic [ref=e1039] [cursor=pointer]: Faroese
+          - generic [ref=e1041] [cursor=pointer]: French
+          - generic [ref=e1043] [cursor=pointer]: Western Frisian
+          - generic [ref=e1045] [cursor=pointer]: Irish
+          - generic [ref=e1047] [cursor=pointer]: Scottish Gaelic
+          - generic [ref=e1049] [cursor=pointer]: Galician
+          - generic [ref=e1051] [cursor=pointer]: Guaraní
+          - generic [ref=e1053] [cursor=pointer]: Gujarati
+          - generic [ref=e1055] [cursor=pointer]: Manx
+          - generic [ref=e1057] [cursor=pointer]: Hausa
+          - generic [ref=e1059] [cursor=pointer]: Hebrew
+          - generic [ref=e1061] [cursor=pointer]: Hindi
+          - generic [ref=e1063] [cursor=pointer]: Hiri Motu
+          - generic [ref=e1065] [cursor=pointer]: Croatian
+          - generic [ref=e1067] [cursor=pointer]: Haitian
+          - generic [ref=e1069] [cursor=pointer]: Hungarian
+          - generic [ref=e1071] [cursor=pointer]: Armenian
+          - generic [ref=e1073] [cursor=pointer]: Herero
+          - generic [ref=e1075] [cursor=pointer]: Interlingua
+          - generic [ref=e1077] [cursor=pointer]: Indonesian
+          - generic [ref=e1079] [cursor=pointer]: Interlingue
+          - generic [ref=e1081] [cursor=pointer]: Igbo
+          - generic [ref=e1083] [cursor=pointer]: Nuosu
+          - generic [ref=e1085] [cursor=pointer]: Inupiaq
+          - generic [ref=e1087] [cursor=pointer]: Ido
+          - generic [ref=e1089] [cursor=pointer]: Icelandic
+          - generic [ref=e1091] [cursor=pointer]: Italian
+          - generic [ref=e1093] [cursor=pointer]: Inuktitut
+          - generic [ref=e1095] [cursor=pointer]: Japanese
+          - generic [ref=e1097] [cursor=pointer]: Javanese
+          - generic [ref=e1099] [cursor=pointer]: Georgian
+          - generic [ref=e1101] [cursor=pointer]: Kongo
+          - generic [ref=e1103] [cursor=pointer]: Kikuyu
+          - generic [ref=e1105] [cursor=pointer]: Kwanyama
+          - generic [ref=e1107] [cursor=pointer]: Kazakh
+          - generic [ref=e1109] [cursor=pointer]: Kalaallisut
+          - generic [ref=e1111] [cursor=pointer]: Khmer
+          - generic [ref=e1113] [cursor=pointer]: Kannada
+          - generic [ref=e1115] [cursor=pointer]: Korean
+          - generic [ref=e1117] [cursor=pointer]: Kanuri
+          - generic [ref=e1119] [cursor=pointer]: Kashmiri
+          - generic [ref=e1121] [cursor=pointer]: Kurdish
+          - generic [ref=e1123] [cursor=pointer]: Komi
+          - generic [ref=e1125] [cursor=pointer]: Cornish
+          - generic [ref=e1127] [cursor=pointer]: Kyrgyz
+          - generic [ref=e1129] [cursor=pointer]: Latin
+          - generic [ref=e1131] [cursor=pointer]: Luxembourgish
+          - generic [ref=e1133] [cursor=pointer]: Ganda
+          - generic [ref=e1135] [cursor=pointer]: Limburgish
+          - generic [ref=e1137] [cursor=pointer]: Lingala
+          - generic [ref=e1139] [cursor=pointer]: Lao
+          - generic [ref=e1141] [cursor=pointer]: Lithuanian
+          - generic [ref=e1143] [cursor=pointer]: Luba-Katanga
+          - generic [ref=e1145] [cursor=pointer]: Latvian
+          - generic [ref=e1147] [cursor=pointer]: Malagasy
+          - generic [ref=e1149] [cursor=pointer]: Marshallese
+          - generic [ref=e1151] [cursor=pointer]: Māori
+          - generic [ref=e1153] [cursor=pointer]: Macedonian
+          - generic [ref=e1155] [cursor=pointer]: Malayalam
+          - generic [ref=e1157] [cursor=pointer]: Mongolian
+          - generic [ref=e1159] [cursor=pointer]: Marathi
+          - generic [ref=e1161] [cursor=pointer]: Malay
+          - generic [ref=e1163] [cursor=pointer]: Maltese
+          - generic [ref=e1165] [cursor=pointer]: Burmese
+          - generic [ref=e1167] [cursor=pointer]: Nauru
+          - generic [ref=e1169] [cursor=pointer]: Norwegian Bokmål
+          - generic [ref=e1171] [cursor=pointer]: Northern Ndebele
+          - generic [ref=e1173] [cursor=pointer]: Nepali
+          - generic [ref=e1175] [cursor=pointer]: Ndonga
+          - generic [ref=e1177] [cursor=pointer]: Dutch
+          - generic [ref=e1179] [cursor=pointer]: Norwegian Nynorsk
+          - generic [ref=e1181] [cursor=pointer]: Norwegian
+          - generic [ref=e1183] [cursor=pointer]: Southern Ndebele
+          - generic [ref=e1185] [cursor=pointer]: Navajo
+          - generic [ref=e1187] [cursor=pointer]: Chichewa
+          - generic [ref=e1189] [cursor=pointer]: Occitan
+          - generic [ref=e1191] [cursor=pointer]: Ojibwe
+          - generic [ref=e1193] [cursor=pointer]: Oromo
+          - generic [ref=e1195] [cursor=pointer]: Odia
+          - generic [ref=e1197] [cursor=pointer]: Ossetian
+          - generic [ref=e1199] [cursor=pointer]: Punjabi
+          - generic [ref=e1201] [cursor=pointer]: Pāli
+          - generic [ref=e1203] [cursor=pointer]: Polish
+          - generic [ref=e1205] [cursor=pointer]: Pashto
+          - generic [ref=e1207] [cursor=pointer]: Portuguese
+          - generic [ref=e1209] [cursor=pointer]: Quechua
+          - generic [ref=e1211] [cursor=pointer]: Romansh
+          - generic [ref=e1213] [cursor=pointer]: Kirundi
+          - generic [ref=e1215] [cursor=pointer]: Romanian
+          - generic [ref=e1217] [cursor=pointer]: Russian
+          - generic [ref=e1219] [cursor=pointer]: Kinyarwanda
+          - generic [ref=e1221] [cursor=pointer]: Sanskrit
+          - generic [ref=e1223] [cursor=pointer]: Sardinian
+          - generic [ref=e1225] [cursor=pointer]: Sindhi
+          - generic [ref=e1227] [cursor=pointer]: Northern Sami
+          - generic [ref=e1229] [cursor=pointer]: Sango
+          - generic [ref=e1231] [cursor=pointer]: Sinhala
+          - generic [ref=e1233] [cursor=pointer]: Slovak
+          - generic [ref=e1235] [cursor=pointer]: Slovenian
+          - generic [ref=e1237] [cursor=pointer]: Samoan
+          - generic [ref=e1239] [cursor=pointer]: Shona
+          - generic [ref=e1241] [cursor=pointer]: Somali
+          - generic [ref=e1243] [cursor=pointer]: Albanian
+          - generic [ref=e1245] [cursor=pointer]: Serbian
+          - generic [ref=e1247] [cursor=pointer]: Swati
+          - generic [ref=e1249] [cursor=pointer]: Southern Sotho
+          - generic [ref=e1251] [cursor=pointer]: Sundanese
+          - generic [ref=e1253] [cursor=pointer]: Swedish
+          - generic [ref=e1255] [cursor=pointer]: Swahili
+          - generic [ref=e1257] [cursor=pointer]: Tamil
+          - generic [ref=e1259] [cursor=pointer]: Telugu
+          - generic [ref=e1261] [cursor=pointer]: Tajik
+          - generic [ref=e1263] [cursor=pointer]: Thai
+          - generic [ref=e1265] [cursor=pointer]: Tigrinya
+          - generic [ref=e1267] [cursor=pointer]: Turkmen
+          - generic [ref=e1269] [cursor=pointer]: Tagalog
+          - generic [ref=e1271] [cursor=pointer]: Tswana
+          - generic [ref=e1273] [cursor=pointer]: Tonga
+          - generic [ref=e1275] [cursor=pointer]: Turkish
+          - generic [ref=e1277] [cursor=pointer]: Tsonga
+          - generic [ref=e1279] [cursor=pointer]: Tatar
+          - generic [ref=e1281] [cursor=pointer]: Twi
+          - generic [ref=e1283] [cursor=pointer]: Tahitian
+          - generic [ref=e1285] [cursor=pointer]: Uyghur
+          - generic [ref=e1287] [cursor=pointer]: Ukrainian
+          - generic [ref=e1289] [cursor=pointer]: Urdu
+          - generic [ref=e1291] [cursor=pointer]: Uzbek
+          - generic [ref=e1293] [cursor=pointer]: Venda
+          - generic [ref=e1295] [cursor=pointer]: Vietnamese
+          - generic [ref=e1297] [cursor=pointer]: Volapük
+          - generic [ref=e1299] [cursor=pointer]: Walloon
+          - generic [ref=e1301] [cursor=pointer]: Wolof
+          - generic [ref=e1303] [cursor=pointer]: Xhosa
+          - generic [ref=e1305] [cursor=pointer]: Yiddish
+          - generic [ref=e1307] [cursor=pointer]: Yoruba
+          - generic [ref=e1309] [cursor=pointer]: Zhuang
+          - generic [ref=e1311] [cursor=pointer]: Chinese
+          - generic [ref=e1313] [cursor=pointer]: Zulu
+          - generic [ref=e1315] [cursor=pointer]: Filipino
+          - generic [ref=e1317] [cursor=pointer]: Mandarin Chinese
+          - generic [ref=e1319] [cursor=pointer]: Yue Chinese
+          - generic [ref=e1321] [cursor=pointer]: Najdi Arabic
+          - generic [ref=e1323] [cursor=pointer]: Moroccan Arabic
+          - generic [ref=e1325] [cursor=pointer]: Egyptian Arabic
+          - generic [ref=e1327] [cursor=pointer]: Dari
+          - generic [ref=e1329] [cursor=pointer]: Iranian Persian
+          - generic [ref=e1331] [cursor=pointer]: Bhojpuri
+          - generic [ref=e1333] [cursor=pointer]: Maithili
+          - generic [ref=e1335] [cursor=pointer]: Fiji Hindi
+          - generic [ref=e1337] [cursor=pointer]: Central Atlas Tamazight
+          - generic [ref=e1339] [cursor=pointer]: Kabyle
+          - generic [ref=e1341] [cursor=pointer]: Berber
+          - generic [ref=e1343] [cursor=pointer]: Sardinian
+          - generic [ref=e1345] [cursor=pointer]: Asturian
+          - generic [ref=e1347] [cursor=pointer]: Ladino
+          - generic [ref=e1349] [cursor=pointer]: Lombard
+          - generic [ref=e1351] [cursor=pointer]: Neapolitan
+          - generic [ref=e1353] [cursor=pointer]: Central Kurdish
+          - generic [ref=e1355] [cursor=pointer]: Hindi
+          - generic [ref=e1357] [cursor=pointer]: Bengali
+          - generic [ref=e1359] [cursor=pointer]: Telugu
+          - generic [ref=e1361] [cursor=pointer]: Marathi
+          - generic [ref=e1363] [cursor=pointer]: Kannada
+          - generic [ref=e1365] [cursor=pointer]: Tamil
+          - generic [ref=e1367] [cursor=pointer]: Malayalam
+          - generic [ref=e1369] [cursor=pointer]: Gujarati
+          - generic [ref=e1371] [cursor=pointer]: Punjabi
+          - generic [ref=e1373] [cursor=pointer]: Odia
+          - generic [ref=e1375] [cursor=pointer]: Assamese
+          - generic [ref=e1377] [cursor=pointer]: English
+          - generic [ref=e1379] [cursor=pointer]: Urdu
+          - generic [ref=e1381] [cursor=pointer]: Kashmiri
+          - generic [ref=e1383] [cursor=pointer]: Nepali
+          - generic [ref=e1385] [cursor=pointer]: Sindhi
+          - generic [ref=e1387] [cursor=pointer]: Sanskrit
+          - generic [ref=e1389] [cursor=pointer]: Maithili
+          - generic [ref=e1391] [cursor=pointer]: Bhojpuri
+          - generic [ref=e1393] [cursor=pointer]: Magahi
+          - generic [ref=e1395] [cursor=pointer]: Chhattisgarhi
+          - generic [ref=e1397] [cursor=pointer]: Rajasthani
+          - generic [ref=e1399] [cursor=pointer]: Dogri
+          - generic [ref=e1401] [cursor=pointer]: Konkani
+          - generic [ref=e1403] [cursor=pointer]: Santali
+          - generic [ref=e1405] [cursor=pointer]: Bodo
+          - generic [ref=e1407] [cursor=pointer]: Manipuri
+          - generic [ref=e1409] [cursor=pointer]: Garo
+          - generic [ref=e1411] [cursor=pointer]: Marwari
+          - generic [ref=e1413] [cursor=pointer]: Haryanvi
+          - generic [ref=e1415] [cursor=pointer]: Awadhi
+          - generic [ref=e1417] [cursor=pointer]: Braj
+          - generic [ref=e1419] [cursor=pointer]: Garhwali
+          - generic [ref=e1421] [cursor=pointer]: Lambadi
+          - generic [ref=e1423] [cursor=pointer]: Bhili
+          - generic [ref=e1425] [cursor=pointer]: Bagri
+          - generic [ref=e1427] [cursor=pointer]: Kumaoni
+          - generic [ref=e1429] [cursor=pointer]: Kangri
+          - generic [ref=e1431] [cursor=pointer]: Bagheli
+          - generic [ref=e1433] [cursor=pointer]: Nimadi
+          - generic [ref=e1435] [cursor=pointer]: Rajbanshi
+          - generic [ref=e1437] [cursor=pointer]: Marwari
+          - generic [ref=e1439] [cursor=pointer]: Mewari
+          - generic [ref=e1441] [cursor=pointer]: Wagdi
+          - generic [ref=e1443] [cursor=pointer]: Hadoti
+          - generic [ref=e1445] [cursor=pointer]: Goan Konkani
+          - generic [ref=e1447] [cursor=pointer]: Ahirani
+          - generic [ref=e1449] [cursor=pointer]: Surgujia
+          - generic [ref=e1451] [cursor=pointer]: Kurukh
+          - generic [ref=e1453] [cursor=pointer]: Mundari
+          - generic [ref=e1455] [cursor=pointer]: Sambalpuri
+          - generic [ref=e1457] [cursor=pointer]: Kutchi
+          - generic [ref=e1459] [cursor=pointer]: Tulu
+          - generic [ref=e1461] [cursor=pointer]: Kodava
+          - generic [ref=e1463] [cursor=pointer]: Sadri
+          - generic [ref=e1465] [cursor=pointer]: Afar
+          - generic [ref=e1467] [cursor=pointer]: Abkhaz
+          - generic [ref=e1469] [cursor=pointer]: Avestan
+          - generic [ref=e1471] [cursor=pointer]: Afrikaans
+          - generic [ref=e1473] [cursor=pointer]: Akan
+          - generic [ref=e1475] [cursor=pointer]: Amharic
+          - generic [ref=e1477] [cursor=pointer]: Aragonese
+          - generic [ref=e1479] [cursor=pointer]: Arabic
+          - generic [ref=e1481] [cursor=pointer]: Assamese
+          - generic [ref=e1483] [cursor=pointer]: Avaric
+          - generic [ref=e1485] [cursor=pointer]: Aymara
+          - generic [ref=e1487] [cursor=pointer]: Azerbaijani
+          - generic [ref=e1489] [cursor=pointer]: Bashkir
+          - generic [ref=e1491] [cursor=pointer]: Belarusian
+          - generic [ref=e1493] [cursor=pointer]: Bulgarian
+          - generic [ref=e1495] [cursor=pointer]: Bihari
+          - generic [ref=e1497] [cursor=pointer]: Bislama
+          - generic [ref=e1499] [cursor=pointer]: Bambara
+          - generic [ref=e1501] [cursor=pointer]: Bengali
+          - generic [ref=e1503] [cursor=pointer]: Tibetan
+          - generic [ref=e1505] [cursor=pointer]: Breton
+          - generic [ref=e1507] [cursor=pointer]: Bosnian
+          - generic [ref=e1509] [cursor=pointer]: Catalan
+          - generic [ref=e1511] [cursor=pointer]: Chechen
+          - generic [ref=e1513] [cursor=pointer]: Chamorro
+          - generic [ref=e1515] [cursor=pointer]: Corsican
+          - generic [ref=e1517] [cursor=pointer]: Cree
+          - generic [ref=e1519] [cursor=pointer]: Czech
+          - generic [ref=e1521] [cursor=pointer]: Old Church Slavonic
+          - generic [ref=e1523] [cursor=pointer]: Chuvash
+          - generic [ref=e1525] [cursor=pointer]: Welsh
+          - generic [ref=e1527] [cursor=pointer]: Danish
+          - generic [ref=e1529] [cursor=pointer]: German
+          - generic [ref=e1531] [cursor=pointer]: Divehi
+          - generic [ref=e1533] [cursor=pointer]: Dzongkha
+          - generic [ref=e1535] [cursor=pointer]: Ewe
+          - generic [ref=e1537] [cursor=pointer]: Greek
+          - generic [ref=e1539] [cursor=pointer]: English
+          - generic [ref=e1541] [cursor=pointer]: Esperanto
+          - generic [ref=e1543] [cursor=pointer]: Spanish
+          - generic [ref=e1545] [cursor=pointer]: Estonian
+          - generic [ref=e1547] [cursor=pointer]: Basque
+          - generic [ref=e1549] [cursor=pointer]: Persian
+          - generic [ref=e1551] [cursor=pointer]: Fula
+          - generic [ref=e1553] [cursor=pointer]: Finnish
+          - generic [ref=e1555] [cursor=pointer]: Fijian
+          - generic [ref=e1557] [cursor=pointer]: Faroese
+          - generic [ref=e1559] [cursor=pointer]: French
+          - generic [ref=e1561] [cursor=pointer]: Western Frisian
+          - generic [ref=e1563] [cursor=pointer]: Irish
+          - generic [ref=e1565] [cursor=pointer]: Scottish Gaelic
+          - generic [ref=e1567] [cursor=pointer]: Galician
+          - generic [ref=e1569] [cursor=pointer]: Guaraní
+          - generic [ref=e1571] [cursor=pointer]: Gujarati
+          - generic [ref=e1573] [cursor=pointer]: Manx
+          - generic [ref=e1575] [cursor=pointer]: Hausa
+          - generic [ref=e1577] [cursor=pointer]: Hebrew
+          - generic [ref=e1579] [cursor=pointer]: Hindi
+          - generic [ref=e1581] [cursor=pointer]: Hiri Motu
+          - generic [ref=e1583] [cursor=pointer]: Croatian
+          - generic [ref=e1585] [cursor=pointer]: Haitian
+          - generic [ref=e1587] [cursor=pointer]: Hungarian
+          - generic [ref=e1589] [cursor=pointer]: Armenian
+          - generic [ref=e1591] [cursor=pointer]: Herero
+          - generic [ref=e1593] [cursor=pointer]: Interlingua
+          - generic [ref=e1595] [cursor=pointer]: Indonesian
+          - generic [ref=e1597] [cursor=pointer]: Interlingue
+          - generic [ref=e1599] [cursor=pointer]: Igbo
+          - generic [ref=e1601] [cursor=pointer]: Nuosu
+          - generic [ref=e1603] [cursor=pointer]: Inupiaq
+          - generic [ref=e1605] [cursor=pointer]: Ido
+          - generic [ref=e1607] [cursor=pointer]: Icelandic
+          - generic [ref=e1609] [cursor=pointer]: Italian
+          - generic [ref=e1611] [cursor=pointer]: Inuktitut
+          - generic [ref=e1613] [cursor=pointer]: Japanese
+          - generic [ref=e1615] [cursor=pointer]: Javanese
+          - generic [ref=e1617] [cursor=pointer]: Georgian
+          - generic [ref=e1619] [cursor=pointer]: Kongo
+          - generic [ref=e1621] [cursor=pointer]: Kikuyu
+          - generic [ref=e1623] [cursor=pointer]: Kwanyama
+          - generic [ref=e1625] [cursor=pointer]: Kazakh
+          - generic [ref=e1627] [cursor=pointer]: Kalaallisut
+          - generic [ref=e1629] [cursor=pointer]: Khmer
+          - generic [ref=e1631] [cursor=pointer]: Kannada
+          - generic [ref=e1633] [cursor=pointer]: Korean
+          - generic [ref=e1635] [cursor=pointer]: Kanuri
+          - generic [ref=e1637] [cursor=pointer]: Kashmiri
+          - generic [ref=e1639] [cursor=pointer]: Kurdish
+          - generic [ref=e1641] [cursor=pointer]: Komi
+          - generic [ref=e1643] [cursor=pointer]: Cornish
+          - generic [ref=e1645] [cursor=pointer]: Kyrgyz
+          - generic [ref=e1647] [cursor=pointer]: Latin
+          - generic [ref=e1649] [cursor=pointer]: Luxembourgish
+          - generic [ref=e1651] [cursor=pointer]: Ganda
+          - generic [ref=e1653] [cursor=pointer]: Limburgish
+          - generic [ref=e1655] [cursor=pointer]: Lingala
+          - generic [ref=e1657] [cursor=pointer]: Lao
+          - generic [ref=e1659] [cursor=pointer]: Lithuanian
+          - generic [ref=e1661] [cursor=pointer]: Luba-Katanga
+          - generic [ref=e1663] [cursor=pointer]: Latvian
+          - generic [ref=e1665] [cursor=pointer]: Malagasy
+          - generic [ref=e1667] [cursor=pointer]: Marshallese
+          - generic [ref=e1669] [cursor=pointer]: Māori
+          - generic [ref=e1671] [cursor=pointer]: Macedonian
+          - generic [ref=e1673] [cursor=pointer]: Malayalam
+          - generic [ref=e1675] [cursor=pointer]: Mongolian
+          - generic [ref=e1677] [cursor=pointer]: Marathi
+          - generic [ref=e1679] [cursor=pointer]: Malay
+          - generic [ref=e1681] [cursor=pointer]: Maltese
+          - generic [ref=e1683] [cursor=pointer]: Burmese
+          - generic [ref=e1685] [cursor=pointer]: Nauru
+          - generic [ref=e1687] [cursor=pointer]: Norwegian Bokmål
+          - generic [ref=e1689] [cursor=pointer]: Northern Ndebele
+          - generic [ref=e1691] [cursor=pointer]: Nepali
+          - generic [ref=e1693] [cursor=pointer]: Ndonga
+          - generic [ref=e1695] [cursor=pointer]: Dutch
+          - generic [ref=e1697] [cursor=pointer]: Norwegian Nynorsk
+          - generic [ref=e1699] [cursor=pointer]: Norwegian
+          - generic [ref=e1701] [cursor=pointer]: Southern Ndebele
+          - generic [ref=e1703] [cursor=pointer]: Navajo
+          - generic [ref=e1705] [cursor=pointer]: Chichewa
+          - generic [ref=e1707] [cursor=pointer]: Occitan
+          - generic [ref=e1709] [cursor=pointer]: Ojibwe
+          - generic [ref=e1711] [cursor=pointer]: Oromo
+          - generic [ref=e1713] [cursor=pointer]: Odia
+          - generic [ref=e1715] [cursor=pointer]: Ossetian
+          - generic [ref=e1717] [cursor=pointer]: Punjabi
+          - generic [ref=e1719] [cursor=pointer]: Pāli
+          - generic [ref=e1721] [cursor=pointer]: Polish
+          - generic [ref=e1723] [cursor=pointer]: Pashto
+          - generic [ref=e1725] [cursor=pointer]: Portuguese
+          - generic [ref=e1727] [cursor=pointer]: Quechua
+          - generic [ref=e1729] [cursor=pointer]: Romansh
+          - generic [ref=e1731] [cursor=pointer]: Kirundi
+          - generic [ref=e1733] [cursor=pointer]: Romanian
+          - generic [ref=e1735] [cursor=pointer]: Russian
+          - generic [ref=e1737] [cursor=pointer]: Kinyarwanda
+          - generic [ref=e1739] [cursor=pointer]: Sanskrit
+          - generic [ref=e1741] [cursor=pointer]: Sardinian
+          - generic [ref=e1743] [cursor=pointer]: Sindhi
+          - generic [ref=e1745] [cursor=pointer]: Northern Sami
+          - generic [ref=e1747] [cursor=pointer]: Sango
+          - generic [ref=e1749] [cursor=pointer]: Sinhala
+          - generic [ref=e1751] [cursor=pointer]: Slovak
+          - generic [ref=e1753] [cursor=pointer]: Slovenian
+          - generic [ref=e1755] [cursor=pointer]: Samoan
+          - generic [ref=e1757] [cursor=pointer]: Shona
+          - generic [ref=e1759] [cursor=pointer]: Somali
+          - generic [ref=e1761] [cursor=pointer]: Albanian
+          - generic [ref=e1763] [cursor=pointer]: Serbian
+          - generic [ref=e1765] [cursor=pointer]: Swati
+          - generic [ref=e1767] [cursor=pointer]: Southern Sotho
+          - generic [ref=e1769] [cursor=pointer]: Sundanese
+          - generic [ref=e1771] [cursor=pointer]: Swedish
+          - generic [ref=e1773] [cursor=pointer]: Swahili
+          - generic [ref=e1775] [cursor=pointer]: Tamil
+          - generic [ref=e1777] [cursor=pointer]: Telugu
+          - generic [ref=e1779] [cursor=pointer]: Tajik
+          - generic [ref=e1781] [cursor=pointer]: Thai
+          - generic [ref=e1783] [cursor=pointer]: Tigrinya
+          - generic [ref=e1785] [cursor=pointer]: Turkmen
+          - generic [ref=e1787] [cursor=pointer]: Tagalog
+          - generic [ref=e1789] [cursor=pointer]: Tswana
+          - generic [ref=e1791] [cursor=pointer]: Tonga
+          - generic [ref=e1793] [cursor=pointer]: Turkish
+          - generic [ref=e1795] [cursor=pointer]: Tsonga
+          - generic [ref=e1797] [cursor=pointer]: Tatar
+          - generic [ref=e1799] [cursor=pointer]: Twi
+          - generic [ref=e1801] [cursor=pointer]: Tahitian
+          - generic [ref=e1803] [cursor=pointer]: Uyghur
+          - generic [ref=e1805] [cursor=pointer]: Ukrainian
+          - generic [ref=e1807] [cursor=pointer]: Urdu
+          - generic [ref=e1809] [cursor=pointer]: Uzbek
+          - generic [ref=e1811] [cursor=pointer]: Venda
+          - generic [ref=e1813] [cursor=pointer]: Vietnamese
+          - generic [ref=e1815] [cursor=pointer]: Volapük
+          - generic [ref=e1817] [cursor=pointer]: Walloon
+          - generic [ref=e1819] [cursor=pointer]: Wolof
+          - generic [ref=e1821] [cursor=pointer]: Xhosa
+          - generic [ref=e1823] [cursor=pointer]: Yiddish
+          - generic [ref=e1825] [cursor=pointer]: Yoruba
+          - generic [ref=e1827] [cursor=pointer]: Zhuang
+          - generic [ref=e1829] [cursor=pointer]: Chinese
+          - generic [ref=e1831] [cursor=pointer]: Zulu
+          - generic [ref=e1833] [cursor=pointer]: Filipino
+          - generic [ref=e1835] [cursor=pointer]: Mandarin Chinese
+          - generic [ref=e1837] [cursor=pointer]: Yue Chinese
+          - generic [ref=e1839] [cursor=pointer]: Najdi Arabic
+          - generic [ref=e1841] [cursor=pointer]: Moroccan Arabic
+          - generic [ref=e1843] [cursor=pointer]: Egyptian Arabic
+          - generic [ref=e1845] [cursor=pointer]: Dari
+          - generic [ref=e1847] [cursor=pointer]: Iranian Persian
+          - generic [ref=e1849] [cursor=pointer]: Bhojpuri
+          - generic [ref=e1851] [cursor=pointer]: Maithili
+          - generic [ref=e1853] [cursor=pointer]: Fiji Hindi
+          - generic [ref=e1855] [cursor=pointer]: Central Atlas Tamazight
+          - generic [ref=e1857] [cursor=pointer]: Kabyle
+          - generic [ref=e1859] [cursor=pointer]: Berber
+          - generic [ref=e1861] [cursor=pointer]: Sardinian
+          - generic [ref=e1863] [cursor=pointer]: Asturian
+          - generic [ref=e1865] [cursor=pointer]: Ladino
+          - generic [ref=e1867] [cursor=pointer]: Lombard
+          - generic [ref=e1869] [cursor=pointer]: Neapolitan
+          - generic [ref=e1871] [cursor=pointer]: Central Kurdish
+          - generic [ref=e1873] [cursor=pointer]: Hindi
+          - generic [ref=e1875] [cursor=pointer]: Bengali
+          - generic [ref=e1877] [cursor=pointer]: Telugu
+          - generic [ref=e1879] [cursor=pointer]: Marathi
+          - generic [ref=e1881] [cursor=pointer]: Kannada
+          - generic [ref=e1883] [cursor=pointer]: Tamil
+          - generic [ref=e1885] [cursor=pointer]: Malayalam
+          - generic [ref=e1887] [cursor=pointer]: Gujarati
+          - generic [ref=e1889] [cursor=pointer]: Punjabi
+          - generic [ref=e1891] [cursor=pointer]: Odia
+          - generic [ref=e1893] [cursor=pointer]: Assamese
+          - generic [ref=e1895] [cursor=pointer]: English
+          - generic [ref=e1897] [cursor=pointer]: Urdu
+          - generic [ref=e1899] [cursor=pointer]: Kashmiri
+          - generic [ref=e1901] [cursor=pointer]: Nepali
+          - generic [ref=e1903] [cursor=pointer]: Sindhi
+          - generic [ref=e1905] [cursor=pointer]: Sanskrit
+          - generic [ref=e1907] [cursor=pointer]: Maithili
+          - generic [ref=e1909] [cursor=pointer]: Bhojpuri
+          - generic [ref=e1911] [cursor=pointer]: Magahi
+          - generic [ref=e1913] [cursor=pointer]: Chhattisgarhi
+          - generic [ref=e1915] [cursor=pointer]: Rajasthani
+          - generic [ref=e1917] [cursor=pointer]: Dogri
+          - generic [ref=e1919] [cursor=pointer]: Konkani
+          - generic [ref=e1921] [cursor=pointer]: Santali
+          - generic [ref=e1923] [cursor=pointer]: Bodo
+          - generic [ref=e1925] [cursor=pointer]: Manipuri
+          - generic [ref=e1927] [cursor=pointer]: Garo
+          - generic [ref=e1929] [cursor=pointer]: Marwari
+          - generic [ref=e1931] [cursor=pointer]: Haryanvi
+          - generic [ref=e1933] [cursor=pointer]: Awadhi
+          - generic [ref=e1935] [cursor=pointer]: Braj
+          - generic [ref=e1937] [cursor=pointer]: Garhwali
+          - generic [ref=e1939] [cursor=pointer]: Lambadi
+          - generic [ref=e1941] [cursor=pointer]: Bhili
+          - generic [ref=e1943] [cursor=pointer]: Bagri
+          - generic [ref=e1945] [cursor=pointer]: Kumaoni
+          - generic [ref=e1947] [cursor=pointer]: Kangri
+          - generic [ref=e1949] [cursor=pointer]: Bagheli
+          - generic [ref=e1951] [cursor=pointer]: Nimadi
+          - generic [ref=e1953] [cursor=pointer]: Rajbanshi
+          - generic [ref=e1955] [cursor=pointer]: Marwari
+          - generic [ref=e1957] [cursor=pointer]: Mewari
+          - generic [ref=e1959] [cursor=pointer]: Wagdi
+          - generic [ref=e1961] [cursor=pointer]: Hadoti
+          - generic [ref=e1963] [cursor=pointer]: Goan Konkani
+          - generic [ref=e1965] [cursor=pointer]: Ahirani
+          - generic [ref=e1967] [cursor=pointer]: Surgujia
+          - generic [ref=e1969] [cursor=pointer]: Kurukh
+          - generic [ref=e1971] [cursor=pointer]: Mundari
+          - generic [ref=e1973] [cursor=pointer]: Sambalpuri
+          - generic [ref=e1975] [cursor=pointer]: Kutchi
+          - generic [ref=e1977] [cursor=pointer]: Tulu
+          - generic [ref=e1979] [cursor=pointer]: Kodava
+          - generic [ref=e1981] [cursor=pointer]: Sadri
+        - link "See the full list of languages supported by Shunya Labs →" [ref=e1983] [cursor=pointer]:
+          - /url: https://docs.shunyalabs.ai/get-started/supported-languages
+      - contentinfo "Ready to build voice AI that actually speaks your customers' language?" [ref=e1984]:
+        - generic [ref=e1985]:
+          - generic [ref=e1986]: LET'S BUILD
+          - heading "Ready to build voice AI that actually speaks your customers' language?" [level=2] [ref=e1987]:
+            - generic [ref=e1988]: Ready to build voice AI that actually speaks
+            - generic [ref=e1989]: your customers' language?
+          - paragraph [ref=e1990]: From custom language models to enterprise deployment, let's find what works for your business.
+          - link "Book a Demo" [ref=e1992] [cursor=pointer]:
+            - /url: /contact
+    - contentinfo [ref=e1993]:
+      - generic [ref=e1994]:
+        - generic [ref=e1995]:
+          - img "Shunya Labs" [ref=e1996]
+          - paragraph [ref=e1997]: Shunya Labs, Inc.
+        - generic [ref=e1998]:
+          - paragraph [ref=e1999]: Product
+          - list [ref=e2000]:
+            - listitem [ref=e2001]:
+              - link "Overview" [ref=e2002] [cursor=pointer]:
+                - /url: /platform
+            - listitem [ref=e2003]:
+              - link "Models" [ref=e2004] [cursor=pointer]:
+                - /url: /models-page
+            - listitem [ref=e2005]:
+              - link "Voice Agents" [ref=e2006] [cursor=pointer]:
+                - /url: /voice-agent
+            - listitem [ref=e2007]:
+              - link "Speech Intelligence" [ref=e2008] [cursor=pointer]:
+                - /url: /speech-intelligence-page
+            - listitem [ref=e2009]:
+              - link "Audio Processing" [ref=e2010] [cursor=pointer]:
+                - /url: /audio-processing
+            - listitem [ref=e2011]:
+              - link "Deployment" [ref=e2012] [cursor=pointer]:
+                - /url: /deployment
+        - generic [ref=e2013]:
+          - paragraph [ref=e2014]: Models
+          - list [ref=e2015]:
+            - listitem [ref=e2016]:
+              - link "Language Models" [ref=e2017] [cursor=pointer]:
+                - /url: /language-models
+            - listitem [ref=e2018]:
+              - link "Zero STT Indic" [ref=e2019] [cursor=pointer]:
+                - /url: /zero-indic
+            - listitem [ref=e2020]:
+              - link "Zero STT Codeswitch" [ref=e2021] [cursor=pointer]:
+                - /url: /zero-code-switch
+            - listitem [ref=e2022]:
+              - link "Specialised Models" [ref=e2023] [cursor=pointer]:
+                - /url: /domain-specialisation
+            - listitem [ref=e2024]:
+              - link "Zero STT Med" [ref=e2025] [cursor=pointer]:
+                - /url: /zero-med
+            - listitem [ref=e2026]:
+              - link "Zero TTS" [ref=e2027] [cursor=pointer]:
+                - /url: /zero-tts
+            - listitem [ref=e2028]:
+              - link "Zero TTS Indic" [ref=e2029] [cursor=pointer]:
+                - /url: /zero-tts-indic
+            - listitem [ref=e2030]:
+              - link "On Device Models" [ref=e2031] [cursor=pointer]:
+                - /url: /on-device-models
+        - generic [ref=e2032]:
+          - paragraph [ref=e2033]: Solutions
+          - list [ref=e2034]:
+            - listitem [ref=e2035]:
+              - link "Contact Centers" [ref=e2036] [cursor=pointer]:
+                - /url: /contact-centers
+            - listitem [ref=e2037]:
+              - link "Media & Entertainment" [ref=e2038] [cursor=pointer]:
+                - /url: /media-entertainment
+            - listitem [ref=e2039]:
+              - link "Healthcare" [ref=e2040] [cursor=pointer]:
+                - /url: /healthcare
+        - generic [ref=e2041]:
+          - paragraph [ref=e2042]: Resources
+          - list [ref=e2043]:
+            - listitem [ref=e2044]:
+              - link "Blogs" [ref=e2045] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e2046]:
+              - link "Benchmarks" [ref=e2047] [cursor=pointer]:
+                - /url: /benchmarks
+            - listitem [ref=e2048]:
+              - link "News & Media" [ref=e2049] [cursor=pointer]:
+                - /url: /media
+            - listitem [ref=e2050]:
+              - link "Patents" [ref=e2051] [cursor=pointer]:
+                - /url: /patents
+            - listitem [ref=e2052]:
+              - link "Research" [ref=e2053] [cursor=pointer]:
+                - /url: /research
+        - paragraph [ref=e2055]:
+          - link "Documentation" [ref=e2056] [cursor=pointer]:
+            - /url: https://docs.shunyalabs.ai/
+        - list [ref=e2058]:
+          - listitem [ref=e2059]:
+            - link "About us" [ref=e2060] [cursor=pointer]:
+              - /url: /about
+        - list [ref=e2062]:
+          - listitem [ref=e2063]:
+            - link "Pricing" [ref=e2064] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e2065]:
+        - paragraph [ref=e2066]: Follow us on
+        - generic [ref=e2067]:
+          - link [ref=e2068] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/shunya-labs-ai/
+            - img [ref=e2069]
+          - link [ref=e2071] [cursor=pointer]:
+            - /url: https://www.facebook.com/people/ShunyaLabsAI/61577801651308/
+            - img [ref=e2072]
+          - link [ref=e2074] [cursor=pointer]:
+            - /url: https://www.instagram.com/shunyalabsai/
+            - img [ref=e2075]
+          - link [ref=e2077] [cursor=pointer]:
+            - /url: https://x.com/ShunyaLabsAI
+            - img [ref=e2078]
+      - generic [ref=e2080]:
+        - paragraph [ref=e2081]: © 2026 Shunya Labs, Inc. All rights reserved.
+        - navigation "Legal" [ref=e2082]:
+          - link "Privacy" [ref=e2083] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms" [ref=e2084] [cursor=pointer]:
+            - /url: /terms-conditions
+          - link "Security" [ref=e2085] [cursor=pointer]:
+            - /url: /security-policy
+          - link "General License" [ref=e2086] [cursor=pointer]:
+            - /url: /general-rail-m-license
+          - link "Custom License" [ref=e2087] [cursor=pointer]:
+            - /url: /shunya-labs-custom-model-rail-m-license
+  - alert [ref=e2088]
+```
