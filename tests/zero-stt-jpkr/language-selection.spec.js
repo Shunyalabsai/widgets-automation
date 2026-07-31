@@ -1,9 +1,10 @@
+// Disabled: new website ASR no longer supports Japanese/Korean (Jul 2026).
 const { test } = require("@playwright/test");
 const { WidgetPage } = require("../pages/widget-page");
 const { JpKrSttPage } = require("../pages/jpkr-stt-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 
-test.describe("Zero STT JP/KR module", () => {
+test.describe.skip("Zero STT JP/KR module", () => {
   test("language picker switches between Japanese and Korean", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_MEDIUM);
     const widgetPage = new WidgetPage(page);

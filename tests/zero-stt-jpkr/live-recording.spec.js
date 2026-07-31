@@ -1,3 +1,4 @@
+// Disabled: new website ASR no longer supports Japanese/Korean (Jul 2026).
 const { test } = require("@playwright/test");
 const path = require("path");
 const { WidgetPage, WIDGET_HOST } = require("../pages/widget-page");
@@ -6,7 +7,7 @@ const { TIMEOUTS } = require("../utils/timeouts");
 const { getLiveRecordingWaitSeconds } = require("../utils/audio-utils");
 const { finishLiveRecordingWithUpload } = require("../utils/upload-helpers");
 
-test.describe("Zero STT JP/KR module", () => {
+test.describe.skip("Zero STT JP/KR module", () => {
   test("live recording start/stop renders transcript", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_SLOW);
     const widgetPage = new WidgetPage(page);

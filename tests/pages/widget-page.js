@@ -30,6 +30,7 @@ const MODULES = {
     pageUrl: DEFAULT_WIDGET_URL,
     navigation: "tab",
   },
+  // Disabled in automation: new ASR on website does not support Japanese/Korean.
   "zero stt jp/kr": {
     label: "Zero STT JP/KR",
     slug: "zero-stt-jpkr",
