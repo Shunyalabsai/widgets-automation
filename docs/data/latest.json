@@ -1,18 +1,18 @@
 {
-  "id": "46f85c80-d852-4162-8285-14ba1013a55e",
-  "startedAt": "2026-07-31T01:27:31.512Z",
-  "durationMs": 736127,
+  "id": "604f8bb6-903d-4098-a4b9-52cbba63629e",
+  "startedAt": "2026-07-31T03:40:26.615Z",
+  "durationMs": 1133918,
   "summary": {
     "total": 31,
-    "passed": 30,
-    "failed": 1,
+    "passed": 26,
+    "failed": 4,
     "skipped": 0,
-    "timedOut": 0
+    "timedOut": 1
   },
-  "passRate": 97,
-  "displayTimestamp": "Jul 31, 2026, 1:27:31 AM",
+  "passRate": 84,
+  "displayTimestamp": "Jul 31, 2026, 3:40:26 AM",
   "displayDate": "Friday, July 31, 2026",
-  "displayTime": "1:27:31 AM",
+  "displayTime": "3:40:26 AM",
   "modules": {
     "vak": {
       "total": 4,
@@ -30,8 +30,8 @@
     },
     "zero-stt-indic": {
       "total": 4,
-      "passed": 4,
-      "failed": 0,
+      "passed": 2,
+      "failed": 2,
       "skipped": 0,
       "timedOut": 0
     },
@@ -44,10 +44,10 @@
     },
     "zero-stt-med": {
       "total": 4,
-      "passed": 4,
-      "failed": 0,
+      "passed": 2,
+      "failed": 1,
       "skipped": 0,
-      "timedOut": 0
+      "timedOut": 1
     },
     "zero-tts-indic": {
       "total": 13,
@@ -61,7 +61,7 @@
     {
       "title": "vak/language-and-controls.spec.js > VAK module > source and destination language pickers are interactive",
       "status": "passed",
-      "durationMs": 11576,
+      "durationMs": 12050,
       "file": "vak/language-and-controls.spec.js",
       "attachments": [],
       "error": "",
@@ -71,7 +71,7 @@
     {
       "title": "vak/language-and-controls.spec.js > VAK module > speaker and emotion controls are visible",
       "status": "passed",
-      "durationMs": 8029,
+      "durationMs": 6886,
       "file": "vak/language-and-controls.spec.js",
       "attachments": [],
       "error": "",
@@ -81,7 +81,7 @@
     {
       "title": "vak/text-translation.spec.js > VAK module > hindi text translates to indian english",
       "status": "passed",
-      "durationMs": 7647,
+      "durationMs": 8158,
       "file": "vak/text-translation.spec.js",
       "attachments": [],
       "error": "",
@@ -91,7 +91,7 @@
     {
       "title": "vak/text-translation.spec.js > VAK module > bengali source text translates to indian english",
       "status": "passed",
-      "durationMs": 9017,
+      "durationMs": 9216,
       "file": "vak/text-translation.spec.js",
       "attachments": [],
       "error": "",
@@ -101,7 +101,7 @@
     {
       "title": "zero-stt-codeswitch/live-recording.spec.js > Zero STT Codeswitch module > simulated live recording validates transcript and speakers",
       "status": "passed",
-      "durationMs": 131403,
+      "durationMs": 133826,
       "file": "zero-stt-codeswitch/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -111,7 +111,7 @@
     {
       "title": "zero-stt-codeswitch/sample-audio.spec.js > Zero STT Codeswitch module > sample clip renders codeswitch transcript",
       "status": "passed",
-      "durationMs": 7289,
+      "durationMs": 8622,
       "file": "zero-stt-codeswitch/sample-audio.spec.js",
       "attachments": [],
       "error": "",
@@ -121,7 +121,7 @@
     {
       "title": "zero-stt-codeswitch/upload.spec.js > Zero STT Codeswitch module > uploaded audio renders codeswitched transcript",
       "status": "passed",
-      "durationMs": 20566,
+      "durationMs": 21961,
       "file": "zero-stt-codeswitch/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -130,18 +130,34 @@
     },
     {
       "title": "zero-stt-indic/live-recording.spec.js > Zero STT Indic module > simulated live recording uses file and verifies transcript",
-      "status": "passed",
-      "durationMs": 122341,
+      "status": "failed",
+      "durationMs": 145157,
       "file": "zero-stt-indic/live-recording.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/error-context-2.md"
+        }
+      ],
+      "error": "Error: locator.waitFor: Error: strict mode violation: getByText(/Upload failed|Something went wrong/i) resolved to 4 elements:\n    1) <p class=\"stt-v2-panel-error-title\">Upload failed</p> aka getByText('Upload failed').first()\n    2) <p class=\"stt-v2-panel-error-desc\">Something went wrong. Please try again, or contac…</p> aka getByText('Something went wrong. Please').first()\n    3) <p class=\"font-semibold text-lg sm:text-xl text-gray-300 tracking-wide\">Upload failed</p> aka getByText('Upload failed').nth(1)\n    4) <p class=\"text-gray-400 text-sm sm:text-base leading-relaxed\">Something went wrong. Please try again, or contac…</p> aka getByText('Something went wrong. Please').nth(1)\n\nCall log:\n\u001b[2m  - waiting for getByText(/Upload failed|Something went wrong/i) to be visible\u001b[22m\n",
       "module": "zero-stt-indic",
       "moduleLabel": "Zero Stt Indic"
     },
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 6636,
+      "durationMs": 6867,
       "file": "zero-stt-indic/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -151,7 +167,7 @@
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded podcast interview renders transcript",
       "status": "passed",
-      "durationMs": 6724,
+      "durationMs": 7279,
       "file": "zero-stt-indic/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -160,18 +176,34 @@
     },
     {
       "title": "zero-stt-indic/upload.spec.js > Zero STT Indic module > uploaded audio renders transcript and allows playback",
-      "status": "passed",
-      "durationMs": 13041,
+      "status": "failed",
+      "durationMs": 36333,
       "file": "zero-stt-indic/upload.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/error-context-2.md"
+        }
+      ],
+      "error": "Error: locator.waitFor: Error: strict mode violation: getByText(/Upload failed|Something went wrong/i) resolved to 4 elements:\n    1) <p class=\"stt-v2-panel-error-title\">Upload failed</p> aka getByText('Upload failed').first()\n    2) <p class=\"stt-v2-panel-error-desc\">Something went wrong. Please try again, or contac…</p> aka getByText('Something went wrong. Please').first()\n    3) <p class=\"font-semibold text-lg sm:text-xl text-gray-300 tracking-wide\">Upload failed</p> aka getByText('Upload failed').nth(1)\n    4) <p class=\"text-gray-400 text-sm sm:text-base leading-relaxed\">Something went wrong. Please try again, or contac…</p> aka getByText('Something went wrong. Please').nth(1)\n\nCall log:\n\u001b[2m  - waiting for getByText(/Upload failed|Something went wrong/i) to be visible\u001b[22m\n",
       "module": "zero-stt-indic",
       "moduleLabel": "Zero Stt Indic"
     },
     {
       "title": "zero-stt-jpkr/language-selection.spec.js > Zero STT JP/KR module > language picker switches between Japanese and Korean",
       "status": "passed",
-      "durationMs": 7422,
+      "durationMs": 8537,
       "file": "zero-stt-jpkr/language-selection.spec.js",
       "attachments": [],
       "error": "",
@@ -181,7 +213,7 @@
     {
       "title": "zero-stt-jpkr/live-recording.spec.js > Zero STT JP/KR module > live recording start/stop renders transcript",
       "status": "passed",
-      "durationMs": 82759,
+      "durationMs": 84536,
       "file": "zero-stt-jpkr/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -191,43 +223,59 @@
     {
       "title": "zero-stt-jpkr/upload.spec.js > Zero STT JP/KR module > uploaded audio renders transcript and allows copy",
       "status": "failed",
-      "durationMs": 45329,
+      "durationMs": 34715,
       "file": "zero-stt-jpkr/upload.spec.js",
       "attachments": [
         {
           "name": "screenshot",
           "contentType": "image/png",
-          "path": "playwright-artifacts/46f85c80-d852-4162-8285-14ba1013a55e/screenshot-0.png"
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/screenshot-0.png"
         },
         {
           "name": "video",
           "contentType": "video/webm",
-          "path": "playwright-artifacts/46f85c80-d852-4162-8285-14ba1013a55e/video-1.webm"
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/video-1.webm"
         },
         {
           "name": "error-context",
           "contentType": "text/markdown",
-          "path": "playwright-artifacts/46f85c80-d852-4162-8285-14ba1013a55e/error-context-2.md"
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/error-context-2.md"
         }
       ],
-      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/thank you for calling customer support/i).first()\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/thank you for calling customer support/i).first()\u001b[22m\n",
+      "error": "Error: locator.waitFor: Error: strict mode violation: getByText(/Upload failed|Something went wrong/i) resolved to 4 elements:\n    1) <p class=\"stt-v2-panel-error-title\">Upload failed</p> aka getByText('Upload failed').first()\n    2) <p class=\"stt-v2-panel-error-desc\">Something went wrong. Please try again, or contac…</p> aka getByText('Something went wrong. Please').first()\n    3) <p class=\"font-semibold text-lg sm:text-xl text-gray-300 tracking-wide\">Upload failed</p> aka getByText('Upload failed').nth(1)\n    4) <p class=\"text-gray-400 text-sm sm:text-base leading-relaxed\">Something went wrong. Please try again, or contac…</p> aka getByText('Something went wrong. Please').nth(1)\n\nCall log:\n\u001b[2m  - waiting for getByText(/Upload failed|Something went wrong/i) to be visible\u001b[22m\n",
       "module": "zero-stt-jpkr",
       "moduleLabel": "Zero Stt Jpkr"
     },
     {
       "title": "zero-stt-med/live-recording.spec.js > Zero STT Med module > live recording start/stop",
-      "status": "passed",
-      "durationMs": 91872,
+      "status": "failed",
+      "durationMs": 112711,
       "file": "zero-stt-med/live-recording.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/error-context-2.md"
+        }
+      ],
+      "error": "Error: locator.waitFor: Error: strict mode violation: getByText(/Upload failed|Something went wrong/i) resolved to 4 elements:\n    1) <p class=\"stt-v2-panel-error-title\">Upload failed</p> aka getByText('Upload failed').first()\n    2) <p class=\"stt-v2-panel-error-desc\">Something went wrong. Please try again, or contac…</p> aka getByText('Something went wrong. Please').first()\n    3) <p class=\"font-semibold text-lg sm:text-xl text-gray-300 tracking-wide\">Upload failed</p> aka getByText('Upload failed').nth(1)\n    4) <p class=\"text-gray-400 text-sm sm:text-base leading-relaxed\">Something went wrong. Please try again, or contac…</p> aka getByText('Something went wrong. Please').nth(1)\n\nCall log:\n\u001b[2m  - waiting for getByText(/Upload failed|Something went wrong/i) to be visible\u001b[22m\n",
       "module": "zero-stt-med",
       "moduleLabel": "Zero Stt Med"
     },
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 6158,
+      "durationMs": 7401,
       "file": "zero-stt-med/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -237,7 +285,7 @@
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 6182,
+      "durationMs": 7266,
       "file": "zero-stt-med/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -246,18 +294,34 @@
     },
     {
       "title": "zero-stt-med/upload.spec.js > Zero STT Med module > upload file renders transcript",
-      "status": "passed",
-      "durationMs": 19343,
+      "status": "timedOut",
+      "durationMs": 360375,
       "file": "zero-stt-med/upload.spec.js",
-      "attachments": [],
-      "error": "",
+      "attachments": [
+        {
+          "name": "screenshot",
+          "contentType": "image/png",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/screenshot-0.png"
+        },
+        {
+          "name": "video",
+          "contentType": "video/webm",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/video-1.webm"
+        },
+        {
+          "name": "error-context",
+          "contentType": "text/markdown",
+          "path": "playwright-artifacts/604f8bb6-903d-4098-a4b9-52cbba63629e/error-context-2.md"
+        }
+      ],
+      "error": "\u001b[31mTest timeout of 360000ms exceeded.\u001b[39m",
       "module": "zero-stt-med",
       "moduleLabel": "Zero Stt Med"
     },
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > default voice generates speech from text input",
       "status": "passed",
-      "durationMs": 9829,
+      "durationMs": 9898,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -267,7 +331,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > text input shows character count up to 1000",
       "status": "passed",
-      "durationMs": 4693,
+      "durationMs": 4665,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -277,7 +341,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > script selector is visible and voice generation works",
       "status": "passed",
-      "durationMs": 11012,
+      "durationMs": 10202,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -287,7 +351,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > selecting different voices works",
       "status": "passed",
-      "durationMs": 10803,
+      "durationMs": 10106,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -297,7 +361,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > changing speed setting works",
       "status": "passed",
-      "durationMs": 9816,
+      "durationMs": 9909,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -307,7 +371,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > expression styles are selectable",
       "status": "passed",
-      "durationMs": 13033,
+      "durationMs": 10067,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -317,7 +381,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > different audio formats are selectable",
       "status": "passed",
-      "durationMs": 10628,
+      "durationMs": 9574,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -327,7 +391,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > generate button is disabled with empty text",
       "status": "passed",
-      "durationMs": 6608,
+      "durationMs": 4422,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -337,7 +401,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > English voice with slow speed generates speech",
       "status": "passed",
-      "durationMs": 12002,
+      "durationMs": 10783,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -347,7 +411,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Tamil voice generates speech",
       "status": "passed",
-      "durationMs": 11791,
+      "durationMs": 11427,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -357,7 +421,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Bengali voice with Sad expression generates speech",
       "status": "passed",
-      "durationMs": 11089,
+      "durationMs": 9895,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -367,7 +431,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > OGG format with fast speed generates speech",
       "status": "passed",
-      "durationMs": 11186,
+      "durationMs": 11159,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -377,7 +441,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Conversational expression style generates speech",
       "status": "passed",
-      "durationMs": 10303,
+      "durationMs": 9915,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
