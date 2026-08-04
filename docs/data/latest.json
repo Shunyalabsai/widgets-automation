@@ -1,7 +1,7 @@
 {
-  "id": "d860eba6-47e4-4d00-abea-0d932241075a",
-  "startedAt": "2026-08-04T17:31:47.344Z",
-  "durationMs": 582877,
+  "id": "cf36ac6d-6efd-4bf6-a1bf-66b217ce22f4",
+  "startedAt": "2026-08-04T19:27:05.545Z",
+  "durationMs": 545273,
   "summary": {
     "total": 31,
     "passed": 28,
@@ -10,9 +10,9 @@
     "timedOut": 0
   },
   "passRate": 90,
-  "displayTimestamp": "Aug 4, 2026, 5:31:47 PM",
+  "displayTimestamp": "Aug 4, 2026, 7:27:05 PM",
   "displayDate": "Tuesday, August 4, 2026",
-  "displayTime": "5:31:47 PM",
+  "displayTime": "7:27:05 PM",
   "modules": {
     "vak": {
       "total": 4,
@@ -61,7 +61,7 @@
     {
       "title": "vak/language-and-controls.spec.js > VAK module > source and destination language pickers are interactive",
       "status": "passed",
-      "durationMs": 11660,
+      "durationMs": 8978,
       "file": "vak/language-and-controls.spec.js",
       "attachments": [],
       "error": "",
@@ -71,7 +71,7 @@
     {
       "title": "vak/language-and-controls.spec.js > VAK module > speaker and emotion controls are visible",
       "status": "passed",
-      "durationMs": 8014,
+      "durationMs": 5276,
       "file": "vak/language-and-controls.spec.js",
       "attachments": [],
       "error": "",
@@ -81,7 +81,7 @@
     {
       "title": "vak/text-translation.spec.js > VAK module > hindi text translates to indian english",
       "status": "passed",
-      "durationMs": 8308,
+      "durationMs": 6503,
       "file": "vak/text-translation.spec.js",
       "attachments": [],
       "error": "",
@@ -91,7 +91,7 @@
     {
       "title": "vak/text-translation.spec.js > VAK module > bengali source text translates to indian english",
       "status": "passed",
-      "durationMs": 8648,
+      "durationMs": 6452,
       "file": "vak/text-translation.spec.js",
       "attachments": [],
       "error": "",
@@ -101,7 +101,7 @@
     {
       "title": "zero-stt-codeswitch/live-recording.spec.js > Zero STT Codeswitch module > simulated live recording validates transcript and speakers",
       "status": "passed",
-      "durationMs": 119717,
+      "durationMs": 122142,
       "file": "zero-stt-codeswitch/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -111,7 +111,7 @@
     {
       "title": "zero-stt-codeswitch/sample-audio.spec.js > Zero STT Codeswitch module > sample clip renders codeswitch transcript",
       "status": "passed",
-      "durationMs": 7033,
+      "durationMs": 5961,
       "file": "zero-stt-codeswitch/sample-audio.spec.js",
       "attachments": [],
       "error": "",
@@ -121,7 +121,7 @@
     {
       "title": "zero-stt-codeswitch/upload.spec.js > Zero STT Codeswitch module > uploaded audio renders codeswitched transcript",
       "status": "passed",
-      "durationMs": 13755,
+      "durationMs": 12651,
       "file": "zero-stt-codeswitch/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -131,7 +131,7 @@
     {
       "title": "zero-stt-indic/live-recording.spec.js > Zero STT Indic module > simulated live recording uses file and verifies transcript",
       "status": "passed",
-      "durationMs": 122077,
+      "durationMs": 120725,
       "file": "zero-stt-indic/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -141,7 +141,7 @@
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded customer support call renders transcript",
       "status": "passed",
-      "durationMs": 6787,
+      "durationMs": 4799,
       "file": "zero-stt-indic/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -151,7 +151,7 @@
     {
       "title": "zero-stt-indic/prerecorded.spec.js > Zero STT Indic module > prerecorded podcast interview renders transcript",
       "status": "passed",
-      "durationMs": 6755,
+      "durationMs": 5158,
       "file": "zero-stt-indic/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -161,7 +161,7 @@
     {
       "title": "zero-stt-indic/upload.spec.js > Zero STT Indic module > uploaded audio renders transcript and allows playback",
       "status": "passed",
-      "durationMs": 13716,
+      "durationMs": 12818,
       "file": "zero-stt-indic/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -201,7 +201,7 @@
     {
       "title": "zero-stt-med/live-recording.spec.js > Zero STT Med module > live recording start/stop",
       "status": "passed",
-      "durationMs": 91333,
+      "durationMs": 89236,
       "file": "zero-stt-med/live-recording.spec.js",
       "attachments": [],
       "error": "",
@@ -211,7 +211,7 @@
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded patient notes renders transcript",
       "status": "passed",
-      "durationMs": 5845,
+      "durationMs": 5022,
       "file": "zero-stt-med/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -221,7 +221,7 @@
     {
       "title": "zero-stt-med/prerecorded.spec.js > Zero STT Med module > prerecorded doctor appointment renders transcript",
       "status": "passed",
-      "durationMs": 6896,
+      "durationMs": 5725,
       "file": "zero-stt-med/prerecorded.spec.js",
       "attachments": [],
       "error": "",
@@ -231,7 +231,7 @@
     {
       "title": "zero-stt-med/upload.spec.js > Zero STT Med module > upload file renders transcript",
       "status": "passed",
-      "durationMs": 20495,
+      "durationMs": 18462,
       "file": "zero-stt-med/upload.spec.js",
       "attachments": [],
       "error": "",
@@ -241,7 +241,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > default voice generates speech from text input",
       "status": "passed",
-      "durationMs": 11107,
+      "durationMs": 10432,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -251,7 +251,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > text input shows character count up to 1000",
       "status": "passed",
-      "durationMs": 4639,
+      "durationMs": 4782,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -261,7 +261,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > script selector is visible and voice generation works",
       "status": "passed",
-      "durationMs": 11404,
+      "durationMs": 9383,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -271,7 +271,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > selecting different voices works",
       "status": "passed",
-      "durationMs": 11912,
+      "durationMs": 9460,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -281,7 +281,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > changing speed setting works",
       "status": "passed",
-      "durationMs": 10700,
+      "durationMs": 8986,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -291,7 +291,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > expression styles are selectable",
       "status": "passed",
-      "durationMs": 10543,
+      "durationMs": 10080,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -301,7 +301,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > different audio formats are selectable",
       "status": "passed",
-      "durationMs": 11013,
+      "durationMs": 9857,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -311,7 +311,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > generate button is disabled with empty text",
       "status": "passed",
-      "durationMs": 6681,
+      "durationMs": 4620,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -321,7 +321,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > English voice with slow speed generates speech",
       "status": "passed",
-      "durationMs": 10883,
+      "durationMs": 10355,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -331,7 +331,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Tamil voice generates speech",
       "status": "passed",
-      "durationMs": 11491,
+      "durationMs": 7950,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -341,7 +341,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Bengali voice with Sad expression generates speech",
       "status": "passed",
-      "durationMs": 10358,
+      "durationMs": 10830,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -351,7 +351,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > OGG format with fast speed generates speech",
       "status": "passed",
-      "durationMs": 11040,
+      "durationMs": 9268,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
@@ -361,7 +361,7 @@
     {
       "title": "zero-tts-indic/generate-speech.spec.js > Zero TTS Indic module > Conversational expression style generates speech",
       "status": "passed",
-      "durationMs": 10067,
+      "durationMs": 9362,
       "file": "zero-tts-indic/generate-speech.spec.js",
       "attachments": [],
       "error": "",
