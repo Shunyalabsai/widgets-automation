@@ -3,7 +3,7 @@ const { WidgetPage } = require("../pages/widget-page");
 const { MedicalTranscriptionPage } = require("../pages/medical-transcription-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 
-test.describe("Zero STT Med module", () => {
+test.describe("[UI] Zero STT Med module", () => {
   test("prerecorded patient notes renders transcript", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_MEDIUM);
     const widgetPage = new WidgetPage(page);

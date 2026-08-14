@@ -5,7 +5,7 @@ const { SttPage } = require("../pages/stt-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 const { uploadWithRetry } = require("../utils/upload-helpers");
 
-test.describe("Zero STT Indic module", () => {
+test.describe("[UI] Zero STT Indic module", () => {
   test("uploaded audio renders transcript and allows playback", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_SLOW);
     const widgetPage = new WidgetPage(page);

@@ -64,11 +64,23 @@ function normalizePath(filePath) {
 
 function moduleFromFile(filePath) {
   const normalized = normalizePath(filePath);
+  const layeredMatch = normalized.match(/\/tests\/(?:api|ui)\/([^/]+)\//);
+  if (layeredMatch) return layeredMatch[1];
   const match = normalized.match(/\/tests\/([^/]+)\//);
-  if (match) return match[1];
+  if (match && !["api", "ui", "pages", "utils", "config", "data"].includes(match[1])) {
+    return match[1];
+  }
   const directMatch = normalized.match(/^([^/]+)\//);
   if (directMatch) return directMatch[1];
   return "unknown";
+}
+
+function testLayerFromFile(filePath) {
+  const normalized = normalizePath(filePath);
+  if (normalized.includes("/tests/api/")) return "api";
+  if (normalized.includes("/tests/ui/")) return "ui";
+  if (/\.api\.spec\.js$/.test(normalized)) return "api";
+  return "ui";
 }
 
 function moduleLabel(moduleName) {
@@ -218,11 +230,13 @@ function buildRun() {
   const enrichedTests = tests.map((test) => {
     const moduleName = moduleFromFile(test.file);
     const moduleDisplay = moduleLabel(moduleName);
+    const testLayer = testLayerFromFile(test.file);
     const attachments = copyArtifacts(test.attachments, runId);
     return {
       ...test,
       module: moduleName,
       moduleLabel: moduleDisplay,
+      testLayer,
       attachments,
     };
   });

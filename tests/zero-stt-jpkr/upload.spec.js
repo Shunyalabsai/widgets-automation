@@ -6,7 +6,7 @@ const { JpKrSttPage } = require("../pages/jpkr-stt-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 const { uploadWithRetry } = require("../utils/upload-helpers");
 
-test.describe.skip("Zero STT JP/KR module", () => {
+test.describe.skip("[UI] Zero STT JP/KR module", () => {
   test("uploaded audio renders transcript and allows copy", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_SLOW);
     const widgetPage = new WidgetPage(page);

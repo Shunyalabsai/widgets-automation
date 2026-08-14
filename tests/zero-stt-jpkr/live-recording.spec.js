@@ -7,7 +7,7 @@ const { TIMEOUTS } = require("../utils/timeouts");
 const { getLiveRecordingWaitSeconds } = require("../utils/audio-utils");
 const { finishLiveRecordingWithUpload } = require("../utils/upload-helpers");
 
-test.describe.skip("Zero STT JP/KR module", () => {
+test.describe.skip("[UI] Zero STT JP/KR module", () => {
   test("live recording start/stop renders transcript", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_SLOW);
     const widgetPage = new WidgetPage(page);

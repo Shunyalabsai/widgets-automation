@@ -13,7 +13,6 @@ async function uploadWithRetry({
 }) {
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
     if (attempt > 0) {
-      await widgetPage.goto();
       await widgetPage.openModule(moduleName);
     }
 

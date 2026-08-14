@@ -49,7 +49,19 @@ class VakPage {
     await expect(this.root.getByText(pattern)).toBeVisible({ timeout: timeoutMs });
   }
 
+  async closeOpenMenus() {
+    await this.widgetPage.page.keyboard.press("Escape").catch(() => {});
+    await this.widgetPage.page.waitForTimeout(300);
+
+    const backdrop = this.root.locator("div.fixed.inset-0").first();
+    if (await backdrop.isVisible().catch(() => false)) {
+      await backdrop.click({ position: { x: 4, y: 4 }, force: true }).catch(() => {});
+      await this.widgetPage.page.waitForTimeout(300);
+    }
+  }
+
   async openSourceLanguageMenu() {
+    await this.closeOpenMenus();
     await this.sourceLanguagePicker.click();
     await this.widgetPage.page.waitForTimeout(500);
   }
@@ -61,9 +73,11 @@ class VakPage {
       .first()
       .click();
     await this.widgetPage.page.waitForTimeout(500);
+    await this.closeOpenMenus();
   }
 
   async openDestinationLanguageMenu() {
+    await this.closeOpenMenus();
     await this.destinationLanguagePicker.click();
     await this.widgetPage.page.waitForTimeout(500);
   }

@@ -6,7 +6,7 @@ const { TIMEOUTS } = require("../utils/timeouts");
 const { getLiveRecordingWaitSeconds } = require("../utils/audio-utils");
 const { finishLiveRecordingWithUpload } = require("../utils/upload-helpers");
 
-test.describe("Zero STT Codeswitch module", () => {
+test.describe("[UI] Zero STT Codeswitch module", () => {
   test("simulated live recording validates transcript and speakers", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_SLOW);
     const widgetPage = new WidgetPage(page);

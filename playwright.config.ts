@@ -16,15 +16,21 @@ export default defineConfig({
     ["html", { open: "never", outputFolder: "reports/html" }],
     ["json", { outputFile: "reports/playwright-report.json" }],
   ],
-  use: {
-    trace: "off",
-    screenshot: "only-on-failure",
-    video: "retain-on-failure",
-  },
   projects: [
     {
-      name: "chromium",
-      use: { browserName: "chromium" },
+      name: "api",
+      testMatch: /tests\/api\/.*\.spec\.js/,
+    },
+    {
+      name: "ui",
+      testMatch: /tests\/(?!api\/).*\.spec\.js/,
+      workers: isCI ? 2 : 2,
+      use: {
+        browserName: "chromium",
+        trace: "off",
+        screenshot: "only-on-failure",
+        video: "retain-on-failure",
+      },
     },
   ],
 });

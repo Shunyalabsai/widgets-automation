@@ -5,7 +5,7 @@ const { MedicalTranscriptionPage } = require("../pages/medical-transcription-pag
 const { TIMEOUTS } = require("../utils/timeouts");
 const { uploadWithRetry } = require("../utils/upload-helpers");
 
-test.describe("Zero STT Med module", () => {
+test.describe("[UI] Zero STT Med module", () => {
   test("upload file renders transcript", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_SLOW);
     const widgetPage = new WidgetPage(page);
@@ -15,7 +15,7 @@ test.describe("Zero STT Med module", () => {
     await widgetPage.goto();
     await widgetPage.openModule(moduleName);
 
-    const audioPath = path.join(__dirname, "..", "data", "stt", "09  At The Doctor's.mp3");
+    const audioPath = path.join(__dirname, "..", "data", "stt", "live-recording.opus");
     await uploadWithRetry({
       widgetPage,
       moduleName,

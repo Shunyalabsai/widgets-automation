@@ -3,7 +3,7 @@ const { WidgetPage } = require("../pages/widget-page");
 const { SttPage } = require("../pages/stt-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 
-test.describe("Zero STT Indic module", () => {
+test.describe("[UI] Zero STT Indic module", () => {
   test("prerecorded customer support call renders transcript", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_MEDIUM);
     const widgetPage = new WidgetPage(page);

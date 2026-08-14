@@ -3,7 +3,7 @@ const { WidgetPage } = require("../pages/widget-page");
 const { TtsPage } = require("../pages/tts-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 
-test.describe("Zero TTS Indic module", () => {
+test.describe("[UI] Zero TTS Indic module", () => {
   let widgetPage;
   let ttsPage;
 

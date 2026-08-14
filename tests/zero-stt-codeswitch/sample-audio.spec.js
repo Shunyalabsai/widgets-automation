@@ -3,7 +3,7 @@ const { WidgetPage } = require("../pages/widget-page");
 const { SttPage } = require("../pages/stt-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 
-test.describe("Zero STT Codeswitch module", () => {
+test.describe("[UI] Zero STT Codeswitch module", () => {
   test("sample clip renders codeswitch transcript", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_MEDIUM);
     const widgetPage = new WidgetPage(page);

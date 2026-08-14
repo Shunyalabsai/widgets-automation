@@ -3,7 +3,7 @@ const { WidgetPage } = require("../pages/widget-page");
 const { VakPage } = require("../pages/vak-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 
-test.describe("VAK module", () => {
+test.describe("[UI] VAK module", () => {
   test("hindi text translates to indian english", async ({ page }) => {
     test.setTimeout(TIMEOUTS.TEST_MEDIUM);
     const widgetPage = new WidgetPage(page);
