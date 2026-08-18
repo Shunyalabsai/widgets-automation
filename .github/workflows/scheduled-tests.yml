@@ -47,7 +47,7 @@ jobs:
       - name: Run tests and update dashboard
         id: run_tests
         env:
-          TEST_ENV: stage
+          TEST_ENV: prod
           GOOGLE_SHEETS_WEB_APP_URL: ${{ secrets.GOOGLE_SHEETS_WEB_APP_URL }}
           GOOGLE_SHEETS_SPREADSHEET_ID: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
           GOOGLE_SHEETS_SHEET_NAME: test-coverage

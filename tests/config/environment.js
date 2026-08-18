@@ -16,10 +16,10 @@ const ENVIRONMENTS = {
 };
 
 function resolveEnvironmentName() {
-  const explicit = (process.env.TEST_ENV || process.env.SHUNYA_ENV || "stage").toLowerCase();
+  const explicit = (process.env.TEST_ENV || process.env.SHUNYA_ENV || "prod").toLowerCase();
   if (ENVIRONMENTS[explicit]) return explicit;
   if ((process.env.WIDGET_URL || "").includes("stage.")) return "stage";
-  return "stage";
+  return "prod";
 }
 
 function getEnvironment() {
