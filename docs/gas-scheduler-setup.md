@@ -17,8 +17,8 @@ This scheduler triggers GitHub Actions at exact times without cron drift.
 
 In Apps Script → Project Settings → Script properties:
 
-- `GITHUB_OWNER`: `saira-uwc`
-- `GITHUB_REPO`: `Shunyalabs_widget`
+- `GITHUB_OWNER`: `Shunyalabsai`
+- `GITHUB_REPO`: `widgets-automation`
 - `GITHUB_PAT`: `<your PAT>`
 
 ### 4) Add time triggers

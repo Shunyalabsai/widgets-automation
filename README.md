@@ -78,12 +78,14 @@ Files of interest:
 
 1. In GitHub → Settings → Pages:
    - Source: **GitHub Actions**
-2. Push to `saira-widgets`. The workflow publishes the `docs/` dashboard automatically.
-3. Your dashboard will be available at:
+2. Push to `main`. The workflow publishes the `docs/` dashboard automatically.
+3. Dashboard:
 
 ```
-https://<your-github-username>.github.io/Shunyalabs_widget/
+https://shunyalabsai.github.io/widgets-automation/
 ```
+
+Repository: https://github.com/Shunyalabsai/widgets-automation
 
 ### Google Apps Script Scheduler (exact timing)
 

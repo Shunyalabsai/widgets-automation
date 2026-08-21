@@ -51,7 +51,7 @@ jobs:
           GOOGLE_SHEETS_WEB_APP_URL: ${{ secrets.GOOGLE_SHEETS_WEB_APP_URL }}
           GOOGLE_SHEETS_SPREADSHEET_ID: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
           GOOGLE_SHEETS_SHEET_NAME: test-coverage
-          DASHBOARD_BASE_URL: https://saira-uwc.github.io/Shunyalabs_widget
+          DASHBOARD_BASE_URL: https://shunyalabsai.github.io/widgets-automation
         run: |
           set +e
           npm test
@@ -83,7 +83,7 @@ jobs:
           EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
           REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
           REPORT_PROJECT_NAME: Shunyalabs Widget Automation
-          REPORT_DASHBOARD_URL: https://saira-uwc.github.io/Shunyalabs_widget
+          REPORT_DASHBOARD_URL: https://shunyalabsai.github.io/widgets-automation
           REPORT_SHEET_URL: https://docs.google.com/spreadsheets/d/${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
           REPORT_TIMEZONE: Asia/Kolkata
         run: node scripts/send-daily-report.js || true

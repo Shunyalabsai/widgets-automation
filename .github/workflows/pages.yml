@@ -3,7 +3,7 @@ name: Deploy Dashboard to GitHub Pages
 on:
   push:
     branches:
-      - saira-widgets
+      - main
 
 permissions:
   contents: read

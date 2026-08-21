@@ -12,7 +12,7 @@ if [ -f "$ENV_FILE" ]; then
   set +a
 fi
 
-git pull --rebase origin "${CRON_BRANCH:-saira-widgets}"
+git pull --rebase origin "${CRON_BRANCH:-main}"
 
 if [ "${CRON_INSTALL_DEPS:-false}" = "true" ]; then
   npm ci

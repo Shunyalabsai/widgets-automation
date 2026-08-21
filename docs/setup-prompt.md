@@ -159,9 +159,9 @@ Create a workflow with:
 
 **Environment variables in workflow**:
 - `GOOGLE_SHEETS_SHEET_NAME: test-coverage`
-- `DASHBOARD_BASE_URL: https://<user>.github.io/<repo>`
-- `REPORT_PROJECT_NAME: <Project Name>`
-- `REPORT_DASHBOARD_URL: https://<user>.github.io/<repo>`
+- `DASHBOARD_BASE_URL: https://shunyalabsai.github.io/widgets-automation`
+- `REPORT_PROJECT_NAME: Shunyalabs Widget Automation`
+- `REPORT_DASHBOARD_URL: https://shunyalabsai.github.io/widgets-automation`
 - `REPORT_TIMEZONE: Asia/Kolkata`
 
 ## 7. Google Apps Script Scheduler (`scripts/google-scheduler.gs`)
