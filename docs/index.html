@@ -428,9 +428,13 @@
       let selectedRun = null;
       let calendarMonthOffset = 0;
 
+      const activeTestCount = (summary) =>
+        (summary.passed ?? 0) + (summary.failed ?? 0) + (summary.timedOut ?? 0);
+
       const formatRate = (summary) => {
-        if (!summary.total) return 0;
-        return Math.round((summary.passed / summary.total) * 100);
+        const active = activeTestCount(summary);
+        if (!active) return 100;
+        return Math.round((summary.passed / active) * 100);
       };
 
       const toLocalDateTime = (iso) => {
@@ -561,9 +565,12 @@
 
         const moduleEntries = Object.entries(run.modules || {});
         const moduleLabels = moduleEntries.map(([name]) => name);
-        const moduleRates = moduleEntries.map(([, stats]) =>
-          stats.total ? Math.round((stats.passed / stats.total) * 100) : 0,
-        );
+        const moduleRates = moduleEntries.map(([, stats]) => {
+          const active =
+            (stats.passed ?? 0) + (stats.failed ?? 0) + (stats.timedOut ?? 0);
+          if (!active) return 100;
+          return Math.round((stats.passed / active) * 100);
+        });
 
         if (moduleChart) moduleChart.destroy();
         moduleChart = new Chart(document.getElementById("moduleChart"), {

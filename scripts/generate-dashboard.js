@@ -148,9 +148,14 @@ function summarizeTests(tests) {
   return summary;
 }
 
+function activeTestCount(summary) {
+  return (summary.passed ?? 0) + (summary.failed ?? 0) + (summary.timedOut ?? 0);
+}
+
 function passRate(summary) {
-  if (!summary.total) return 0;
-  return Math.round((summary.passed / summary.total) * 100);
+  const active = activeTestCount(summary);
+  if (!active) return 100;
+  return Math.round((summary.passed / active) * 100);
 }
 
 function summarizeByModule(tests) {

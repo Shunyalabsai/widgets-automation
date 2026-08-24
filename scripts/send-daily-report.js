@@ -78,9 +78,10 @@ function getFailureCount(summary) {
 }
 
 function getPassRate(summary) {
-  const total = summary?.total ?? 0;
-  const passed = summary?.passed ?? 0;
-  return total > 0 ? Math.round((passed / total) * 100) : 0;
+  const active =
+    (summary?.passed ?? 0) + (summary?.failed ?? 0) + (summary?.timedOut ?? 0);
+  if (!active) return 100;
+  return Math.round(((summary?.passed ?? 0) / active) * 100);
 }
 
 function formatTime(date, timeZone) {
