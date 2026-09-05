@@ -1,0 +1,64 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - main [ref=e5]:
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - generic [ref=e11]: "01"
+          - generic [ref=e12]: Choose your audio
+        - generic [ref=e13]:
+          - tablist [ref=e14]:
+            - tab "Sample clips" [ref=e15] [cursor=pointer]:
+              - img [ref=e17]
+              - generic [ref=e20]: Sample clips
+            - tab "Upload file" [active] [ref=e21] [cursor=pointer]:
+              - img [ref=e23]
+              - generic [ref=e25]: Upload file
+            - tab "Record live" [ref=e26] [cursor=pointer]:
+              - img [ref=e28]
+              - generic [ref=e31]: Record live
+          - generic [ref=e32]:
+            - button "Upload your file here" [ref=e34] [cursor=pointer]:
+              - img [ref=e35]
+              - paragraph [ref=e36]: Upload your file here
+            - button "🇺🇸 English" [ref=e44] [cursor=pointer]:
+              - generic [ref=e45]:
+                - generic [ref=e46]: 🇺🇸
+                - text: English
+              - generic:
+                - img
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e49]: "02"
+          - generic [ref=e50]: Live transcript
+        - generic [ref=e52]:
+          - button "Play" [ref=e53] [cursor=pointer]:
+            - img [ref=e54]
+            - generic [ref=e56]: Play
+          - generic [ref=e150]: 00:00 / 00:00
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]:
+                - generic [ref=e159]: "1"
+                - generic [ref=e160]: Speaker 1
+                - generic [ref=e161]: 00:00
+              - paragraph [ref=e162]: Hello, thank you for calling customer support. My name is Alex, and I will be assisting you today. Please tell me what issue you are facing. Hi Alex, thanks for helping me. I am testing the live speech -to -text feature on your website. The recording works, but sometimes the transcription feels slow. Let me add to that. Transcription delays can happen due to background noise or network speed. Are you testing this on a stable internet
+            - generic [ref=e163]:
+              - generic [ref=e164]:
+                - generic [ref=e166]: "2"
+                - generic [ref=e167]: Speaker 2
+                - generic [ref=e168]: 00:27
+              - paragraph [ref=e169]: connection? and it seems stable. I just tested again, and now the transcription looks accurate. Everything appears to be working correctly.
+            - generic [ref=e170]:
+              - generic [ref=e171]:
+                - generic [ref=e173]: "1"
+                - generic [ref=e174]: Speaker 1
+                - generic [ref=e175]: 00:38
+              - paragraph [ref=e176]: That is great to hear. Thank you for testing the live recording feature with us.
+          - button "Copy text" [ref=e180] [cursor=pointer]:
+            - img [ref=e181]
+            - text: Copy text
+  - alert [ref=e184]
+```
