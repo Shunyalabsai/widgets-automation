@@ -1,4 +1,32 @@
 const { TIMEOUTS } = require("./timeouts");
+const { uploadPhrasesForModule } = require("../data/upload-expectations");
+
+/**
+ * Confirm upload produced readable transcript text, not just speaker chrome.
+ */
+async function verifyUploadTranscript(pageObject, moduleName, verifyPhrases) {
+  const phrases =
+    verifyPhrases !== undefined ? verifyPhrases : uploadPhrasesForModule(moduleName);
+
+  if (phrases?.length && pageObject.waitForTranscriptContains) {
+    await pageObject.waitForTranscriptContains(phrases);
+    return;
+  }
+
+  if (pageObject.waitForTranscriptReady) {
+    await pageObject.waitForTranscriptReady();
+    return;
+  }
+
+  if (pageObject.waitForTranscriptRows) {
+    await pageObject.waitForTranscriptRows();
+    return;
+  }
+
+  if (pageObject.waitForAnySpeakerLabel) {
+    await pageObject.waitForAnySpeakerLabel(TIMEOUTS.BACKEND_RESULT);
+  }
+}
 
 /**
  * Upload audio with session priming and retries — handles transient widget/API failures.
@@ -10,6 +38,7 @@ async function uploadWithRetry({
   pageObject,
   maxAttempts = 3,
   primeSession = true,
+  verifyPhrases,
 }) {
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
     if (attempt > 0) {
@@ -29,6 +58,7 @@ async function uploadWithRetry({
 
     try {
       await pageObject.waitForUploadResult();
+      await verifyUploadTranscript(pageObject, moduleName, verifyPhrases);
       return;
     } catch (error) {
       if (attempt === maxAttempts - 1) throw error;
@@ -44,10 +74,11 @@ async function finishLiveRecordingWithUpload({
   moduleName,
   pageObject,
   audioPath,
+  verifyPhrases,
 }) {
   const transcriptReady =
-    (await pageObject.tryWaitForTranscriptReady?.(30_000)) ||
-    (await pageObject.tryWaitForTranscriptRows?.(30_000));
+    (await pageObject.tryWaitForTranscriptReady?.(TIMEOUTS.BACKEND_RESULT)) ||
+    (await pageObject.tryWaitForTranscriptRows?.(TIMEOUTS.BACKEND_RESULT));
   if (transcriptReady) return;
 
   await uploadWithRetry({
@@ -55,7 +86,13 @@ async function finishLiveRecordingWithUpload({
     moduleName,
     audioPath,
     pageObject,
+    verifyPhrases,
   });
 }
 
-module.exports = { uploadWithRetry, finishLiveRecordingWithUpload, TIMEOUTS };
+module.exports = {
+  uploadWithRetry,
+  finishLiveRecordingWithUpload,
+  verifyUploadTranscript,
+  TIMEOUTS,
+};

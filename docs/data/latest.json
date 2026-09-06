@@ -332,7 +332,16 @@
       "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/thank you for calling customer support/i).first()\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/thank you for calling customer support/i).first()\u001b[22m\n",
       "module": "zero-stt-indic",
       "moduleLabel": "Zero Stt Indic",
-      "testLayer": "ui"
+      "testLayer": "ui",
+      "failureAnalysis": {
+        "category": "ui-timeout",
+        "label": "UI check timed out",
+        "reason": "Page or transcript loaded too slowly for the automated check.",
+        "summary": "The page did not finish loading in time during the automated check. This may be slow loading or a test wait that is too short.",
+        "severity": "medium",
+        "apiPassed": null
+      },
+      "failureReason": "Page or transcript loaded too slowly for the automated check."
     },
     {
       "title": "zero-stt-jpkr/language-selection.spec.js > [UI] Zero STT JP/KR module > language picker switches between Japanese and Korean",
@@ -554,5 +563,25 @@
       "moduleLabel": "Zero Tts Indic",
       "testLayer": "ui"
     }
-  ]
+  ],
+  "failureSummary": {
+    "headline": "1 failed test case",
+    "plainEnglish": "Each failed test case has one clear reason below — share this with the team to explain what happened.",
+    "failures": [
+      {
+        "testName": "uploaded audio renders transcript and allows playback",
+        "title": "zero-stt-indic/upload.spec.js > [UI] Zero STT Indic module > uploaded audio renders transcript and allows playback",
+        "moduleLabel": "Zero Stt Indic",
+        "status": "failed",
+        "testLayer": "ui",
+        "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/thank you for calling customer support/i).first()\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/thank you for calling customer support/i).first()\u001b[22m\n",
+        "reason": "Page or transcript loaded too slowly for the automated check.",
+        "category": "ui-timeout",
+        "label": "UI check timed out",
+        "summary": "The page did not finish loading in time during the automated check. This may be slow loading or a test wait that is too short.",
+        "severity": "medium",
+        "apiPassed": null
+      }
+    ]
+  }
 }

@@ -1,6 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const {
+  buildRunFailureSummary,
+  enrichTestsWithFailureAnalysis,
+} = require("./failure-reporting");
 
 const ROOT = path.resolve(__dirname, "..");
 const REPORT_JSON = path.join(ROOT, "reports", "playwright-report.json");
@@ -232,19 +236,21 @@ function buildRun() {
   const startedAt = report.startTime || new Date().toISOString();
   const durationMs = report.duration || tests.reduce((sum, t) => sum + t.durationMs, 0);
 
-  const enrichedTests = tests.map((test) => {
-    const moduleName = moduleFromFile(test.file);
-    const moduleDisplay = moduleLabel(moduleName);
-    const testLayer = testLayerFromFile(test.file);
-    const attachments = copyArtifacts(test.attachments, runId);
-    return {
-      ...test,
-      module: moduleName,
-      moduleLabel: moduleDisplay,
-      testLayer,
-      attachments,
-    };
-  });
+  const enrichedTests = enrichTestsWithFailureAnalysis(
+    tests.map((test) => {
+      const moduleName = moduleFromFile(test.file);
+      const moduleDisplay = moduleLabel(moduleName);
+      const testLayer = testLayerFromFile(test.file);
+      const attachments = copyArtifacts(test.attachments, runId);
+      return {
+        ...test,
+        module: moduleName,
+        moduleLabel: moduleDisplay,
+        testLayer,
+        attachments,
+      };
+    }),
+  );
 
   const summary = summarizeTests(enrichedTests);
 
@@ -258,6 +264,7 @@ function buildRun() {
     displayDate: formatDateOnly(startedAt),
     displayTime: formatTimeOnly(startedAt),
     modules: summarizeByModule(enrichedTests),
+    failureSummary: buildRunFailureSummary(enrichedTests),
     tests: enrichedTests,
   };
 }
@@ -291,17 +298,20 @@ function writeDashboardFiles(run, history) {
     durationMs: test.durationMs,
     title: test.title,
     file: test.file,
+    failureLabel: test.failureAnalysis?.label || "",
+    failureReason: test.failureReason || test.failureAnalysis?.reason || "",
+    failureSummary: test.failureAnalysis?.summary || "",
     error: test.error,
   }));
 
   writeCsv(
     path.join(TEST_RESULTS_DIR, "current-run.csv"),
-    ["id", "module", "status", "durationMs", "title", "file", "error"],
+    ["id", "module", "status", "durationMs", "title", "file", "failureLabel", "failureReason", "failureSummary", "error"],
     currentRows,
   );
   writeCsv(
     path.join(EXPORTS_DIR, "current-run.csv"),
-    ["id", "module", "status", "durationMs", "title", "file", "error"],
+    ["id", "module", "status", "durationMs", "title", "file", "failureLabel", "failureReason", "failureSummary", "error"],
     currentRows,
   );
 

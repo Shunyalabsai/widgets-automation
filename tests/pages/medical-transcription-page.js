@@ -1,5 +1,9 @@
 const { expect } = require("@playwright/test");
 const { TIMEOUTS } = require("../utils/timeouts");
+const {
+  transcriptHasMeaningfulContent,
+  transcriptHasPhrases,
+} = require("../utils/transcript-text");
 
 class MedicalTranscriptionPage {
   constructor(widgetPage) {
@@ -81,6 +85,10 @@ class MedicalTranscriptionPage {
     await this.copyButton.click();
   }
 
+  async assertCopyAvailable() {
+    await expect(this.copyButton).toBeEnabled({ timeout: 60_000 });
+  }
+
   async startSpeaking() {
     await this.ensureRecordLiveMode();
     await this.startSpeakingButton.click();
@@ -110,9 +118,11 @@ class MedicalTranscriptionPage {
 
   async waitForUploadResult(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     const failed = this.root.getByText(/Upload failed|Something went wrong/i);
+    const speaker = this.root.getByText(/Speaker\s*\d/i).first();
     const transcriptRow = this.root.locator(".flex.items-center.space-x-2").first();
 
     await Promise.race([
+      speaker.waitFor({ state: "visible", timeout: timeoutMs }),
       transcriptRow.waitFor({ state: "visible", timeout: timeoutMs }),
       failed.waitFor({ state: "visible", timeout: timeoutMs }).then(async () => {
         const message = await this.root
@@ -152,22 +162,12 @@ class MedicalTranscriptionPage {
   }
 
   async waitForTranscriptRows(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
-    await this.root.waitForFunction(
-      () => {
-        const rows = document.querySelectorAll(".flex.items-center.space-x-2");
-        if (rows.length > 0) return true;
-        const text = document.body?.innerText || "";
-        return (
-          text.length > 200 &&
-          !text.includes("Choose a sample clip, upload an audio file")
-        );
-      },
-      null,
-      { timeout: timeoutMs },
-    );
+    await this.root.waitForFunction(transcriptHasMeaningfulContent, 120, {
+      timeout: timeoutMs,
+    });
   }
 
-  async tryWaitForTranscriptRows(timeoutMs = 30_000) {
+  async tryWaitForTranscriptRows(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
     try {
       await this.waitForTranscriptRows(timeoutMs);
       return true;
@@ -176,12 +176,18 @@ class MedicalTranscriptionPage {
     }
   }
 
+  async waitForTranscriptContains(expectedLines, timeoutMs = TIMEOUTS.BACKEND_RESULT) {
+    await this.root.waitForFunction(transcriptHasPhrases, expectedLines, {
+      timeout: timeoutMs,
+    });
+  }
+
   async waitForSpeakerLabel(label, timeoutMs = TIMEOUTS.BACKEND_RESULT) {
-    await expect(this.root.getByText(label)).toBeVisible({ timeout: timeoutMs });
+    await this.waitForTranscriptContains([label], timeoutMs);
   }
 
   async waitForTranscriptSnippet(snippet, timeoutMs = TIMEOUTS.BACKEND_RESULT) {
-    await expect(this.root.getByText(snippet)).toBeVisible({ timeout: timeoutMs });
+    await this.waitForTranscriptContains([snippet], timeoutMs);
   }
 }
 

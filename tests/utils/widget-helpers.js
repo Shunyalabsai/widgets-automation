@@ -91,21 +91,17 @@ async function waitForPlaybackToStart(page) {
   await pauseButton.waitFor();
 }
 
+const { transcriptUploadComplete } = require("./transcript-text");
+
 async function waitForTranscriptSpeakers(page) {
   const frame = page
     .frames()
     .find((candidate) => candidate.url().includes("widget="));
   const root = frame || page;
 
-  await root.waitForFunction(
-    () =>
-      document.querySelectorAll(".flex.items-center.space-x-2").length > 0,
-    null,
-    { timeout: 90_000 },
-  );
-
-  const speakerLabels = root.getByText(/Speaker\s*\d/i);
-  await speakerLabels.first().waitFor({ timeout: 90_000 });
+  await root.waitForFunction(transcriptUploadComplete, 80, {
+    timeout: 90_000,
+  });
 }
 
 async function copyConversation(page) {

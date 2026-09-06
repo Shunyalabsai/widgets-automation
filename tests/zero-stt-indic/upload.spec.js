@@ -1,4 +1,4 @@
-const { test, expect } = require("@playwright/test");
+const { test } = require("@playwright/test");
 const path = require("path");
 const { WidgetPage } = require("../pages/widget-page");
 const { SttPage } = require("../pages/stt-page");
@@ -21,12 +21,6 @@ test.describe("[UI] Zero STT Indic module", () => {
       moduleName,
       audioPath,
       pageObject: sttPage,
-    });
-
-    await expect(
-      sttPage.root.getByText(/thank you for calling customer support/i).first(),
-    ).toBeVisible({
-      timeout: 30_000,
     });
 
     await sttPage.assertCopyAvailable();

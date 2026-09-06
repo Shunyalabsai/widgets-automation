@@ -23,7 +23,6 @@ test.describe("[UI] Zero STT Codeswitch module", () => {
       pageObject: sttPage,
     });
 
-    await sttPage.waitForAnySpeakerLabel(60_000);
     await sttPage.assertCopyAvailable();
   });
 });

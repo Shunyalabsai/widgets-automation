@@ -259,6 +259,89 @@
       .modal-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
       .modal-actions .btn { font-size: 12px; }
 
+      .failure-summary {
+        margin-top: 18px;
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        background: rgba(245, 158, 11, 0.08);
+        border-radius: 14px;
+        padding: 18px;
+      }
+      .failure-summary h2 { margin: 0 0 8px; font-size: 16px; }
+      .failure-summary p { margin: 0 0 14px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+      .failure-card {
+        border: 1px solid var(--panel-border);
+        background: var(--panel-soft);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+      }
+      .failure-card:last-child { margin-bottom: 0; }
+      .failure-card h3 { margin: 0 0 6px; font-size: 14px; }
+      .failure-card .meta { margin-bottom: 8px; font-size: 11px; color: var(--muted); }
+      .failure-label {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .failure-label.timing { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
+      .failure-label.product { background: rgba(239, 68, 68, 0.18); color: #f87171; }
+      .failure-label.environment { background: rgba(59, 130, 246, 0.18); color: #60a5fa; }
+      .failure-label.review { background: rgba(148, 163, 184, 0.18); color: #cbd5e1; }
+      .failure-note { margin-top: 8px; font-size: 12px; color: var(--muted); }
+      .failure-reason {
+        margin-top: 8px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: rgba(239, 68, 68, 0.08);
+        border: 1px solid rgba(239, 68, 68, 0.22);
+        font-size: 12px;
+        line-height: 1.5;
+        color: #fecaca;
+      }
+      .failure-reason strong {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #fca5a5;
+        margin-bottom: 4px;
+      }
+      .failure-reason-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+        font-size: 13px;
+      }
+      .failure-reason-table th,
+      .failure-reason-table td {
+        text-align: left;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--panel-border);
+        vertical-align: top;
+      }
+      .failure-reason-table th {
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .failure-reason-table tr:last-child td { border-bottom: none; }
+      .failure-reason-text {
+        color: #fde68a;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+      .run-reason-snippet {
+        margin-top: 6px;
+        font-size: 11px;
+        color: #fbbf24;
+        line-height: 1.4;
+        max-width: 420px;
+      }
+
       .hidden { display: none; }
       .footer-note { text-align: center; color: var(--muted); font-size: 11px; margin-top: 24px; }
       .footer-sub { text-align: center; color: var(--muted); font-size: 11px; margin-top: 6px; }
@@ -335,6 +418,24 @@
           </div>
         </div>
 
+        <div class="section hidden" id="failureSummarySection">
+          <div class="failure-summary">
+            <h2 id="failureSummaryTitle">What Failed</h2>
+            <p id="failureSummaryText"></p>
+            <table class="failure-reason-table">
+              <thead>
+                <tr>
+                  <th>Test case</th>
+                  <th>Module</th>
+                  <th>Reason</th>
+                </tr>
+              </thead>
+              <tbody id="failureReasonTable"></tbody>
+            </table>
+            <div id="failureSummaryList" style="display:none;"></div>
+          </div>
+        </div>
+
         <div class="section">
           <div class="section-title">Test Results by Module</div>
           <div class="module-list" id="moduleList"></div>
@@ -396,6 +497,8 @@
           <button data-filter="passed">Passed</button>
           <button data-filter="failed">Failed</button>
         </div>
+
+        <div class="hidden" id="modalFailureReasons" style="margin-bottom: 16px;"></div>
 
         <div id="modalTests"></div>
 
@@ -479,7 +582,7 @@
       };
 
       const makeRunCsv = (run) => {
-        const headers = ["id", "module", "status", "durationMs", "title", "file", "error"];
+        const headers = ["id", "module", "status", "durationMs", "title", "file", "failureLabel", "failureReason", "failureSummary", "error"];
         const rows = run.tests.map((test) => [
           run.id,
           test.moduleLabel,
@@ -487,10 +590,111 @@
           test.durationMs,
           test.title,
           test.file,
+          test.failureAnalysis?.label || "",
+          getTestFailureReason(test, run.tests || []),
+          test.failureAnalysis?.summary || "",
           test.error || "",
         ]);
         return [headers.join(","), ...rows.map((row) => row.map(csvEscape).join(","))].join("\\n");
       };
+
+      const getTestFailureReason = (test, allTests = []) => {
+        if (test.failureReason) return test.failureReason;
+        if (test.failureAnalysis?.reason) return test.failureAnalysis.reason;
+        if (test.status !== "failed" && test.status !== "timedOut") return "";
+        return classifyFailureClient(test, allTests).reason;
+      };
+
+      const classifyFailureClient = (test, allTests = []) => {
+        const error = String(test.error || "");
+        const layer = test.testLayer || (String(test.file || "").includes("/api/") || /\.api\.spec\.js$/.test(test.file || "") ? "api" : "ui");
+        const moduleName = test.module || "";
+        const apiTests = allTests.filter((candidate) => {
+          const sameModule = (candidate.module || "") === moduleName;
+          const apiLayer = candidate.testLayer === "api" || String(candidate.file || "").includes("/api/") || /\.api\.spec\.js$/.test(candidate.file || "");
+          return sameModule && apiLayer;
+        });
+        const apiPassed = apiTests.length ? apiTests.every((candidate) => candidate.status === "passed") : null;
+        const lower = error.toLowerCase();
+
+        if (/upload failed in widget|something went wrong|please try again/i.test(error)) {
+          return {
+            category: "product",
+            label: "Product error",
+            reason: "Widget showed an upload/processing error — likely a real product issue.",
+            summary: "The widget showed an upload or processing error during the check.",
+            apiPassed,
+          };
+        }
+        if (lower.includes("timeout") || lower.includes("timed out") || lower.includes("exceeded")) {
+          if (layer === "ui" && apiPassed === true) {
+            return {
+              category: "test-timing",
+              label: "Likely test timing issue",
+              reason: "Not a confirmed product bug — UI timed out but API check for same feature passed.",
+              summary: "The UI check timed out, but the API check for the same feature passed.",
+              apiPassed,
+            };
+          }
+          if (layer === "api") {
+            return {
+              category: "api-timeout",
+              label: "API check timed out",
+              reason: "Backend API was too slow to respond during the check.",
+              summary: "The backend API did not respond in time.",
+              apiPassed,
+            };
+          }
+          return {
+            category: "ui-timeout",
+            label: "UI check timed out",
+            reason: "Page or transcript loaded too slowly for the automated check.",
+            summary: "The page did not finish loading in time during the automated check.",
+            apiPassed,
+          };
+        }
+        if (/403|401|forbidden|unauthorized|network|econnref|payment re/i.test(error)) {
+          return {
+            category: "environment",
+            label: "Environment or access issue",
+            reason: "CI, network, billing, or permissions issue — not a widget bug.",
+            summary: "The run hit an access, billing, or network problem.",
+            apiPassed,
+          };
+        }
+        return {
+          category: "needs-review",
+          label: "Needs review",
+          reason: "Failed — review screenshot to confirm if product or test issue.",
+          summary: "A check failed. Review technical details to confirm root cause.",
+          apiPassed,
+        };
+      };
+
+      const getFailureLabelClass = (category) => {
+        if (category === "test-timing") return "timing";
+        if (category === "product") return "product";
+        if (category === "environment") return "environment";
+        return "review";
+      };
+
+      const getFailedTestsWithReasons = (run) =>
+        (run.tests || [])
+          .filter((test) => test.status === "failed" || test.status === "timedOut")
+          .map((test) => {
+            const analysis =
+              test.failureAnalysis || classifyFailureClient(test, run.tests || []);
+            return {
+              testName: (test.title || "").split(" > ").pop() || test.title,
+              title: test.title,
+              moduleLabel: test.moduleLabel || test.module || "Unknown",
+              status: test.status,
+              label: analysis.label || "Needs review",
+              category: analysis.category || "needs-review",
+              reason: getTestFailureReason(test, run.tests || []),
+              apiPassed: analysis.apiPassed ?? null,
+            };
+          });
 
       const setActiveTab = (tab) => {
         document.querySelectorAll(".tab").forEach((btn) => {
@@ -596,6 +800,45 @@
         });
       };
 
+      const renderFailureSummary = (run) => {
+        const section = document.getElementById("failureSummarySection");
+        const title = document.getElementById("failureSummaryTitle");
+        const text = document.getElementById("failureSummaryText");
+        const tableBody = document.getElementById("failureReasonTable");
+        const failureSummary = run.failureSummary || (() => {
+          const failures = getFailedTestsWithReasons(run);
+          if (!failures.length) return null;
+          return {
+            headline: failures.length + " failed test case" + (failures.length === 1 ? "" : "s"),
+            plainEnglish:
+              "Each failed test has one clear reason below — use this when explaining results to the team.",
+            failures,
+          };
+        })();
+        if (!failureSummary?.failures?.length) {
+          section.classList.add("hidden");
+          return;
+        }
+
+        section.classList.remove("hidden");
+        title.textContent = failureSummary.headline || "Failed Test Cases & Reasons";
+        text.textContent = failureSummary.plainEnglish || "";
+        tableBody.innerHTML = failureSummary.failures.map((failure) => {
+          const labelClass = getFailureLabelClass(failure.category);
+          const apiNote =
+            failure.apiPassed === true
+              ? '<div class="failure-note">API check for this module passed.</div>'
+              : failure.apiPassed === false
+                ? '<div class="failure-note">API check for this module also failed.</div>'
+                : "";
+          return '<tr>' +
+            '<td><strong>' + failure.testName + '</strong><div class="meta">' + failure.status + '</div></td>' +
+            '<td>' + failure.moduleLabel + '<div style="margin-top:8px;"><span class="failure-label ' + labelClass + '">' + failure.label + '</span></div></td>' +
+            '<td><div class="failure-reason-text">' + failure.reason + '</div>' + apiNote + '</td>' +
+          '</tr>';
+        }).join("");
+      };
+
       const renderModules = (run) => {
         const modules = {};
         run.tests.forEach((test) => {
@@ -613,8 +856,12 @@
         moduleList.innerHTML = Object.entries(modules).map(([name, stats]) => {
           const testsHtml = stats.tests.slice(0, 8).map((test) => {
             const dotClass = test.status === "passed" ? "pass" : test.status === "failed" ? "fail" : "skip";
+            const failureReasonBlock =
+              test.status === "failed" || test.status === "timedOut"
+                ? '<div class="failure-reason"><strong>Reason</strong>' + getTestFailureReason(test, run.tests || []) + '</div>'
+                : "";
             return '<div class="test-item"><div><span class="status-dot ' + dotClass + '"></span>' +
-              test.title + '</div><div>' + test.durationMs + ' ms</div></div>';
+              test.title + failureReasonBlock + '</div><div>' + test.durationMs + ' ms</div></div>';
           }).join("");
 
           return '<div class="module-card">' +
@@ -644,10 +891,15 @@
         const historyGroups = document.getElementById("historyGroups");
         historyGroups.innerHTML = Object.entries(grouped).map(([dateKey, dateRuns]) => {
           const items = dateRuns.map((run) => {
+            const failedReason = getFailedTestsWithReasons(run)[0];
+            const reasonSnippet = failedReason
+              ? '<div class="run-reason-snippet"><strong>Reason:</strong> ' + failedReason.reason + '</div>'
+              : "";
             return '<div class="run-card" data-run="' + run.id + '">' +
               '<div class="run-meta">' +
                 '<span>' + toLocalTime(run.startedAt) + '</span>' +
                 '<span class="muted">' + run.id.slice(0, 8) + '</span>' +
+                reasonSnippet +
               '</div>' +
               '<div class="run-stats">' +
                 '<span class="badge pass">' + run.summary.passed + ' Pass</span>' +
@@ -729,19 +981,24 @@
           cell.addEventListener("click", () => {
             document.querySelectorAll(".calendar-cell").forEach((item) => item.classList.remove("active"));
             cell.classList.add("active");
-            calendarRuns.innerHTML = runsForDay.map((run) => (
-              '<div class="run-card" data-run="' + run.id + '">' +
+            calendarRuns.innerHTML = runsForDay.map((run) => {
+              const failedReason = getFailedTestsWithReasons(run)[0];
+              const reasonSnippet = failedReason
+                ? '<div class="run-reason-snippet"><strong>Reason:</strong> ' + failedReason.reason + '</div>'
+                : "";
+              return '<div class="run-card" data-run="' + run.id + '">' +
                 '<div class="run-meta">' +
                   '<span>' + toLocalTime(run.startedAt) + '</span>' +
                   '<span class="muted">' + run.id.slice(0, 8) + '</span>' +
+                  reasonSnippet +
                 '</div>' +
                 '<div class="run-stats">' +
                   '<span class="badge pass">' + run.summary.passed + ' Pass</span>' +
                   '<span class="badge fail">' + run.summary.failed + ' Fail</span>' +
                   '<span class="badge rate">' + (run.passRate ?? formatRate(run.summary)) + '%</span>' +
                 '</div>' +
-              '</div>'
-            )).join("");
+              '</div>';
+            }).join("");
             calendarRuns.querySelectorAll(".run-card").forEach((card) => {
               card.addEventListener("click", () => {
                 const run = runs.find((item) => item.id === card.dataset.run);
@@ -753,6 +1010,25 @@
         }
       };
 
+      const renderModalFailureReasons = (run) => {
+        const block = document.getElementById("modalFailureReasons");
+        const failures = getFailedTestsWithReasons(run);
+        if (!failures.length) {
+          block.classList.add("hidden");
+          block.innerHTML = "";
+          return;
+        }
+        block.classList.remove("hidden");
+        block.innerHTML = '<div class="section-title">Failed test cases & reasons</div>' +
+          '<table class="failure-reason-table"><thead><tr><th>Test case</th><th>Module</th><th>Reason</th></tr></thead><tbody>' +
+          failures.map((failure) => (
+            '<tr><td><strong>' + failure.testName + '</strong></td>' +
+            '<td>' + failure.moduleLabel + '</td>' +
+            '<td><div class="failure-reason-text">' + failure.reason + '</div></td></tr>'
+          )).join("") +
+          '</tbody></table>';
+      };
+
       const openRunModal = (run) => {
         selectedRun = run;
         modalOverlay.style.display = "flex";
@@ -762,6 +1038,7 @@
         document.getElementById("modalFailed").textContent = run.summary.failed;
         document.getElementById("modalRate").textContent = (run.passRate ?? formatRate(run.summary)) + "%";
         document.getElementById("modalMeta").textContent = "Run ID: " + run.id;
+        renderModalFailureReasons(run);
         renderModalTests("all");
       };
 
@@ -772,8 +1049,27 @@
           const attachments = (test.attachments || []).map((attachment) => (
             '<a class="btn" href="./' + attachment.path + '" target="_blank">' + attachment.name + '</a>'
           )).join(" ");
+          const analysis = test.failureAnalysis;
+          const reason = getTestFailureReason(test, selectedRun.tests || []);
+          const reasonBlock =
+            test.status === "failed" || test.status === "timedOut"
+              ? '<div class="failure-reason"><strong>Reason</strong>' + reason + '</div>'
+              : "";
+          const analysisBlock = analysis
+            ? '<div class="failure-card" style="margin-top:10px;">' +
+                '<span class="failure-label ' + getFailureLabelClass(analysis.category) + '">' + analysis.label + '</span>' +
+                (analysis.summary && analysis.summary !== reason
+                  ? '<p style="margin:10px 0 0;font-size:13px;line-height:1.5;color:#d1d5db;">' + analysis.summary + '</p>'
+                  : "") +
+                (analysis.apiPassed === true
+                  ? '<div class="failure-note">API check for this module passed.</div>'
+                  : analysis.apiPassed === false
+                    ? '<div class="failure-note">API check for this module also failed.</div>'
+                    : "") +
+              '</div>'
+            : reasonBlock;
           const errorBlock = test.error
-            ? '<details><summary>View more</summary><pre>' + test.error + '</pre></details>'
+            ? '<details><summary>Technical error</summary><pre>' + test.error + '</pre></details>'
             : "";
           const attachmentsBlock = attachments
             ? '<div style="margin-top: 8px;">' + attachments + '</div>'
@@ -781,6 +1077,7 @@
           return '<div class="modal-test">' +
             '<h4>' + test.title + '</h4>' +
             '<div class="meta">' + test.moduleLabel + ' - ' + test.status + ' - ' + test.durationMs + ' ms</div>' +
+            analysisBlock +
             errorBlock +
             attachmentsBlock +
           '</div>';
@@ -854,6 +1151,7 @@
         document.getElementById("totalRunsBadge").textContent = "Total Runs: " + historyRuns.length;
         document.getElementById("footerSub").textContent = "Total runs stored: " + historyRuns.length + " | History retention: Last 100 runs";
         renderSummary(latest);
+        renderFailureSummary(latest);
         renderCharts(latest, historyRuns);
         renderModules(latest);
         renderHistory(historyRuns);

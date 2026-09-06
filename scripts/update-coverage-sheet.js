@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { buildRunFailureSummary } = require("./failure-reporting");
 
 const ROOT = path.resolve(__dirname, "..");
 const SUMMARY_PATH = path.join(ROOT, "docs", "data", "latest.json");
@@ -70,13 +71,18 @@ async function main() {
   const run = JSON.parse(fs.readFileSync(SUMMARY_PATH, "utf8"));
   const baseUrl = process.env.DASHBOARD_BASE_URL || "";
   const testcaseIds = buildTestcaseIds(run.tests || []);
+  const failureSummary = run.failureSummary || buildRunFailureSummary(run.tests || []);
   const tests = (run.tests || []).map((test) => {
     const attachments = buildAttachmentUrls(test.attachments || [], baseUrl);
     const testcaseId = testcaseIds.get(test.title) || "";
+    const analysis = test.failureAnalysis || null;
     return {
       ...test,
       testcaseId,
       description: `Covers ${test.moduleLabel || test.module || ""} - ${test.title || ""}`,
+      failureLabel: analysis?.label || "",
+      failureReason: test.failureReason || analysis?.reason || "",
+      failureSummary: analysis?.summary || "",
       attachments,
       attachmentBuckets: flattenAttachments(attachments),
     };
@@ -104,6 +110,7 @@ async function main() {
       startedAt: formatIST(run.startedAt),
       durationMs: run.durationMs,
       summary: run.summary,
+      failureSummary,
       tests,
     },
   };

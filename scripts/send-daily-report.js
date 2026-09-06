@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { buildRunFailureSummary } = require("./failure-reporting");
 
 const ROOT = path.resolve(__dirname, "..");
 const HISTORY_PATH = path.join(ROOT, "docs", "history", "runs.json");
@@ -101,9 +102,80 @@ function formatTime(date, timeZone) {
   }
 }
 
+function getPassRateFromSummary(summary) {
+  const active =
+    (summary?.totalPassed ?? summary?.passed ?? 0) +
+    (summary?.totalFailed ?? summary?.failed ?? 0) +
+    (summary?.totalTimedOut ?? summary?.timedOut ?? 0);
+  if (!active) return 100;
+  const passed = summary?.totalPassed ?? summary?.passed ?? 0;
+  return Math.round((passed / active) * 100);
+}
+
+function failureBadgeStyle(category) {
+  if (category === "test-timing") {
+    return { bg: "#fff7ed", border: "#fdba74", text: "#c2410c", icon: "&#9201;" };
+  }
+  if (category === "product") {
+    return { bg: "#fef2f2", border: "#fecaca", text: "#b91c1c", icon: "&#9888;" };
+  }
+  if (category === "environment") {
+    return { bg: "#eff6ff", border: "#bfdbfe", text: "#1d4ed8", icon: "&#128274;" };
+  }
+  return { bg: "#f8fafc", border: "#cbd5e1", text: "#334155", icon: "&#128269;" };
+}
+
+function buildFailureDetailsSection(failureSummary) {
+  if (!failureSummary?.failures?.length) return "";
+
+  const failureRows = failureSummary.failures
+    .map((failure) => {
+      const style = failureBadgeStyle(failure.category);
+      const apiNote =
+        failure.apiPassed === true
+          ? '<p style="margin:8px 0 0;font-size:13px;color:#166534;">&#9989; API check for this module passed.</p>'
+          : failure.apiPassed === false
+            ? '<p style="margin:8px 0 0;font-size:13px;color:#b45309;">&#9888; API check for this module also failed.</p>'
+            : "";
+
+      return `
+        <tr>
+          <td style="padding:14px 15px;border-bottom:1px solid #f0f0f0;vertical-align:top;">
+            <p style="margin:0 0 4px;font-size:14px;font-weight:600;color:#111827;">${failure.testName}</p>
+            <p style="margin:0;font-size:12px;color:#6b7280;">${failure.moduleLabel} · ${failure.status}</p>
+          </td>
+          <td style="padding:14px 15px;border-bottom:1px solid #f0f0f0;vertical-align:top;">
+            <span style="display:inline-block;background:${style.bg};border:1px solid ${style.border};color:${style.text};padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600;">${style.icon} ${failure.label}</span>
+            <p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:#111827;font-weight:600;">${failure.reason || failure.summary}</p>
+            ${failure.reason && failure.summary && failure.reason !== failure.summary
+              ? '<p style="margin:6px 0 0;font-size:12px;line-height:1.5;color:#6b7280;">' + failure.summary + '</p>'
+              : ""}
+            ${apiNote}
+          </td>
+        </tr>`;
+    })
+    .join("");
+
+  return `
+    <tr>
+      <td style="padding:20px 25px 5px;">
+        <p style="margin:0 0 6px;font-size:15px;font-weight:600;color:#374151;">&#128221; What Failed (Plain English)</p>
+        <p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:#6b7280;">${failureSummary.plainEnglish}</p>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
+          <tr style="background-color:#f9fafb;">
+            <th style="padding:10px 15px;text-align:left;font-size:12px;font-weight:600;color:#6b7280;border-bottom:2px solid #e5e7eb;width:34%;">Test</th>
+            <th style="padding:10px 15px;text-align:left;font-size:12px;font-weight:600;color:#6b7280;border-bottom:2px solid #e5e7eb;">Reason</th>
+          </tr>
+          ${failureRows}
+        </table>
+      </td>
+    </tr>`;
+}
+
 function buildEmailBody({
   projectName,
   summary,
+  failureSummary,
   dashboardUrl,
   sheetUrl,
   timeZone,
@@ -111,7 +183,7 @@ function buildEmailBody({
 }) {
   const totalTests = summary.totalTests;
   const totalIssues = summary.totalFailed + summary.totalTimedOut;
-  const passRate = totalTests > 0 ? Math.round((summary.totalPassed / totalTests) * 100) : 0;
+  const passRate = getPassRateFromSummary(summary);
   const passRateColor = totalIssues === 0 ? "#27ae60" : passRate >= 70 ? "#e67e22" : "#e74c3c";
   const passRateIcon = totalIssues === 0 ? "&#9989;" : "&#9888;&#65039;";
   const latestRun = formatTime(new Date(runStartedAt), timeZone);
@@ -210,6 +282,8 @@ function buildEmailBody({
                   </td>
                 </tr>
 
+                ${buildFailureDetailsSection(failureSummary)}
+
                 <!-- Action Buttons -->
                 <tr>
                   <td align="center" style="padding:25px 25px 10px;">
@@ -287,15 +361,18 @@ async function main() {
   }
 
   const summary = summarizeRuns([latestRun]);
+  const failureSummary =
+    latestRun.failureSummary || buildRunFailureSummary(latestRun.tests || []);
   const reportDate = formatDate(new Date(latestRun.startedAt), timeZone);
   const passRate = getPassRate(latestRun.summary);
   const issueCount = getFailureCount(latestRun.summary);
   const subject = issueCount > 0
-    ? `QC ${projectName} Report – ${reportDate} – ${issueCount} Failed/Timeout`
+    ? `QC ${projectName} Report – ${reportDate} – ${failureSummary?.headline || `${issueCount} Failed/Timeout`}`
     : `QC ${projectName} Report – ${reportDate} – ${passRate}% Pass Rate`;
   const body = buildEmailBody({
     projectName,
     summary,
+    failureSummary,
     dashboardUrl,
     sheetUrl,
     timeZone,

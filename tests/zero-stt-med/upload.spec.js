@@ -22,6 +22,8 @@ test.describe("[UI] Zero STT Med module", () => {
       audioPath,
       pageObject: medPage,
     });
-    await medPage.waitForTranscriptRows();
+
+    await medPage.assertCopyAvailable();
+    await medPage.copyConversation();
   });
 });

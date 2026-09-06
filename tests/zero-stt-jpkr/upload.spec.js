@@ -1,5 +1,5 @@
 // Disabled: new website ASR no longer supports Japanese/Korean (Jul 2026).
-const { test, expect } = require("@playwright/test");
+const { test } = require("@playwright/test");
 const path = require("path");
 const { WidgetPage } = require("../pages/widget-page");
 const { JpKrSttPage } = require("../pages/jpkr-stt-page");
@@ -23,10 +23,6 @@ test.describe.skip("[UI] Zero STT JP/KR module", () => {
       audioPath,
       pageObject: sttPage,
     });
-
-    await expect(
-      sttPage.root.getByText(/thank you for calling customer support/i).first(),
-    ).toBeVisible({ timeout: 30_000 });
 
     await sttPage.assertCopyAvailable();
     await sttPage.copyConversation();

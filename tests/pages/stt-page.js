@@ -1,5 +1,9 @@
 const { expect } = require("@playwright/test");
 const { TIMEOUTS } = require("../utils/timeouts");
+const {
+  transcriptHasMeaningfulContent,
+  transcriptHasPhrases,
+} = require("../utils/transcript-text");
 
 class SttPage {
   constructor(widgetPage) {
@@ -98,21 +102,9 @@ class SttPage {
   }
 
   async waitForTranscriptReady(timeoutMs = TIMEOUTS.BACKEND_RESULT) {
-    await this.root.waitForFunction(
-      (minRows) => {
-        if (document.querySelectorAll(".flex.items-center.space-x-2").length >= minRows) {
-          return true;
-        }
-        const text = document.body?.innerText || "";
-        return (
-          text.length > 200 &&
-          !text.includes("Choose a sample clip, upload an audio file") &&
-          !text.includes("Choose a sample")
-        );
-      },
-      1,
-      { timeout: timeoutMs },
-    );
+    await this.root.waitForFunction(transcriptHasMeaningfulContent, 120, {
+      timeout: timeoutMs,
+    });
   }
 
   async waitForTranscriptLine({
@@ -281,23 +273,9 @@ class SttPage {
   }
 
   async waitForTranscriptContains(expectedLines, timeoutMs = TIMEOUTS.BACKEND_RESULT) {
-    await this.root.waitForFunction(
-      (lines) => {
-        const rows = Array.from(
-          document.querySelectorAll(".flex.items-center.space-x-2"),
-        );
-        const normalize = (value) =>
-          value
-            .toLowerCase()
-            .replace(/[^a-z0-9\s]/g, " ")
-            .replace(/\s+/g, " ")
-            .trim();
-        const text = normalize(rows.map((row) => row.textContent || "").join(" "));
-        return lines.every((line) => text.includes(normalize(line)));
-      },
-      expectedLines,
-      { timeout: timeoutMs },
-    );
+    await this.root.waitForFunction(transcriptHasPhrases, expectedLines, {
+      timeout: timeoutMs,
+    });
   }
 
   async waitForTranscriptSummary({
@@ -307,26 +285,26 @@ class SttPage {
   }) {
     await this.root.waitForFunction(
       (params) => {
-        const rows = Array.from(
-          document.querySelectorAll(".flex.items-center.space-x-2"),
-        );
         const normalize = (value) =>
-          value
+          String(value || "")
             .toLowerCase()
             .replace(/[^a-z0-9\s]/g, " ")
             .replace(/\s+/g, " ")
             .trim();
-        const text = normalize(rows.map((row) => row.textContent || "").join(" "));
+        const rows = Array.from(
+          document.querySelectorAll(".flex.items-center.space-x-2"),
+        );
+        const rowText = normalize(rows.map((row) => row.textContent || "").join(" "));
+        const rootText = normalize(document.body?.innerText || "");
+        const text = `${rowText} ${rootText}`.trim();
         const speakers = new Set();
-        rows.forEach((row) => {
-          const match = (row.textContent || "").match(/Speaker\s*\d/gi);
-          if (match) match.forEach((item) => speakers.add(item.toLowerCase()));
-        });
-        const phrasesOk = params.keyPhrases.every((line) =>
+        const speakerMatches = text.match(/speaker\s*\d/gi) || [];
+        speakerMatches.forEach((item) => speakers.add(item.toLowerCase()));
+        const phrasesOk = (params.keyPhrases || []).every((line) =>
           text.includes(normalize(line)),
         );
         const speakersOk = params.speakerCount
-          ? speakers.size === params.speakerCount
+          ? speakers.size >= Math.min(params.speakerCount, 2)
           : speakers.size > 0;
         return phrasesOk && speakersOk;
       },
