@@ -26,7 +26,7 @@ jobs:
           TEST_ENV: prod
           SEND_HEALTH_ALERT: "1"
           EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
-          HEALTH_ALERT_RECIPIENT: ${{ secrets.HEALTH_ALERT_RECIPIENT }}
+          REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
           REPORT_DASHBOARD_URL: https://shunyalabsai.github.io/widgets-automation
           REPORT_TIMEZONE: Asia/Kolkata
         run: npm run health:check

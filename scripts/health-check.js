@@ -26,8 +26,8 @@ function assertHealthPrerequisites() {
     if (!process.env.EMAIL_WEB_APP_URL) {
       throw new Error("SEND_HEALTH_ALERT=1 but EMAIL_WEB_APP_URL is not set.");
     }
-    if (!process.env.HEALTH_ALERT_RECIPIENT) {
-      throw new Error("SEND_HEALTH_ALERT=1 but HEALTH_ALERT_RECIPIENT is not set.");
+    if (!process.env.REPORT_RECIPIENTS) {
+      throw new Error("SEND_HEALTH_ALERT=1 but REPORT_RECIPIENTS is not set.");
     }
   }
 }

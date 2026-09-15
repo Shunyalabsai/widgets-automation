@@ -194,7 +194,7 @@ function assertMaySendHealthAlert(run) {
 
 async function sendEmail({ url, to, subject, body }) {
   if (!url) throw new Error("EMAIL_WEB_APP_URL is not set.");
-  if (!to) throw new Error("HEALTH_ALERT_RECIPIENT is not set.");
+  if (!to) throw new Error("REPORT_RECIPIENTS is not set.");
 
   const response = await fetch(url, {
     method: "POST",
@@ -240,7 +240,7 @@ async function main() {
   const dashboardUrl =
     process.env.REPORT_DASHBOARD_URL ||
     "https://shunyalabsai.github.io/widgets-automation";
-  const recipient = process.env.HEALTH_ALERT_RECIPIENT || "";
+  const recipient = process.env.REPORT_RECIPIENTS || "";
   const emailUrl = process.env.EMAIL_WEB_APP_URL || "";
 
   if (previewPass) {
