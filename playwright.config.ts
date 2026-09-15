@@ -1,6 +1,9 @@
 import { defineConfig } from "@playwright/test";
 
 const isCI = Boolean((globalThis as { process?: { env?: { CI?: string } } }).process?.env?.CI);
+const playwrightJsonReport =
+  (globalThis as { process?: { env?: { HEALTH_REPORT_JSON?: string } } }).process?.env
+    ?.HEALTH_REPORT_JSON || "reports/playwright-report.json";
 
 export default defineConfig({
   testDir: "./tests",
@@ -14,12 +17,20 @@ export default defineConfig({
   reporter: [
     ["list"],
     ["html", { open: "never", outputFolder: "reports/html" }],
-    ["json", { outputFile: "reports/playwright-report.json" }],
+    ["json", { outputFile: playwrightJsonReport }],
   ],
   projects: [
     {
+      name: "health",
+      testMatch: /tests\/api\/health\/.*\.spec\.js/,
+      retries: 0,
+      timeout: 120_000,
+      fullyParallel: false,
+      workers: 1,
+    },
+    {
       name: "api",
-      testMatch: /tests\/api\/.*\.spec\.js/,
+      testMatch: /tests\/api\/(?!health\/).*\.spec\.js/,
     },
     {
       name: "ui",

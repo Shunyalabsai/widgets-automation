@@ -1,0 +1,110 @@
+
+    <html>
+      <head><meta charset="utf-8"></head>
+      <body style="margin:0;padding:0;background:#f4f4f7;font-family:Arial,Helvetica,sans-serif;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:24px 0;">
+          <tr><td align="center">
+            <table role="presentation" width="640" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+              <tr>
+                <td style="background:linear-gradient(135deg,#dc2626,#991b1b);padding:28px 32px;color:#fff;">
+                  <p style="margin:0 0 6px;font-size:12px;opacity:0.9;">Shunyalabs Widget Automation</p>
+                  <h1 style="margin:0 0 8px;font-size:22px;">Production API health check failed</h1>
+                  <p style="margin:0;font-size:14px;opacity:0.95;">Tue, 15 Sept, 2026, 01:29:29 pm · Production · <a href="https://www.shunyalabs.ai/" style="color:#fff;text-decoration:underline;">https://www.shunyalabs.ai/</a></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:24px 28px;">
+                  <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.5;">
+                    Every 15 minutes we verify core widget APIs and assets return a successful response.
+                    <strong>2</strong> of <strong>6</strong> checks failed on this run.
+                    <br><span style="color:#991b1b;">Affected: STT API, Static assets</span>
+                  </p>
+                  <p style="margin:0 0 16px;font-size:12px;color:#6b7280;line-height:1.4;">
+                    This is an availability smoke check only. Full regression failures (UI/API tests) are reported separately on the automation dashboard.
+                  </p>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;font-size:13px;">
+                    <tr style="background:#f9fafb;">
+                      <th style="padding:10px 14px;text-align:left;color:#6b7280;font-size:11px;">Check</th>
+                      <th style="padding:10px 14px;text-align:center;color:#6b7280;font-size:11px;">Status</th>
+                      <th style="padding:10px 14px;text-align:left;color:#6b7280;font-size:11px;">Result</th>
+                    </tr>
+                    
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>Token API</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">POST /api/vak/token</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>Translate API</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">POST /api/vak/translate</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+        <tr style="background:#fef2f2;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>STT API</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">POST /api/vak/stt</p>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">Smoke: short sample audio upload</p>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#dc2626;font-weight:700;">FAILED</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><p style="margin:6px 0 0;font-size:12px;color:#991b1b;line-height:1.4;">stt failed (503): Service temporarily unavailable</p></td>
+        </tr>
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>TTS API</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">POST /api/vak/tts</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+        <tr style="background:#fef2f2;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>Static assets</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">GET /data/transcriptions/...</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#dc2626;font-weight:700;">FAILED</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><p style="margin:6px 0 0;font-size:12px;color:#991b1b;line-height:1.4;">asset failed (503): speech-to-text-en.json</p></td>
+        </tr>
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>Environment</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">config</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+                  </table>
+                  
+                  <p style="margin:24px 0 0;font-size:11px;color:#9ca3af;text-align:center;">
+                    Automated API health monitoring · Shunyalabs
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+        </table>
+      </body>
+    </html>
+  

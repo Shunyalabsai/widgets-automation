@@ -1,0 +1,43 @@
+name: API Health Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      # SEND_HEALTH_ALERT=1: email only when checks fail (pass = green job, no mail).
+      - name: Run API health checks
+        env:
+          TEST_ENV: prod
+          SEND_HEALTH_ALERT: "1"
+          EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
+          HEALTH_ALERT_RECIPIENT: ${{ secrets.HEALTH_ALERT_RECIPIENT }}
+          REPORT_DASHBOARD_URL: https://shunyalabsai.github.io/widgets-automation
+          REPORT_TIMEZONE: Asia/Kolkata
+        run: npm run health:check
+
+      - name: Upload health report artifact
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-check-debug
+          path: |
+            reports/health-playwright-report.json
+            reports/health-alert-run.json
+            docs/data/latest-health.json
+          if-no-files-found: ignore

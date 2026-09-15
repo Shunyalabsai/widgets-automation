@@ -1,0 +1,111 @@
+
+    <html>
+      <head><meta charset="utf-8"></head>
+      <body style="margin:0;padding:0;background:#f4f4f7;font-family:Arial,Helvetica,sans-serif;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:24px 0;">
+          <tr><td align="center">
+            <table role="presentation" width="640" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+              <tr>
+                <td style="background:linear-gradient(135deg,#059669,#047857);padding:28px 32px;color:#fff;">
+                  <p style="margin:0 0 6px;font-size:12px;opacity:0.9;">Shunyalabs Widget Automation</p>
+                  <h1 style="margin:0 0 8px;font-size:22px;">Production API health check passed</h1>
+                  <p style="margin:0;font-size:14px;opacity:0.95;">Tue, 15 Sept, 2026, 01:50:04 pm · Production · <a href="https://www.shunyalabs.ai/" style="color:#fff;text-decoration:underline;">https://www.shunyalabs.ai/</a></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:24px 28px;">
+                  <p style="margin:0 0 12px;padding:12px 14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;font-size:12px;color:#065f46;line-height:1.5;">
+                    <strong>Preview only.</strong> When all checks pass, we do <strong>not</strong> send this email in production — CI stays green and results are saved to <code style="font-size:11px;">docs/data/latest-health.json</code>.
+                  </p>
+                  <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.5;">
+                    All <strong>6</strong> core API and asset smoke checks completed successfully on this run.
+                  </p>
+                  <p style="margin:0 0 16px;font-size:12px;color:#6b7280;line-height:1.4;">
+                    Runs every 15 minutes in GitHub Actions. Alerts are sent only when one or more checks fail.
+                  </p>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;font-size:13px;">
+                    <tr style="background:#f9fafb;">
+                      <th style="padding:10px 14px;text-align:left;color:#6b7280;font-size:11px;">Check</th>
+                      <th style="padding:10px 14px;text-align:center;color:#6b7280;font-size:11px;">Status</th>
+                      <th style="padding:10px 14px;text-align:left;color:#6b7280;font-size:11px;">Result</th>
+                    </tr>
+                    
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>Token API</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">POST /api/vak/token</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>Translate API</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">POST /api/vak/translate</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>STT API</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">POST /api/vak/stt</p>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">Smoke: sample audio upload (live-recording.opus)</p>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>TTS API</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">POST /api/vak/tts</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>Static assets</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">GET /data/transcriptions/...</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+        <tr style="background:#ffffff;">
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;">
+            <strong>Environment</strong>
+            <p style="margin:4px 0 0;font-size:11px;color:#6b7280;">config</p>
+            
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;text-align:center;">
+            <span style="color:#16a34a;font-weight:700;">OK</span>
+          </td>
+          <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;"><span style="color:#6b7280;">Healthy response</span></td>
+        </tr>
+                  </table>
+                  <p style="margin:20px 0 0;text-align:center;"><a href="https://shunyalabsai.github.io/widgets-automation" style="display:inline-block;background:#6366f1;color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;">View regression dashboard</a></p>
+                  <p style="margin:24px 0 0;font-size:11px;color:#9ca3af;text-align:center;">
+                    Automated API health monitoring · Shunyalabs
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+        </table>
+      </body>
+    </html>
+  

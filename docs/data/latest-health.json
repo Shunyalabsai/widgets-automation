@@ -1,0 +1,55 @@
+{
+  "startedAt": "2026-09-15T08:20:04.294Z",
+  "environment": "prod",
+  "siteUrl": "https://www.shunyalabs.ai/",
+  "apiBaseUrl": "https://widget.shunyalabs.ai",
+  "passed": 6,
+  "failed": 0,
+  "total": 6,
+  "healthy": true,
+  "checks": [
+    {
+      "name": "Token API",
+      "endpoint": "POST /api/vak/token",
+      "note": "",
+      "status": "passed",
+      "error": ""
+    },
+    {
+      "name": "Translate API",
+      "endpoint": "POST /api/vak/translate",
+      "note": "",
+      "status": "passed",
+      "error": ""
+    },
+    {
+      "name": "STT API",
+      "endpoint": "POST /api/vak/stt",
+      "note": "Smoke: sample audio upload (live-recording.opus)",
+      "status": "passed",
+      "error": ""
+    },
+    {
+      "name": "TTS API",
+      "endpoint": "POST /api/vak/tts",
+      "note": "",
+      "status": "passed",
+      "error": ""
+    },
+    {
+      "name": "Static assets",
+      "endpoint": "GET /data/transcriptions/...",
+      "note": "",
+      "status": "passed",
+      "error": ""
+    },
+    {
+      "name": "Environment",
+      "endpoint": "config",
+      "note": "",
+      "status": "passed",
+      "error": ""
+    }
+  ],
+  "reportPath": "/Users/admin/Documents/Shunyalabs-widget-automation/reports/health-playwright-report.json"
+}
