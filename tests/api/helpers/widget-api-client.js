@@ -117,6 +117,12 @@ class WidgetApiClient {
     }
     const contentType = response.headers()["content-type"] || "";
     const audioBuffer = await response.body();
+    if (audioBuffer.length <= 1000) {
+      const preview = audioBuffer.slice(0, 200).toString("utf8");
+      throw new Error(
+        `[API] TTS returned too little audio (${audioBuffer.length} bytes, ${contentType}): ${preview}`,
+      );
+    }
     return { contentType, byteLength: audioBuffer.length, buffer: audioBuffer };
   }
 

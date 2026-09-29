@@ -9,7 +9,7 @@ export default defineConfig({
   testDir: "./tests",
   timeout: 180_000,
   fullyParallel: true,
-  workers: isCI ? 3 : undefined,
+  workers: 3,
   expect: {
     timeout: 5_000,
   },
@@ -35,7 +35,8 @@ export default defineConfig({
     {
       name: "ui",
       testMatch: /tests\/(?!api\/).*\.spec\.js/,
-      workers: isCI ? 2 : 2,
+      fullyParallel: false,
+      workers: 1,
       use: {
         browserName: "chromium",
         trace: "off",

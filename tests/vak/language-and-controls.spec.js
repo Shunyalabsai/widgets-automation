@@ -27,7 +27,7 @@ test.describe("[UI] VAK module", () => {
   });
 
   test("speaker and emotion controls are visible", async ({ page }) => {
-    test.setTimeout(TIMEOUTS.TEST_FAST);
+    test.setTimeout(TIMEOUTS.TEST_MEDIUM);
     const widgetPage = new WidgetPage(page);
     const vakPage = new VakPage(widgetPage);
 

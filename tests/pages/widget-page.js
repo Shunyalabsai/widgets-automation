@@ -96,20 +96,44 @@ class WidgetPage {
     });
   }
 
+  async isSecurityCheckpointVisible() {
+    return this.page
+      .getByText(
+        /Failed to verify your browser|We're verifying your browser|Vercel Security Checkpoint/i,
+      )
+      .first()
+      .isVisible()
+      .catch(() => false);
+  }
+
   async openModule(moduleName) {
     const config = moduleConfig(moduleName);
     const embedUrl = this.embedUrl(config);
+    let lastError = null;
 
-    await this.page.goto(embedUrl, { waitUntil: "domcontentloaded" });
-    await this.waitForModuleReady(config, this.page);
+    for (let attempt = 1; attempt <= 5; attempt++) {
+      try {
+        await this.page.goto(embedUrl, { waitUntil: "domcontentloaded" });
+        if (await this.isSecurityCheckpointVisible()) {
+          throw new Error("Widget embed blocked by Vercel security checkpoint");
+        }
+        await this.waitForModuleReady(config, this.page);
+        this.widgetFrame = this.page.mainFrame();
+        await this.widgetFrame
+          .waitForLoadState("domcontentloaded", { timeout: 60_000 })
+          .catch(() => {});
+        await this.page.waitForTimeout(500);
+        this.activeModule = moduleName;
+        return this.widgetFrame;
+      } catch (error) {
+        lastError = error;
+        if (attempt < 5) {
+          await this.page.waitForTimeout(6000 * attempt);
+        }
+      }
+    }
 
-    this.widgetFrame = this.page.mainFrame();
-    await this.widgetFrame
-      .waitForLoadState("domcontentloaded", { timeout: 60_000 })
-      .catch(() => {});
-    await this.page.waitForTimeout(500);
-    this.activeModule = moduleName;
-    return this.widgetFrame;
+    throw lastError || new Error(`Could not open widget module: ${moduleName}`);
   }
 
   getWidgetRoot() {

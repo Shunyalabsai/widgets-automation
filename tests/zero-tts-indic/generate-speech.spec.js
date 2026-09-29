@@ -4,14 +4,21 @@ const { TtsPage } = require("../pages/tts-page");
 const { TIMEOUTS } = require("../utils/timeouts");
 
 test.describe("[UI] Zero TTS Indic module", () => {
+  test.describe.configure({ mode: "serial" });
+
   let widgetPage;
   let ttsPage;
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeAll(async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
     widgetPage = new WidgetPage(page);
     ttsPage = new TtsPage(widgetPage);
-    await widgetPage.goto();
     await widgetPage.openModule("Zero TTS Indic");
+  });
+
+  test.afterAll(async () => {
+    await widgetPage?.page?.context()?.close();
   });
 
   test("default voice generates speech from text input", async () => {
@@ -23,7 +30,7 @@ test.describe("[UI] Zero TTS Indic module", () => {
   });
 
   test("text input shows character count up to 1000", async () => {
-    test.setTimeout(TIMEOUTS.TEST_FAST);
+    test.setTimeout(TIMEOUTS.TEST_MEDIUM);
 
     await ttsPage.enterText("Hello world");
     const count = await ttsPage.getCharCount();
@@ -79,7 +86,7 @@ test.describe("[UI] Zero TTS Indic module", () => {
   });
 
   test("generate button is disabled with empty text", async () => {
-    test.setTimeout(TIMEOUTS.TEST_FAST);
+    test.setTimeout(TIMEOUTS.TEST_MEDIUM);
 
     await ttsPage.clearText();
     const textarea = ttsPage.textInput;

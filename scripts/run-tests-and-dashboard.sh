@@ -6,11 +6,24 @@ cd "$ROOT_DIR"
 
 mkdir -p reports/html docs/history docs/data docs/exports docs/playwright-artifacts test-results
 
+run_project() {
+  local project="$1"
+  shift
+  echo ""
+  echo "========== Playwright project: ${project} =========="
+  npx playwright test --project="${project}" "$@"
+}
+
 TEST_EXIT=0
 set +e
-npx playwright test
-TEST_EXIT=$?
+run_project health || TEST_EXIT=1
+run_project api || TEST_EXIT=1
+run_project ui --workers=1 || TEST_EXIT=1
 set -e
+
+if [ "$TEST_EXIT" -ne 0 ]; then
+  echo "Test run failed (see project sections above)."
+fi
 
 node scripts/generate-dashboard.js
 node scripts/update-coverage-sheet.js || true
