@@ -2,8 +2,9 @@ name: API Health Check
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "*/15 * * * *"
+  # Paused: re-enable schedule after QA confirmation (was */15 * * * *).
+  # schedule:
+  #   - cron: "*/15 * * * *"
 
 jobs:
   health:
