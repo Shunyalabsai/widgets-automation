@@ -57,21 +57,19 @@ class WidgetPage {
   }
 
   async goto() {
-    await this.page.goto(this.env.siteUrl, { waitUntil: "domcontentloaded" });
+    const { gotoSite } = require("../utils/site-helpers");
+    await gotoSite(this.page, this.env.siteUrl);
     await this.page
-      .getByRole("heading", { name: /Voice AI Stack/i })
+      .getByRole("heading", { name: /Ask it something/i })
       .scrollIntoViewIfNeeded()
       .catch(() => {});
-    await this.page.waitForTimeout(1000);
-    await this.page
-      .getByRole("tab", { name: /Zero TTS Indic|Zero STT Indic/i })
-      .first()
-      .waitFor({ timeout: 60_000 });
+    await this.page.waitForTimeout(500);
   }
 
   embedUrl(config) {
     const suffix = config.slug === "vak" ? "&inlinePickers=1" : "";
-    return `https://${this.env.widgetHost}/?widget=${config.slug}-v2&embed=1${suffix}`;
+    const base = this.env.widgetPageBase || `https://${this.env.widgetHost}/widget`;
+    return `${base}?widget=${config.slug}-v2&embed=1${suffix}`;
   }
 
   async waitForModuleReady(config, root = this.page) {

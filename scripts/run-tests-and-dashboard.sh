@@ -4,22 +4,40 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT_DIR"
 
-mkdir -p reports/html docs/history docs/data docs/exports docs/playwright-artifacts test-results
+mkdir -p reports/html reports/fragments docs/history docs/data docs/exports docs/playwright-artifacts test-results
 
 run_project() {
   local project="$1"
   shift
+  local fragment="reports/fragments/${project}.json"
   echo ""
   echo "========== Playwright project: ${project} =========="
-  npx playwright test --project="${project}" "$@"
+  PLAYWRIGHT_REPORT_FRAGMENT="${fragment}" npx playwright test --project="${project}" "$@"
 }
 
+MERGE_INPUTS=()
 TEST_EXIT=0
 set +e
-run_project health || TEST_EXIT=1
-run_project api || TEST_EXIT=1
+
+run_project site || TEST_EXIT=1
+MERGE_INPUTS+=(reports/fragments/site.json)
+
 run_project ui --workers=1 || TEST_EXIT=1
+MERGE_INPUTS+=(reports/fragments/ui.json)
+
+if [ "${RUN_LEGACY_API:-0}" = "1" ]; then
+  run_project api || TEST_EXIT=1
+  MERGE_INPUTS+=(reports/fragments/api.json)
+fi
+
+if [ "${RUN_HEALTH:-0}" = "1" ]; then
+  run_project health || TEST_EXIT=1
+  MERGE_INPUTS+=(reports/fragments/health.json)
+fi
+
 set -e
+
+node scripts/merge-playwright-reports.js "${MERGE_INPUTS[@]}"
 
 if [ "$TEST_EXIT" -ne 0 ]; then
   echo "Test run failed (see project sections above)."

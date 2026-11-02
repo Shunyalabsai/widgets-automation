@@ -1,9 +1,11 @@
 import { defineConfig } from "@playwright/test";
 
 const isCI = Boolean((globalThis as { process?: { env?: { CI?: string } } }).process?.env?.CI);
+const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env;
 const playwrightJsonReport =
-  (globalThis as { process?: { env?: { HEALTH_REPORT_JSON?: string } } }).process?.env
-    ?.HEALTH_REPORT_JSON || "reports/playwright-report.json";
+  env?.PLAYWRIGHT_REPORT_FRAGMENT ||
+  env?.HEALTH_REPORT_JSON ||
+  "reports/playwright-report.json";
 
 export default defineConfig({
   testDir: "./tests",
@@ -20,6 +22,17 @@ export default defineConfig({
     ["json", { outputFile: playwrightJsonReport }],
   ],
   projects: [
+    {
+      name: "site",
+      testMatch: /tests\/site\/.*\.spec\.js/,
+      fullyParallel: true,
+      workers: 2,
+      use: {
+        browserName: "chromium",
+        trace: "off",
+        screenshot: "only-on-failure",
+      },
+    },
     {
       name: "health",
       testMatch: /tests\/api\/health\/.*\.spec\.js/,

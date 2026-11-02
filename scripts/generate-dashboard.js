@@ -71,9 +71,10 @@ function moduleFromFile(filePath) {
   const layeredMatch = normalized.match(/\/tests\/(?:api|ui)\/([^/]+)\//);
   if (layeredMatch) return layeredMatch[1];
   const match = normalized.match(/\/tests\/([^/]+)\//);
-  if (match && !["api", "ui", "pages", "utils", "config", "data"].includes(match[1])) {
+  if (match && !["api", "ui", "pages", "utils", "config", "data", "site"].includes(match[1])) {
     return match[1];
   }
+  if (normalized.includes("/tests/site/")) return "site";
   const directMatch = normalized.match(/^([^/]+)\//);
   if (directMatch) return directMatch[1];
   return "unknown";
