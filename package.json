@@ -1,7 +1,7 @@
 {
   "name": "shunyalabs-widget-automation",
   "version": "0.1.51",
-  "description": "Playwright automation tests for Shunyalabs widgets",
+  "description": "Playwright automation for live www.shunyalabs.ai site, playground, and APIs",
   "main": "index.js",
   "scripts": {
     "test": "bash scripts/run-tests-and-dashboard.sh",
@@ -13,8 +13,7 @@
     "health:pass-preview": "node scripts/send-health-alert.js --preview-pass",
     "health:validate-report": "node scripts/validate-health-pipeline.js",
     "test:site": "playwright test --project=site",
-    "test:ui": "playwright test --project=ui",
-    "test:full-api": "RUN_LEGACY_API=1 bash scripts/run-tests-and-dashboard.sh",
+    "test:playground": "playwright test --project=playground",
     "test:playwright-ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:report": "playwright show-report",

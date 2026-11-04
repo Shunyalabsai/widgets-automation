@@ -75,7 +75,17 @@ class WidgetApiClient {
     if (!response.ok()) {
       throw new Error(`[API] STT failed (${response.status()}): ${bodyText.slice(0, 500)}`);
     }
-    return body;
+    const text =
+      body.text ||
+      body.transcript?.text ||
+      body.transcription?.text ||
+      (typeof body.transcript === "string" ? body.transcript : "");
+    const success =
+      body.success === true ||
+      body.status === "ok" ||
+      body.status === "success" ||
+      (text.length > 0 && body.success !== false);
+    return { ...body, text, success };
   }
 
   async translateText(text, { sourceLang = "hi", targetLang = "en" } = {}) {
@@ -219,7 +229,11 @@ class WidgetApiClient {
     } catch {
       body = { raw: bodyText };
     }
-    const text = body.text || "";
+    const text =
+      body.text ||
+      body.transcript?.text ||
+      body.transcription?.text ||
+      (typeof body.transcript === "string" ? body.transcript : "");
     return {
       ok: response.ok() && text.length > 0,
       status: response.status(),

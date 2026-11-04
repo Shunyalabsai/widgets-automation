@@ -48,6 +48,8 @@ jobs:
         id: run_tests
         env:
           TEST_ENV: prod
+          SHUNYA_TEST_EMAIL: ${{ secrets.SHUNYA_TEST_EMAIL }}
+          SHUNYA_TEST_PASSWORD: ${{ secrets.SHUNYA_TEST_PASSWORD }}
           GOOGLE_SHEETS_WEB_APP_URL: ${{ secrets.GOOGLE_SHEETS_WEB_APP_URL }}
           GOOGLE_SHEETS_SPREADSHEET_ID: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
           GOOGLE_SHEETS_SHEET_NAME: test-coverage

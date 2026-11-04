@@ -1,6 +1,7 @@
 import { defineConfig } from "@playwright/test";
 
-const isCI = Boolean((globalThis as { process?: { env?: { CI?: string } } }).process?.env?.CI);
+require("./tests/utils/load-env").loadEnvFile();
+
 const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env;
 const playwrightJsonReport =
   env?.PLAYWRIGHT_REPORT_FRAGMENT ||
@@ -8,6 +9,7 @@ const playwrightJsonReport =
   "reports/playwright-report.json";
 
 export default defineConfig({
+  globalSetup: "./tests/global-setup.js",
   testDir: "./tests",
   timeout: 180_000,
   fullyParallel: true,
@@ -25,8 +27,19 @@ export default defineConfig({
     {
       name: "site",
       testMatch: /tests\/site\/.*\.spec\.js/,
-      fullyParallel: true,
-      workers: 2,
+      fullyParallel: false,
+      workers: 1,
+      use: {
+        browserName: "chromium",
+        trace: "off",
+        screenshot: "only-on-failure",
+      },
+    },
+    {
+      name: "playground",
+      testMatch: /tests\/playground\/.*\.spec\.js/,
+      fullyParallel: false,
+      workers: 1,
       use: {
         browserName: "chromium",
         trace: "off",
@@ -43,19 +56,7 @@ export default defineConfig({
     },
     {
       name: "api",
-      testMatch: /tests\/api\/(?!health\/).*\.spec\.js/,
-    },
-    {
-      name: "ui",
-      testMatch: /tests\/(?!api\/).*\.spec\.js/,
-      fullyParallel: false,
-      workers: 1,
-      use: {
-        browserName: "chromium",
-        trace: "off",
-        screenshot: "only-on-failure",
-        video: "retain-on-failure",
-      },
+      testMatch: /tests\/api\/live-site\.api\.spec\.js/,
     },
   ],
 });

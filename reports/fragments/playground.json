@@ -1,0 +1,552 @@
+{
+  "config": {
+    "configFile": "/Users/admin/Documents/Shunyalabs-widget-automation/playwright.config.ts",
+    "rootDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/Users/admin/Documents/Shunyalabs-widget-automation/tests/global-setup.js",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "site",
+        "name": "site",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/site\\/.*\\.spec\\.js/"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "playground",
+        "name": "playground",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/playground\\/.*\\.spec\\.js/"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "health",
+        "name": "health",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/api\\/health\\/.*\\.spec\\.js/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/api\\/live-site\\.api\\.spec\\.js/"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "reports/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/fragments/playground.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "playground/auth-gate.spec.js",
+      "file": "playground/auth-gate.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[Playground] Auth gate",
+          "file": "playground/auth-gate.spec.js",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "signed-in user reaches playground console",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2537,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:44.255Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "db3e258e044620d170f7-3967cff6ae091d9575c7",
+              "file": "playground/auth-gate.spec.js",
+              "line": 12,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "playground/horizon.spec.js",
+      "file": "playground/horizon.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[Playground] Horizon (Listen)",
+          "file": "playground/horizon.spec.js",
+          "line": 17,
+          "column": 6,
+          "specs": [
+            {
+              "title": "indic variant is selectable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1870,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:47.000Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-72e34bacf86b5318d251",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "codeswitch variant is selectable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1747,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:48.876Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-7dff6a0e7a9bb7e91c1c",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "medical variant is selectable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1828,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:50.629Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-c11296d321edf4c4b826",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "oriental variant is selectable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1929,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:52.462Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-46e1fa2c5424bd28cd52",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "universal variant is selectable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1902,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:54.397Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-5fb97a52b576c9e6e202",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "english language control is visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2064,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:56.305Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-128d38f7965e84a15e60",
+              "file": "playground/horizon.spec.js",
+              "line": 39,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "playground/voice-products.spec.js",
+      "file": "playground/voice-products.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[Playground] Voice products",
+          "file": "playground/voice-products.spec.js",
+          "line": 16,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Speak (Radiance) workspace loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1665,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:58.377Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8012534656067c5754c0-5ce3ae270d45ee94c11b",
+              "file": "playground/voice-products.spec.js",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "Translate (Parallax) workspace loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1906,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:00.047Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8012534656067c5754c0-d1728de769f47e2e4432",
+              "file": "playground/voice-products.spec.js",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "Voice agents (Resonance) route loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2468,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:01.959Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8012534656067c5754c0-9dd7cf73fb58cd7ba75a",
+              "file": "playground/voice-products.spec.js",
+              "line": 40,
+              "column": 3
+            },
+            {
+              "title": "API keys account page loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1572,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:04.434Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8012534656067c5754c0-29a62315752ee63dc988",
+              "file": "playground/voice-products.spec.js",
+              "line": 50,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-04T15:52:43.796Z",
+    "duration": 22235.207,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -4,26 +4,78 @@
     "rootDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
     "forbidOnly": false,
     "fullyParallel": true,
-    "globalSetup": null,
+    "globalSetup": "/Users/admin/Documents/Shunyalabs-widget-automation/tests/global-setup.js",
     "globalTeardown": null,
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 1
+    },
     "preserveOutput": "always",
     "projects": [
       {
         "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
         "repeatEach": 1,
         "retries": 1,
-        "metadata": {},
-        "id": "chromium",
-        "name": "chromium",
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "site",
+        "name": "site",
         "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "/tests\\/site\\/.*\\.spec\\.js/"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "playground",
+        "name": "playground",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/playground\\/.*\\.spec\\.js/"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "health",
+        "name": "health",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/api\\/health\\/.*\\.spec\\.js/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/api\\/live-site\\.api\\.spec\\.js/"
         ],
         "timeout": 180000
       }
@@ -44,7 +96,7 @@
       [
         "json",
         {
-          "outputFile": "reports/playwright-report.json"
+          "outputFile": "reports/fragments/site.json"
         }
       ]
     ],
@@ -58,25 +110,25 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.58.1",
-    "workers": 5,
+    "workers": 3,
     "webServer": null
   },
   "suites": [
     {
-      "title": "vak/language-and-controls.spec.js",
-      "file": "vak/language-and-controls.spec.js",
+      "title": "site/home-demos.spec.js",
+      "file": "site/home-demos.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "VAK module",
-          "file": "vak/language-and-controls.spec.js",
-          "line": 6,
+          "title": "[Site] Homepage live demos",
+          "file": "site/home-demos.spec.js",
+          "line": 4,
           "column": 6,
           "specs": [
             {
-              "title": "source and destination language pickers are interactive",
+              "title": "Listen (Horizon) tab is interactive",
               "ok": true,
               "tags": [],
               "tests": [
@@ -84,472 +136,131 @@
                   "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "e24b8be5b6c8af3d84d9-6a114a9eda45152abeeb",
-              "file": "vak/language-and-controls.spec.js",
-              "line": 7,
-              "column": 3
-            },
-            {
-              "title": "speaker and emotion controls are visible",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "e24b8be5b6c8af3d84d9-4e92f28e277245ff01de",
-              "file": "vak/language-and-controls.spec.js",
-              "line": 29,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "vak/text-translation.spec.js",
-      "file": "vak/text-translation.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "VAK module",
-          "file": "vak/text-translation.spec.js",
-          "line": 6,
-          "column": 6,
-          "specs": [
-            {
-              "title": "hindi text translates to indian english",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "baf45634d35b00cc0413-7808f919ac9d8c4240cc",
-              "file": "vak/text-translation.spec.js",
-              "line": 7,
-              "column": 3
-            },
-            {
-              "title": "bengali source text translates to indian english",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "baf45634d35b00cc0413-4646e35ac5d2cc0116f1",
-              "file": "vak/text-translation.spec.js",
-              "line": 20,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "zero-stt-codeswitch/live-recording.spec.js",
-      "file": "zero-stt-codeswitch/live-recording.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Zero STT Codeswitch module",
-          "file": "zero-stt-codeswitch/live-recording.spec.js",
-          "line": 9,
-          "column": 6,
-          "specs": [
-            {
-              "title": "simulated live recording validates transcript and speakers",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "b169c9111db23ca6f99f-8808ddbd5f125cef7bcb",
-              "file": "zero-stt-codeswitch/live-recording.spec.js",
-              "line": 10,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "zero-stt-codeswitch/sample-audio.spec.js",
-      "file": "zero-stt-codeswitch/sample-audio.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Zero STT Codeswitch module",
-          "file": "zero-stt-codeswitch/sample-audio.spec.js",
-          "line": 6,
-          "column": 6,
-          "specs": [
-            {
-              "title": "sample clip renders codeswitch transcript",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "4c08e59f0d112c17289c-b2ee143ad316031d0493",
-              "file": "zero-stt-codeswitch/sample-audio.spec.js",
-              "line": 7,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "zero-stt-codeswitch/upload.spec.js",
-      "file": "zero-stt-codeswitch/upload.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Zero STT Codeswitch module",
-          "file": "zero-stt-codeswitch/upload.spec.js",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "uploaded audio renders codeswitched transcript",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "ad034378b7111de8920e-678dba06dd4d299ac935",
-              "file": "zero-stt-codeswitch/upload.spec.js",
-              "line": 9,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "zero-stt-indic/live-recording.spec.js",
-      "file": "zero-stt-indic/live-recording.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Zero STT Indic module",
-          "file": "zero-stt-indic/live-recording.spec.js",
-          "line": 9,
-          "column": 6,
-          "specs": [
-            {
-              "title": "simulated live recording uses file and verifies transcript",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "15737a45f95fd6204f22-457bff63d3c7e2d2ec85",
-              "file": "zero-stt-indic/live-recording.spec.js",
-              "line": 10,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "zero-stt-indic/prerecorded.spec.js",
-      "file": "zero-stt-indic/prerecorded.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Zero STT Indic module",
-          "file": "zero-stt-indic/prerecorded.spec.js",
-          "line": 6,
-          "column": 6,
-          "specs": [
-            {
-              "title": "prerecorded customer support call renders transcript",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "6355e853944c4c78c9fa-1f52a6785c8420ca6b1c",
-              "file": "zero-stt-indic/prerecorded.spec.js",
-              "line": 7,
-              "column": 3
-            },
-            {
-              "title": "prerecorded podcast interview renders transcript",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "6355e853944c4c78c9fa-a0e27579564a635a934a",
-              "file": "zero-stt-indic/prerecorded.spec.js",
-              "line": 26,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "zero-stt-indic/upload.spec.js",
-      "file": "zero-stt-indic/upload.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Zero STT Indic module",
-          "file": "zero-stt-indic/upload.spec.js",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "uploaded audio renders transcript and allows playback",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "335a80c508dcdf8e710b-56fea864a5142811ec64",
-              "file": "zero-stt-indic/upload.spec.js",
-              "line": 9,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "zero-stt-jpkr/language-selection.spec.js",
-      "file": "zero-stt-jpkr/language-selection.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Zero STT JP/KR module",
-          "file": "zero-stt-jpkr/language-selection.spec.js",
-          "line": 7,
-          "column": 15,
-          "specs": [
-            {
-              "title": "language picker switches between Japanese and Korean",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
                     {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/admin/Documents/Shunyalabs-widget-automation/tests/zero-stt-jpkr/language-selection.spec.js",
-                        "line": 7,
-                        "column": 15
-                      }
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 21368,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:50:39.966Z",
+                      "annotations": [],
+                      "attachments": []
                     }
                   ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
-              "id": "f481e58b95122927cb4d-309ec3b6089c42d79cd8",
-              "file": "zero-stt-jpkr/language-selection.spec.js",
-              "line": 8,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "zero-stt-jpkr/live-recording.spec.js",
-      "file": "zero-stt-jpkr/live-recording.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Zero STT JP/KR module",
-          "file": "zero-stt-jpkr/live-recording.spec.js",
-          "line": 10,
-          "column": 15,
-          "specs": [
-            {
-              "title": "live recording start/stop renders transcript",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/admin/Documents/Shunyalabs-widget-automation/tests/zero-stt-jpkr/live-recording.spec.js",
-                        "line": 10,
-                        "column": 15
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "01104163f6371b0499c9-25844307d2bfb1badbcd",
-              "file": "zero-stt-jpkr/live-recording.spec.js",
+              "id": "06c7539ca2cb2a1b0afc-86d5462bfe985c749a54",
+              "file": "site/home-demos.spec.js",
               "line": 11,
               "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "zero-stt-jpkr/upload.spec.js",
-      "file": "zero-stt-jpkr/upload.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Zero STT JP/KR module",
-          "file": "zero-stt-jpkr/upload.spec.js",
-          "line": 9,
-          "column": 15,
-          "specs": [
+            },
             {
-              "title": "uploaded audio renders transcript and allows copy",
+              "title": "Speak (Radiance) tab is interactive",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 180000,
-                  "annotations": [
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
                     {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/admin/Documents/Shunyalabs-widget-automation/tests/zero-stt-jpkr/upload.spec.js",
-                        "line": 9,
-                        "column": 15
-                      }
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 47986,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:51:01.709Z",
+                      "annotations": [],
+                      "attachments": []
                     }
                   ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
-              "id": "ce6dd6000d8f3daa159f-befd324e0ca268fd65e1",
-              "file": "zero-stt-jpkr/upload.spec.js",
-              "line": 10,
+              "id": "06c7539ca2cb2a1b0afc-ca75ed8f759dc067a513",
+              "file": "site/home-demos.spec.js",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "Translate (Parallax) tab is interactive",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1315,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:51:49.740Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "06c7539ca2cb2a1b0afc-3467bbe67044cd314fdb",
+              "file": "site/home-demos.spec.js",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "Resonance tab opens voice agent entry",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 38981,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:51:51.080Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "06c7539ca2cb2a1b0afc-8983c4803658fff5cc41",
+              "file": "site/home-demos.spec.js",
+              "line": 35,
               "column": 3
             }
           ]
@@ -557,20 +268,904 @@
       ]
     },
     {
-      "title": "zero-stt-med/live-recording.spec.js",
-      "file": "zero-stt-med/live-recording.spec.js",
+      "title": "site/navigation.spec.js",
+      "file": "site/navigation.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Zero STT Med module",
-          "file": "zero-stt-med/live-recording.spec.js",
+          "title": "[Site] Production www navigation",
+          "file": "site/navigation.spec.js",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "homepage loads with primary hero and demo section",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 609,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:30.070Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b4735b484b92e8328e79-83e4a88e6000e8e2b2ad",
+              "file": "site/navigation.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "docs and playground entry pages load",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 892,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:30.684Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b4735b484b92e8328e79-a95507c142aea0fdbac9",
+              "file": "site/navigation.spec.js",
+              "line": 14,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "site/pages-smoke.spec.js",
+      "file": "site/pages-smoke.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[Site] Key public pages",
+          "file": "site/pages-smoke.spec.js",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "loads /",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 356,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:31.586Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-5b6839f66c1ebb9a3eab",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /docs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 383,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:31.947Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-3433ec444b2d159354ed",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /about",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 342,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:32.335Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-6ac1d0ae0ec5618f7a82",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /pricing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 437,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:32.682Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-9d7af8aa70d56b4d688c",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /contact",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 406,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:33.124Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-46f27e2d6cb7a864ae3e",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /playground",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 634,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:33.535Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-0c35127a964f9b37d4c8",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /blog",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1583,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:34.174Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-40cff0f80037d487fb06",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /benchmarks-nf1g",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 461,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:35.763Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-588ef17daf00783eae10",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /platform-t1g6",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 520,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:36.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-766f28928e6ab6748aea",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /speech-to-text-51m4",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 412,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:36.754Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-75719ebcc222ddf5d82e",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /text-to-speech-j016",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 472,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:37.170Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-312bc3911f6cae10a3c0",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /horizon-1e9y",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 421,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:37.647Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-b0c5be5d7f8dae0ad5a2",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /radiance-w3x3",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 434,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:38.074Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-2bf0ce8e3a9d12d7dd8f",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /real-time-translation-cx2x",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 629,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:38.516Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-8b8ee3f3c0ffb2576e17",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /resonance-27wg",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 446,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:39.153Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-8054b4820164a711d8ca",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /privacy-policy",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 349,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:39.603Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-0b59cd0029e0700a8836",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /terms-conditions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 404,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:39.957Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-dd39c2ad32a371f8f2ed",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /solutions/e-commerce-a75v",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 390,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:40.366Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-2bd56f213c49ae926c62",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /solutions/contact-centers-yjj0",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 395,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:40.761Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-d78c5b3dd511e4ff50e2",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /solutions/bfsi-wwe3",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 603,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:41.161Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-d079b1a433edef0ef4cd",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /solutions/healthcare-1har",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 371,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:41.769Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-caff7581e7921939bc2c",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /solutions/telecom-v7de",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 404,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:42.144Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-7227055933ad8e80c05c",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            },
+            {
+              "title": "loads /solutions/enterprise-1ez1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "site",
+                  "projectName": "site",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 437,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:42.553Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e144b4119ea78789f30b-818858a040307f250fb5",
+              "file": "site/pages-smoke.spec.js",
+              "line": 8,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "playground/auth-gate.spec.js",
+      "file": "playground/auth-gate.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[Playground] Auth gate",
+          "file": "playground/auth-gate.spec.js",
           "line": 9,
           "column": 6,
           "specs": [
             {
-              "title": "live recording start/stop",
+              "title": "signed-in user reaches playground console",
               "ok": true,
               "tags": [],
               "tests": [
@@ -578,15 +1173,29 @@
                   "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2537,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:44.255Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
-              "id": "102adaee7ab8e6803093-723603a7a97beb52b85e",
-              "file": "zero-stt-med/live-recording.spec.js",
-              "line": 10,
+              "id": "db3e258e044620d170f7-3967cff6ae091d9575c7",
+              "file": "playground/auth-gate.spec.js",
+              "line": 12,
               "column": 3
             }
           ]
@@ -594,20 +1203,20 @@
       ]
     },
     {
-      "title": "zero-stt-med/prerecorded.spec.js",
-      "file": "zero-stt-med/prerecorded.spec.js",
+      "title": "playground/horizon.spec.js",
+      "file": "playground/horizon.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Zero STT Med module",
-          "file": "zero-stt-med/prerecorded.spec.js",
-          "line": 6,
+          "title": "[Playground] Horizon (Listen)",
+          "file": "playground/horizon.spec.js",
+          "line": 17,
           "column": 6,
           "specs": [
             {
-              "title": "prerecorded patient notes renders transcript",
+              "title": "indic variant is selectable",
               "ok": true,
               "tags": [],
               "tests": [
@@ -615,19 +1224,33 @@
                   "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1870,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:47.000Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
-              "id": "9fe5bdb6d7883f2be857-dbec20e85720bc490886",
-              "file": "zero-stt-med/prerecorded.spec.js",
-              "line": 7,
-              "column": 3
+              "id": "58469ed8d80f2073b775-72e34bacf86b5318d251",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
             },
             {
-              "title": "prerecorded doctor appointment renders transcript",
+              "title": "codeswitch variant is selectable",
               "ok": true,
               "tags": [],
               "tests": [
@@ -635,15 +1258,165 @@
                   "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1747,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:48.876Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
-              "id": "9fe5bdb6d7883f2be857-c60cfae86246b44b0a0c",
-              "file": "zero-stt-med/prerecorded.spec.js",
-              "line": 21,
+              "id": "58469ed8d80f2073b775-7dff6a0e7a9bb7e91c1c",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "medical variant is selectable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1828,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:50.629Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-c11296d321edf4c4b826",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "oriental variant is selectable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1929,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:52.462Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-46e1fa2c5424bd28cd52",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "universal variant is selectable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1902,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:54.397Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-5fb97a52b576c9e6e202",
+              "file": "playground/horizon.spec.js",
+              "line": 30,
+              "column": 5
+            },
+            {
+              "title": "english language control is visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2064,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:56.305Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "58469ed8d80f2073b775-128d38f7965e84a15e60",
+              "file": "playground/horizon.spec.js",
+              "line": 39,
               "column": 3
             }
           ]
@@ -651,20 +1424,20 @@
       ]
     },
     {
-      "title": "zero-stt-med/upload.spec.js",
-      "file": "zero-stt-med/upload.spec.js",
+      "title": "playground/voice-products.spec.js",
+      "file": "playground/voice-products.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Zero STT Med module",
-          "file": "zero-stt-med/upload.spec.js",
-          "line": 8,
+          "title": "[Playground] Voice products",
+          "file": "playground/voice-products.spec.js",
+          "line": 16,
           "column": 6,
           "specs": [
             {
-              "title": "upload file renders transcript",
+              "title": "Speak (Radiance) workspace loads",
               "ok": true,
               "tags": [],
               "tests": [
@@ -672,15 +1445,131 @@
                   "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1665,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:52:58.377Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
-              "id": "7b9345bc94984c1bf0f6-50df616621bad13e7e24",
-              "file": "zero-stt-med/upload.spec.js",
-              "line": 9,
+              "id": "8012534656067c5754c0-5ce3ae270d45ee94c11b",
+              "file": "playground/voice-products.spec.js",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "Translate (Parallax) workspace loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1906,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:00.047Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8012534656067c5754c0-d1728de769f47e2e4432",
+              "file": "playground/voice-products.spec.js",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "Voice agents (Resonance) route loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2468,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:01.959Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8012534656067c5754c0-9dd7cf73fb58cd7ba75a",
+              "file": "playground/voice-products.spec.js",
+              "line": 40,
+              "column": 3
+            },
+            {
+              "title": "API keys account page loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "playground",
+                  "projectName": "playground",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1572,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:04.434Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8012534656067c5754c0-29a62315752ee63dc988",
+              "file": "playground/voice-products.spec.js",
+              "line": 50,
               "column": 3
             }
           ]
@@ -688,20 +1577,20 @@
       ]
     },
     {
-      "title": "zero-tts-indic/generate-speech.spec.js",
-      "file": "zero-tts-indic/generate-speech.spec.js",
+      "title": "api/live-site.api.spec.js",
+      "file": "api/live-site.api.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Zero TTS Indic module",
-          "file": "zero-tts-indic/generate-speech.spec.js",
-          "line": 6,
+          "title": "[API] Live www widget static assets",
+          "file": "api/live-site.api.spec.js",
+          "line": 7,
           "column": 6,
           "specs": [
             {
-              "title": "default voice generates speech from text input",
+              "title": "api base matches live widget host",
               "ok": true,
               "tags": [],
               "tests": [
@@ -709,19 +1598,33 @@
                   "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:07.210Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
-              "id": "7119005f5c0c0276a35a-957217975aadd91438cf",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 17,
+              "id": "c480b5f81434a42db1e8-a75f8e3f2f56740356fb",
+              "file": "api/live-site.api.spec.js",
+              "line": 19,
               "column": 3
             },
             {
-              "title": "text input shows character count up to 1000",
+              "title": "transcript speech-to-text-en.json is valid JSON",
               "ok": true,
               "tags": [],
               "tests": [
@@ -729,19 +1632,33 @@
                   "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 179,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:07.207Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
-              "id": "7119005f5c0c0276a35a-7c3c3523aaa0f123b811",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 25,
-              "column": 3
+              "id": "c480b5f81434a42db1e8-6a8addb99a88c3f524be",
+              "file": "api/live-site.api.spec.js",
+              "line": 26,
+              "column": 5
             },
             {
-              "title": "script selector is visible and voice generation works",
+              "title": "audio customer_support_sample.mp3 is reachable",
               "ok": true,
               "tags": [],
               "tests": [
@@ -749,216 +1666,30 @@
                   "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 361,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:07.208Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
-              "id": "7119005f5c0c0276a35a-e7c99b77c6f46685b265",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 35,
-              "column": 3
-            },
-            {
-              "title": "selecting different voices works",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-1e58d98caed8618fb533",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 45,
-              "column": 3
-            },
-            {
-              "title": "changing speed setting works",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-9abaffb4e4658649f2d2",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 54,
-              "column": 3
-            },
-            {
-              "title": "expression styles are selectable",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-5539913a2ba1b2c7c7a7",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 63,
-              "column": 3
-            },
-            {
-              "title": "different audio formats are selectable",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-392d5846c0dc95c10ea5",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 72,
-              "column": 3
-            },
-            {
-              "title": "generate button is disabled with empty text",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-ee049ee9cdab84bb9bf6",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 81,
-              "column": 3
-            },
-            {
-              "title": "English voice with slow speed generates speech",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-2ef305ca6e582dcab205",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 89,
-              "column": 3
-            },
-            {
-              "title": "Tamil voice generates speech",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-f6121bf951dd55f4dce8",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 99,
-              "column": 3
-            },
-            {
-              "title": "Bengali voice with Sad expression generates speech",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-65736cd8c850f1ff4809",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 108,
-              "column": 3
-            },
-            {
-              "title": "OGG format with fast speed generates speech",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-2f420beacd76433f7e0c",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 118,
-              "column": 3
-            },
-            {
-              "title": "Conversational expression style generates speech",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7119005f5c0c0276a35a-72c0b697f30c7e42bcc3",
-              "file": "zero-tts-indic/generate-speech.spec.js",
-              "line": 128,
-              "column": 3
+              "id": "c480b5f81434a42db1e8-31f2d8acb526bdec225e",
+              "file": "api/live-site.api.spec.js",
+              "line": 34,
+              "column": 5
             }
           ]
         }
@@ -967,11 +1698,12 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-31T07:04:16.588Z",
-    "duration": 23.452999999999975,
-    "expected": 0,
-    "skipped": 31,
+    "startTime": "2026-11-04T15:50:39.490Z",
+    "duration": 123527.554,
+    "expected": 29,
+    "skipped": 0,
     "unexpected": 0,
     "flaky": 0
-  }
+  },
+  "duration": 0
 }

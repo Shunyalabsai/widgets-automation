@@ -5,8 +5,9 @@ const ENVIRONMENTS = {
     widgetPageBase: "https://stage.shunyalabs.ai/widget",
     playgroundUrl: "https://stage.shunyalabs.ai/playground",
     docsUrl: "https://stage.shunyalabs.ai/docs",
+    consoleUrl: "https://stage.shunyalabs.ai/playground",
     widgetHost: "stage.shunyalabs.ai",
-    apiBaseUrl: "https://stage-widget.shunyalabs.ai",
+    apiBaseUrl: "https://stage.shunyalabs.ai/widget",
     siteOrigin: "https://stage.shunyalabs.ai",
   },
   prod: {
@@ -15,8 +16,10 @@ const ENVIRONMENTS = {
     widgetPageBase: "https://www.shunyalabs.ai/widget",
     playgroundUrl: "https://www.shunyalabs.ai/playground",
     docsUrl: "https://www.shunyalabs.ai/docs",
+    consoleUrl: "https://www.shunyalabs.ai/playground",
     widgetHost: "www.shunyalabs.ai",
-    apiBaseUrl: "https://widget.shunyalabs.ai",
+    // Playground widgets + static assets live under /widget on www (Nov 2025+ site).
+    apiBaseUrl: "https://www.shunyalabs.ai/widget",
     siteOrigin: "https://www.shunyalabs.ai",
   },
 };
@@ -37,6 +40,7 @@ function getEnvironment() {
     widgetPageBase: process.env.WIDGET_PAGE_BASE || defaults.widgetPageBase,
     playgroundUrl: process.env.PLAYGROUND_URL || defaults.playgroundUrl,
     docsUrl: process.env.DOCS_URL || defaults.docsUrl,
+    consoleUrl: process.env.CONSOLE_URL || defaults.consoleUrl,
     apiBaseUrl: process.env.API_BASE_URL || defaults.apiBaseUrl,
     widgetHost: process.env.WIDGET_HOST || defaults.widgetHost,
   };

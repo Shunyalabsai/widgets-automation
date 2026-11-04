@@ -1,9 +1,9 @@
 {
-  "startedAt": "2026-09-15T08:20:04.294Z",
+  "startedAt": "2026-11-04T11:02:56.846Z",
   "environment": "prod",
   "siteUrl": "https://www.shunyalabs.ai/",
-  "apiBaseUrl": "https://widget.shunyalabs.ai",
-  "passed": 6,
+  "apiBaseUrl": "https://www.shunyalabs.ai/widget",
+  "passed": 2,
   "failed": 0,
   "total": 6,
   "healthy": true,
@@ -12,33 +12,33 @@
       "name": "Token API",
       "endpoint": "POST /api/vak/token",
       "note": "",
-      "status": "passed",
+      "status": "skipped",
       "error": ""
     },
     {
       "name": "Translate API",
       "endpoint": "POST /api/vak/translate",
       "note": "",
-      "status": "passed",
+      "status": "skipped",
       "error": ""
     },
     {
       "name": "STT API",
       "endpoint": "POST /api/vak/stt",
       "note": "Smoke: sample audio upload (live-recording.opus)",
-      "status": "passed",
+      "status": "skipped",
       "error": ""
     },
     {
       "name": "TTS API",
       "endpoint": "POST /api/vak/tts",
       "note": "",
-      "status": "passed",
+      "status": "skipped",
       "error": ""
     },
     {
       "name": "Static assets",
-      "endpoint": "GET /data/transcriptions/...",
+      "endpoint": "GET /widget/data/transcriptions/...",
       "note": "",
       "status": "passed",
       "error": ""

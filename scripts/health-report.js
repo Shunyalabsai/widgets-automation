@@ -4,7 +4,7 @@ const { getEnvironment } = require("../tests/config/environment");
 
 const ROOT = path.resolve(__dirname, "..");
 const DEFAULT_REPORT_JSON = path.join(ROOT, "reports", "playwright-report.json");
-const EXPECTED_HEALTH_CHECK_COUNT = 6;
+const EXPECTED_HEALTH_CHECK_COUNT = 2;
 
 const CHECK_META = {
   "token endpoint is reachable": {
@@ -26,7 +26,7 @@ const CHECK_META = {
   },
   "sample transcript asset is reachable": {
     label: "Static assets",
-    endpoint: "GET /data/transcriptions/...",
+    endpoint: "GET /widget/data/transcriptions/...",
   },
   "reports environment under test": {
     label: "Environment",

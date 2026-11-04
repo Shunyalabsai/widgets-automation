@@ -68,10 +68,10 @@ function normalizePath(filePath) {
 
 function moduleFromFile(filePath) {
   const normalized = normalizePath(filePath);
-  const layeredMatch = normalized.match(/\/tests\/(?:api|ui)\/([^/]+)\//);
+  const layeredMatch = normalized.match(/\/tests\/(?:api|playground|site)\/([^/]+)\//);
   if (layeredMatch) return layeredMatch[1];
   const match = normalized.match(/\/tests\/([^/]+)\//);
-  if (match && !["api", "ui", "pages", "utils", "config", "data", "site"].includes(match[1])) {
+  if (match && !["api", "playground", "pages", "utils", "config", "data", "site"].includes(match[1])) {
     return match[1];
   }
   if (normalized.includes("/tests/site/")) return "site";

@@ -1,0 +1,246 @@
+{
+  "config": {
+    "configFile": "/Users/admin/Documents/Shunyalabs-widget-automation/playwright.config.ts",
+    "rootDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/Users/admin/Documents/Shunyalabs-widget-automation/tests/global-setup.js",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "site",
+        "name": "site",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/site\\/.*\\.spec\\.js/"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "playground",
+        "name": "playground",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/playground\\/.*\\.spec\\.js/"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "health",
+        "name": "health",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/api\\/health\\/.*\\.spec\\.js/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/admin/Documents/Shunyalabs-widget-automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "/Users/admin/Documents/Shunyalabs-widget-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/api\\/live-site\\.api\\.spec\\.js/"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "reports/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/fragments/api.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.1",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "api/live-site.api.spec.js",
+      "file": "api/live-site.api.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[API] Live www widget static assets",
+          "file": "api/live-site.api.spec.js",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "api base matches live widget host",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:07.210Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c480b5f81434a42db1e8-a75f8e3f2f56740356fb",
+              "file": "api/live-site.api.spec.js",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "transcript speech-to-text-en.json is valid JSON",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 179,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:07.207Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c480b5f81434a42db1e8-6a8addb99a88c3f524be",
+              "file": "api/live-site.api.spec.js",
+              "line": 26,
+              "column": 5
+            },
+            {
+              "title": "audio customer_support_sample.mp3 is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 361,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T15:53:07.208Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c480b5f81434a42db1e8-31f2d8acb526bdec225e",
+              "file": "api/live-site.api.spec.js",
+              "line": 34,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-04T15:53:06.686Z",
+    "duration": 958.1990000000001,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

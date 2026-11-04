@@ -22,13 +22,11 @@ set +e
 run_project site || TEST_EXIT=1
 MERGE_INPUTS+=(reports/fragments/site.json)
 
-run_project ui --workers=1 || TEST_EXIT=1
-MERGE_INPUTS+=(reports/fragments/ui.json)
+run_project playground --workers=1 || TEST_EXIT=1
+MERGE_INPUTS+=(reports/fragments/playground.json)
 
-if [ "${RUN_LEGACY_API:-0}" = "1" ]; then
-  run_project api || TEST_EXIT=1
-  MERGE_INPUTS+=(reports/fragments/api.json)
-fi
+run_project api || TEST_EXIT=1
+MERGE_INPUTS+=(reports/fragments/api.json)
 
 if [ "${RUN_HEALTH:-0}" = "1" ]; then
   run_project health || TEST_EXIT=1
