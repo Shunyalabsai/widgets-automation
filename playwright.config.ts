@@ -8,8 +8,10 @@ const playwrightJsonReport =
   env?.HEALTH_REPORT_JSON ||
   "reports/playwright-report.json";
 
+const skipGlobalSetup = env?.PLAYWRIGHT_SKIP_GLOBAL_SETUP === "1";
+
 export default defineConfig({
-  globalSetup: "./tests/global-setup.js",
+  globalSetup: skipGlobalSetup ? undefined : "./tests/global-setup.js",
   testDir: "./tests",
   timeout: 180_000,
   fullyParallel: true,

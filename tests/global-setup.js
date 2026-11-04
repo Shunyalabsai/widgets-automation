@@ -23,8 +23,25 @@ async function globalSetup() {
 
   const browser = await chromium.launch();
   const context = await browser.newContext();
-  const page = await context.newPage();
-  await signInToPlayground(page);
+  let page = await context.newPage();
+  const maxAttempts = 3;
+  let lastError;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      await signInToPlayground(page);
+      lastError = undefined;
+      break;
+    } catch (err) {
+      lastError = err;
+      if (attempt === maxAttempts) break;
+      await page.close().catch(() => {});
+      page = await context.newPage();
+    }
+  }
+  if (lastError) {
+    await browser.close();
+    throw lastError;
+  }
   await context.storageState({ path: PLAYGROUND_AUTH });
   await browser.close();
 }

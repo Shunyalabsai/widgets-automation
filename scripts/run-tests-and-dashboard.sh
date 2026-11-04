@@ -19,6 +19,11 @@ MERGE_INPUTS=()
 TEST_EXIT=0
 set +e
 
+echo ""
+echo "========== Playground auth (once) =========="
+node -e "require('./tests/global-setup.js')().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); })" || TEST_EXIT=1
+export PLAYWRIGHT_SKIP_GLOBAL_SETUP=1
+
 run_project site || TEST_EXIT=1
 MERGE_INPUTS+=(reports/fragments/site.json)
 

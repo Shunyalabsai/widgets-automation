@@ -43,9 +43,35 @@ async function signInWithClerk(page, options = {}) {
 
   await page.getByRole("button", { name: /^Continue$/i }).click();
 
+  for (const label of [/Use password/i, /Continue with password/i, /^Password$/i]) {
+    const usePassword = page
+      .getByRole("button", { name: label })
+      .or(page.getByRole("link", { name: label }));
+    if (await usePassword.first().isVisible({ timeout: 3_000 }).catch(() => false)) {
+      await usePassword.first().click();
+      break;
+    }
+  }
+
   const passwordInput = page.locator('input[name="password"], input[type="password"]').first();
-  await passwordInput.waitFor({ state: "visible", timeout: 30_000 });
-  await passwordInput.fill(password);
+  const codeInput = page.locator(
+    'input[name="code"], input[inputmode="numeric"], input[autocomplete="one-time-code"]',
+  ).first();
+
+  const step = await Promise.race([
+    passwordInput.waitFor({ state: "visible", timeout: 60_000 }).then(() => "password"),
+    codeInput.waitFor({ state: "visible", timeout: 60_000 }).then(() => "code"),
+  ]);
+
+  if (step === "password") {
+    await passwordInput.fill(password);
+  } else if (/\+clerk_test@/i.test(email)) {
+    await codeInput.fill("424242");
+  } else {
+    throw new Error(
+      "Clerk showed an email code step; use a +clerk_test address or enable password sign-in.",
+    );
+  }
 
   await page.getByRole("button", { name: /^Continue$/i }).click();
 
