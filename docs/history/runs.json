@@ -1,5 +1,194 @@
 [
   {
+    "id": "63a92f02-9d91-4eb2-ad6e-d9b5418be593",
+    "startedAt": "2026-11-04T17:05:52.650Z",
+    "durationMs": 51530,
+    "summary": {
+      "total": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "timedOut": 0
+    },
+    "passRate": 100,
+    "displayTimestamp": "Nov 4, 2026, 5:05:52 PM",
+    "displayDate": "Wednesday, November 4, 2026",
+    "displayTime": "5:05:52 PM",
+    "modules": {
+      "playground": {
+        "total": 11,
+        "passed": 11,
+        "failed": 0,
+        "skipped": 0,
+        "timedOut": 0
+      },
+      "api": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "timedOut": 0
+      }
+    },
+    "failureSummary": null,
+    "tests": [
+      {
+        "title": "playground/auth-gate.spec.js > [Playground] Auth gate > signed-in user reaches playground console",
+        "status": "passed",
+        "durationMs": 5849,
+        "file": "playground/auth-gate.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > indic variant is selectable",
+        "status": "passed",
+        "durationMs": 5580,
+        "file": "playground/horizon.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > codeswitch variant is selectable",
+        "status": "passed",
+        "durationMs": 2016,
+        "file": "playground/horizon.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > medical variant is selectable",
+        "status": "passed",
+        "durationMs": 5736,
+        "file": "playground/horizon.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > oriental variant is selectable",
+        "status": "passed",
+        "durationMs": 1769,
+        "file": "playground/horizon.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > universal variant is selectable",
+        "status": "passed",
+        "durationMs": 1860,
+        "file": "playground/horizon.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > english language control is visible",
+        "status": "passed",
+        "durationMs": 5490,
+        "file": "playground/horizon.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/voice-products.spec.js > [Playground] Voice products > Speak (Radiance) workspace loads",
+        "status": "passed",
+        "durationMs": 5459,
+        "file": "playground/voice-products.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/voice-products.spec.js > [Playground] Voice products > Translate (Parallax) workspace loads",
+        "status": "passed",
+        "durationMs": 3001,
+        "file": "playground/voice-products.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/voice-products.spec.js > [Playground] Voice products > Voice agents (Resonance) route loads",
+        "status": "passed",
+        "durationMs": 8327,
+        "file": "playground/voice-products.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "playground/voice-products.spec.js > [Playground] Voice products > API keys account page loads",
+        "status": "passed",
+        "durationMs": 2195,
+        "file": "playground/voice-products.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "playground",
+        "moduleLabel": "Playground",
+        "testLayer": "ui"
+      },
+      {
+        "title": "api/live-site.api.spec.js > [API] Live www widget static assets > api base matches live widget host",
+        "status": "passed",
+        "durationMs": 26,
+        "file": "api/live-site.api.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "api",
+        "moduleLabel": "Api",
+        "testLayer": "api"
+      },
+      {
+        "title": "api/live-site.api.spec.js > [API] Live www widget static assets > transcript speech-to-text-en.json is valid JSON",
+        "status": "passed",
+        "durationMs": 960,
+        "file": "api/live-site.api.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "api",
+        "moduleLabel": "Api",
+        "testLayer": "api"
+      },
+      {
+        "title": "api/live-site.api.spec.js > [API] Live www widget static assets > audio customer_support_sample.mp3 is reachable",
+        "status": "passed",
+        "durationMs": 3262,
+        "file": "api/live-site.api.spec.js",
+        "attachments": [],
+        "error": "",
+        "module": "api",
+        "moduleLabel": "Api",
+        "testLayer": "api"
+      }
+    ]
+  },
+  {
     "id": "600e8a4e-1c22-4b59-a01c-b8324526ca45",
     "startedAt": "2026-11-04T15:53:07.713Z",
     "durationMs": 144471,
