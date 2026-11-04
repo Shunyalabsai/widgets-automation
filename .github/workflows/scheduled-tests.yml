@@ -16,7 +16,8 @@ concurrency:
 
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    # Playwright 1.58.x does not support ubuntu-latest (26.04) yet; use 24.04.
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -91,12 +92,12 @@ jobs:
         run: node scripts/send-daily-report.js || true
 
       - name: Fail on test errors
-        if: always()
+        if: always() && steps.run_tests.outcome != 'skipped'
         run: |
           exit "${{ steps.run_tests.outputs.exit_code }}"
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: run-tests
     if: always()
     environment:
