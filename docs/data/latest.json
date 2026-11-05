@@ -1,73 +1,78 @@
 {
-  "id": "4b3ca4c9-5860-4ad1-bcaa-dca6ffe2b968",
-  "startedAt": "2026-11-05T07:48:34.742Z",
-  "durationMs": 263397,
+  "id": "47d21d96-c523-41e8-9a36-e29287fc835b",
+  "startedAt": "2026-11-05T12:31:26.463Z",
+  "durationMs": 384906,
   "environment": "prod",
   "summary": {
-    "total": 47,
-    "passed": 43,
+    "total": 52,
+    "passed": 51,
     "failed": 0,
-    "skipped": 3,
-    "timedOut": 1
+    "skipped": 1,
+    "timedOut": 0
   },
-  "passRate": 98,
-  "displayTimestamp": "Nov 5, 2026, 7:48:34 AM",
+  "passRate": 100,
+  "displayTimestamp": "Nov 5, 2026, 12:31:26 PM",
   "displayDate": "Thursday, November 5, 2026",
-  "displayTime": "7:48:34 AM",
+  "displayTime": "12:31:26 PM",
   "modules": {
     "unknown": {
-      "total": 47,
-      "passed": 43,
+      "total": 52,
+      "passed": 51,
       "failed": 0,
-      "skipped": 3,
-      "timedOut": 1
+      "skipped": 1,
+      "timedOut": 0
     }
   },
-  "failureSummary": {
-    "headline": "1 likely test timing issue",
-    "plainEnglish": "All failures look like automation timing issues, not confirmed product bugs. API checks passed where available.",
-    "failures": [
-      {
-        "testName": "Listen (Horizon) tab is interactive",
-        "title": "site/home-demos.spec.js > [Site] Homepage live demos > Listen (Horizon) tab is interactive",
-        "moduleLabel": "Unknown",
-        "status": "timedOut",
-        "testLayer": "ui",
-        "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
-        "reason": "Not a confirmed product bug — UI timed out but API check for same feature passed.",
-        "category": "test-timing",
-        "label": "Likely test timing issue",
-        "summary": "The UI check timed out, but the API check for the same feature passed. The live widget is probably fine — the automation likely stopped waiting too soon.",
-        "severity": "low",
-        "apiPassed": true
-      }
-    ]
-  },
+  "failureSummary": null,
   "tests": [
     {
-      "title": "site/home-demos.spec.js > [Site] Homepage live demos > Listen (Horizon) tab is interactive",
-      "status": "timedOut",
-      "durationMs": 190052,
-      "file": "site/home-demos.spec.js",
+      "title": "site/contact-form.spec.js > [Site] Contact form (/contact) > shows fields, terms, and submit",
+      "status": "passed",
+      "durationMs": 967,
+      "file": "site/contact-form.spec.js",
       "attachments": [],
-      "error": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
+      "error": "",
       "module": "unknown",
       "moduleLabel": "Unknown",
-      "testLayer": "ui",
-      "failureAnalysis": {
-        "category": "test-timing",
-        "label": "Likely test timing issue",
-        "reason": "Not a confirmed product bug — UI timed out but API check for same feature passed.",
-        "summary": "The UI check timed out, but the API check for the same feature passed. The live widget is probably fine — the automation likely stopped waiting too soon.",
-        "severity": "low",
-        "apiPassed": true
-      },
-      "failureReason": "Not a confirmed product bug — UI timed out but API check for same feature passed."
+      "testLayer": "ui"
+    },
+    {
+      "title": "site/contact-form.spec.js > [Site] Contact form (/contact) > validates required fields on submit",
+      "status": "passed",
+      "durationMs": 1717,
+      "file": "site/contact-form.spec.js",
+      "attachments": [],
+      "error": "",
+      "module": "unknown",
+      "moduleLabel": "Unknown",
+      "testLayer": "ui"
+    },
+    {
+      "title": "site/contact-form.spec.js > [Site] Contact form (/contact) > accepts filled input without browser submit (reCAPTCHA; mail E2E is API-only)",
+      "status": "passed",
+      "durationMs": 2147,
+      "file": "site/contact-form.spec.js",
+      "attachments": [],
+      "error": "",
+      "module": "unknown",
+      "moduleLabel": "Unknown",
+      "testLayer": "ui"
+    },
+    {
+      "title": "site/home-demos.spec.js > [Site] Homepage live demos > Listen (Horizon) tab is interactive",
+      "status": "passed",
+      "durationMs": 3423,
+      "file": "site/home-demos.spec.js",
+      "attachments": [],
+      "error": "",
+      "module": "unknown",
+      "moduleLabel": "Unknown",
+      "testLayer": "ui"
     },
     {
       "title": "site/home-demos.spec.js > [Site] Homepage live demos > Speak (Radiance) tab is interactive",
-      "status": "skipped",
-      "durationMs": 0,
+      "status": "passed",
+      "durationMs": 2773,
       "file": "site/home-demos.spec.js",
       "attachments": [],
       "error": "",
@@ -77,8 +82,8 @@
     },
     {
       "title": "site/home-demos.spec.js > [Site] Homepage live demos > Translate (Parallax) tab is interactive",
-      "status": "skipped",
-      "durationMs": 0,
+      "status": "passed",
+      "durationMs": 138368,
       "file": "site/home-demos.spec.js",
       "attachments": [],
       "error": "",
@@ -88,8 +93,8 @@
     },
     {
       "title": "site/home-demos.spec.js > [Site] Homepage live demos > Resonance tab opens voice agent entry",
-      "status": "skipped",
-      "durationMs": 0,
+      "status": "passed",
+      "durationMs": 102057,
       "file": "site/home-demos.spec.js",
       "attachments": [],
       "error": "",
@@ -100,7 +105,7 @@
     {
       "title": "site/navigation.spec.js > [Site] Production www navigation > homepage loads with primary hero and demo section",
       "status": "passed",
-      "durationMs": 1844,
+      "durationMs": 1145,
       "file": "site/navigation.spec.js",
       "attachments": [],
       "error": "",
@@ -111,7 +116,7 @@
     {
       "title": "site/navigation.spec.js > [Site] Production www navigation > docs and playground entry pages load",
       "status": "passed",
-      "durationMs": 1531,
+      "durationMs": 2689,
       "file": "site/navigation.spec.js",
       "attachments": [],
       "error": "",
@@ -122,7 +127,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /",
       "status": "passed",
-      "durationMs": 1699,
+      "durationMs": 1961,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -133,7 +138,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /docs",
       "status": "passed",
-      "durationMs": 847,
+      "durationMs": 1224,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -144,7 +149,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /about",
       "status": "passed",
-      "durationMs": 836,
+      "durationMs": 1292,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -155,7 +160,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /pricing",
       "status": "passed",
-      "durationMs": 1019,
+      "durationMs": 1966,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -166,7 +171,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /contact",
       "status": "passed",
-      "durationMs": 1520,
+      "durationMs": 1132,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -177,7 +182,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /playground",
       "status": "passed",
-      "durationMs": 1846,
+      "durationMs": 2775,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -188,7 +193,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /blog",
       "status": "passed",
-      "durationMs": 2167,
+      "durationMs": 29806,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -199,7 +204,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /benchmarks-nf1g",
       "status": "passed",
-      "durationMs": 983,
+      "durationMs": 2108,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -210,7 +215,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /platform-t1g6",
       "status": "passed",
-      "durationMs": 926,
+      "durationMs": 2156,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -221,7 +226,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /speech-to-text-51m4",
       "status": "passed",
-      "durationMs": 1935,
+      "durationMs": 1896,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -232,7 +237,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /text-to-speech-j016",
       "status": "passed",
-      "durationMs": 842,
+      "durationMs": 1880,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -243,7 +248,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /horizon-1e9y",
       "status": "passed",
-      "durationMs": 1883,
+      "durationMs": 1891,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -254,7 +259,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /radiance-w3x3",
       "status": "passed",
-      "durationMs": 823,
+      "durationMs": 1929,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -265,7 +270,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /real-time-translation-cx2x",
       "status": "passed",
-      "durationMs": 1061,
+      "durationMs": 2506,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -276,7 +281,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /resonance-27wg",
       "status": "passed",
-      "durationMs": 1686,
+      "durationMs": 2200,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -287,7 +292,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /privacy-policy",
       "status": "passed",
-      "durationMs": 1592,
+      "durationMs": 1219,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -298,7 +303,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /terms-conditions",
       "status": "passed",
-      "durationMs": 1668,
+      "durationMs": 1182,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -309,7 +314,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /solutions/e-commerce-a75v",
       "status": "passed",
-      "durationMs": 849,
+      "durationMs": 15231,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -320,7 +325,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /solutions/contact-centers-yjj0",
       "status": "passed",
-      "durationMs": 782,
+      "durationMs": 1008,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -331,7 +336,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /solutions/bfsi-wwe3",
       "status": "passed",
-      "durationMs": 1834,
+      "durationMs": 2440,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -342,7 +347,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /solutions/healthcare-1har",
       "status": "passed",
-      "durationMs": 855,
+      "durationMs": 1585,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -353,7 +358,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /solutions/telecom-v7de",
       "status": "passed",
-      "durationMs": 820,
+      "durationMs": 1383,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -364,7 +369,7 @@
     {
       "title": "site/pages-smoke.spec.js > [Site] Key public pages > loads /solutions/enterprise-1ez1",
       "status": "passed",
-      "durationMs": 834,
+      "durationMs": 1685,
       "file": "site/pages-smoke.spec.js",
       "attachments": [],
       "error": "",
@@ -375,8 +380,19 @@
     {
       "title": "playground/auth-gate.spec.js > [Playground] Auth gate > signed-in user reaches playground console",
       "status": "passed",
-      "durationMs": 2027,
+      "durationMs": 2049,
       "file": "playground/auth-gate.spec.js",
+      "attachments": [],
+      "error": "",
+      "module": "unknown",
+      "moduleLabel": "Unknown",
+      "testLayer": "ui"
+    },
+    {
+      "title": "playground/contact-feedback.spec.js > [Playground] Contact feedback > signed-in user can submit feedback to console API",
+      "status": "passed",
+      "durationMs": 5189,
+      "file": "playground/contact-feedback.spec.js",
       "attachments": [],
       "error": "",
       "module": "unknown",
@@ -386,7 +402,7 @@
     {
       "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > indic variant is selectable",
       "status": "passed",
-      "durationMs": 2138,
+      "durationMs": 5567,
       "file": "playground/horizon.spec.js",
       "attachments": [],
       "error": "",
@@ -397,7 +413,7 @@
     {
       "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > codeswitch variant is selectable",
       "status": "passed",
-      "durationMs": 2117,
+      "durationMs": 2041,
       "file": "playground/horizon.spec.js",
       "attachments": [],
       "error": "",
@@ -408,7 +424,7 @@
     {
       "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > medical variant is selectable",
       "status": "passed",
-      "durationMs": 2247,
+      "durationMs": 2066,
       "file": "playground/horizon.spec.js",
       "attachments": [],
       "error": "",
@@ -419,7 +435,7 @@
     {
       "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > oriental variant is selectable",
       "status": "passed",
-      "durationMs": 3128,
+      "durationMs": 2278,
       "file": "playground/horizon.spec.js",
       "attachments": [],
       "error": "",
@@ -430,7 +446,7 @@
     {
       "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > universal variant is selectable",
       "status": "passed",
-      "durationMs": 3104,
+      "durationMs": 1995,
       "file": "playground/horizon.spec.js",
       "attachments": [],
       "error": "",
@@ -441,7 +457,7 @@
     {
       "title": "playground/horizon.spec.js > [Playground] Horizon (Listen) > english language control is visible",
       "status": "passed",
-      "durationMs": 2345,
+      "durationMs": 2036,
       "file": "playground/horizon.spec.js",
       "attachments": [],
       "error": "",
@@ -452,7 +468,7 @@
     {
       "title": "playground/voice-products.spec.js > [Playground] Voice products > Speak (Radiance) workspace loads",
       "status": "passed",
-      "durationMs": 4111,
+      "durationMs": 3220,
       "file": "playground/voice-products.spec.js",
       "attachments": [],
       "error": "",
@@ -463,7 +479,7 @@
     {
       "title": "playground/voice-products.spec.js > [Playground] Voice products > Translate (Parallax) workspace loads",
       "status": "passed",
-      "durationMs": 2965,
+      "durationMs": 3166,
       "file": "playground/voice-products.spec.js",
       "attachments": [],
       "error": "",
@@ -474,7 +490,7 @@
     {
       "title": "playground/voice-products.spec.js > [Playground] Voice products > Voice agents (Resonance) route loads",
       "status": "passed",
-      "durationMs": 4335,
+      "durationMs": 4844,
       "file": "playground/voice-products.spec.js",
       "attachments": [],
       "error": "",
@@ -485,7 +501,7 @@
     {
       "title": "playground/voice-products.spec.js > [Playground] Voice products > API keys account page loads",
       "status": "passed",
-      "durationMs": 2077,
+      "durationMs": 3328,
       "file": "playground/voice-products.spec.js",
       "attachments": [],
       "error": "",
@@ -494,9 +510,20 @@
       "testLayer": "ui"
     },
     {
+      "title": "api/contact-mail.api.spec.js > [API] Contact form mail delivery > send-mail accepts automation bypass (once per 24h)",
+      "status": "skipped",
+      "durationMs": 16,
+      "file": "api/contact-mail.api.spec.js",
+      "attachments": [],
+      "error": "",
+      "module": "unknown",
+      "moduleLabel": "Unknown",
+      "testLayer": "api"
+    },
+    {
       "title": "api/vak-be.api.spec.js > [API] VAK backend > token endpoint issues browser session",
       "status": "passed",
-      "durationMs": 489,
+      "durationMs": 494,
       "file": "api/vak-be.api.spec.js",
       "attachments": [],
       "error": "",
@@ -507,7 +534,7 @@
     {
       "title": "api/vak-be.api.spec.js > [API] VAK backend > translate endpoint returns hindi to english text",
       "status": "passed",
-      "durationMs": 1379,
+      "durationMs": 1251,
       "file": "api/vak-be.api.spec.js",
       "attachments": [],
       "error": "",
@@ -518,7 +545,7 @@
     {
       "title": "api/vak-be.api.spec.js > [API] VAK backend > translate endpoint supports bengali source",
       "status": "passed",
-      "durationMs": 1302,
+      "durationMs": 584,
       "file": "api/vak-be.api.spec.js",
       "attachments": [],
       "error": "",
@@ -529,7 +556,7 @@
     {
       "title": "api/vak-be.api.spec.js > [API] VAK backend > stt endpoint transcribes uploaded english audio",
       "status": "passed",
-      "durationMs": 3132,
+      "durationMs": 2966,
       "file": "api/vak-be.api.spec.js",
       "attachments": [],
       "error": "",
@@ -540,7 +567,7 @@
     {
       "title": "api/vak-be.api.spec.js > [API] VAK backend > tts endpoint returns audio for hindi voice",
       "status": "passed",
-      "durationMs": 1188,
+      "durationMs": 1168,
       "file": "api/vak-be.api.spec.js",
       "attachments": [],
       "error": "",
@@ -551,7 +578,7 @@
     {
       "title": "api/vak-be.api.spec.js > [API] VAK backend > tts endpoint supports english voice selection",
       "status": "passed",
-      "durationMs": 753,
+      "durationMs": 814,
       "file": "api/vak-be.api.spec.js",
       "attachments": [],
       "error": "",
@@ -562,7 +589,7 @@
     {
       "title": "api/vak-be.api.spec.js > [API] VAK backend > tts endpoint returns audio for translated output",
       "status": "passed",
-      "durationMs": 1826,
+      "durationMs": 2093,
       "file": "api/vak-be.api.spec.js",
       "attachments": [],
       "error": "",
