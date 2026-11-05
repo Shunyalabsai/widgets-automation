@@ -68,15 +68,12 @@ function normalizePath(filePath) {
 
 function moduleFromFile(filePath) {
   const normalized = normalizePath(filePath);
+  if (normalized.includes("/tests/api/health/")) return "health";
+  if (normalized.includes("/tests/site/")) return "site";
+  if (normalized.includes("/tests/playground/")) return "playground";
+  if (normalized.includes("/tests/api/")) return "api";
   const layeredMatch = normalized.match(/\/tests\/(?:api|playground|site)\/([^/]+)\//);
   if (layeredMatch) return layeredMatch[1];
-  const match = normalized.match(/\/tests\/([^/]+)\//);
-  if (match && !["api", "playground", "pages", "utils", "config", "data", "site"].includes(match[1])) {
-    return match[1];
-  }
-  if (normalized.includes("/tests/site/")) return "site";
-  const directMatch = normalized.match(/^([^/]+)\//);
-  if (directMatch) return directMatch[1];
   return "unknown";
 }
 
@@ -88,8 +85,15 @@ function testLayerFromFile(filePath) {
   return "ui";
 }
 
+const MODULE_LABELS = {
+  site: "Website (public pages)",
+  playground: "Playground (signed-in UI)",
+  api: "Backend API (playground routes)",
+  health: "API health (hourly)",
+};
+
 function moduleLabel(moduleName) {
-  if (moduleName.toLowerCase() === "stt") return "STT";
+  if (MODULE_LABELS[moduleName]) return MODULE_LABELS[moduleName];
   return moduleName
     .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
@@ -259,6 +263,7 @@ function buildRun() {
     id: runId,
     startedAt,
     durationMs,
+    environment: process.env.TEST_ENV || process.env.SHUNYA_ENV || "prod",
     summary,
     passRate: passRate(summary),
     displayTimestamp: formatDateTime(startedAt),
