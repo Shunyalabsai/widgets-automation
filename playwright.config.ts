@@ -59,6 +59,7 @@ export default defineConfig({
     {
       name: "api",
       testMatch: /tests\/api\/vak-be\.api\.spec\.js/,
+      workers: 1,
     },
   ],
 });

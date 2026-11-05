@@ -30,6 +30,10 @@ MERGE_INPUTS+=(reports/fragments/site.json)
 run_project playground --workers=1 || TEST_EXIT=1
 MERGE_INPUTS+=(reports/fragments/playground.json)
 
+echo ""
+echo "========== Playground auth (refresh for BE API) =========="
+PLAYGROUND_FORCE_AUTH=1 node -e "require('./tests/global-setup.js')().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); })" || TEST_EXIT=1
+
 run_project api || TEST_EXIT=1
 MERGE_INPUTS+=(reports/fragments/api.json)
 

@@ -2,9 +2,9 @@ name: API Health Check
 
 on:
   workflow_dispatch:
-  # Paused: re-enable schedule after QA confirmation (was */15 * * * *).
-  # schedule:
-  #   - cron: "*/15 * * * *"
+  schedule:
+    # Every hour (UTC). Fail-only email via SEND_HEALTH_ALERT=1.
+    - cron: "0 * * * *"
 
 jobs:
   health:
@@ -21,10 +21,27 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Cache Playwright browsers
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright chromium
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright system deps
+        if: steps.pw-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
       # SEND_HEALTH_ALERT=1: email only when checks fail (pass = green job, no mail).
       - name: Run API health checks
         env:
           TEST_ENV: prod
+          SHUNYA_TEST_EMAIL: ${{ secrets.SHUNYA_TEST_EMAIL }}
+          SHUNYA_TEST_PASSWORD: ${{ secrets.SHUNYA_TEST_PASSWORD }}
           SEND_HEALTH_ALERT: "1"
           EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
           REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}

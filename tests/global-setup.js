@@ -15,8 +15,10 @@ async function globalSetup() {
     return;
   }
 
+  const force =
+    process.env.PLAYGROUND_FORCE_AUTH === "1" || process.env.CI === "1";
   const maxAgeMs = 6 * 60 * 60 * 1000;
-  if (fs.existsSync(PLAYGROUND_AUTH)) {
+  if (!force && fs.existsSync(PLAYGROUND_AUTH)) {
     const age = Date.now() - fs.statSync(PLAYGROUND_AUTH).mtimeMs;
     if (age < maxAgeMs) return;
   }

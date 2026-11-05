@@ -63,11 +63,14 @@ function main() {
   }
 
   try {
-    execSync("node -e \"require('./tests/global-setup.js')().then(()=>process.exit(0)).catch(e=>{console.error(e);process.exit(1)})\"", {
-      stdio: "inherit",
-      cwd: ROOT,
-      env: process.env,
-    });
+    execSync(
+      "node -e \"require('./tests/global-setup.js')().then(()=>process.exit(0)).catch(e=>{console.error(e);process.exit(1)})\"",
+      {
+        stdio: "inherit",
+        cwd: ROOT,
+        env: { ...process.env, PLAYGROUND_FORCE_AUTH: "1" },
+      },
+    );
   } catch {
     console.error("Playground auth setup failed (need SHUNYA_TEST_EMAIL/PASSWORD for BE health).");
     process.exit(1);
