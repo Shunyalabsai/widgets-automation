@@ -19,6 +19,10 @@ function shortTestName(title) {
 function moduleFromTest(test) {
   if (test.module) return test.module;
   const normalized = normalizePath(test.file || "");
+  if (normalized.includes("/tests/api/health/")) return "health";
+  if (normalized.includes("/tests/site/")) return "site";
+  if (normalized.includes("/tests/playground/")) return "playground";
+  if (normalized.includes("/tests/api/")) return "api";
   const layeredMatch = normalized.match(/\/tests\/(?:api|ui)\/([^/]+)\//);
   if (layeredMatch) return layeredMatch[1];
   const match = normalized.match(/\/tests\/([^/]+)\//);
@@ -28,14 +32,56 @@ function moduleFromTest(test) {
   return "unknown";
 }
 
+const MODULE_LABELS = {
+  site: "Website (public pages)",
+  playground: "Playground (signed-in UI)",
+  api: "Backend API (playground routes)",
+  health: "API health (hourly)",
+};
+
+function humanModuleLabel(test) {
+  const key = test.moduleLabel || test.module || moduleFromTest(test);
+  return MODULE_LABELS[key] || key;
+}
+
+function isApiLayerTest(candidate) {
+  return (candidate.testLayer || testLayerFromFile(candidate.file)) === "api";
+}
+
 function apiChecksPassedForModule(test, allTests) {
   const moduleName = moduleFromTest(test);
   const apiTests = allTests.filter((candidate) => {
     if (moduleFromTest(candidate) !== moduleName) return false;
-    return (candidate.testLayer || testLayerFromFile(candidate.file)) === "api";
+    return isApiLayerTest(candidate);
   });
   if (!apiTests.length) return null;
   return apiTests.every((candidate) => candidate.status === "passed");
+}
+
+/** Map homepage / playground UI checks to the backend specs that exercise the same product. */
+function relatedBackendChecksPassed(test, allTests) {
+  const hay = `${test.title || ""}`.toLowerCase();
+  const rules = [
+    { feature: /listen|horizon/, matchTitle: /stt endpoint/i },
+    { feature: /speak|radiance/, matchTitle: /tts endpoint/i },
+    { feature: /translate|parallax/, matchTitle: /translate endpoint/i },
+  ];
+  for (const { feature, matchTitle } of rules) {
+    if (!feature.test(hay)) continue;
+    const related = allTests.filter(
+      (candidate) =>
+        normalizePath(candidate.file || "").includes("/tests/api/") && matchTitle.test(candidate.title || ""),
+    );
+    if (!related.length) return null;
+    return related.every((candidate) => candidate.status === "passed");
+  }
+  return null;
+}
+
+function backendChecksPassed(test, allTests) {
+  const related = relatedBackendChecksPassed(test, allTests);
+  if (related !== null) return related;
+  return apiChecksPassedForModule(test, allTests);
 }
 
 function isTimeoutError(errorText) {
@@ -50,7 +96,7 @@ function isTimeoutError(errorText) {
 function classifyFailure(test, allTests = []) {
   const error = test.error || "";
   const layer = test.testLayer || testLayerFromFile(test.file);
-  const apiPassed = apiChecksPassedForModule(test, allTests);
+  const apiPassed = backendChecksPassed(test, allTests);
 
   if (/upload failed in widget|something went wrong|please try again/i.test(error)) {
     return {
@@ -131,7 +177,7 @@ function buildFailureReports(tests = []) {
       return {
         testName: shortTestName(test.title),
         title: test.title,
-        moduleLabel: test.moduleLabel || test.module || moduleFromTest(test),
+        moduleLabel: humanModuleLabel(test),
         status: test.status,
         testLayer: test.testLayer || testLayerFromFile(test.file),
         error: test.error || "",

@@ -32,7 +32,7 @@ test.describe("[Site] Contact form (/contact)", () => {
     await expect(page.getByText("Message is required.")).toBeVisible();
   });
 
-  test("accepts filled input without sending mail (no live submit)", async ({ page }) => {
+  test("accepts filled input without browser submit (reCAPTCHA; mail E2E is API-only)", async ({ page }) => {
     const env = getEnvironment();
     const contact = new ContactPage(page, env);
     await contact.open();

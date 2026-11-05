@@ -11,6 +11,16 @@ Playwright-based automation tests for Shunyalabs widgets.
 
 ## Configure
 
+Copy `.env.example` to `.env` and set Clerk credentials (`SHUNYA_TEST_EMAIL`, `SHUNYA_TEST_PASSWORD`).
+
+For **daily contact-form email delivery** (reCAPTCHA bypass), add the secret Shunya shares out-of-band:
+
+```
+CONTACT_AUTOMATION_SECRET=...
+```
+
+The API test posts to `https://www.shunyalabs.ai/api/send-mail` with header `X-Automation-Secret` and email **`automated-test@example.com`** (must match exactly). The first successful run per 24h expects HTTP 200; a second run the same day expects HTTP 429 and is treated as pass. Public `/contact` UI tests do not submit the form (reCAPTCHA). In GitHub Actions, add repository secret **`CONTACT_AUTOMATION_SECRET`**.
+
 Set the widget URL in your shell before running tests:
 
 ```

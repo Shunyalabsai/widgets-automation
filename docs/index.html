@@ -400,7 +400,7 @@
             <li><strong>Website</strong> — key pages and homepage demos on www.shunyalabs.ai</li>
             <li><strong>Playground</strong> — Clerk login, Listen / Speak / Translate / Resonance UI</li>
             <li><strong>Backend API</strong> — same routes as playground Network (token, ASR, translate, TTS)</li>
-            <li><strong>Contact</strong> — public /contact validation (no live email); playground feedback submit (tagged AUTOMATION)</li>
+            <li><strong>Contact</strong> — public /contact UI validation; daily <code>POST /api/send-mail</code> with automation secret (once per 24h); playground feedback (tagged AUTOMATION)</li>
           </ul>
           <p class="run-meta" id="runMeta">Hourly API health runs separately in GitHub Actions (not merged here unless RUN_HEALTH=1).</p>
         </div>

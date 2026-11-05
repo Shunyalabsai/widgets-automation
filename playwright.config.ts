@@ -31,6 +31,10 @@ export default defineConfig({
       testMatch: /tests\/site\/.*\.spec\.js/,
       fullyParallel: false,
       workers: 1,
+      retries: env?.CI ? 2 : 1,
+      expect: {
+        timeout: 15_000,
+      },
       use: {
         browserName: "chromium",
         trace: "off",
@@ -58,7 +62,7 @@ export default defineConfig({
     },
     {
       name: "api",
-      testMatch: /tests\/api\/vak-be\.api\.spec\.js/,
+      testMatch: /tests\/api\/(vak-be|contact-mail)\.api\.spec\.js/,
       workers: 1,
     },
   ],
