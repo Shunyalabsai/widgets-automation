@@ -8,6 +8,7 @@ const ENVIRONMENTS = {
     consoleUrl: "https://stage.shunyalabs.ai/playground",
     widgetHost: "stage.shunyalabs.ai",
     apiBaseUrl: "https://stage.shunyalabs.ai/widget",
+    asrApiUrl: "https://asrv2stage.shunyalabs.ai",
     siteOrigin: "https://stage.shunyalabs.ai",
   },
   prod: {
@@ -18,8 +19,8 @@ const ENVIRONMENTS = {
     docsUrl: "https://www.shunyalabs.ai/docs",
     consoleUrl: "https://www.shunyalabs.ai/playground",
     widgetHost: "www.shunyalabs.ai",
-    // Playground widgets + static assets live under /widget on www (Nov 2025+ site).
     apiBaseUrl: "https://www.shunyalabs.ai/widget",
+    asrApiUrl: "https://asrv2prod.shunyalabs.ai",
     siteOrigin: "https://www.shunyalabs.ai",
   },
 };
@@ -42,6 +43,7 @@ function getEnvironment() {
     docsUrl: process.env.DOCS_URL || defaults.docsUrl,
     consoleUrl: process.env.CONSOLE_URL || defaults.consoleUrl,
     apiBaseUrl: process.env.API_BASE_URL || defaults.apiBaseUrl,
+    asrApiUrl: process.env.ASR_API_BASE_URL || defaults.asrApiUrl,
     widgetHost: process.env.WIDGET_HOST || defaults.widgetHost,
   };
 }

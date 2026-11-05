@@ -4,29 +4,25 @@ const { getEnvironment } = require("../tests/config/environment");
 
 const ROOT = path.resolve(__dirname, "..");
 const DEFAULT_REPORT_JSON = path.join(ROOT, "reports", "playwright-report.json");
-const EXPECTED_HEALTH_CHECK_COUNT = 2;
+const EXPECTED_HEALTH_CHECK_COUNT = 5;
 
 const CHECK_META = {
   "token endpoint is reachable": {
-    label: "Token API",
-    endpoint: "POST /api/vak/token",
+    label: "Speech token",
+    endpoint: "GET /api/playground/speech/token",
   },
   "translate endpoint is reachable": {
     label: "Translate API",
-    endpoint: "POST /api/vak/translate",
+    endpoint: "POST /api/playground/translate",
   },
   "stt endpoint is reachable": {
     label: "STT API",
-    endpoint: "POST /api/vak/stt",
+    endpoint: "POST asrv2prod…/v1/audio/transcriptions",
     note: "Smoke: sample audio upload (live-recording.opus)",
   },
   "tts endpoint is reachable": {
     label: "TTS API",
-    endpoint: "POST /api/vak/tts",
-  },
-  "sample transcript asset is reachable": {
-    label: "Static assets",
-    endpoint: "GET /widget/data/transcriptions/...",
+    endpoint: "POST /api/playground/speech/tts/v1/audio/speech",
   },
   "reports environment under test": {
     label: "Environment",

@@ -2,68 +2,82 @@ const fs = require("fs");
 const path = require("path");
 const { request } = require("@playwright/test");
 const { getEnvironment } = require("../../config/environment");
+const { getPlaygroundApiConfig } = require("../../config/playground-api");
+
+const AUTH_FILE = path.resolve(__dirname, "../../../.auth/playground.json");
 
 class WidgetApiClient {
   constructor(options = {}) {
     this.env = getEnvironment();
-    this.baseUrl = options.baseUrl || this.env.apiBaseUrl;
-    this.context = null;
-    this.browserId = null;
+    this.apiConfig = getPlaygroundApiConfig(this.env);
+    this.wwwOrigin = options.wwwOrigin || this.apiConfig.wwwOrigin;
+    this.asrBaseUrl = options.asrBaseUrl || this.apiConfig.asrBaseUrl;
+    this.wwwContext = null;
+    this.asrContext = null;
+    this.bearerToken = null;
   }
 
   async init() {
-    if (!this.context) {
-      this.context = await request.newContext({ baseURL: this.baseUrl });
+    if (!this.wwwContext) {
+      const storageState = fs.existsSync(AUTH_FILE) ? AUTH_FILE : undefined;
+      this.wwwContext = await request.newContext({
+        baseURL: this.wwwOrigin,
+        storageState,
+      });
+    }
+    if (!this.asrContext) {
+      this.asrContext = await request.newContext({ baseURL: this.asrBaseUrl });
     }
     return this;
   }
 
   async dispose() {
-    if (this.context) {
-      await this.context.dispose();
-      this.context = null;
+    for (const ctx of [this.wwwContext, this.asrContext]) {
+      if (ctx) await ctx.dispose();
     }
+    this.wwwContext = null;
+    this.asrContext = null;
+  }
+
+  authHeaders() {
+    return this.bearerToken ? { Authorization: `Bearer ${this.bearerToken}` } : {};
   }
 
   async issueToken() {
     await this.init();
-    const response = await this.context.post("/api/vak/token", { data: {} });
-    const body = await response.json();
-    if (!response.ok()) {
-      throw new Error(`[API] Token request failed (${response.status()}): ${JSON.stringify(body)}`);
+    const response = await this.wwwContext.get(this.apiConfig.paths.speechToken);
+    const body = await response.json().catch(() => ({}));
+    if (!response.ok() || !body.token) {
+      throw new Error(
+        `[API] Speech token failed (${response.status()}): ${JSON.stringify(body).slice(0, 300)}`,
+      );
     }
-    this.browserId = body.browser_id;
-    return body;
+    this.bearerToken = body.token;
+    return { token: body.token, ...body };
   }
 
   async ensureToken() {
-    if (!this.browserId) {
+    if (!this.bearerToken) {
       await this.issueToken();
     }
-    return this.browserId;
+    return this.bearerToken;
   }
 
-  authHeaders() {
-    return this.browserId ? { "X-Browser-Id": this.browserId } : {};
-  }
-
-  async transcribeAudio(filePath, { language = "en", domain } = {}) {
+  async transcribeAudio(filePath, { language = "en", model } = {}) {
     await this.ensureToken();
     const buffer = fs.readFileSync(filePath);
     const fileName = path.basename(filePath);
-    const multipart = {
-      file: {
-        name: fileName,
-        mimeType: fileName.endsWith(".opus") ? "audio/opus" : "audio/mpeg",
-        buffer,
-      },
-      language,
-    };
-    if (domain) multipart.domain = domain;
-
-    const response = await this.context.post("/api/vak/stt", {
-      multipart,
+    const response = await this.asrContext.post(this.apiConfig.paths.asrTranscriptions, {
       headers: this.authHeaders(),
+      multipart: {
+        file: {
+          name: fileName,
+          mimeType: fileName.endsWith(".opus") ? "audio/opus" : "audio/mpeg",
+          buffer,
+        },
+        model: model || this.apiConfig.defaultSttModel,
+        language_code: language,
+      },
     });
     const bodyText = await response.text();
     let body;
@@ -75,28 +89,19 @@ class WidgetApiClient {
     if (!response.ok()) {
       throw new Error(`[API] STT failed (${response.status()}): ${bodyText.slice(0, 500)}`);
     }
-    const text =
-      body.text ||
-      body.transcript?.text ||
-      body.transcription?.text ||
-      (typeof body.transcript === "string" ? body.transcript : "");
-    const success =
-      body.success === true ||
-      body.status === "ok" ||
-      body.status === "success" ||
-      (text.length > 0 && body.success !== false);
+    const text = body.text || body.transcript?.text || "";
+    const success = text.length > 0;
     return { ...body, text, success };
   }
 
   async translateText(text, { sourceLang = "hi", targetLang = "en" } = {}) {
-    await this.ensureToken();
-    const response = await this.context.post("/api/vak/translate", {
+    await this.init();
+    const response = await this.wwwContext.post(this.apiConfig.paths.translate, {
       data: {
         text,
         source_lang: sourceLang,
         target_lang: targetLang,
       },
-      headers: this.authHeaders(),
     });
     const body = await response.json();
     if (!response.ok()) {
@@ -106,21 +111,17 @@ class WidgetApiClient {
   }
 
   async synthesizeSpeech(text, options = {}) {
-    await this.ensureToken();
+    await this.init();
     const payload = {
-      text,
-      speaker: options.speaker || "Rajesh",
-      emotion: options.emotion || "Neutral",
-      style: options.style || "Neutral",
-      expression_style: options.expressionStyle || "Neutral",
-      language: options.language || "hi",
-      format: options.format || "mp3",
-      speed: options.speed ?? 1,
+      input: text,
+      model: options.model || this.apiConfig.defaultTtsModel,
+      language: options.language || "en",
+      response_format: options.format || "wav",
+      quality: options.quality || "medium",
+      latex: false,
+      voice: options.speaker || options.voice || "Meera",
     };
-    const response = await this.context.post("/api/vak/tts", {
-      data: payload,
-      headers: this.authHeaders(),
-    });
+    const response = await this.wwwContext.post(this.apiConfig.paths.ttsSpeech, { data: payload });
     if (!response.ok()) {
       const errText = await response.text();
       throw new Error(`[API] TTS failed (${response.status()}): ${errText.slice(0, 500)}`);
@@ -136,29 +137,10 @@ class WidgetApiClient {
     return { contentType, byteLength: audioBuffer.length, buffer: audioBuffer };
   }
 
-  async fetchSampleTranscript(fileName) {
-    await this.init();
-    const response = await this.context.get(`/data/transcriptions/${fileName}`);
-    const body = await response.json();
-    if (!response.ok()) {
-      throw new Error(`[API] Sample transcript fetch failed (${response.status()}): ${fileName}`);
-    }
-    return body;
-  }
-
-  async fetchSampleAudio(fileName) {
-    await this.init();
-    const response = await this.context.get(`/data/audio/${fileName}`);
-    if (!response.ok()) {
-      throw new Error(`[API] Sample audio fetch failed (${response.status()}): ${fileName}`);
-    }
-    return response.body();
-  }
-
   async healthCheckToken() {
     await this.init();
     const start = Date.now();
-    const response = await this.context.post("/api/vak/token", { data: {} });
+    const response = await this.wwwContext.get(this.apiConfig.paths.speechToken);
     const latencyMs = Date.now() - start;
     let body = {};
     try {
@@ -166,14 +148,14 @@ class WidgetApiClient {
     } catch {
       body = {};
     }
-    if (response.ok() && body.browser_id) {
-      this.browserId = body.browser_id;
+    if (response.ok() && body.token) {
+      this.bearerToken = body.token;
     }
     return {
-      ok: response.ok() && Boolean(body.browser_id),
+      ok: response.ok() && Boolean(body.token),
       status: response.status(),
       latencyMs,
-      browserId: body.browser_id || "",
+      browserId: body.token ? "jwt" : "",
       detail: response.ok()
         ? `token ${latencyMs}ms`
         : `token failed (${response.status()}): ${JSON.stringify(body).slice(0, 200)}`,
@@ -183,9 +165,8 @@ class WidgetApiClient {
   async healthCheckTranslate(text, { sourceLang = "hi", targetLang = "en" } = {}) {
     await this.init();
     const start = Date.now();
-    const response = await this.context.post("/api/vak/translate", {
+    const response = await this.wwwContext.post(this.apiConfig.paths.translate, {
       data: { text, source_lang: sourceLang, target_lang: targetLang },
-      headers: this.authHeaders(),
     });
     const latencyMs = Date.now() - start;
     let body = {};
@@ -207,19 +188,21 @@ class WidgetApiClient {
 
   async healthCheckStt(filePath, { language = "en" } = {}) {
     await this.init();
+    await this.ensureToken();
     const buffer = fs.readFileSync(filePath);
     const fileName = path.basename(filePath);
     const start = Date.now();
-    const response = await this.context.post("/api/vak/stt", {
+    const response = await this.asrContext.post(this.apiConfig.paths.asrTranscriptions, {
+      headers: this.authHeaders(),
       multipart: {
         file: {
           name: fileName,
           mimeType: fileName.endsWith(".opus") ? "audio/opus" : "audio/mpeg",
           buffer,
         },
-        language,
+        model: this.apiConfig.defaultSttModel,
+        language_code: language,
       },
-      headers: this.authHeaders(),
     });
     const latencyMs = Date.now() - start;
     const bodyText = await response.text();
@@ -229,11 +212,7 @@ class WidgetApiClient {
     } catch {
       body = { raw: bodyText };
     }
-    const text =
-      body.text ||
-      body.transcript?.text ||
-      body.transcription?.text ||
-      (typeof body.transcript === "string" ? body.transcript : "");
+    const text = body.text || "";
     return {
       ok: response.ok() && text.length > 0,
       status: response.status(),
@@ -248,20 +227,16 @@ class WidgetApiClient {
   async healthCheckTts(text, options = {}) {
     await this.init();
     const payload = {
-      text,
-      speaker: options.speaker || "Varun",
-      emotion: "Neutral",
-      style: "Neutral",
-      expression_style: "Neutral",
+      input: text,
+      model: options.model || this.apiConfig.defaultTtsModel,
       language: options.language || "en",
-      format: "mp3",
-      speed: 1,
+      response_format: "wav",
+      quality: "medium",
+      latex: false,
+      voice: options.voice || "Meera",
     };
     const start = Date.now();
-    const response = await this.context.post("/api/vak/tts", {
-      data: payload,
-      headers: this.authHeaders(),
-    });
+    const response = await this.wwwContext.post(this.apiConfig.paths.ttsSpeech, { data: payload });
     const latencyMs = Date.now() - start;
     if (!response.ok()) {
       const errText = await response.text();
@@ -280,21 +255,6 @@ class WidgetApiClient {
       latencyMs,
       byteLength: buffer.length,
       detail: `tts ${latencyMs}ms`,
-    };
-  }
-
-  async healthCheckSampleTranscript(fileName) {
-    await this.init();
-    const start = Date.now();
-    const response = await this.context.get(`/data/transcriptions/${fileName}`);
-    const latencyMs = Date.now() - start;
-    return {
-      ok: response.ok(),
-      status: response.status(),
-      latencyMs,
-      detail: response.ok()
-        ? `asset ${latencyMs}ms`
-        : `asset failed (${response.status()}): ${fileName}`,
     };
   }
 }

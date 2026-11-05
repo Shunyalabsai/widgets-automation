@@ -53,11 +53,24 @@ function sendHealthAlert(runJsonPath) {
 function main() {
   assertHealthPrerequisites();
   const env = getEnvironment();
-  console.log(`API health check (${env.name}) → ${env.apiBaseUrl}`);
+  console.log(
+    `API health check (${env.name}) → www ${env.siteOrigin}, ASR ${env.asrApiUrl}`,
+  );
 
   fs.mkdirSync(path.dirname(HEALTH_REPORT_JSON), { recursive: true });
   if (fs.existsSync(HEALTH_REPORT_JSON)) {
     fs.unlinkSync(HEALTH_REPORT_JSON);
+  }
+
+  try {
+    execSync("node -e \"require('./tests/global-setup.js')().then(()=>process.exit(0)).catch(e=>{console.error(e);process.exit(1)})\"", {
+      stdio: "inherit",
+      cwd: ROOT,
+      env: process.env,
+    });
+  } catch {
+    console.error("Playground auth setup failed (need SHUNYA_TEST_EMAIL/PASSWORD for BE health).");
+    process.exit(1);
   }
 
   let playwrightFailed = false;
@@ -66,6 +79,7 @@ function main() {
       stdio: "inherit",
       env: {
         ...process.env,
+        PLAYWRIGHT_SKIP_GLOBAL_SETUP: "1",
         HEALTH_REPORT_JSON: HEALTH_REPORT_JSON,
       },
       cwd: ROOT,

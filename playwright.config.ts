@@ -58,7 +58,7 @@ export default defineConfig({
     },
     {
       name: "api",
-      testMatch: /tests\/api\/live-site\.api\.spec\.js/,
+      testMatch: /tests\/api\/vak-be\.api\.spec\.js/,
     },
   ],
 });
