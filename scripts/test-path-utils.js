@@ -17,7 +17,7 @@ function moduleFromReportFile(filePath) {
   if (normalized.includes("/tests/api/health/")) return "health";
   if (normalized.includes("/tests/site/")) return "site";
   if (normalized.includes("/tests/playground/")) return "playground";
-  if (normalized.includes("/tests/api/")) return "api";
+  if (normalized.includes("tests/api/") || normalized.includes("/tests/api/")) return "api";
   const layeredMatch = normalized.match(/\/tests\/(?:api|playground|site)\/([^/]+)\//);
   if (layeredMatch) return layeredMatch[1];
   return "unknown";

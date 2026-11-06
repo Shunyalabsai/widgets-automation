@@ -19,7 +19,7 @@ For **daily contact-form email delivery** (reCAPTCHA bypass), add the secret Shu
 CONTACT_AUTOMATION_SECRET=...
 ```
 
-The API test posts to `https://www.shunyalabs.ai/api/send-mail` with header `X-Automation-Secret` and email **`automated-test@example.com`** (must match exactly). The first successful run per 24h expects HTTP 200; a second run the same day expects HTTP 429 and is treated as pass. Public `/contact` UI tests do not submit the form (reCAPTCHA). In GitHub Actions, add repository secret **`CONTACT_AUTOMATION_SECRET`**.
+The API test posts to `https://www.shunyalabs.ai/api/site/send-mail` with header `X-Automation-Secret` and email **`automated-test@example.com`** (must match exactly). The first successful run per 24h expects HTTP 200; a second run the same day expects HTTP 429 and is treated as pass. Public `/contact` UI tests do not submit the form (reCAPTCHA). In GitHub Actions, add repository secret **`CONTACT_AUTOMATION_SECRET`**.
 
 Set the widget URL in your shell before running tests:
 

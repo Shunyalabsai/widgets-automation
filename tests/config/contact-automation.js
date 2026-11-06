@@ -13,7 +13,7 @@ function getContactAutomationSecret() {
 }
 
 function contactSendMailUrl(siteOrigin) {
-  return new URL("/api/send-mail", siteOrigin).href;
+  return new URL("/api/site/send-mail", siteOrigin).href;
 }
 
 function isContactMailAlreadyRanToday(status, bodyText) {
