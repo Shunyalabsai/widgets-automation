@@ -1,14 +1,10 @@
-function normalizePath(filePath) {
-  return filePath ? filePath.split(/[/\\]/).join("/") : "";
-}
-
-function testLayerFromFile(filePath) {
-  const normalized = normalizePath(filePath);
-  if (normalized.includes("/tests/api/") || normalized.includes("/api/")) return "api";
-  if (normalized.includes("/tests/ui/") || normalized.includes("/tests/ui/")) return "ui";
-  if (/\.api\.spec\.js$/.test(normalized)) return "api";
-  return "ui";
-}
+const {
+  moduleFromReportFile,
+  testLayerFromReportFile,
+  isApiReportFile,
+  isPlaygroundReportFile,
+  normalizeReportFilePath,
+} = require("./test-path-utils");
 
 function shortTestName(title) {
   if (!title) return "Unknown test";
@@ -17,19 +13,12 @@ function shortTestName(title) {
 }
 
 function moduleFromTest(test) {
-  if (test.module) return test.module;
-  const normalized = normalizePath(test.file || "");
-  if (normalized.includes("/tests/api/health/")) return "health";
-  if (normalized.includes("/tests/site/")) return "site";
-  if (normalized.includes("/tests/playground/")) return "playground";
-  if (normalized.includes("/tests/api/")) return "api";
-  const layeredMatch = normalized.match(/\/tests\/(?:api|ui)\/([^/]+)\//);
-  if (layeredMatch) return layeredMatch[1];
-  const match = normalized.match(/\/tests\/([^/]+)\//);
-  if (match && !["api", "ui", "pages", "utils", "config", "data"].includes(match[1])) {
-    return match[1];
-  }
-  return "unknown";
+  if (test.module && test.module !== "unknown") return test.module;
+  return moduleFromReportFile(test.file || "");
+}
+
+function testLayerFromFile(filePath) {
+  return testLayerFromReportFile(filePath);
 }
 
 const MODULE_LABELS = {
@@ -41,6 +30,8 @@ const MODULE_LABELS = {
 
 function humanModuleLabel(test) {
   const key = test.moduleLabel || test.module || moduleFromTest(test);
+  if (MODULE_LABELS[key]) return MODULE_LABELS[key];
+  if (typeof key === "string" && key.includes("(")) return key;
   return MODULE_LABELS[key] || key;
 }
 
@@ -58,28 +49,58 @@ function apiChecksPassedForModule(test, allTests) {
   return apiTests.every((candidate) => candidate.status === "passed");
 }
 
-/** Map homepage / playground UI checks to the backend specs that exercise the same product. */
-function relatedBackendChecksPassed(test, allTests) {
+function groupChecksPassed(allTests, filterFn) {
+  const related = allTests.filter(filterFn);
+  if (!related.length) return null;
+  return related.every((candidate) => candidate.status === "passed");
+}
+
+/** Homepage UI ↔ backend API and signed-in playground for the same product. */
+function relatedProductChecksPassed(test, allTests) {
   const hay = `${test.title || ""}`.toLowerCase();
   const rules = [
-    { feature: /listen|horizon/, matchTitle: /stt endpoint/i },
-    { feature: /speak|radiance/, matchTitle: /tts endpoint/i },
-    { feature: /translate|parallax/, matchTitle: /translate endpoint/i },
+    {
+      feature: /listen|horizon/,
+      groups: [
+        (t) => isApiReportFile(t.file) && /stt endpoint/i.test(t.title || ""),
+        (t) => isPlaygroundReportFile(t.file) && /listen|horizon/i.test(t.title || ""),
+      ],
+    },
+    {
+      feature: /speak|radiance/,
+      groups: [
+        (t) => isApiReportFile(t.file) && /tts endpoint/i.test(t.title || ""),
+        (t) =>
+          isPlaygroundReportFile(t.file) &&
+          /speak|radiance/i.test(t.title || "") &&
+          /workspace|loads/i.test(t.title || ""),
+      ],
+    },
+    {
+      feature: /translate|parallax/,
+      groups: [
+        (t) => isApiReportFile(t.file) && /translate endpoint/i.test(t.title || ""),
+        (t) => isPlaygroundReportFile(t.file) && /translate|parallax/i.test(t.title || ""),
+      ],
+    },
   ];
-  for (const { feature, matchTitle } of rules) {
+
+  for (const { feature, groups } of rules) {
     if (!feature.test(hay)) continue;
-    const related = allTests.filter(
-      (candidate) =>
-        normalizePath(candidate.file || "").includes("/tests/api/") && matchTitle.test(candidate.title || ""),
-    );
-    if (!related.length) return null;
-    return related.every((candidate) => candidate.status === "passed");
+    let sawFailure = false;
+    for (const filterFn of groups) {
+      const result = groupChecksPassed(allTests, filterFn);
+      if (result === true) return true;
+      if (result === false) sawFailure = true;
+    }
+    if (sawFailure) return false;
+    return null;
   }
   return null;
 }
 
 function backendChecksPassed(test, allTests) {
-  const related = relatedBackendChecksPassed(test, allTests);
+  const related = relatedProductChecksPassed(test, allTests);
   if (related !== null) return related;
   return apiChecksPassedForModule(test, allTests);
 }
@@ -115,9 +136,10 @@ function classifyFailure(test, allTests = []) {
       return {
         category: "test-timing",
         label: "Likely test timing issue",
-        reason: "Not a confirmed product bug — UI timed out but API check for same feature passed.",
+        reason:
+          "Not a confirmed product bug — UI timed out but API or playground check for the same feature passed.",
         summary:
-          "The UI check timed out, but the API check for the same feature passed. The live widget is probably fine — the automation likely stopped waiting too soon.",
+          "The homepage UI check timed out, but backend API and/or playground checks for the same feature passed. The product is likely fine — the marketing embed may load slowly in CI.",
         severity: "low",
         apiPassed,
       };
@@ -138,7 +160,7 @@ function classifyFailure(test, allTests = []) {
     return {
       category: "ui-timeout",
       label: "UI check timed out",
-      reason: "Page or transcript loaded too slowly for the automated check.",
+      reason: "Page or widget loaded too slowly for the automated check.",
       summary:
         "The page did not finish loading in time during the automated check. This may be slow loading or a test wait that is too short.",
       severity: "medium",
@@ -200,15 +222,15 @@ function buildRunFailureSummary(tests = []) {
     "Each failed test case has one clear reason below — share this with the team to explain what happened.";
 
   if (timingIssues.length === failures.length) {
-    headline = `${failures.length} likely test timing issue${failures.length === 1 ? "" : "s"}`;
+    headline = `${timingIssues.length} likely test timing issue${timingIssues.length === 1 ? "" : "s"}`;
     plainEnglish =
-      "All failures look like automation timing issues, not confirmed product bugs. API checks passed where available.";
+      "All failures look like automation timing issues, not confirmed product bugs. API or playground checks passed where available.";
   } else if (productIssues.length) {
     headline = `${productIssues.length} possible product issue${productIssues.length === 1 ? "" : "s"}`;
     plainEnglish =
       "At least one failure looks like a real widget or API problem. Review those items first.";
   } else if (environmentIssues.length === failures.length) {
-    headline = `${failures.length} environment issue${failures.length === 1 ? "" : "s"}`;
+    headline = `${environmentIssues.length} environment issue${environmentIssues.length === 1 ? "" : "s"}`;
     plainEnglish =
       "Failures look related to CI access or network conditions rather than the live widgets.";
   }
@@ -238,4 +260,6 @@ module.exports = {
   classifyFailure,
   enrichTestsWithFailureAnalysis,
   shortTestName,
+  moduleFromTest,
+  normalizeReportFilePath,
 };

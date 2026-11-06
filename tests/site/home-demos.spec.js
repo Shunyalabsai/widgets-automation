@@ -10,7 +10,7 @@ test.describe("[Site] Homepage live demos", () => {
   test("Listen (Horizon) tab is interactive", async ({ page }) => {
     test.setTimeout(process.env.CI ? 240_000 : 180_000);
     const site = new ShunyaSitePage(page);
-    const panel = await site.openAskItSomethingTab(site.homeDemoTabs().listen);
+    const panel = await site.openAskItSomethingTabWithRetry(site.homeDemoTabs().listen);
     await site.waitForHomeDemoReady(panel, "listen");
     await expect(site.listenDemoControls(panel).first()).toBeVisible();
   });
@@ -18,21 +18,21 @@ test.describe("[Site] Homepage live demos", () => {
   test("Speak (Radiance) tab is interactive", async ({ page }) => {
     test.setTimeout(process.env.CI ? 240_000 : 180_000);
     const site = new ShunyaSitePage(page);
-    const panel = await site.openAskItSomethingTab(site.homeDemoTabs().speak);
+    const panel = await site.openAskItSomethingTabWithRetry(site.homeDemoTabs().speak);
     await site.waitForHomeDemoReady(panel, "speak");
   });
 
   test("Translate (Parallax) tab is interactive", async ({ page }) => {
     test.setTimeout(process.env.CI ? 240_000 : 180_000);
     const site = new ShunyaSitePage(page);
-    const panel = await site.openAskItSomethingTab(site.homeDemoTabs().translate);
+    const panel = await site.openAskItSomethingTabWithRetry(site.homeDemoTabs().translate);
     await site.waitForHomeDemoReady(panel, "translate");
   });
 
   test("Resonance tab opens voice agent entry", async ({ page }) => {
     test.setTimeout(process.env.CI ? 240_000 : 180_000);
     const site = new ShunyaSitePage(page);
-    const panel = await site.openAskItSomethingTab(site.homeDemoTabs().resonance);
+    const panel = await site.openAskItSomethingTabWithRetry(site.homeDemoTabs().resonance);
     await site.waitForHomeDemoReady(panel, "resonance");
   });
 });

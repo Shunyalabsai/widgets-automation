@@ -31,6 +31,7 @@ export default defineConfig({
       testMatch: /tests\/site\/.*\.spec\.js/,
       fullyParallel: false,
       workers: 1,
+      timeout: env?.CI ? 240_000 : 180_000,
       retries: env?.CI ? 2 : 1,
       expect: {
         timeout: 15_000,

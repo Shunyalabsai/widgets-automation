@@ -133,9 +133,9 @@ function buildFailureDetailsSection(failureSummary) {
       const style = failureBadgeStyle(failure.category);
       const apiNote =
         failure.apiPassed === true
-          ? '<p style="margin:8px 0 0;font-size:13px;color:#166534;">&#9989; API check for this module passed.</p>'
+          ? '<p style="margin:8px 0 0;font-size:13px;color:#166534;">&#9989; Backend API and/or playground checks for this feature passed.</p>'
           : failure.apiPassed === false
-            ? '<p style="margin:8px 0 0;font-size:13px;color:#b45309;">&#9888; API check for this module also failed.</p>'
+            ? '<p style="margin:8px 0 0;font-size:13px;color:#b45309;">&#9888; Related API/playground checks also failed — likely a real product issue.</p>'
             : "";
 
       return `

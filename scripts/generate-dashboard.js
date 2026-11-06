@@ -62,27 +62,21 @@ function formatTimeOnly(iso) {
   }
 }
 
+const {
+  moduleFromReportFile,
+  testLayerFromReportFile,
+} = require("./test-path-utils");
+
 function normalizePath(filePath) {
   return filePath ? filePath.split(path.sep).join("/") : "";
 }
 
 function moduleFromFile(filePath) {
-  const normalized = normalizePath(filePath);
-  if (normalized.includes("/tests/api/health/")) return "health";
-  if (normalized.includes("/tests/site/")) return "site";
-  if (normalized.includes("/tests/playground/")) return "playground";
-  if (normalized.includes("/tests/api/")) return "api";
-  const layeredMatch = normalized.match(/\/tests\/(?:api|playground|site)\/([^/]+)\//);
-  if (layeredMatch) return layeredMatch[1];
-  return "unknown";
+  return moduleFromReportFile(filePath);
 }
 
 function testLayerFromFile(filePath) {
-  const normalized = normalizePath(filePath);
-  if (normalized.includes("/tests/api/")) return "api";
-  if (normalized.includes("/tests/ui/")) return "ui";
-  if (/\.api\.spec\.js$/.test(normalized)) return "api";
-  return "ui";
+  return testLayerFromReportFile(filePath);
 }
 
 const MODULE_LABELS = {
