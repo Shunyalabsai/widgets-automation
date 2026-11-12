@@ -1,4 +1,4 @@
-function postDispatch(eventType) {
+function postDispatch(eventType, clientPayload) {
   var props = PropertiesService.getScriptProperties();
   var owner = props.getProperty("GITHUB_OWNER");
   var repo = props.getProperty("GITHUB_REPO");
@@ -9,7 +9,11 @@ function postDispatch(eventType) {
   }
 
   var url = "https://api.github.com/repos/" + owner + "/" + repo + "/dispatches";
-  var payload = JSON.stringify({ event_type: eventType });
+  var body = { event_type: eventType };
+  if (clientPayload) {
+    body.client_payload = clientPayload;
+  }
+  var payload = JSON.stringify(body);
 
   var options = {
     method: "post",
@@ -28,6 +32,12 @@ function postDispatch(eventType) {
   }
 }
 
+/** Full regression without daily Resonance call E2E (afternoon / extra runs). */
 function triggerRunTests() {
-  postDispatch("run-tests");
+  postDispatch("run-tests", { run_daily_resonance: false });
+}
+
+/** Morning run: includes Resonance demo callback E2E (once per day). */
+function triggerRunTestsMorning() {
+  postDispatch("run-tests", { run_daily_resonance: true });
 }

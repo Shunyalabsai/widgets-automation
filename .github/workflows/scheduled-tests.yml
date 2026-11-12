@@ -2,6 +2,11 @@ name: Scheduled Widget Tests (GAS)
 
 on:
   workflow_dispatch:
+    inputs:
+      run_daily_resonance:
+        description: Run Resonance daily demo callback E2E (morning slot)
+        type: boolean
+        default: false
   repository_dispatch:
     types: [run-tests]
 
@@ -45,13 +50,29 @@ jobs:
         if: steps.pw-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
+      - name: Resolve daily E2E flags
+        id: daily_e2e
+        run: |
+          RUN_DAILY_RESONANCE=0
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.run_daily_resonance }}" = "true" ]; then
+            RUN_DAILY_RESONANCE=1
+          fi
+          if [ "${{ github.event_name }}" = "repository_dispatch" ] && [ "${{ github.event.client_payload.run_daily_resonance }}" = "true" ]; then
+            RUN_DAILY_RESONANCE=1
+          fi
+          echo "run_daily_resonance=$RUN_DAILY_RESONANCE" >> "$GITHUB_OUTPUT"
+
       - name: Run tests and update dashboard
         id: run_tests
         env:
           TEST_ENV: prod
+          RUN_DAILY_RESONANCE_E2E: ${{ steps.daily_e2e.outputs.run_daily_resonance }}
           SHUNYA_TEST_EMAIL: ${{ secrets.SHUNYA_TEST_EMAIL }}
           SHUNYA_TEST_PASSWORD: ${{ secrets.SHUNYA_TEST_PASSWORD }}
           CONTACT_AUTOMATION_SECRET: ${{ secrets.CONTACT_AUTOMATION_SECRET }}
+          RESONANCE_AUTOMATION_SECRET: ${{ secrets.RESONANCE_AUTOMATION_SECRET }}
+          RESONANCE_AUTOMATION_PHONE: ${{ secrets.RESONANCE_AUTOMATION_PHONE }}
+          RESONANCE_CALLBACK_PATH: ${{ secrets.RESONANCE_CALLBACK_PATH }}
           GOOGLE_SHEETS_WEB_APP_URL: ${{ secrets.GOOGLE_SHEETS_WEB_APP_URL }}
           GOOGLE_SHEETS_SPREADSHEET_ID: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
           GOOGLE_SHEETS_SHEET_NAME: test-coverage

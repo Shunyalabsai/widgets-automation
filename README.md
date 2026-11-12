@@ -21,6 +21,8 @@ CONTACT_AUTOMATION_SECRET=...
 
 The API test posts to `https://www.shunyalabs.ai/api/site/send-mail` with header `X-Automation-Secret` and email **`automated-test@example.com`** (must match exactly). The first successful run per 24h expects HTTP 200; a second run the same day expects HTTP 429 and is treated as pass. Public `/contact` UI tests do not submit the form (reCAPTCHA). In GitHub Actions, add repository secret **`CONTACT_AUTOMATION_SECRET`**.
 
+For **Resonance** (homepage “Talk to Meera” demo call), every run checks the tab UI (phone field + button). The **real demo call** runs **once per day on the morning schedule only** via API (Cloudflare Turnstile blocks browser submit). Configure Apps Script: morning trigger → `triggerRunTestsMorning`; other triggers → `triggerRunTests`. GitHub secrets: **`RESONANCE_CALLBACK_PATH`** (from backend), **`RESONANCE_AUTOMATION_PHONE`** (test number), optional **`RESONANCE_AUTOMATION_SECRET`** (falls back to `CONTACT_AUTOMATION_SECRET`).
+
 Set the widget URL in your shell before running tests:
 
 ```

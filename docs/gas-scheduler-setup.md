@@ -25,7 +25,10 @@ In Apps Script → Project Settings → Script properties:
 
 Apps Script → Triggers → Add:
 
-- `triggerRunTests` at **09:00**, **12:00**, **15:00** (IST)
+- **`triggerRunTestsMorning`** at your **morning** slot (e.g. **09:00 IST**) — full regression + Resonance demo-call E2E (once per day)
+- **`triggerRunTests`** for **afternoon / extra** runs — same tests **without** initiating the daily Resonance call
+
+Example: morning **09:00** → `triggerRunTestsMorning`; afternoon **17:00** → `triggerRunTests`
 
 Failure reports are sent automatically by GitHub Actions when a test run fails or times out. Do **not** add a separate email trigger.
 

@@ -142,7 +142,16 @@ class ShunyaSitePage {
         await this.waitForPanelInteractiveInput(panel, 45_000).catch(() => {});
         return;
       case "resonance":
-        await expect(panel).toContainText(/Resonance|voice agent/i, { timeout });
+        await expect(panel).toContainText(/Resonance|voice agent|Talk to Meera/i, { timeout });
+        await panel
+          .getByRole("button", { name: /Talk to Meera/i })
+          .first()
+          .waitFor({ state: "visible", timeout: 45_000 });
+        await panel
+          .getByPlaceholder(/enter your number|phone/i)
+          .or(panel.locator("input[type='tel'], input[inputmode='tel']").first())
+          .first()
+          .waitFor({ state: "visible", timeout: 45_000 });
         return;
       default:
         throw new Error(`Unknown home demo kind: ${kind}`);
