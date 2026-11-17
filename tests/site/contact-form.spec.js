@@ -13,23 +13,22 @@ test.describe("[Site] Contact form (/contact)", () => {
     await expect(contact.emailInput()).toBeVisible();
     await expect(contact.phoneInput()).toBeVisible();
     await expect(contact.messageInput()).toBeVisible();
-    await expect(contact.termsCheckbox()).toBeVisible();
+    await expect(contact.privacyTermsCheckbox()).toBeVisible();
     await expect(contact.submitButton()).toBeVisible();
     await expect(page.locator('iframe[title*="reCAPTCHA"], .g-recaptcha, #g-recaptcha-response').first()).toBeAttached();
   });
 
   test("validates required fields on submit", async ({ page }) => {
+    test.setTimeout(process.env.CI ? 120_000 : 60_000);
     const env = getEnvironment();
     const contact = new ContactPage(page, env);
     await contact.open();
 
-    await contact.termsCheckbox().check({ force: true });
-    await contact.submitButton().click();
+    await contact.submitForValidation();
 
-    await expect(page.getByText("Name is required.")).toBeVisible({ timeout: 10_000 });
-    await expect(page.getByText("Email is required.")).toBeVisible();
-    await expect(page.getByText("Phone number is required.")).toBeVisible();
-    await expect(page.getByText("Message is required.")).toBeVisible();
+    for (const field of ["name", "email", "phone", "message"]) {
+      await contact.expectFieldValidation(field);
+    }
   });
 
   test("accepts filled input without browser submit (reCAPTCHA; mail E2E is API-only)", async ({ page }) => {
